@@ -1,0 +1,119 @@
+<section class="module module--page module--cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-10 col-dk-push-1">
+        {% if cart.items.size > 0 %}
+        <h1><span>Cart</span></h1>
+        <form class="form form--cart"
+              action="/cart" method="post">
+          <div class="row">
+            <div class="col-mb-12 col-tb-7 col-dk-8">
+              <table class="table table--cart table--responsive">
+                <tbody>
+                  {% for item in cart.items %}
+                  <tr>
+                    <td class="cart__image">
+                      <a href="{{ item.product.url }}">
+                        <div class="image">
+                          <img src="{{ item.image | img_url: 'large' }}" />
+                        </div>
+                      </a>
+                    </td>
+                    <td>
+                      <h5><a href="{{ item.product.url }}">{{ item.product.title }}</a></h5>
+                      {% unless item.variant.title contains 'Default' %}
+                      <ul class="cart__options">
+                        {% for option in item.product.options %}
+                        <li>
+                          <span class="label">{{ option }}:</span>
+                          <span class="val">{{ item.variant.options[forloop.index0] }}</span>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                      {% endunless %}
+                      <a class="remove no-ajax" href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+                    </td>
+                    <td class="cart__price-qty">
+                      <span class="label">Price:&nbsp;&nbsp;&nbsp;</span>
+                      <span class="cart__price">{{ item.price | money }}</span><br /><br />
+                      <span class="label">Qty:&nbsp;&nbsp;&nbsp;</span>
+                      <input
+                         class="qty"
+                         type="number"
+                         name="updates[]"
+                         id="updates_{{ item.id }}"
+                         value="{{ item.quantity }}" />
+                    </td>
+                  </tr>
+                  <tr class="spacer">
+                    <td></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <p class="update">
+                <button class="button button--secondary" type="submit">
+                  <span>Update</span>
+                </button>
+              </p>
+            </div>
+            <div class="col-mb-12 col-tb-5 col-dk-4">
+              <aside class="cart__details">
+                <h5 class="h5--impact">Cart Details</h5>
+                <ul class="cart__summary">
+                  <li><span>Total Weight: </span><span>{{ cart.total_weight | weight_with_unit }}</span></li>
+                  <li><span>Subtotal: </span><span>{{ cart.total_price | money }}</span></li>
+                </ul>
+                <footer>
+                  <ul class="cart__summary">
+                    <li><span>Total: </span><span>{{ cart.total_price | money }}</span></li>
+                  </ul>
+                  <button
+                     class="button button--primary button--checkout"
+                     type="submit"
+                     name="checkout">
+                    <span>Checkout</span>
+                  </button>
+                  <br>
+                  <br>
+                  <a href="{{shop.url}}/pages/quote-request">
+                    <button
+                      class="button button--primary button--checkout"
+                      type="submit"
+                      name="checkout">
+                      <span>Request a quote</span>
+                    </button>
+                  </a>
+                  {% if additional_checkout_buttons and show_paypal %}
+                  <div class="additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
+                  {% endif %}
+
+                  <textarea
+                     class="cart__note" name="note" rows="6"
+                     placeholder="Add a note to your order">
+                  </textarea>
+                </footer>
+              </aside>
+            </div>
+          </div>
+        </form>
+        {% else %}
+        <div class="empty-cart">
+          <h1>
+            <span>Cart</span>
+          </h1>
+          <h2 class="h3">You cart is empty.</h2>
+          <a href="/collections/all"
+             class="button button--primary button--continue">
+            <span>Continue Shopping</span>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% section 'get-in-touch' %}

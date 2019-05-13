@@ -1,0 +1,13 @@
+.footer--main {
+  body[class*=customers] & {
+    margin-top: 50px;
+
+    @include breakpoint(tablet) {
+      margin-top: 75px;
+    }
+
+    @include breakpoint(desktop) {
+      margin-top: 100px;
+    }
+  }
+}

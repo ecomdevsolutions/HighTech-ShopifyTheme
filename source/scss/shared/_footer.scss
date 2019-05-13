@@ -1,0 +1,166 @@
+.footer--main {
+  position: relative;
+  padding: 50px 0;
+  background-color: $color-black;
+  color: $color-white;
+  text-align: center;
+  overflow: hidden;
+
+  @media print {
+    display: none;
+  }
+
+  @include breakpoint(desktop) {
+    text-align: left;
+  }
+}
+
+.footer--main .col-grid--lines div:after {
+  border-right: solid 1px transparentize($color-white, .9);
+}
+
+.footer--main .footer__super {
+  @include breakpoint(desktop) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer--main .footer__contact {
+  @include breakpoint(desktop) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.footer--main .form--subscribe {
+  max-width: 300px;
+  margin: 0 auto 50px auto;
+
+  @include breakpoint(desktop) {
+    margin: 0;
+    display: inline-block;
+  }
+
+  @include breakpoint(large) {
+    max-width: none;
+    width: 400px;    
+  }
+}
+
+.footer--main .form--subscribe .form__group {  
+  button {
+    @include v-center(absolute);
+    color: $color-black;
+    right: 20px;
+    font-size: 10px;
+    padding: 0;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    font-family: 'BentonSans';
+    font-size: 13px;
+    line-height: 13px;
+    border: none;
+    background-color: $color-white;
+    padding: 2px 50px 0 25px;
+    height: 50px;
+  }
+}
+
+.footer--main .nav--social {  
+  margin: 0 auto 50px auto;
+  
+  @include breakpoint(desktop) {
+    display: inline-block;
+    margin: 37px 50px 0 0;
+  }
+
+  @include breakpoint(xlarge) {
+    margin-right: 100px;
+  }
+}
+
+.footer--main .nav--social li {
+  display: inline-block;
+  margin: 0 15px;
+  
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer--main .nav--main {
+  margin: 0 auto 50px auto;
+  
+  @include breakpoint(desktop) {
+    margin: 0;
+    padding: 50px 0 0 0;
+  }
+}
+
+.footer--main .nav--main li {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer--main .nav--main a {
+  @extend %link;
+}
+
+.footer--main .footer__sub {
+  @include breakpoint(desktop) {
+    text-align: right;
+  }
+}
+
+.footer--main .nav--sub {
+  margin-bottom: 50px;
+  @extend %text--xsmall;
+
+  @include breakpoint(desktop) {
+    margin: 0 20px 0 0;
+    display: inline-block;
+  }
+}
+
+.footer--main .nav--sub li {
+  margin-bottom: 10px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(desktop) {
+    margin: 0 10px;
+    display: inline-block;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.footer--main .copyright {
+  @extend %text--xsmall;
+  opacity: .8;
+
+  @include breakpoint(desktop) {
+    display: inline-block;
+  }
+}
+
+

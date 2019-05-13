@@ -1,0 +1,46 @@
+@mixin breakpoint($bp) {
+  @if $bp == mobile-large {
+    @media #{$mq-mobile-large} { @content; }
+  } @else if $bp == tablet {
+    @media #{$mq-tablet} { @content; }
+  } @else if $bp == tablet-large {
+    @media #{$mq-tablet-large} { @content; }
+  } @else if $bp == desktop {
+    @media #{$mq-desktop} { @content; }
+  } @else if $bp == large {
+    @media #{$mq-large} { @content; }
+  } @else if $bp == xlarge {
+    @media #{$mq-xlarge} { @content; }
+  } @else if $bp == xxlarge {
+    @media #{$mq-xxlarge} { @content; }
+  } @else if $bp == xxxlarge {
+    @media #{$mq-xxxlarge} { @content; }
+  }
+}
+
+@mixin center ( $position:relative ) {
+  position: $position;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin h-center ( $position:relative ) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin v-center ( $position:relative ) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin fill ( $position:absolute ) {
+  position: $position;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

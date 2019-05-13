@@ -1,0 +1,27 @@
+<section class="module module--page module--collection">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-8 col-dk-push-2">
+        <h1>
+          <span>Blog</span><br />
+        </h1>
+
+        {% for article in blog.articles %}
+          <div class="col-tb-4">
+            <h3>{{ article.title }}</h3>
+            {% assign image = article.image %}
+            <div class="box box--3x2">
+              <div class="box__inner">
+                <div class="image image--load--fadein image--cover">
+                  <a href="{{ article.url }}">
+                    <img class="lazyload" data-src="{{ image | img_url: '900x600' }}" alt="{{ image.alt }}" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

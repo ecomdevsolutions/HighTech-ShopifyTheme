@@ -1,0 +1,64 @@
+.article--index h3 a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  span[class*=icon] {
+    font-size: 130%;
+  }
+}
+
+.article--index--small h3 {
+  height: 38px;
+}
+
+.article--index--large h3 {
+  height: 44px;
+}
+
+ol.article__pages {
+
+}
+
+ol.article__pages li {
+  margin-bottom: 5px;
+}
+
+ol.article__pages li {
+  a {
+    font-size: 16px;
+    font-weight: 500;
+  }
+    
+  &.active a,
+  a:hover {
+    span:nth-child(2) {
+      color: $color-blue;      
+    }    
+  }
+}
+
+.article--single h1 {
+  margin-bottom: 40px;
+}
+
+.article--single .row--links {
+  margin-bottom: 40px;
+}
+
+.article--single .article__links a {
+  @extend %link--list;
+}
+
+.article__back {
+  @media print {
+    display: none;
+  }
+  
+  @include breakpoint(desktop) {
+    position: absolute;
+    top: 11px;
+    left: -100px;
+  }
+}

@@ -1,0 +1,14 @@
+.DS_Store
+.sass-cache
+node_modules
+.tmp
+
+blog/wp-config.php
+blog/wp-content/uploads
+blog/wp-content/backup-db
+blog/wp-content/advanced-cache.php
+blog/wp-content/cache
+blog/wp-content/w3tc-config/
+blog/wp-content/debug.log
+
+docs/_site

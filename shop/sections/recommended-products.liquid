@@ -1,0 +1,74 @@
+{% assign exclusions = 'frontpage' | split: ',' %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% if found_a_collection %}
+  {% assign counter = 0 %}
+  {% assign break_at = 2 %}
+  {% assign current_product = product %}
+
+  {% capture related_items %}
+  <div class="row">
+    <div class="col-dk-8 col-dk-push-2">
+      <div class="row row--no-gutter row--products">
+        {% for product in collection.products %}
+        {% unless product.handle == current_product.handle %}
+        <div class="col-tb-6">
+          {% include 'product-index'  %}
+        </div>
+        {% assign counter = counter | plus: 1 %}
+        {% if counter == break_at %}
+        {% break %}
+        {% endif %}
+        {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endcapture %}
+
+  {% assign related_items = related_items | trim %}
+  {% unless related_items == blank %}
+  <div class="container">
+    <h2 class="module__title">{{ section.settings.title }}</h2>
+    {{ related_items }}
+  </div>
+  {% endunless %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Recommended Products",
+    "class": "module module--recommended-products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show",
+        "label": "Show",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Recommended For You"
+      }
+    ],
+    "blocks": []
+  }
+{% endschema %}

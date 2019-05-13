@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Quote Request for {{company}}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Latest compiled and minified CSS -->
+
+  <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+      />
+
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid #ddd;
+}
+th,td {
+  padding: 15px;
+  text-align: left;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <img src="data:image/jpg;charset=utf-8;base64,{{cart_data['logo']}}" style="height: 100px;"/>
+        <p style="text-align:left">
+          294 Grove Ln E Suite 200 <br>  Wayzata, MN 55391 <br> 833.768.3776 ph <br>   www.roverrobotics.com
+        </p>
+      </div>
+      <div class="column">
+          <h1 class="is-size-1" style="color:#0074E4; text-align: center;">OPEN AVATAR INC., DBA ROVER ROBOTICS</h1>
+      </div>
+    </div>
+    <br><br>
+    <table class="table" style="margin-left:auto; margin-right: auto;">
+      <thead>
+        <tr>
+          <th>Bill to</th>
+          <th>Ship to</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Customer:</strong> {{company}} <br>
+            <strong>Address:</strong> {{address}}, {{city}}<br>
+              {{state}}, {{zipcode}}
+              <br><br>
+            <strong>Phone:</strong> {{phone}}
+          </td>
+          <td>
+            <strong>Customer:</strong> {{shipping_company}} <br>
+            <strong>Address:</strong> {{shipping_address}}, {{shipping_city}}<br>
+              {{shipping_state}}, {{shipping_zipcode}}
+              <br><br>
+            <strong>Phone:</strong> {{shipping_phone}}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Payment Terms:</strong> PayPal: ga@roverrobotics.com <br>
+          </td>
+          <td><strong>Lead Time:</strong> 2 weeks if in stock 4 weeks if not in stock <br>
+            <strong>Shipping Method:</strong> FedEx GroundShipping <br> <strong>Terms:</strong> Prepaid</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table" style="margin-left:auto; margin-right: auto;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>QTY</th>
+          <th>Discription</th>
+          <th>Unit Price</th>
+          <th>Discount</th>
+          <th>Line Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for item in cart_data['items']%}
+          <tr>
+            <td></td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.product_title}}</td>
+            <td>{{ "$%.2f"|format((item.price / 100)) }}</td>
+            <td></td>
+            <td>{{ "$%.2f"|format((item.final_line_price / 100)) }}</td>
+          </tr>
+        {%endfor%}
+        <tr>
+          <td><br></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        {% set subtotal = (cart_data['total_price'] / 100 )|round(2) %}
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Subtotal</td>
+          <td>{{ "$%.2f"|format(subtotal) }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Shipping</td>
+          <td>{{ "$%.2f"|format(cart_data['shipping_price']) }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax</td>
+          {%if state == "MN" %}
+          {%set tax = (cart_data['total_price'] / 100 * 0.06875) | round(2) %}
+          {%set total_with_tax_and_shipping = (cart_data['total_price'] / 100 + tax) + cart_data['shipping_price']|round(2) %}
+          <td>{{ "$%.2f"|format(tax) }}</td>
+          {% else %}
+          <td>$0.00</td>
+          {% endif %}
+        </tr>
+
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          {%if tax%}
+          <td>{{ "$%.2f"|format(total_with_tax_and_shipping) }}</td>
+          {%else%}
+          {%set total_with_shipping = (cart_data['total_price'] / 100) + cart_data['shipping_price'] | round(2) %}
+          <td>{{ "$%.2f"|format(total_with_shipping) }}</td>
+          {%endif%}
+
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <br>
+
+      <h1 class="is-size-1" style="color:#0074E4; text-align: center;">Wire Instructions</h1>
+
+      <h2>Domestic (U.S):</h2>
+      <ul>
+        <li>Wire Routing Transit Number: <strong>12114039</strong></li>
+        <li>Bank Name: <strong>Silicon Valley Bank</strong></li>
+        <li>Address: <strong>3003 Tasman Drive, Santa Clara, CA 95054, USA</strong></li>
+        <li>Your Account Number: <strong>3302342622</strong> </li>
+        <li>Title of Account: <strong>Open Avatar Inc</strong></li>
+      </ul>
+      <hr>
+      <h2>International:</h2>
+      <ul>
+        <li>SWIFT Code: <strong>SVBKUS6S</strong> </li>
+        <li>Bank Name: <strong>Silicon Valley Bank</strong></li>
+        <li>Address: <strong>3003 Tasman Drive, Santa Clara, CA 95054, USA</strong></li>
+        <li>Your Account Number: <strong>3302342622</strong> </li>
+        <li>Title of Account: <strong>Open Avatar Inc</strong></li>
+      </ul>
+      <hr>
+      <h2>ACH</h2>
+      <ul>
+        <li>ACH Routing Number: <strong>121140399</strong> </li>
+        <li>Your Account Number: <strong>3302342622</strong> </li>
+        <li>Title of Account: <strong>Open Avatar Inc</strong></li>
+      </ul>
+  </div>
+
+</body>
+</html>

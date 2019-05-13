@@ -1,0 +1,27 @@
+<section class="module module--page module--collection">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-6 col-dk-push-3">
+        <br>
+        <h2>
+          {{ article.title }}
+        </h2>
+        <br>
+        <div class="row">
+          <div class="col-dk-6">
+          {% assign image = article.image %}
+            <div class="box box--3x2">
+              <div class="box__inner">
+                <div class="image image--load--fadein image--cover">
+                  <img class="lazyload" data-src="{{ image | img_url: '1200x600' }}" alt="{{ image.alt }}" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{ article.content }}
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+.loading-screen {
+  @include fill(fixed);
+  z-index: 100;
+}
+
+.loading-screen .col-grid div {
+  &:before {
+    backface-visibility: hidden;
+    transform-origin: 100% 0;
+  }
+
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}):before {
+      transition: transform 1000ms cubic-bezier(.77,0,.175,1) #{(.05 * $i)}s;
+    }      
+  }    
+
+  &:after {    
+    transition: opacity 1000ms ease 300ms;
+  }
+}
+
+.loading-screen.out {
+  .col-grid div {
+    &:before {
+      transform: scaleX(0) scaleY(1.01);
+    }
+
+    &:after {
+      opacity: 0;
+    }
+  }
+}

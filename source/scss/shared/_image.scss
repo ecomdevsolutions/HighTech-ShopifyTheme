@@ -1,0 +1,52 @@
+.image {
+  position: relative;
+  overflow: hidden;
+  border: solid 1px $color-xltgray;
+  
+  img {
+    display: block;
+  }
+}
+
+.image--cover {
+  @include fill(absolute);
+  
+  img {
+    @include fill(relative);
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.image--contain {
+  @include fill(absolute);
+  
+  img {
+    @include fill(relative);
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.image--load--fadein {
+  img {
+    opacity: 0;
+    transition: opacity 400ms;
+    backface-visibility: hidden;
+  }
+
+  img.lazyloaded {
+    opacity: 1;
+  }
+}
+
+img {
+  max-width: 100%;
+  border: none;
+}
+
+img[data-sizes="auto"] {
+  display: block;
+  width: 100%;
+} 
+

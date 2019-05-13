@@ -1,0 +1,59 @@
+{% if section.blocks.size > 0 %}
+<div class="container">
+  <div class="row">
+    <div class="col-dk-8 col-dk-push-2">
+      <h4 class="module__title--small">Team</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-dk-8 col-dk-push-2">
+      {% for block in section.blocks %}
+      {% assign mod = forloop.index0 | modulo: 3 %}
+      {% if mod == 0 %}
+      <div class="row row--team">
+        {% endif %}
+        <div class="col-mb-lg-4 col-lg-3 {% if mod == 1 or mod == 2 %}col-lg-push-1{% endif %}">
+          <div class="team-member">
+            <div class="name">{{ block.settings.name }}</div>
+            <div class="role">{{ block.settings.role }}</div>
+            <p class="bio">{{ block.settings.bio }}</p>
+          </div>
+        </div>
+        {% if mod == 2 or forloop.last %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Team",
+    "class": "module module--about-team",
+    "blocks": [
+      {
+        "type": "team_member",
+        "name": "Team Member",
+        "settings": [
+          {
+            "id": "name",
+            "type": "text",
+            "label": "Name"
+          },
+          {
+            "id": "role",
+            "type": "text",
+            "label": "Role"
+          },
+          {
+            "id": "bio",
+            "type": "textarea",
+            "label": "Bio"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

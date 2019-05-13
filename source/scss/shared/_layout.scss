@@ -1,0 +1,55 @@
+main {
+  position: relative;
+  z-index: 1;
+  padding-top: $header-height-mobile * 1.5;
+
+  @include breakpoint(desktop) {
+    padding-top: $header-height-desktop * 2;
+  }
+
+  @media print {
+    padding-top: 0 !important;
+  }
+}
+
+ul, ol, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.richtext img {
+  width: auto !important;
+  height: auto !important;  
+
+  &.alignnone {
+    width: 100% !important;
+  }
+
+  &.alignright {
+    width: 100% !important;
+    margin: 1em 0;
+
+    @include breakpoint(tablet) {
+      float: right;    
+      width: 65% !important;
+      margin: $grid-column-gutter 0 $grid-column-gutter $grid-column-gutter;
+    }    
+  }
+}
+
+%clearfix {
+  &:after {
+    content: '';
+    display: block;
+    position: relative;
+    clear: both;
+    height: 0;
+  }
+}
+
+.small--hide {
+  @media (max-width: 768px) {    
+    display: none !important;  
+  } 
+}

@@ -1,0 +1,72 @@
+<header class="header header--main">
+  <div class="col-grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="logo">
+    <a href="/">
+      {% include 'logo-combo' %}
+    </a>
+  </div>
+
+  <button class="menu-toggle">
+    <div class="menu-toggle__icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <nav class="nav nav--main">
+    <div class="col-grid col-grid--fixed col-grid--block">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <ul class="nav--main__main">
+      {% for link in linklists.main-menu.links %}
+      <li class="{% if link.active %}active{% endif %}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <ul class="nav--main__sub">
+      <li>
+        <a href="/account">My Account</a>
+      </li>
+
+      {% if customer %}
+      <li>
+        {{ 'Log out' | customer_logout_link }}
+      </li>
+      {% endif %}
+
+      <li>
+        <a href="/cart">
+          Cart <span class="cart-count">{% if cart.items.size > 0 %}- {{ cart.items.size }}{% endif %}</span>
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="h6--eyebrow">
+      <span>Follow Us</span>
+    </h6>
+    <ul class="nav--main__social">
+      {% for link in linklists.social.links %}
+      <li>
+        <a class="button button--circle button--circle--ko" href="{{ link.url }}">
+          <span class="icon-{{ link.title | downcase }}"></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

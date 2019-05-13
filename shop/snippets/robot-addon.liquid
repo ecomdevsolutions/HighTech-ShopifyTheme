@@ -1,0 +1,19 @@
+{% if product.type == "Robot"%}
+  <ol class="product__options">
+    <h2>Essential Addons</h2>
+    {% for product in collections.addons.products %}
+      <li class="product__option">
+        <a target="_blank" href= "{{product.url}}">
+          <label>
+            {{product.title}}
+            <span class="addon__learn-more">&#8594; learn more</span>
+          </label>
+        </a>
+        <img src="{{product | img_url}}" alt="{{product.title}}"/>
+        <button data-price="{{product.price}}" data-url={{product.url}} id="{{product.id}}" data-id={{product.id}} class="button button--addon"><i data-price="{{product.price}}"  data-url={{product.url}} data-id={{product.id}} class="fas fa-plus"></i> Add to Order:
+          <span data-price="{{product.price}}" data-url={{product.url}} data-id={{product.id}} class="addon__price">{{product.price | money}}</span>
+        </button>
+      </li>
+    {% endfor %}
+  </ol>
+{% endif %}

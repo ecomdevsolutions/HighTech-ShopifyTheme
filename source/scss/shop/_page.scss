@@ -1,0 +1,11 @@
+.page-content {
+  margin-bottom: 50px;
+
+  @include breakpoint(tablet) {
+    margin-bottom: 75px;
+  }
+
+  @include breakpoint(desktop) {
+    margin-bottom: 100px;
+  }
+}

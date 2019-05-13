@@ -1,0 +1,53 @@
+.module {
+  margin: 100px 0;
+
+  @include breakpoint(desktop) {
+    margin: 125px 0;
+  }
+}
+
+.module--page {
+  margin-top: 0;
+}
+
+.module .module__title {
+  text-align: center;
+  margin-bottom: 50px;
+
+  @include breakpoint(desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.module__title--small {
+  @extend %label--blue;
+  margin: .5em 0 1.5em 0;
+}
+
+.module--bg {
+  margin: 0;
+  background-color: transparentize($color-xltgray, .7);
+  padding: 75px 0;
+
+  @include breakpoint(desktop) {
+    padding: 100px 0;
+  }
+}
+
+.module--get-in-touch {
+  text-align: center;
+
+  .module__title {
+    margin-bottom: 30px;
+  }
+  
+  p {
+    @extend %text--large;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .button--cta {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,46 @@
+*, :before, :after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {  
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: none;
+  -moz-osx-font-smoothing: grayscale;  
+  text-rendering: optimizeLegibility;    
+  font-family: 'BentonSans';  
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 300;
+  color: $color-black;
+  background-color: $color-white;
+  overflow-x: hidden;
+
+  @include breakpoint(desktop) {
+    &:before {
+      content: '';
+      position: fixed;
+      display: block;
+      width: 10px;
+      height: calc(100% + 100px);
+      left: 0;
+      top: 0;
+      background-color: $color-blue;
+      z-index: 2;
+    }
+  }
+}
+
+[data-href] {
+  cursor: pointer;
+}

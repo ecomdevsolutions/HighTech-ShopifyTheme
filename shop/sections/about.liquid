@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="row">
+    <div class="col-dk-8 col-dk-push-2">
+      {% assign lines = section.settings.title | newline_to_br | split: '<br />' %}
+      <h1 class="h1">
+        {% for line in lines %}
+        <span>{{ line }}</span>
+        {% unless forloop.last %}
+        <br />
+        {% endunless %}
+        {% endfor %}
+      </h1>
+    </div>
+  </div>
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+  {% when 'text' %}
+  <div class="module module--about-text" {{ block.shopify_attributes }}>
+    <div class="row">
+      <div class="col-dk-8 col-dk-push-2 col-lg-2">
+        <h4 class="module__title--small">{{ block.settings.title }}</h4>
+      </div>
+      {% assign klass = 'col-dk-8 col-dk-push-2 col-lg-4 col-lg-push-0' %}
+      {% if block.settings.hero_copy_size == 'wide' %}
+      {% assign klass = 'col-dk-8 col-dk-push-2 col-lg-6 col-lg-push-0' %}
+      {% endif %}
+      <div class="{{ klass }}">
+        {% if block.settings.hero_copy.size > 0 %}
+        <p class="p--large">{{ block.settings.hero_copy }}</p>
+        {% endif %}
+
+        {% if block.settings.copy.size > 0 %}
+        {% assign klass = 'col-lg-12' %}
+        {% if block.settings.hero_copy_size == 'wide' %}
+        {% assign klass = 'col-lg-8' %}
+        {% endif %}
+
+        <div class="row">
+          <div class="{{ klass }} cols--{{ block.settings.copy_columns }}">
+            <p>{{ block.settings.copy }}</p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "About",
+    "class": "section section--about",
+    "settings": [
+      {
+        "id": "title",
+        "type": "textarea",
+        "label": "Title",
+        "default": "Our Story"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "hero_copy",
+            "type": "textarea",
+            "label": "Hero Copy"
+          },
+          {
+            "type":      "radio",
+            "id":        "hero_copy_size",
+            "label":     "Hero Copy Size",
+            "options": [
+              { "value": "normal", "label": "Normal" },
+              { "value": "wide", "label": "Wide" }
+            ],
+            "default":   "normal"
+          },
+          {
+            "id": "copy",
+            "type": "textarea",
+            "label": "Copy"
+          },
+          {
+            "type":      "radio",
+            "id":        "copy_columns",
+            "label":     "Copy Columns",
+            "options": [
+              { "value": "one", "label": "One" },
+              { "value": "two", "label": "Two" }
+            ],
+            "default":   "one"
+          }
+        ]
+      },
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description"
+          },
+          {
+            "id": "data_sheet_url",
+            "type": "url",
+            "label": "Data Sheet URL"
+          },
+          {
+            "id": "documentation_url",
+            "type": "url",
+            "label": "Documentation URL"
+          }
+        ]
+      }, {
+        "type": "video",
+        "name": "Video",
+        "settings": [
+          {
+            "id": "video",
+            "type": "video_url",
+            "label": "Video",
+            "accept": ["youtube", "vimeo"]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

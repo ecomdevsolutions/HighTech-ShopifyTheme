@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "id": "favicon",
+        "type": "image_picker",
+        "label": "Favicon"        
+      }      
+    ]
+  },
+  {
+    "name": "API Keys",
+    "settings": [
+      {
+        "type": "text",
+        "id": "google_maps_api_key",
+        "label": "Google Maps"
+      }      
+    ]
+  }
+]

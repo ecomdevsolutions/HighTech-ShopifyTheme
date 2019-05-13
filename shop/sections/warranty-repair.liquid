@@ -1,0 +1,40 @@
+<div class="containe warranty">
+  <h2 class="module__title">{{ section.settings.title }}</h2>
+    <p class="foo">
+       Rovers come with a 1 year manufacturer warranty that covers any defects related to manufacturing.
+       <a href="https://roverrobotics.com/pages/warranty">Click here for more details</a>.
+    </p>
+    <br>
+    <p>
+       For repairs please contact support@roverrobotics.com.
+       We will arrange to have your Rover sent to one of our three service locations.
+       Within 1-3 business days of receiving the robot we will send a quote for the repairs.
+       Upon accepting the quote we will arrange payment, make the needed repairs and ship your robot back.
+       If needed we offer loaner Rovers while the repairs are being made.
+    </p>
+    <h5> Repair Locations </h5>
+    <img src="//cdn.shopify.com/s/files/1/0055/0433/5925/files/Rover-Robotics-Locations_large.png?v=1544646383" alt="" />
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Warrant / Repair",
+    "class": "module module--warranty-repair module--bg",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Warranty / Repair"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

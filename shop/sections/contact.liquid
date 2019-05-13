@@ -1,0 +1,115 @@
+<div class="page-width">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-8 col-dk-push-2">
+        {% assign lines = section.settings.title | newline_to_br | split: '<br />' %}
+        <h1 class="h1">
+          {% for line in lines %}
+          <span>{{ line }}</span>
+          {% unless forloop.last %}
+          <br />
+          {% endunless %}
+          {% endfor %}
+        </h1>
+      </div>
+    </div>
+
+
+    <div class="row row--contact">
+      <div class="col-dk-8 col-dk-push-2">
+        <div class="row">
+          <div class="col-tb-6 col-lg-4">
+            <h6 class="h6--eyebrow--blue">Email</h6>
+            <p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+          </div>
+          <div class="col-tb-6 col-lg-4">
+            <h6 class="h6--eyebrow--blue">Phone</h6>
+            <p><a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a></p>
+          </div>
+
+          <div class="col-tb-6 col-lg-4">
+            <h6 class="h6--eyebrow--blue">Corporate Headquarters</h6>
+            <p>{{ section.settings.hq | newline_to_br }}</p>
+          </div>
+        </div>
+        <div class="row">
+
+          {% form 'contact' %}
+
+            {% if form.posted_successfully? %}
+              <p style="background-color:DodgerBlue;">
+                {{ 'contact.form.post_success' | t}}
+              </p>
+            {% endif %}
+
+            <p style="background-color:Tomato;" {{ form.errors | default_errors }} </p>
+
+            <div class="grid" >
+              <div class="grid_item medium-up--one-half">
+                <label for="ContactFormName"> Name </label>
+                <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
+              </div>
+              <div class="grid_item medium-up--one-half">
+                <label for="ContactFormEmail"> Email </label>
+                <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
+              </div>
+              <div class="grid_item medium-up--one-half">
+                <label for="ContactFormEmail"> Company/University</label>
+                <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
+              </div>
+              <div class="grid_item medium-up--one-half">
+                <label for="ContactFormMessage"> Message </label>
+                <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
+              </div>
+            </div>
+            <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+            {% endform %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Contact",
+    "class": "section section--contact",
+    "settings": [
+      {
+        "id": "title",
+        "type": "textarea",
+        "label": "Title",
+        "default": "Contact"
+      },
+      {
+        "id": "hero_copy",
+        "type": "textarea",
+        "label": "Hero Copy"
+      },
+      {
+        "id": "email",
+        "type": "text",
+        "label": "Email"
+      },
+      {
+        "id": "phone",
+        "type": "text",
+        "label": "Phone"
+      },
+      {
+        "id": "hq",
+        "type": "textarea",
+        "label": "Headquarters"
+      }
+    ]
+  }
+{% endschema %}

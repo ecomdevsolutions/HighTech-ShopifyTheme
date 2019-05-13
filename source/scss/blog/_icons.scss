@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/wp-content/themes/roverrobotics/assets/fonts/icomoon.eot?552oga');
+  src:  url('/wp-content/themes/roverrobotics/assets/fonts/icomoon.eot?552oga#iefix') format('embedded-opentype'),
+        url('/wp-content/themes/roverrobotics/assets/fonts/icomoon.ttf?552oga') format('truetype'),
+        url('/wp-content/themes/roverrobotics/assets/fonts/icomoon.woff?552oga') format('woff'),
+        url('/wp-content/themes/roverrobotics/assets/fonts/icomoon.svg?552oga#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-left:before {
+  content: "\e90f";
+}
+.icon-arrow-large-right:before {
+  content: "\e900";
+}
+.icon-download:before {
+  content: "\e90d";
+}
+.icon-document:before {
+  content: "\e90c";
+}
+.icon-printer:before {
+  content: "\e90e";
+}
+.icon-cart:before {
+  content: "\e90b";
+}
+.icon-chevron-small-down:before {
+  content: "\e901";
+}
+.icon-chevron-small-left:before {
+  content: "\e902";
+}
+.icon-chevron-small-right:before {
+  content: "\e903";
+}
+.icon-chevron-small-up:before {
+  content: "\e904";
+}
+.icon-chevron-thin-down:before {
+  content: "\e905";
+}
+.icon-chevron-thin-left:before {
+  content: "\e906";
+}
+.icon-chevron-thin-right:before {
+  content: "\e907";
+}
+.icon-chevron-thin-up:before {
+  content: "\e908";
+}
+.icon-triangle-left:before {
+  content: "\e909";
+}
+.icon-triangle-right:before {
+  content: "\e90a";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-linkedin:before {
+  content: "\eaca";
+}

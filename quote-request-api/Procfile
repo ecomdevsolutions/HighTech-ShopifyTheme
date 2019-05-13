@@ -1,0 +1,1 @@
+web: gunicorn --no-sendfile -w 1 app:app

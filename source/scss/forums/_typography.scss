@@ -1,0 +1,35 @@
+%text--large {
+  font-family: 'BentonSans';
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;  
+}
+
+%text--normal {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+%text--xsmall {
+  font-family: 'BentonSans Condensed';
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+%link {
+  font-family: 'BentonSans Condensed';
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}

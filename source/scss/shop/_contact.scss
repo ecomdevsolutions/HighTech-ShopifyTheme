@@ -1,0 +1,45 @@
+.section--contact .row--contact {
+  margin-bottom: 50px;
+  
+  @include breakpoint(tablet) {
+    margin-bottom: 75px;
+  }
+
+  @include breakpoint(desktop) {
+    margin-bottom: 100px;
+  }  
+}
+
+.section--contact .nav--social {
+  margin-top: 50px;
+
+  @include breakpoint(large) {
+    margin: 0;
+    position: absolute;
+    right: -25px;
+    top: -50px;
+  }
+}
+
+.section--contact .nav--social li {
+  display: inline-block;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  @include breakpoint(large) {
+    display: block;
+    margin: 0 0 10px 0;
+  }
+}
+
+.section--contact #map {
+  margin-top: 50px;
+  height: 400px;
+
+  @include breakpoint(desktop) {
+    margin-top: 75px;
+  }
+}

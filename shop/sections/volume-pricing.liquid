@@ -1,0 +1,64 @@
+<div class="container">
+  <h2 class="module__title">{{ section.settings.title }}</h2>
+  <table class="volume-pricing">
+    <tr>
+      <th>Quantity</th>
+      <th>Discount</th>
+      <th>Lead Time (weeks)</th>
+    </tr>
+    <tr>
+      <td>0-4</td>
+      <td>0%</td>
+      <td>1-2</td>
+    </tr>
+    <tr>
+      <td>5-9</td>
+      <td>3%</td>
+      <td>2-4</td>
+    </tr>
+    <tr>
+      <td>10-24</td>
+      <td>7%</td>
+      <td>4-6</td>
+    </tr>
+    <tr>
+      <td>25-49</td>
+      <td>12%</td>
+      <td>6-8</td>
+    </tr>
+    <tr>
+      <td>50-99</td>
+      <td>18%</td>
+      <td>8-10</td>
+    </tr>
+    <tr>
+      <td>100-249</td>
+      <td>25%</td>
+      <td>10-12</td>
+    </tr>
+  </table>
+  <small> *Volume pricing applies only to products made by Rover Robots. Batteries and chargers are not included </small> 
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Volume Pricing",
+    "class": "module module--get-in-touch module--bg",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Volume Pricing"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

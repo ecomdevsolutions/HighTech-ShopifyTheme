@@ -1,0 +1,19 @@
+{% if section.settings.blog_url %}
+<h2 class="module__title">From the Blog</h2>
+<div class="row row--posts"
+     data-blog-url="{{ section.settings.blog_url }}"></div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Featured Posts",
+    "class": "module module--featured-posts",
+    "settings": [
+      {
+        "id": "blog_url",
+        "type": "url",
+        "label": "Blog Url"
+      }
+    ]
+  }
+{% endschema %}

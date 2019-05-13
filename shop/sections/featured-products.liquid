@@ -1,0 +1,85 @@
+{% if section.blocks.size > 0 %}
+  <h2 class="module__title">Featured Products</h2>
+  {% for block in section.blocks %}
+  <div class="product {% if forloop.last %}product--last{% endif %}">
+    <div class="product__image">
+      {% assign product = all_products[block.settings.product] %}
+      {% assign image = product.featured_image %}
+      {% assign width = image.width | times: 1.0 %}
+      {% assign height = image.height | times: 1.0 %}
+      {% assign percentage = height | divided_by: width | times: 100 %}
+      <div class="box" style="padding-top: {{ percentage }}%;">
+        <div class="box__inner">
+          <div class="image image--load--fadein image--cover">
+            <a href="{{ product.url }}">
+              <img class="lazyload"
+                   data-src="{{ image | img_url: '1500x1500' }}" alt="{{ image.alt }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-tb-8">
+        <h4><a href="{{ product.url }}">{{ product.title }}</a></h4>
+        <p>{% if product.variants.size > 1 %}Starting at:&nbsp;&nbsp;{% endif %}<strong>{{ product.price | money }}</strong></p>
+        <p>{{ block.settings.description }}</p>
+      </div>
+      <div class="col-tb-4">
+        <a class="button button--secondary button--details" href="{{ product.url }}"><span>Details</span></a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% assign text = section.settings.cta_text %}
+  {% assign url = section.settings.cta_url %}
+
+  {% if text and url %}
+  <div class="row">
+    <div class="col-dk-8 col-dk-push-2">
+      <div class="cta">
+        <a class="button button--primary"
+           href="{{ url }}"><span>{{ text }}</span></a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "class": "module module--featured-products",
+    "settings": [
+      {
+        "id": "cta_text",
+        "type": "text",
+        "label": "CTA Text"
+      },
+      {
+        "id": "cta_url",
+        "type": "url",
+        "label": "CTA URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_product",
+        "name": "Featured Product",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

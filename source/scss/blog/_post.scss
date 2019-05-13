@@ -1,0 +1,84 @@
+.post__modules .module:first-child {
+  margin-top: 0 !important;
+}
+
+.row--posts {
+  [class*=col-]:first-child {
+    @include breakpoint(mobile-large) {
+      margin-top: 100px;
+    }   
+  }
+}
+
+.post--index {
+  border: solid 1px $color-xltgray;
+  background-color: $color-white;
+  max-width: 350px;
+  margin: 0 auto 50px auto;
+
+  @include breakpoint(tablet) {
+    margin-bottom: 75px;
+  }
+
+  @include breakpoint(desktop) {
+    margin-bottom: 100px;
+  }
+}
+
+.post--index .post__meta {
+  padding: 20px;
+
+  @include breakpoint(tablet) {
+    padding: 30px;
+  }
+}
+
+.post--index .image {
+  border: none;
+}
+
+.post--single .post__share--footer {
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  
+  &:before {
+    @include h-center(absolute);
+    content: '';
+    display: block;
+    top: 0;
+    width: 50px;
+    height: 3px;
+    background-color: $color-blue;    
+  }
+  
+  @include breakpoint(tablet) {
+    text-align: left;
+  }
+  
+  h6 {
+    margin-bottom: 20px;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.row--related-posts time {
+  display: none;
+}
+
+.row--related-posts article {
+  margin-bottom: 50px !important;
+}

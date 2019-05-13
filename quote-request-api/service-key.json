@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "quickstart-1557250446382",
+  "private_key_id": "317717f2cbebc5d0bfd7da9708486e623dd93e07",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCdQIRKebYHxgM6\nhaEQKgUgDWBE7TqnK8tSggZ3wht4+DLL6LNaj1EeyPUmueVpkFvfmN6uQn9sFvvE\nEaC9DietEE1phJtwzYGQ3RLEDGo1DpBr3nd24aRub5GBXv/Hcb7kqSk//VxX0YIz\neeyAvdVseVc61rcePLMfsuBoCBIzRVy9k8aUoaIBzsMu18NwK/rGatUls0C2L+eP\nclrcolqEDQ1KU5kBUi1rGd8YRTIEhKBd6xs+ZXJbgeKZsnF+0yFAHiNpylEF7oXf\nIh+0kAVqaPpI6K1LIuOAn9VRIXDrsICYNJdINhbXOnTY5IhuSt+RGa9EWJ9xGB80\nSjosmtVbAgMBAAECggEAHopBJxWsPKZASkVZmoIOrMLsR3arRXxD6KpIB0oze7L4\napGvA4+B+bCdq/++hln6/dn6pW1UwfFUxCeISC9PlVTtM+kFJ0tCNpg45Mpkdhl2\nAv0ZxoTcInaYk7+XfWyh3lbcJAlYvdV6q/Sp8fbsVDzcrBi3R7ASOb3Lx2iJ4Frx\n8lYl3vT69TRnCWHa+Sh+9HVuvXpm2HeFteBd1ldVXQqK6jUKY8SMVP51ziFJxAEM\nlLtRvjPjQH2ZW9JtB/mzeTyu1yJqPaVQDpAsbIYRuO1CQ8KaBKpkhQYbm4VAspWL\nnLJ50B1tpZIKFzVsBWd1SUTryzUH2J8qKnTyAZkxAQKBgQDdJDo/YHrb4RDOT8zF\nT3nSoVf9ChHc40kaIShWaHXVoVsICwu6Y/64rMk1/DDS3hGbsnNJZ36WtbigbRWx\n3CrTQEjZSrGqHCH1UJS1smqyWS+cKWK/iJCWNnQA2oVCs3E+4StLe1bbkrUyW5Ef\nh3o4yegVeB04EIMEHmkS8Y1QsQKBgQC2CiRs355y5WGC/rkqUOXOGWZzUqMSq4M9\nJrmcX8u9mNeDI+2CZlFcvM+O82OKAWJu6WsjjHNMg9Ftbd0X7InTAj5b57g+AH7k\nywxO4cD0eawHX/K+yl374ix1+rIjw6BRmXfeK/tvVzEc+TuH5kMpaxyUzqEIz/Lb\nfs64ZXepywKBgGixxQ3KLIA6ro0uRIDJXqB0mEaI5OoRhMNlHUbDT74jFQjayeOl\ngauGyf/P9IFwdx+iPWhsIgdR4yW4X0QEOxYmYhbVgQVLKlyMmMrovBDRnnOtOD37\ndpBXGVZqHhr0/1FIowmqS/XKIBTGOw+VQSzvkfvQEO1BC/YAO7inOUMRAoGAD8CK\n7FzhUiHlMTengDDl4dKy2dHRyKDMx3LdZtmnQK3EIFXwjHMcIUE5WK5Y860w/lX2\nbmoN5BYX/jcehZ5zQq4UBVHk0ICselHTq9O/JaiNqUm1MKtEPLKSlFbwKUYZTlZQ\nWApIRJcv6cjrTNQxBZl+LKZAqwmLg1DSxIQLOccCgYB4pAuEhYnxt9Xz6sThc+IB\nj22TM8uy+syF7/7itQvUaA1jJGcWo914zwmjb+hm2tu0xtklNAbq+WgvN59gU3Hk\nhpLUAdfTJaGFwfBZyEO8Qe0Uw91K0flOeBXBjFBgds8b0NX+taadwyAJhw2uSgQ8\nzafNPnI6Z+QV/RmNkT7oBQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "rover-robotics-gmail@quickstart-1557250446382.iam.gserviceaccount.com",
+  "client_id": "108363075849354603784",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rover-robotics-gmail%40quickstart-1557250446382.iam.gserviceaccount.com"
+}

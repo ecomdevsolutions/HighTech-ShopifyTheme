@@ -1,0 +1,11 @@
+.svg {
+  position: relative;
+
+  > svg {
+    @include fill(absolute);
+  }
+}
+
+.svg--logo-combo {
+  padding-top: percentage(74/189);
+}

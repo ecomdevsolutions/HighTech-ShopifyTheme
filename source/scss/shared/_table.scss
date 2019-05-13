@@ -1,0 +1,125 @@
+.table {
+  @extend %text--normal;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table tr.spacer {
+  td {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  &:last-child {
+    display: none;
+  }
+}
+
+.table td,
+.table th {
+  padding: 10px;
+  vertical-align: top;
+  background-color: $color-white;
+  text-align: left;
+}
+
+.table--responsive {
+  width: 100%;
+}
+
+.table--responsive thead {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: table-header-group;    
+  }
+}
+
+.table--responsive tr,
+.table--responsive td {
+  @media (max-width: $breakpoint-tablet - 1) {
+    float: left;
+    clear: both;
+    width: 100%;
+    display: block;
+  }  
+}
+
+.table--responsive th {
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: none;
+  border-right: none;
+  border-top: solid 1px $color-xltgray;
+
+  &:first-child {
+    padding-left: 30px;
+    border-left: solid 1px $color-xltgray;
+  }
+
+  &:last-child {
+    padding-right: 30px;
+    border-right: solid 1px $color-xltgray;
+  }
+}
+
+.table--responsive td {
+  text-align: right;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-left: solid 1px $color-xltgray;
+  border-right: solid 1px $color-xltgray;
+  
+  &:first-child {
+    border-top: solid 1px $color-xltgray;
+    padding-top: 30px;
+  }
+  
+  &:last-child {
+    border-bottom: solid 1px $color-xltgray;
+    padding-bottom: 30px;    
+  }
+  
+  @include breakpoint(tablet) {    
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: solid 1px $color-xltgray;
+    border-bottom: solid 1px $color-xltgray;
+    border-left: none;
+    border-right: none;
+
+    &:first-child {
+      padding-left: 30px;
+      border-left: solid 1px $color-xltgray;
+    }
+
+    &:last-child {
+      padding-right: 30px;
+      border-right: solid 1px $color-xltgray;
+    }
+  }
+}
+
+.table--responsive td:before {
+  content: attr(data-label);
+  float: left;
+  text-align: center;
+  padding-right: 10px;
+  font-weight: bold;
+  
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.table--responsive tfoot td {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}

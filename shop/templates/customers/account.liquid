@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-mb-12 col-dk-8 col-dk-push-2">
+      <h1 class="h2 h2--page-title">{{ 'customer.account.title' | t }}</h1>
+
+      <h2 class="h4">{{ 'customer.orders.title' | t }}</h2>
+      {% paginate customer.orders by 20 %}
+      {% if customer.orders.size != 0 %}
+
+      <table class="table table--responsive table--data">
+        <thead>
+          <tr>
+            <th>{{ 'customer.orders.order_number' | t }}</th>
+            <th>{{ 'customer.orders.date' | t }}</th>
+            <th>{{ 'customer.orders.payment_status' | t }}</th>
+            <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+            <th>{{ 'customer.orders.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+          <tr>
+            <td data-label="{{ 'customer.orders.order_number' | t }}">
+              <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small">{{ order.name }}</a>
+            </td>
+            <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+            <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+            <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>{{ 'customer.orders.none' | t }}<br /><br /></p>
+      {% endif %}
+
+      {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+      {% endif %}
+
+      {% endpaginate %}
+
+      <h2 class="h4">{{ 'customer.account.details' | t }}</h2>
+      {{ customer.default_address | format_address }}
+
+      <p>
+        <a href="/account/addresses" class="button button--secondary">
+          <span>{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</span>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

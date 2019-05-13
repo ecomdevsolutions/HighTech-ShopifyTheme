@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/roverrobotics.myshopify.com/products/edit-field/48705
+{% endcomment %}
+{% if product.metafields.custom_fields["spec_sheet_link"] != blank %}
+  <div class="custom-field custom-field__spec-sheet-link custom-field__type--link">
+    <h3 class="custom-field--title">Spec sheet link</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["spec_sheet_link"] }}
+    </div>
+  </div>
+{% endif %}

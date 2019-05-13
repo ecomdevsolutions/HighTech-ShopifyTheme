@@ -1,0 +1,36 @@
+/* Color */
+$color-white:         #ffffff;
+$color-black:         #000000;
+$color-xltgray:       #F0F0F0;
+$color-xxltgray:      #FCFCFC;
+$color-gray:          #999999;
+$color-mdgray:        #5B5B5B;
+// $color-blue:          #0437FD;
+$color-blue:          #0074E4;
+
+/* Layout */
+$header-height-mobile:           100px;
+$header-height-desktop:          100px;
+
+$grid-column-count:              12;
+$grid-column-gutter:             30px;
+
+$container-padding:              percentage(1/12);
+
+$breakpoint-mobile-large:        568px;
+$breakpoint-tablet:              768px;
+$breakpoint-tablet-large:        900px;
+$breakpoint-desktop:             1024px;
+$breakpoint-large:               1280px;
+$breakpoint-xlarge:              1400px;
+$breakpoint-xxlarge:             1600px;
+$breakpoint-xxxlarge:            1700px;
+
+$mq-mobile-large: '(min-width: #{$breakpoint-mobile-large})';
+$mq-tablet:       '(min-width: #{$breakpoint-tablet})';
+$mq-tablet-large: '(min-width: #{$breakpoint-tablet-large})';
+$mq-desktop:      '(min-width: #{$breakpoint-desktop})';
+$mq-large:        '(min-width: #{$breakpoint-large})';
+$mq-xlarge:       '(min-width: #{$breakpoint-xlarge})';
+$mq-xxlarge:      '(min-width: #{$breakpoint-xxlarge})';
+$mq-xxxlarge:     '(min-width: #{$breakpoint-xxxlarge})';

@@ -1,0 +1,33 @@
+{% if variant.title %}
+  {%- assign compare_at_price = variant.compare_at_price -%}
+  {%- assign price = variant.price -%}
+  {%- assign price_varies = variant.price_varies -%}
+  {%- assign available = variant.available -%}
+{% else %}
+  {%- assign compare_at_price = 1999 -%}
+  {%- assign price = 1999 -%}
+  {%- assign price_varies = false -%}
+  {%- assign available = true -%}
+{% endif %}
+
+{%- assign money_price = price | money -%}
+<div class="product__price">
+  {% if compare_at_price > price %}
+    {% if available %}
+    <s class="product-price__price">{{ compare_at_price | money }}</s>
+    <span class="product-price__price product-price__sale">
+      {% if variant.price_min != variant.price_max %}Starting at: {% endif %}{{ money_price }}
+    </span>
+    {% else %}
+    <span class="product-price__sold-out">({{ 'products.product.sold_out' | t }}) {{ money_price }}</span>
+    {% endif %}
+  {% else %}
+    {% if available %}
+    <span class="product-price__price">
+      {% if variant.price_min != variant.price_max %}Starting at: {% endif %}{{ money_price }}
+    </span>
+    {% else %}
+    <span class="product-price__sold-out">({{ 'products.product.sold_out' | t }}) {{ money_price }}</span>
+    {% endif %}
+  {% endif %}
+</div>

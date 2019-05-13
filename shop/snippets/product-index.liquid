@@ -1,0 +1,25 @@
+<div class="product product--index">
+  <div class="product__inner">
+    <div class="product__image">
+      {% assign image = product.featured_image %}
+      <div class="box box--3x2">
+        <div class="box__inner">
+          <div class="image image--load--fadein image--cover">
+            <a href="{{ product.url }}">
+              <img class="lazyload" data-src="{{ image | img_url: '900x600' }}" alt="{{ image.alt }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product__title-price">
+      <h2 class="h5"><a href="{{ product.url }}">{{ product.title }}</a></h2>
+        {% if product.selected_or_first_available_variant.price > 1000000 %}
+          Contact for pricing
+        {% else%}
+          {% include 'product-price' %}
+        {% endif %}
+    </div>
+    <a class="button button--secondary" href="{{ product.url }}"><span>Details</span></a>
+  </div>
+</div>

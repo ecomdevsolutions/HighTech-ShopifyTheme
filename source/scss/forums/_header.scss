@@ -1,0 +1,38 @@
+.header--main {
+  position: relative !important;
+  margin-bottom: 0;
+  z-index: 1001;
+
+  a:hover {
+    color: inherit;
+  }
+  
+  a:visited {
+    color: $color-white;
+    @include breakpoint(desktop) {
+      color: $color-black;
+    }
+  }
+}
+
+.d-header .wrap {
+  max-width: none;
+  padding: 0 32px;
+
+  @include breakpoint(desktop) {
+    padding: 0 72px;
+  }
+}
+
+.d-header .title {
+  display: none;
+
+  body.docked & {
+    display: block;
+  }
+}
+
+section#main {
+  font-size: 90%;
+  line-height: 1.4;
+}

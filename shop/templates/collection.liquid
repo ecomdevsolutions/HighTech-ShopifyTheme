@@ -1,0 +1,79 @@
+<section class="module module--page module--collection">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-8 col-dk-push-2">
+        <h1>
+          <span>Shop</span><br />
+        </h1>
+
+        {% for collection in collections %}
+          {% if collection.title == 'Rovers'  %}
+            <h2>
+              <span>{{collection.title}}</span>
+            </h2>
+            <div class="row row--no-gutter row--products">
+              {% for product in collection.products %}
+                {{product.collection}}
+                  <div class="col-tb-4">
+                    {% include 'product-index' %}
+                  </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% for collection in collections %}
+          {% if collection.title == 'Payload Equipment'  %}
+            <h2>
+              <span>{{collection.title}}</span>
+            </h2>
+            <div class="row row--no-gutter row--products">
+              {% for product in collection.products %}
+                {{product.collection}}
+                  <div class="col-tb-4">
+                    {% include 'product-index' %}
+                  </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% for collection in collections %}
+          {% if collection.title == 'Charging Equipment'  %}
+            <h2>
+              <span>{{collection.title}}</span>
+            </h2>
+            <div class="row row--no-gutter row--products">
+              {% for product in collection.products %}
+                {{product.collection}}
+                  <div class="col-tb-4">
+                    {% include 'product-index' %}
+                  </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% for collection in collections %}
+          {% if collection.title == 'Refurbished Equipment'  %}
+            <h2>
+              <span>{{collection.title}}</span>
+            </h2>
+            <div class="row row--no-gutter row--products">
+              {% for product in collection.products %}
+                {{product.collection}}
+                  <div class="col-tb-4">
+                    {% include 'product-index' %}
+                  </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% section 'get-in-touch' %}

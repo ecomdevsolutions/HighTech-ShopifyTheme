@@ -1,0 +1,283 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/NPPrCtn.png",
+    "google_maps_api_key": "AIzaSyCsE54akXJYn1pOo647wtFNUyfIkvB--j4",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/RR_gear_logo_e36d9b58-0d10-4861-a56f-5d7921b317e4.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Source Sans Pro",
+    "checkout_body_font": "Source Sans Pro",
+    "checkout_accent_color": "#0437fd",
+    "checkout_button_color": "#0437fd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "hero-carousel": {
+        "type": "hero-carousel",
+        "blocks": {
+          "1529706229904": {
+            "type": "slide",
+            "settings": {
+              "eyebrow": "",
+              "headline": "Affordable robot platforms that accelerate R&D",
+              "excerpt": "We design affordable, ROS-ready robot platforms and accessories. Our products are built on over 12 years’ experience making robots for law enforcement, military and other public safety personnel that perform some of the hardest missions in the world.  We know how to make tough, waterproof, high-performance robots.",
+              "image": "shopify:\/\/shop_images\/all_three_revA.png",
+              "ctaText": "Starting at $5,250",
+              "ctaUrl": "https:\/\/roverrobotics.com\/collections\/all\/",
+              "openUrlInNewTab": false
+            }
+          },
+          "1530118420247": {
+            "type": "slide",
+            "settings": {
+              "eyebrow": "",
+              "headline": "Case Study - Digi Labs' Wild Goosechaser",
+              "excerpt": "Read about how Rover Robotics provided the hardware platform for a fully autonomous pest prevention robot.",
+              "image": "shopify:\/\/shop_images\/DL_Wild_Goosechaser.jpg",
+              "ctaText": "Read the Case Study",
+              "ctaUrl": "https:\/\/blog.roverrobotics.com\/digi-labs-wild-goosechaser-a-case-study\/",
+              "openUrlInNewTab": false
+            }
+          },
+          "1530895020174": {
+            "type": "slide",
+            "settings": {
+              "eyebrow": "",
+              "headline": "Rover at University of Minnesota",
+              "excerpt": "Read about how Open Rover is helping researchers at University of Minnesota to revolutionize agriculture.",
+              "image": "shopify:\/\/shop_images\/Cornfield.jpg",
+              "ctaText": "Read the case study",
+              "ctaUrl": "https:\/\/blog.roverrobotics.com\/university-of-minnesotas-agricultural-robots-a-case-study\/",
+              "openUrlInNewTab": false
+            }
+          },
+          "1530113859055": {
+            "type": "slide",
+            "settings": {
+              "eyebrow": "",
+              "headline": "Works with ROS",
+              "excerpt": "We maintain open source packages on our GitHub page. We maintain a ROS driver, autonomous docking code, and are working on a ROS2 driver. We offer fast response times to issues and pull requests.",
+              "image": "shopify:\/\/shop_images\/ROS_Logo_1.jpg",
+              "ctaText": "Go to Github",
+              "ctaUrl": "https:\/\/github.com\/RoverRobotics\/rr_openrover_basic",
+              "openUrlInNewTab": true
+            }
+          },
+          "1529706677703": {
+            "type": "slide",
+            "settings": {
+              "eyebrow": "",
+              "headline": "Adopted from a proven tactical design",
+              "excerpt": "Our robots are so rugged and reliable because they were originally designed for tactical use. The design has been improved for the last 10 years an now that same design can be used for any application through the use of our open-source software libraries. Check out some of the original testing we put our robot trough by clicking below, and also checkout our open-source ROS driver by going to www.github.com\/roverrobotics",
+              "image": "shopify:\/\/shop_images\/robotex-avatar-1024x768.jpg",
+              "ctaText": "Testing Video",
+              "ctaUrl": "https:\/\/youtu.be\/nB522_BrOXU",
+              "openUrlInNewTab": true
+            }
+          }
+        },
+        "block_order": [
+          "1529706229904",
+          "1530118420247",
+          "1530895020174",
+          "1530113859055",
+          "1529706677703"
+        ],
+        "settings": {}
+      },
+      "featured-products": {
+        "type": "featured-products",
+        "blocks": {
+          "1529706955398": {
+            "type": "featured_product",
+            "settings": {
+              "product": "",
+              "description": "A configurable, waterproof robot chassis for rugged applications."
+            }
+          }
+        },
+        "block_order": [
+          "1529706955398"
+        ],
+        "settings": {
+          "cta_text": "Shop all Products",
+          "cta_url": "shopify:\/\/collections\/all"
+        }
+      },
+      "featured-posts": {
+        "type": "featured-posts",
+        "settings": {
+          "blog_url": "http:\/\/blog.roverrobotics.com"
+        }
+      },
+      "featured-docs": {
+        "type": "featured-docs",
+        "settings": {
+          "cta_text": "",
+          "cta_url": ""
+        }
+      },
+      "get-in-touch": {
+        "type": "get-in-touch",
+        "settings": {
+          "title": "Get In Touch",
+          "body": "We provide additional services such as custom payloads, rental programs for schools, and software consulting. Contact us to find out more.",
+          "ctaText": "Contact us",
+          "ctaUrl": "mailto:info@roverrobotics.com"
+        }
+      },
+      "about": {
+        "type": "about",
+        "blocks": {
+          "1529708046116": {
+            "type": "text",
+            "settings": {
+              "title": "Intro",
+              "hero_copy": "Our goal is to make reliable and rugged mobile robots easier to build.",
+              "hero_copy_size": "normal",
+              "copy": "Rover Robotics is a partnership between RoboteX (provider of market leading robots for public safety) and the founder of Proto Labs (the leader in rapid prototype parts manufacturing).  We believe that in the near future, robots will become important in every facet of our daily lives, going beyond just vacuuming the floor and powering factories.  Our products help robotics researchers, product developers and engineers build highly capable, professional-grade solutions for outdoor mobile robot applications.",
+              "copy_columns": "one"
+            }
+          },
+          "1529708068932": {
+            "type": "text",
+            "settings": {
+              "title": "Products",
+              "hero_copy": "We design affordable, high-quality robot platforms and accessories.",
+              "hero_copy_size": "normal",
+              "copy": "Our products are built on over 12 years’ experience making robots for law enforcement, military and other public safety personnel that perform some of the hardest missions in the world.  And our team has decades of experience in high-quality part manufacturing for tens of thousands of applications.  We know how to make tough, waterproof, high-performance robots.",
+              "copy_columns": "one"
+            }
+          },
+          "1529708102930": {
+            "type": "product",
+            "settings": {
+              "product": "",
+              "description": "Our flagship product, Open Rover is a professional-grade mobile robot for researchers and product developers.  It is highly rugged, highly mobile and modular.",
+              "data_sheet_url": "",
+              "documentation_url": "http:\/\/docs.roverrobotics.com\/1-manuals\/1-open-rover-basic-getting-started"
+            }
+          },
+          "1529708167080": {
+            "type": "text",
+            "settings": {
+              "title": "Applications",
+              "hero_copy": "Automate tasks in any environment.",
+              "hero_copy_size": "normal",
+              "copy": "Our products have been used in a variety of autonomous consumer and industrial applications, including telepresence robots, robotic pest-deterrents, security guards, tunnel inspectors and much more.  For help with your project, please contact us and speak with an applications engineer.",
+              "copy_columns": "one"
+            }
+          }
+        },
+        "block_order": [
+          "1529708046116",
+          "1529708068932",
+          "1529708102930",
+          "1529708167080"
+        ],
+        "settings": {
+          "title": "Our\nStory"
+        }
+      },
+      "team": {
+        "type": "team",
+        "blocks": {
+          "1529798830659": {
+            "type": "team_member",
+            "settings": {
+              "name": "Adam G.",
+              "role": "Founder",
+              "bio": "A serial entrepreneur and robotics hardware veteran with 39 patents."
+            }
+          },
+          "1529798853151": {
+            "type": "team_member",
+            "settings": {
+              "name": "Eric Z.",
+              "role": "Founder",
+              "bio": "Stanford Mechatronics graduate and veteran Silicon Valley roboticist."
+            }
+          },
+          "1529798911675": {
+            "type": "team_member",
+            "settings": {
+              "name": "Nick F.",
+              "role": "Founder",
+              "bio": "Masters of Robotics from Cornell and ROS guru."
+            }
+          },
+          "1529798929220": {
+            "type": "team_member",
+            "settings": {
+              "name": "Jack K.",
+              "role": "Robotics Engineer",
+              "bio": "U of MN - Twin Cities graduate with a background in hardware robotics."
+            }
+          },
+          "1529798875235": {
+            "type": "team_member",
+            "settings": {
+              "name": "Erik B.",
+              "role": "Software",
+              "bio": "U of MN Physics Ph.D and expert in imaging and artificial intelligence."
+            }
+          },
+          "1529798893806": {
+            "type": "team_member",
+            "settings": {
+              "name": "Tim L.",
+              "role": "Systems",
+              "bio": "Computer Science Ph.D and jack of all trades:  electrical engineering, firmware and software."
+            }
+          }
+        },
+        "block_order": [
+          "1529798830659",
+          "1529798853151",
+          "1529798911675",
+          "1529798929220",
+          "1529798875235",
+          "1529798893806"
+        ],
+        "settings": {}
+      },
+      "contact": {
+        "type": "contact",
+        "settings": {
+          "title": "Contact\nRover",
+          "hero_copy": "Need help using ROS to build an autonomous solution?  Contact us to discuss our consulting capabilities.",
+          "email": "info@roverrobotics.com",
+          "phone": "833.768.3776",
+          "hq": "Rover Robotics\n294 Grove Ln E Suite 200\nWayzata, MN 55391"
+        }
+      },
+      "recommended-products": {
+        "type": "recommended-products",
+        "settings": {
+          "show": false,
+          "title": "Recommended For You"
+        }
+      },
+      "hero-video": {
+        "type": "hero-video",
+        "settings": {
+          "video": "https:\/\/www.youtube.com\/watch?v=Ca4JNfTe-rk&feature=youtu.be"
+        }
+      },
+      "marketing-blurb": {
+        "type": "marketing-blurb",
+        "settings": {}
+      },
+      "3Dmodel": {
+        "type": "3Dmodel",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}

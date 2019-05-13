@@ -1,0 +1,99 @@
+.form--login,
+.form--reset-password,
+.form--register {
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: $color-xxltgray;
+  border: solid 1px $color-xltgray;
+  padding: 40px;
+
+  .h2--page-title {
+    text-align: center;
+  }
+  
+  button[type=submit] {
+    margin-bottom: 1em;
+    display: block;
+    width: 100%;
+  }
+
+  .form__group--footer {
+    text-align: center;
+  }
+}
+
+.form--login {
+  display: block;
+
+  body.reset-password & {
+    display: none;
+  }
+}
+
+.form--reset-password {
+  display: none;
+
+  body.reset-password & {
+    display: block;
+  }
+}
+
+.form--new-address,
+.form--edit-address {
+  button {
+    margin-bottom: 1em;
+    display: block;
+    width: 100%;
+
+    @include breakpoint(mobile-large) {
+      display: inline-block;
+      margin-bottom: 0;
+      width: auto;
+      margin-right: 1em;
+    }
+  }
+
+  .form__group--footer {
+    text-align: center;
+
+    @include breakpoint(tablet) {
+      text-align: left;
+    } 
+  }
+}
+
+.shopify-challenge__button {
+  @extend .button--secondary;
+}
+
+.shopify-challenge__container {
+  margin-bottom: 50px !important;  
+}
+
+.table {
+  body[class*=customers] & {
+    margin-bottom: 40px;
+  }
+}
+
+.page-back {
+  @extend %text--normal;
+  display: block;
+  margin-bottom: 20px;
+  span {
+    display: inline-block;
+    margin-right: 15px;
+  }
+}
+
+.address {
+  margin-bottom: 2em;
+}
+
+.address-new-toggle {
+  width: 100%;
+
+  @include breakpoint(mobile-large) {
+    width: auto;
+  }
+}

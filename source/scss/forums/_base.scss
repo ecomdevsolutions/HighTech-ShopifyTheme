@@ -1,0 +1,7 @@
+body {
+  @include breakpoint(desktop) {
+    &:before {
+      z-index: 1002;
+    }
+  }
+}

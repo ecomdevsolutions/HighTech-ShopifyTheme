@@ -1,0 +1,15 @@
+.module--post-body,
+.module--post-video,
+.module--post-product {
+  margin: 50px 0 !important;
+}
+
+.module--post-product {
+  background-color: $color-xxltgray;
+  border: solid 1px $color-xltgray;
+  padding: 30px;
+
+  .product__image {
+    margin-bottom: 30px;
+  }
+}
