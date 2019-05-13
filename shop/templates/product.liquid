@@ -51,10 +51,12 @@
             <!-- Tab links -->
             {% if product.has_only_default_variant %}
             {% else %}
-            <h2>Select Variant </h2>
+            <h2>{{ product.title }} </h2>
+            <hr class="product-title--break" />
+            <span class="variant--select__heading">Select Charging Type</span>
             {% endif %}
 
-            <div class="tab">
+            <div class="tab tab--variant-select">
               {% for variant in product.variants %}
                 {% if product.has_only_default_variant %}
                   {% assign title = product.title %}

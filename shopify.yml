@@ -1,7 +1,0 @@
-development:
-  directory: shop
-  password: 6c1d74642ee516dac7a6fc5f8950acd2
-  theme_id: "14582153331"
-  store: rover-robotics-development.myshopify.com
-  ignore_files:  
-    - config/settings_data.json

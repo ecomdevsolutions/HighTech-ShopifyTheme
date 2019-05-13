@@ -38,7 +38,6 @@
   display: none;
   padding: 6px 12px;
   border: 1px solid #ccc;
-  border-top: none;
 }
 /* Style the tab content */
 .tabcontent--table {
@@ -46,6 +45,12 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+.variant--select__heading {
+  font-weight: bold;
+}
+.tab--variant-select {
+  margin-bottom: 20px;
 }
 .volume-pricing {
   font-family: arial, sans-serif;
@@ -81,6 +86,11 @@ tr:nth-child(even) {
 
 .product {
   position: relative;
+}
+
+.product-title--break {
+  background-color: #000;
+  height: 2px;
 }
 
 .product--index {
