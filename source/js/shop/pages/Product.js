@@ -12,7 +12,7 @@ class Product {
     this.$variantSelect = this.$form.find('select[name="id"]')
     this.$optionValue = $('.product__option__value')
 
-
+    this.$options = $('.tablinks--options')
     this.$varients = $('.tablinks--varients')
     this.$bannerPrice = $('.product-banner__price')
     this.$addons = $('.button--addon')
@@ -21,6 +21,7 @@ class Product {
     this.price = null
     this.addon_price = 0
     this.addons = []
+    this.options = {}
     this.cartClicked = false
     this.addonHTML = {}
     //passes in global var product.liquid: line:213
@@ -35,12 +36,12 @@ class Product {
   init () {
     this.initImages()
     this.filterImages(this.getSelectedVariant())
+    console.log(product.options)
+    if (product.options.length < 2) {
+      this.currentVarient = CURRENT_VARIENT_PRICE
+    }
 
-    this.currentVarient = CURRENT_VARIENT_PRICE
-
-
-
-
+    this.optionSelect()
     this.addToCart()
     this.varientSelect()
     this.addonSelect()
@@ -112,6 +113,38 @@ class Product {
 
   }
 
+  optionSelect() {
+    this.$options.click((e) => {
+      let button = $(e.target)
+      this.options[e.target.dataset.name] = e.target.dataset.value
+      let values = Object.values(this.options)
+      for (let option of this.$options) {
+        if (values.includes(option.dataset.value)) {
+          $(option).css("background-color", "#0074E4")
+          $(option).css("color", "#fff")
+        } else {
+          $(option).css("background-color", "#fff")
+          $(option).css("color", "#000")
+        }
+      }
+      if (values.length == product.options.length) {
+        console.log(values.length)
+        var variant = this.findVarient()
+        this.currentVarient = {id: variant[0].id, price: variant[0].price}
+        $('.product-banner__price').text(Shopify.formatMoney(variant[0].price).replace(/(\..*)/, ''))
+      }
+    });
+  }
+
+  findVarient() {
+      const values = Object.values(this.options)
+      return product.variants.filter((variant) => {
+        if (values.includes(variant.option1) && values.includes(variant.option2)) {
+          return variant
+        }
+      });
+  }
+
   varientSelect() {
     this.$varients.click((e) => {
       this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price)}
@@ -123,8 +156,8 @@ class Product {
     this.price = "$"+String(((this.currentVarient.price + this.addon_price) / 100).toFixed(2))
     this.$bannerPrice.text(this.price)
   }
-  addonSelect() {
 
+  addonSelect() {
     this.$addons.click((e) => {
       //Deselect addon
       if (this.addons.includes(e.target.dataset.url)) {
@@ -158,6 +191,7 @@ class Product {
   }
 
   postToCart(data) {
+
     $.ajax({
         method: "POST",
         url: "/cart/add.js",
@@ -167,21 +201,28 @@ class Product {
         success: function(res) {
           console.log('success', res)
         }
-      })
+      });
   }
 
    addToCart() {
-
     this.$addToCart.click((e) => {
+      if (product.options.length > 1) {
+        const values = Object.values(this.options)
+
+        if (values.length < 2) {
+          return  alert("Please select all options")
+        }
+      }
       if (!this.cartClicked) {
-        console.log(this)
         this.cartClicked = true
+
         let data = {
           quantity: 1,
           id: this.currentVarient.id
         }
+        // adds variant to cart
          this.postToCart(data)
-
+         // ads addons to cart (if any)
         for (let i = 0; i < this.addons.length; i++) {
           $.getJSON(this.addons[i] + '.js', (product) => {
             let id = product.variants[0].id
@@ -189,17 +230,14 @@ class Product {
               quantity: 1,
               id: id
             }
-
             this.postToCart(data)
-          })
+          });
         }
         $(e.target).html("<i class='fas fa-check-circle'></i> Added to cart")
         setTimeout( () => {
           window.location.href = "/cart"
         }, 2000)
       }
-
-
       });
   }
 

@@ -1,0 +1,28 @@
+
+<h2>{{ product.title }}</h2>
+
+<hr class="product-title--break" />
+  {% for option in product.options_with_values %}
+    <span class="variant--select__heading">Select {{option.name}} Type</span>
+    <div class="tab tab--variant-select">
+      {% for value in option.values %}
+      <button class="tablinks tablinks--options"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
+      {% endfor %}
+    </div>
+  {%endfor%}
+
+  <div class="product__title-price">
+    <h1 class="h3">{{ product.title }}</h1>
+    {% if product.selected_or_first_available_variant.price > 1000000 %}
+      Fill out form to get pricing and information (it may take a few seconds to load)
+    {% else%}
+
+      {% if product.type == 'Refurb Robot' %}
+          <p style="color: #0074E4;"><strong>{{ variant.selected_or_first_available_variant.inventory_quantity }} in stock</strong></p>
+
+      {% endif %}
+    {% endif %}
+    <div class="product__description richtext">
+      {{ product.description }}
+    </div>
+  </div>

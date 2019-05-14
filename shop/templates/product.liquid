@@ -46,80 +46,12 @@
           </div>
 
 
-
           <div class="col-dk-6 col-lg-5 col-lg-push-1 col-xxl-5">
-            <!-- Tab links -->
-            {% if product.has_only_default_variant %}
+            {% if product.options.size > 1 %}
+              {% include 'product-options' %}
             {% else %}
-            <h2>{{ product.title }} </h2>
-            <hr class="product-title--break" />
-            <span class="variant--select__heading">Select Charging Type</span>
+              {% include "product-singleoption" %}
             {% endif %}
-
-            <div class="tab tab--variant-select">
-              {% for variant in product.variants %}
-                {% if product.has_only_default_variant %}
-                  {% assign title = product.title %}
-                {% else %}
-                  {% assign title = variant.title %}
-                {% endif %}
-                {% if product.has_only_default_variant %}
-                {% else %}
-                {%if product.selected_or_first_available_variant.id == variant.id %}
-                  <button class="tablinks tablinks--varients active" onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}</button>
-                  {% else %}
-                  <button class="tablinks tablinks--varients" onclick="openvarientTab(event, '{{title}}')"  data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}</button>
-                {% endif %}
-              {% endif %}
-
-              {% endfor %}
-            </div>
-
-            {% for variant in product.variants %}
-              {% if product.has_only_default_variant %}
-                {% assign title = product.title %}
-              {% else %}
-                {% assign title = variant.title %}
-              {% endif %}
-              {%if product.selected_or_first_available_variant.id == variant.id %}
-              <div id="{{title}}" class="tabcontent" style="display:block;">
-                <div class="product__title-price">
-                  <h1 class="h3">{{ title }}</h1>
-                  {% if variant.selected_or_first_available_variant.price > 1000000 %}
-                    Fill out form to get pricing and information (it may take a few seconds to load)
-                  {% else%}
-                    {% include 'variant-price' %}
-                    {% if variant.type == 'Refurb Robot' %}
-                        <p style="color: #0074E4;"><strong>{{ variant.selected_or_first_available_variant.inventory_quantity }} in stock</strong></p>
-
-                    {% endif %}
-                  {% endif %}
-                  <div class="product__description richtext">
-                    {{ product.description }}
-                  </div>
-                </div>
-              </div>
-              {% else %}
-                <div id="{{title}}" class="tabcontent">
-                  <div class="product__title-price">
-                    <h1 class="h3">{{ title }}</h1>
-                    {% if variant.selected_or_first_available_variant.price > 1000000 %}
-                      Fill out form to get pricing and information (it may take a few seconds to load)
-                    {% else%}
-                      {% include 'variant-price' %}
-                      {% if variant.type == 'Refurb Robot' %}
-                          <p style="color: #0074e4;"><strong>{{ variant.selected_or_first_available_variant.inventory_quantity }} in stock</strong></p>
-
-                      {% endif %}
-                    {% endif %}
-                    <div class="product__description richtext">
-                      {{ product.description }}
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-            {% endfor %}
-
             {% include "robot-addon" %}
           </div>
         </div>
@@ -172,7 +104,12 @@
     {% if product.selected_or_first_available_variant.price > 1000000 %}
         Fill out form for pricing
     {% else %}
+    {% if product.options.size < 2 %}
       <div class="product-banner__price">{{ product.selected_or_first_available_variant.price | money }}</div>
+    {% else %}
+      <div class="product-banner__price">$0.00</div>
+    {% endif %}
+
         <button class="button button--primary button--add-to-cart">
           <span>Add to Cart <span class="icon-arrow-large-right"></span></span>
         </button>
@@ -216,4 +153,5 @@ function openTab(evt, tabName) {
 }
   var product = {{ product | json }};
   var CURRENT_VARIENT_PRICE = {price: parseFloat("{{product.selected_or_first_available_variant.price}}"), id: "{{product.selected_or_first_available_variant.id}}" }
+
 </script>
