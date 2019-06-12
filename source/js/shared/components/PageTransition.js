@@ -6,7 +6,7 @@ class PageTransition {
     this.$el = $('.page-transition')
   }
 
-  start () {    
+  start () {
     return new Promise((resolve, reject) => {
       this.$el.addClass('in')
       setTimeout(() => {
@@ -20,7 +20,7 @@ class PageTransition {
     this.endInterval = setInterval(() => {
       if ( !this.isOpen ) return
       clearInterval(this.endInterval)
-      
+
       this.$el.addClass('out')
 
       setTimeout(() => {
@@ -29,7 +29,7 @@ class PageTransition {
             .removeClass('out')
         this.isOpen = false
       }, 1000)
-    }, 10) 
+    }, 10)
   }
 }
 

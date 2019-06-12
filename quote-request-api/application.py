@@ -17,7 +17,8 @@ def process_quote():
     company = quote['quote-company']
     address = quote['quote-address']
     city = quote['quote-city']
-    state = quote['quote-state']
+    country = quote['quote-country']
+    state = quote.get('quote-state', '')
     zipcode = quote['quote-zipcode']
     #cart data comes as json string. use json loads to turn into python dict
     cart_data = json.loads(quote['cart-data'])
@@ -25,11 +26,11 @@ def process_quote():
     shipping_company = quote['quote-company-shipping']
     shipping_address = quote['quote-address-shipping']
     shipping_city = quote['quote-city-shipping']
-    shipping_state = quote['quote-state-shipping']
+    shipping_state = quote.get('quote-state-shipping', '')
     shipping_zipcode = quote['quote-zipcode-shipping']
 
     #init pdf object
-    pdf = RoverPDF(name, email, phone,company, address, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address, shipping_city, shipping_state, shipping_zipcode)
+    pdf = RoverPDF(name, email, phone,company, address, country, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address, shipping_city, shipping_state, shipping_zipcode)
     #create pdf
     pdf = pdf.create_pdf()
     gmail = GmailAPI(email_from="matt@roverrobotics.com", email_to=email, email_subject="Quote Request", pdf=pdf)

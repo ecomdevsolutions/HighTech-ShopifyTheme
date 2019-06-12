@@ -10,12 +10,13 @@
           <h1 class="h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h1>
         </div>
         <div class="post__modules">
+          <?php the_content(); ?>
           <?php $modules = get_field('modules'); ?>
           <?php if ( $modules ) : foreach ( $modules as $module ) :  ?>
           <?php include(locate_template('partials/module-' . $module['acf_fc_layout'] . '.php')); ?>
           <?php endforeach; endif;?>
         </div>
-        
+
         <div class="post__share post__share--footer social-share">
           <h6 class="h6--eyebrow">Share</h6>
           <ul>
@@ -68,14 +69,14 @@
             )
           )
         ); ?>
-        
+
         <?php $related = new wp_query( $args ); ?>
         <?php if ( $related->have_posts() ) : ?>
         <h2 class="module__title">Related Articles</h2>
         <div class="row row--related-posts">
           <?php while ( $related->have_posts() ) : $related->the_post(); ?>
           <div class="col-mb-lg-6">
-            <?php include(locate_template('partials/post-index.php')); ?>    
+            <?php include(locate_template('partials/post-index.php')); ?>
           </div>
           <?php endwhile; ?>
         </div>

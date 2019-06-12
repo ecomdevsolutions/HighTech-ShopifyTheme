@@ -1,40 +1,47 @@
-{% if section.settings.video %}
-<div class="container">
-  <div class="row">
-    <div class="col-xxl-10 col-xxl-push-1">
-      <div class="video">
-        <div class="box box--16x9">
-          <div class="box__inner">
-            {% assign prefix = '' %}
-            {% if section.settings.video.type == 'youtube' %}
-            {% assign prefix = '//www.youtube.com/embed/' %}
-            {% elsif section.settings.video.type == 'vimeo' %}
-            {% assign prefix = '//player.vimeo.com/video/' %}
-            {% endif %}
 
-            <iframe src="{{ prefix | append: section.settings.video.id }}?autoplay=1&rel=0&showinfo=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+<div class="hero">
+  <div class="hero__box">
+      <div class="hero__overlay">
+          <h1>Finally, The Droids you've been looking for:</h1>
+          <hr/>
+          <span>Durable, High Quality, Fully Supported and Affordable</span>
+          |
+          <span>Robot Development Platform and Accessories</span>
+          <br>
+
+          <a href="#technical-section" class="button no-ajax">Learn More</a>
+          <a href="{{site.url}}/collections/all" class="button">Shop </a>
       </div>
-    </div>
+      <div>
+        <!-- The video -->
+        <video autoplay muted loop class="hero__video">
+          <source src="{{ 'roverrobotics-video.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      </div>
   </div>
 </div>
-{% endif %}
+
+<script>
+$(document).ready(function() {
+    $('a[href*=\\#]').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop : $(this.hash).offset().top
+        }, 500);
+    });
+});
 
 
-{% schema %}
-  {
-    "name": "Hero Video",
-    "class": "module module--hero-video",
-    "settings": [
-      {
-        "id": "video",
-        "type": "video_url",
-        "label": "Video",
-        "accept": ["youtube", "vimeo"]
-      }
-    ]
-  }
-{% endschema %}
+// var windowWidth = $(window).width()
+//
+// if (windowWidth < 900) {
+//   $('video').hide()
+// }
+//
+// $(window).resize(function(){
+//   if (windowWidth < 900) {
+//     $('video').hide()
+//   }
+// });
+
+</script>

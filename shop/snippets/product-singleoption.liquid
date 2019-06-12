@@ -1,7 +1,14 @@
 <h2>{{ product.title }}</h2>
+{% if product.has_only_default_variant %}
+{% else %}
 <span class="variant--select__heading">Select {{product.options}} </span>
-
 <hr class="product-title--break" />
+
+{% endif %}
+
+
+
+
   <div class="tab tab--variant-select">
     {% for variant in product.variants %}
       {% if product.has_only_default_variant %}

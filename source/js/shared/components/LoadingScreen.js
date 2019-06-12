@@ -18,15 +18,15 @@ class LoadingScreen {
   end () {
     this.interval = setInterval(() => {
       if ( !this.canEnd ) return
-      
+
       clearInterval(this.interval)
       this.$el.addClass('out')
-      
+
       setTimeout(() => {
         this.$el.remove()
-      }, 1200) 
+      }, 1200)
     }, 10)
-  }  
+  }
 }
 
 export default LoadingScreen
