@@ -20,28 +20,3 @@
       </div>
   </div>
 </div>
-
-<script>
-$(document).ready(function() {
-    $('a[href*=\\#]').on('click', function(e){
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop : $(this.hash).offset().top
-        }, 500);
-    });
-});
-
-
-// var windowWidth = $(window).width()
-//
-// if (windowWidth < 900) {
-//   $('video').hide()
-// }
-//
-// $(window).resize(function(){
-//   if (windowWidth < 900) {
-//     $('video').hide()
-//   }
-// });
-
-</script>

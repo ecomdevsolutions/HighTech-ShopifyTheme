@@ -118,7 +118,22 @@ tr:nth-child(even) {
     }
   }
 }
+.addon__cart-control {
+  float: right;
+  @media only screen and (max-width: 650px) {
+    float: none;
+    text-align: center;
+  }
 
+}
+.product__qty {
+  width: 50px;
+  margin-right: 20px;
+}
+.addon__qty {
+  width: 50px;
+  margin-right: 20px;
+}
 .product--index .product__inner {
   position: relative;
   background-color: $color-white;
@@ -215,9 +230,6 @@ tr:nth-child(even) {
   line-height: 14px;
   letter-spacing: 1.75px;
   text-transform: uppercase;
-}
-.product__option button {
-  float: right;
 }
 
 @media only screen and (max-width: 650px) {

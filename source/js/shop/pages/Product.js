@@ -8,7 +8,8 @@ class Product {
     this.$thumb = $('.product__thumb')
     this.$banner = $('.product-banner')
 
-
+    this.$varientQuantity = $('.product__qty')
+    this.$optionQuanity = $('.addon__qty')
     this.$variantSelect = this.$form.find('select[name="id"]')
     this.$optionValue = $('.product__option__value')
 
@@ -18,14 +19,12 @@ class Product {
     this.$addons = $('.button--addon')
     this.$addToCart = $(".button--add-to-cart")
     this.currentVarient = null
+    //total price in bottom banner
     this.price = null
-    this.addon_price = 0
+    //array of objects off addons
     this.addons = []
     this.options = {}
     this.cartClicked = false
-    this.addonHTML = {}
-    //passes in global var product.liquid: line:213
-
   }
 
   static get bodyClass () {
@@ -36,15 +35,17 @@ class Product {
   init () {
     this.initImages()
     this.filterImages(this.getSelectedVariant())
-    console.log(product.options)
+
     if (product.options.length < 2) {
       this.currentVarient = CURRENT_VARIENT_PRICE
     }
 
     this.optionSelect()
+    this.setAddonQuantity()
     this.addToCart()
     this.varientSelect()
-    this.addonSelect()
+    this.setVariantQuantity()
+
 
   }
 
@@ -113,6 +114,7 @@ class Product {
 
   }
 
+  //selects varent via tabs in upper right
   optionSelect() {
     this.$options.click((e) => {
       let button = $(e.target)
@@ -128,9 +130,8 @@ class Product {
         }
       }
       if (values.length == product.options.length) {
-        console.log(values.length)
         var variant = this.findVarient()
-        this.currentVarient = {id: variant[0].id, price: variant[0].price}
+        this.currentVarient = {id: variant[0].id, price: variant[0].price, quantity: 1}
         $('.product-banner__price').text(Shopify.formatMoney(variant[0].price).replace(/(\..*)/, ''))
       }
     });
@@ -147,48 +148,54 @@ class Product {
 
   varientSelect() {
     this.$varients.click((e) => {
-      this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price)}
+      this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price), quantity: 1}
+      this.updatePrice()
+    });
+  }
+
+  setVariantQuantity() {
+    this.$varientQuantity.change((e) => {
+      let quantity = parseFloat(e.target.value)
+      this.currentVarient.quantity = quantity
+      this.updatePrice()
+    });
+  }
+
+  setAddonQuantity() {
+    this.$optionQuanity.change((e) => {
+      let addonIndex = this.addons.findIndex(x => x.url === e.target.dataset.url)
+
+      if (addonIndex != -1) {
+        this.addons[addonIndex].quantity = parseFloat(e.target.value)
+      } else {
+        this.addons.push({
+          url: e.target.dataset.url,
+          price: parseFloat(e.target.dataset.price),
+          quantity: parseFloat(e.target.value)
+        });
+      }
       this.updatePrice()
     });
   }
 
   updatePrice() {
-    this.price = "$"+String(((this.currentVarient.price + this.addon_price) / 100).toFixed(2))
+    //class holds no default state for selected varients
+    // if the quantity is undif it sets it to 1
+    let quantity;
+    if (this.currentVarient.quantity === undefined) {
+      quantity = 1
+    } else {
+      quantity = this.currentVarient.quantity
+    }
+
+    let totalAddonPrice = 0;
+    for (let i = 0; i < this.addons.length; i ++) {
+      totalAddonPrice += (this.addons[i].price * this.addons[i].quantity)
+    }
+    this.price = "$"+String((((this.currentVarient.price * quantity) + totalAddonPrice) / 100).toFixed(2))
     this.$bannerPrice.text(this.price)
   }
 
-  addonSelect() {
-    this.$addons.click((e) => {
-      //Deselect addon
-      if (this.addons.includes(e.target.dataset.url)) {
-        //get position of {{product.url}} in array
-        let pos = this.addons.indexOf(e.target.dataset.url)
-        //remove it
-        this.addons.splice(pos,1)
-        //subtract price
-        this.addon_price -= parseFloat(e.target.dataset.price)
-        //update price
-        this.updatePrice()
-          //set html in object ref'ed by product ID
-        $("#"+e.target.dataset.id).html(this.addonHTML[e.target.dataset.id])
-        $("#"+e.target.dataset.id).css("background-color", "#fff")
-        $("#"+e.target.dataset.id).css("color", "#000")
-      } else {
-        //Select addon
-        this.addons.push(e.target.dataset.url)
-        //Add price
-        this.addon_price += parseFloat(e.target.dataset.price)
-        //Update price
-        this.updatePrice()
-        $("#"+e.target.dataset.id).css("background-color", "#0074E4")
-        $("#"+e.target.dataset.id).css("color", "#fff")
-        //store html in object ref'ed by product ID
-        this.addonHTML[e.target.dataset.id] = $("#"+e.target.dataset.id).html()
-        //update html to clicked state
-      $("#"+e.target.dataset.id).html(`<i data-id='${e.target.dataset.id}' data-pirce=${e.target.dataset.price} class='fas fa-check-circle'></i> Added to order`)
-      }
-    })
-  }
 
   postToCart(data) {
 
@@ -196,7 +203,7 @@ class Product {
         method: "POST",
         url: "/cart/add.js",
         dataType: 'json',
-        async: false,
+        async: false, // MUST have ASYNC false
         data: data,
         success: function(res) {
           console.log('success', res)
@@ -216,18 +223,20 @@ class Product {
       if (!this.cartClicked) {
         this.cartClicked = true
 
-        let data = {
-          quantity: 1,
+        let variantData = {
+          quantity: this.currentVarient.quantity,
           id: this.currentVarient.id
         }
         // adds variant to cart
-         this.postToCart(data)
+         this.postToCart(variantData)
          // ads addons to cart (if any)
         for (let i = 0; i < this.addons.length; i++) {
-          $.getJSON(this.addons[i] + '.js', (product) => {
+          // getvarient id
+          $.getJSON(this.addons[i].url + '.js', (product) => {
             let id = product.variants[0].id
+
             let data = {
-              quantity: 1,
+              quantity: this.addons[i].quantity,
               id: id
             }
             this.postToCart(data)

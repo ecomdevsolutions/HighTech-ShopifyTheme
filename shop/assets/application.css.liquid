@@ -3944,6 +3944,21 @@ tr:nth-child(even) {
   .row--products > [class*=col-]:nth-last-child(-n+2) .product--index {
     border-bottom: solid 1px #F0F0F0; } }
 
+.addon__cart-control {
+  float: right; }
+  @media only screen and (max-width: 650px) {
+    .addon__cart-control {
+      float: none;
+      text-align: center; } }
+
+.product__qty {
+  width: 50px;
+  margin-right: 20px; }
+
+.addon__qty {
+  width: 50px;
+  margin-right: 20px; }
+
 .product--index .product__inner {
   position: relative;
   background-color: #ffffff; }
@@ -4014,9 +4029,6 @@ tr:nth-child(even) {
   line-height: 14px;
   letter-spacing: 1.75px;
   text-transform: uppercase; }
-
-.product__option button {
-  float: right; }
 
 @media only screen and (max-width: 650px) {
   .product__option button {

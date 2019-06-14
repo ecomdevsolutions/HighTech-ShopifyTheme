@@ -10,9 +10,13 @@
           </label>
         </a>
         <img src="{{product | img_url}}" alt="{{product.title}}"/>
-        <button data-price="{{product.price}}" data-url={{product.url}} id="{{product.id}}" data-id={{product.id}} class="button button--addon"><i data-price="{{product.price}}"  data-url={{product.url}} data-id={{product.id}} class="fas fa-plus"></i> Add to Order:
+        <div class="addon__cart-control">
+        <strong>QTY: </strong> &nbsp; &nbsp; <input id="quantity-{{product.id}}" class="addon__qty" data-url="{{product.url}}" data-price="{{product.price}}" type="number" min="0" name="product-quantity" value="0" />
+
+        <!-- <button data-price="{{product.price}}" data-url={{product.url}} id="{{product.id}}" data-id={{product.id}} class="button button--addon"><i data-price="{{product.price}}"  data-url={{product.url}} data-id={{product.id}} class="fas fa-plus"></i>
           <span data-price="{{product.price}}" data-url={{product.url}} data-id={{product.id}} class="addon__price">{{product.price | money}}</span>
-        </button>
+        </button> -->
+        </div>
       </li>
     {% endfor %}
   </ol>
