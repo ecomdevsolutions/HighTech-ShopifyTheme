@@ -231,7 +231,7 @@ class Product {
          this.postToCart(variantData)
          // ads addons to cart (if any)
         for (let i = 0; i < this.addons.length; i++) {
-          // getvarient id
+          // get varient id
           $.getJSON(this.addons[i].url + '.js', (product) => {
             let id = product.variants[0].id
 

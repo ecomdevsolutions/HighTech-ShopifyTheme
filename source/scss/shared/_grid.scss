@@ -8,6 +8,13 @@
   }
 }
 
+.container--large {
+  position: relative;
+  padding: 0 calc(#{$container-padding} + #{$grid-column-gutter / 2});
+  margin: 0 auto;
+}
+
+
 .row--no-gutter {
   [class*='col-'] {
     padding: 0 !important;

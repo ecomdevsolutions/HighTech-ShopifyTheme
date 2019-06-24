@@ -1,5 +1,8 @@
 <?php
-
+add_action('wp_enqueue_scripts', 'google_fonts');
+function google_fonts() {
+       wp_enqueue_style('Noto+Serif','//fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+}
 function get_post_thumbnail_url ( $id, $size='large' ) {    
     if ( has_post_thumbnail($id) ) {
         $_id = get_post_thumbnail_id($id);

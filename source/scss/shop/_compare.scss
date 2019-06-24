@@ -1,0 +1,21 @@
+.shop-page-compare {
+  text-align: center;
+  & h1 {
+    text-align: center;
+  }
+  & img {
+    height: 50px;
+    @media only screen and (max-width: 600px) {
+        display: None;
+      }
+    }
+  }
+
+.comparison-table {
+  width: 100%;
+  overflow: auto;
+}
+#flow-chart-compair {
+  height: auto;
+}
+

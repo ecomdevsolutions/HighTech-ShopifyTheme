@@ -1,0 +1,444 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 1em;
+  margin: .75em 0;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 42px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  user-select: none;
+
+  @include breakpoint(desktop) {
+    font-size: 60px;
+    line-height: 52px;
+  }
+
+  span:last-child {
+    color: $color-blue;
+  }
+}
+
+h2, .h2 {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: $color-blue;
+
+  @include breakpoint(desktop) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+.h2--page-title {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+h3, .h3 {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: $color-black;
+  
+  @include breakpoint(desktop) {
+    font-size: 28px;
+    line-height: 36px;  
+  }
+  
+}
+
+h4, .h4 {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: $color-black;  
+  
+  @include breakpoint(desktop) {
+    font-size: 24px;
+    line-height: 30px;  
+  }      
+}
+
+h5, .h5 {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+  
+  @include breakpoint(large) {
+    font-size: 20px;
+    line-height: 26px;  
+  }  
+}
+
+.h5--impact {
+  @extend .h5;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-blue;
+}
+
+h6, .h6 {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px; 
+}
+
+.h6--eyebrow {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.h6--eyebrow--blue {
+  @extend .h6--eyebrow;
+  color: $color-blue;
+}
+
+%text--large {
+  font-family: 'Noto Serif', serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;  
+}
+
+%text--normal {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+%text--xsmall {
+  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+p {
+  @extend %text--normal;
+  margin: 1em 0;
+}
+
+.p--large {
+  @extend %text--large;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.richtext {
+  h1 {
+    @extend .h3;
+  }
+  
+  h2 {    
+    font-size: 24px !important;
+    line-height: 30px !important;    
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    margin-top: 1.5em;
+    @extend .h5;
+  }
+
+  h4 {
+    margin-top: 1.5em;
+    @extend .h6;
+  }
+
+  h5 {
+    margin-top: 1.5em;
+    @extend .h6;
+  }
+
+  h6 {
+    margin-top: 1.5em;
+    @extend .h6;
+  }
+
+  ul, ol {
+    @extend %text--normal;
+    
+    padding-left: 1em;    
+  }
+
+  ul li {
+    list-style: disc;
+  }
+
+  ol li {
+    list-style: decimal;
+  }
+
+  .task-list {
+    margin: 1em 0;
+    padding: 0;
+    
+    input {
+      margin: 0 1em 0 0;
+    }
+    
+    li {
+      list-style: none;
+    }
+  }
+
+  p a {
+    color: $color-blue;
+    font-weight: 500;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote {
+    margin: 0;
+    font-style: italic;
+    padding-left: $grid-column-gutter / 2;
+    border-left: solid 1px $color-xltgray;
+  }
+
+  code {
+    background-color: $color-xltgray;
+    border-radius: 5px;
+    padding: 5px 7px;
+  }
+  
+  pre.highlight {
+    background-color: $color-xltgray;
+    border-radius: 5px;
+    padding: 5px 7px;
+    
+    code {
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $color-white;
+    text-align: left;
+    @extend %text--normal;
+
+    th, td {
+      margin: 0;
+      padding: 10px;
+      border-bottom: solid 1px $color-xltgray;
+      border-right: solid 1px $color-xltgray;
+    }
+    
+    tr:first-child {      
+      th, td {
+        border-top: solid 1px $color-xltgray;
+      }
+    }
+
+    th:first-child,
+    td:first-child {
+      border-left: solid 1px $color-xltgray;      
+    }
+  }
+}
+
+%label {
+ font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 1.75px;  
+  text-transform: uppercase;
+  user-select: none;
+}
+
+%label--form {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: .05em;
+}
+
+%label--blue {
+  @extend %label;
+  color: $color-blue;
+}
+
+%label--small {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 1.75px;  
+  text-transform: uppercase;
+  user-select: none;
+}
+
+%text--key--small {
+  font-family: 'Noto Serif', serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+%text--value--small {
+  font-family: 'Noto Serif', serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;  
+}
+
+%text--key {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;  
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+%text--value {
+  font-family: 'Noto Serif', serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+%link {
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+%link--list {
+  font-family: 'Noto Serif', serif;
+  font-weight: regular;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-blue;
+  }
+  
+  span[class*=icon] {
+    font-size: 17px;
+    position: relative;
+    margin-top: -2px;
+    margin-right: 5px;
+  }
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+%link--light {
+  font-family: 'Noto Serif', serif;
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: 1.25px;  
+  text-transform: uppercase;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-black;
+    transition: width 200ms ease;
+    pointer-events: none;
+  }
+
+  &:hover:after {
+    width: 0;
+  }
+}
+
+%hover-fade {
+  opacity: 1;
+  transition: opacity 250ms ease;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+%hover-fade-reverse {
+  opacity: .5;
+  transition: opacity 250ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+::-moz-selection {
+  color: $color-white;
+  background-color: $color-blue;
+}
+
+::selection {
+  color: $color-white;
+  background-color: $color-blue;
+}

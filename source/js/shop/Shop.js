@@ -6,6 +6,8 @@ import Product from './pages/Product'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Addresses from './pages/Addresses'
+import Comparison from './pages/comparison';
+import QuoteRequest from './pages/QuoteRequest';
 
 class Shop {
   constructor () {            
@@ -14,7 +16,9 @@ class Shop {
       Product,
       Contact,
       Login,
-      Addresses
+      Addresses,
+      Comparison,
+      QuoteRequest
     ])    
   }
 }

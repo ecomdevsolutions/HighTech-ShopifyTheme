@@ -1770,6 +1770,13 @@ body {
     .container {
       padding: 0 15px 0 25px; } }
 
+.container--large {
+  position: relative;
+  padding: 0 -webkit-calc(8.33333% + 15px);
+  padding: 0 -moz-calc(8.33333% + 15px);
+  padding: 0 calc(8.33333% + 15px);
+  margin: 0 auto; }
+
 .row--no-gutter [class*='col-'] {
   padding: 0 !important; }
 
@@ -4439,3 +4446,23 @@ body[class*=customers] .table {
   @media (min-width: 568px) {
     .address-new-toggle {
       width: auto; } }
+
+.shop-page-compare {
+  text-align: center; }
+  .shop-page-compare h1 {
+    text-align: center; }
+  .shop-page-compare img {
+    height: 50px; }
+    @media only screen and (max-width: 600px) {
+      .shop-page-compare img {
+        display: None; } }
+
+.comparison-table {
+  width: 100%;
+  overflow: auto; }
+
+#flow-chart-compair {
+  height: auto; }
+
+#quote-shipping-container {
+  display: None; }

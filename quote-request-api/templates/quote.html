@@ -67,14 +67,14 @@ th,td {
         <tr>
           <td>
             <strong>Customer:</strong> {{company}} <br>
-            <strong>Address:</strong> {{address}}, {{city}} {{country}}<br>
+            <strong>Address:</strong> {{address}}, {{address_2}}, {{city}}, {{country}}<br>
               {{state}}, {{zipcode}}
               <br><br>
             <strong>Phone:</strong> {{phone}}
           </td>
           <td>
             <strong>Customer:</strong> {{shipping_company}} <br>
-            <strong>Address:</strong> {{shipping_address}}, {{shipping_city}} {{country}}<br>
+            <strong>Address:</strong> {{shipping_address}}, {{shipping_address_2}}, {{shipping_city}}, {{country}}<br>
               {{shipping_state}}, {{shipping_zipcode}}
               <br><br>
             <strong>Phone:</strong> {{shipping_phone}}
@@ -133,7 +133,7 @@ th,td {
           <td></td>
           <td></td>
           <td>Shipping</td>
-          <td>{{ "$%.2f"|format(cart_data['shipping_price']) }}</td>
+          <td>TBD</td>
         </tr>
         <tr>
           <td></td>
@@ -143,7 +143,7 @@ th,td {
           <td>Tax</td>
           {%if state == "MN" %}
           {%set tax = (cart_data['total_price'] / 100 * 0.06875) | round(2) %}
-          {%set total_with_tax_and_shipping = (cart_data['total_price'] / 100 + tax) + cart_data['shipping_price']|round(2) %}
+          {%set total_with_tax_and_shipping = (cart_data['total_price'] / 100 + tax) %}
           <td>{{ "$%.2f"|format(tax) }}</td>
           {% else %}
           <td>$0.00</td>
@@ -160,7 +160,7 @@ th,td {
           {%if tax%}
           <td>{{ "$%.2f"|format(total_with_tax_and_shipping) }}</td>
           {%else%}
-          {%set total_with_shipping = (cart_data['total_price'] / 100) + cart_data['shipping_price'] | round(2) %}
+          {%set total_with_shipping = (cart_data['total_price'] / 100) %}
           <td>{{ "$%.2f"|format(total_with_shipping) }}</td>
           {%endif%}
 

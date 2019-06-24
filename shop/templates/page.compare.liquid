@@ -1,0 +1,128 @@
+<div class="container--large">
+      {% assign lines = page.title | newline_to_br | split: '<br />' %}
+      <h1 class="h2">
+        {% for line in lines %}
+        <span>{{ line }}</span>
+        {% unless forloop.last %}
+        <br />
+        {% endunless %}
+        {% endfor %}
+      </h1>
+        {{page.content}}
+        <hr/>
+        <img id="flow-chart-compair" src="{{'robot_comparison_flowchart.png' | asset_url}}" alt="Robot Comparison Image" />
+        <hr/>.
+        <h3>Rover 4WD Comparison</h3>
+      <div class="page-content page-content--padded">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <td></td>
+              <th>
+                  <img src="{{'logo.svg' | asset_url }}" alt="rover logo"/>
+                  <br/>
+                  Rover 4WD
+              </th>
+              <th>
+                  <img src="{{'clearpath.png' | asset_url }}" alt="rover logo"/>
+                  <br/>
+                  Clearpath Jackel
+              </th>
+              <th>
+                  <img src="{{'turtlebot.png' | asset_url }}" alt="rover logo"/>
+                  <br/>
+                  Turtlebot
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Price</th>
+              <td class="data-item-1">$5,750.00</td>
+              <td class="data-item-2">$12,000 - $20,000</td>
+              <td class="data-item-3">$500 - $2200</td>
+            </tr>
+             <tr>
+              <th>IP Rating</th>
+              <td class="data-item-1">67</td>
+              <td class="data-item-2">44</td>
+              <td class="data-item-3">0</td>
+            </tr>
+             <tr>
+              <th>Drivers</th>
+              <td class="data-item-1">
+                  <ul>
+                      <li>
+                          -ROS 1
+                      </li>
+                      <li>
+                          -ROS 2
+                      </li>
+                  </ul>
+              </td>
+              <td class="data-item-2">
+                  <ul>
+                      <li>-ROS 1</li>
+                  </ul>
+              </td>
+              <td class="data-item-3">- ROS 1</td>
+            </tr>
+             <tr>
+              <th>Uses</th>
+              <td class="data-item-1">
+                  <ul>
+                      <li>- Education</li>
+                      <li>- Research</li>
+                      <li>- Industrial</li>
+                  </ul>
+              </td>
+              <td class="data-item-2">
+                  <ul>
+                      <li>- Education</li>
+                      <li>- Research</li>
+                      <li>- Industrial</li>
+                  </ul>
+              </td>
+              <td class="data-item-3">
+                  <ul>
+                      <li>- Education</li>
+                      <li>- Research </li>
+                  </ul>
+              </td>
+            </tr>
+             <tr>
+              <th>Max Payload</th>
+              <td class="data-item-1">40kg</td>
+              <td class="data-item-2">20kg</td>
+              <td class="data-item-3">15kg</td>
+            </tr>
+             <tr>
+              <th>Run Time (Basic Usage)</th>
+              <td class="data-item-1">18 Hours</td>
+              <td class="data-item-3">4 hours</td>
+              <td class="data-item-3">2h 30m</td>
+            </tr>
+             <tr>
+              <th>Weight</th>
+              <td class="data-item-1">9.07kg</td>
+              <td class="data-item-3">17kg</td>
+              <td class="data-item-3">1-1.8kg</td>
+            </tr>
+             <tr>
+              <th>Max Speed</th>
+              <td class="data-item-1">3.57/ms</td>
+              <td class="data-item-2">2/ms</td>
+              <td class="data-item-3">0.22 - 0.26/ms</td>
+            </tr>
+             <tr>
+              <th>Size</th>
+              <td class="data-item-1">508 x 430 x 250in</td>
+              <td class="data-item-2">20 x 17 x 10 in</td>
+              <td class="data-item-3">138 x 178 x 192in</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
+
+{% section 'get-in-touch' %}

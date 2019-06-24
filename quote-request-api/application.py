@@ -15,25 +15,27 @@ def process_quote():
     email = quote['quote-email']
     phone = quote['quote-phone']
     company = quote['quote-company']
-    address = quote['quote-address']
+    address = quote['quote-address-1']
+    address_2 = quote.get('quote-address-2', '')
     city = quote['quote-city']
     country = quote['quote-country']
     state = quote.get('quote-state', '')
     zipcode = quote['quote-zipcode']
-    #cart data comes as json string. use json loads to turn into python dict
+    # cart data comes as json string. use json loads to turn into python dict
     cart_data = json.loads(quote['cart-data'])
     shipping_phone = quote['quote-phone-shipping']
     shipping_company = quote['quote-company-shipping']
-    shipping_address = quote['quote-address-shipping']
+    shipping_address = quote['quote-address-1-shipping']
     shipping_city = quote['quote-city-shipping']
     shipping_state = quote.get('quote-state-shipping', '')
+    shipping_address_2 = quote.get('quote-address-2-shipping', '')
     shipping_zipcode = quote['quote-zipcode-shipping']
 
-    #init pdf object
-    pdf = RoverPDF(name, email, phone,company, address, country, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address, shipping_city, shipping_state, shipping_zipcode)
+    # init pdf object
+    pdf = RoverPDF(name, email, phone,company, address,address_2, country, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address,shipping_address_2, shipping_city, shipping_state, shipping_zipcode)
     #create pdf
     pdf = pdf.create_pdf()
-    gmail = GmailAPI(email_from="matt@roverrobotics.com", email_to=email, email_subject="Quote Request", pdf=pdf)
+    gmail = GmailAPI(email_from="nick@roverrobotics.com", email_to=email, email_subject="Quote Request For Rover Robotics", pdf=pdf)
     #send message
     gmail.send_message()
     #redirect user

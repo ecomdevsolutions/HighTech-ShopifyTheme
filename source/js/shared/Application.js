@@ -139,8 +139,12 @@ class Application {
 
   onLinkClick ( e ) {
     if ( !this.$body.hasClass('forums') ) {
+        const video =  $('hero__video')
 
-      $('hero__video').pause()
+        if (video.length > 0) {
+          video.pause()
+        }
+
     
 
       let $this = $(e.target),

@@ -17,7 +17,7 @@
     "shop:build": "npm run copy:static:shop && npm run shop:builder",
     "blog:developer": "NODE_ENV='development' webpack --config webpack.blog.config.js",
     "blog:dev": "npm run copy:static:blog && npm run blog:developer",
-    "blog:builder": "NODE_ENV='production' webpack --config webpack.blog.config.js",
+    "blog:builder": "webpack --config webpack.blog.config.js --watch",
     "blog:build": "npm run copy:static:blog && npm run blog:builder",
     "docs:serve": "cd docs && bundle exec jekyll serve",
     "docs:developer": "NODE_ENV='development' concurrently \"webpack --config webpack.docs.config.js\" \"npm run docs:serve\"",

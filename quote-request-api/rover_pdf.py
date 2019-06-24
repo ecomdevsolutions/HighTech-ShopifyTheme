@@ -14,12 +14,13 @@ from io import BytesIO
 
 
 class RoverPDF:
-    def __init__(self, name, email, phone, company, address, country, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address, shipping_city, shipping_state, shipping_zipcode):
+    def __init__(self, name, email, phone, company, address,address_2, country, city, state, zipcode, cart_data, shipping_phone, shipping_company, shipping_address,shipping_address_2, shipping_city, shipping_state, shipping_zipcode):
         self.name = name
         self.email = email
         self.phone = phone
         self.company = company
         self.address = address
+        self.address_2 = address_2
         self.country = country
         self.city = city
         self.state = state
@@ -28,11 +29,12 @@ class RoverPDF:
         self.shipping_phone = shipping_phone
         self.shipping_company = shipping_company
         self.shipping_address = shipping_address
-        self. shipping_city = shipping_city
+        self.shipping_address_2 = shipping_address_2
+        self.shipping_city = shipping_city
         self.shipping_state = shipping_state
         self.shipping_zipcode = shipping_zipcode
-        #shipping rates (int: weight in lbs, int: max price)
-        self.shipping_rates = shipping_rates = [(5,9), (15,36), (35,75), (60,115),(95,190),(120,230), (155,305), (180,345), (215,420),(240,460),(275,535), (300,575), (335,650), (360,690), (395,765), (420,805), (455,880), (480,920)]
+        # shipping rates (int: weight in lbs, int: max price)
+        self.shipping_rates  = [(5,9), (15,36), (35,75), (60,115),(95,190),(120,230), (155,305), (180,345), (215,420),(240,460),(275,535), (300,575), (335,650), (360,690), (395,765), (420,805), (455,880), (480,920)]
         self.uk_shipping = 460
         self.grams_to_lb = 453.592
 
@@ -46,7 +48,7 @@ class RoverPDF:
         self.get_images()
         try:
             outputText = template.render(
-                name=self.name, email=self.email, phone=self.phone, company=self.company, address=self.address, country=self.country, city=self.city, state=self.state, zipcode=self.zipcode, cart_data=self.cart_data, shipping_phone=self.shipping_phone ,shipping_company=self.shipping_company, shipping_address=self.shipping_address, shipping_city=self.shipping_city, shipping_state=self.shipping_state, shipping_zipcode=self.shipping_zipcode)
+                name=self.name, email=self.email, phone=self.phone, company=self.company, address=self.address, address_2=self.address_2, country=self.country, city=self.city, state=self.state, zipcode=self.zipcode, cart_data=self.cart_data, shipping_phone=self.shipping_phone ,shipping_company=self.shipping_company, shipping_address=self.shipping_address, shipping_address_2=self.shipping_address_2, shipping_city=self.shipping_city, shipping_state=self.shipping_state, shipping_zipcode=self.shipping_zipcode)
 
         except Exception as e:
             raise Exception(f'Error creating jinja 2 template: {e}')

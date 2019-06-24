@@ -61,7 +61,7 @@
                     "container" => false
                   ));?>                  
                 </nav>
-                <div class="copyright">©2018 Open Avatar Inc.</div>
+                <div class="copyright">©2019 Open Avatar Inc.</div>
               </div>
             </div>
           </div>
