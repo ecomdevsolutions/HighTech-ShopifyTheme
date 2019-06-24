@@ -36,6 +36,8 @@ class Product {
     this.initImages()
     this.filterImages(this.getSelectedVariant())
 
+    console.log(this.$images)
+
     if (product.options.length < 2) {
       this.currentVarient = CURRENT_VARIENT_PRICE
     }
@@ -45,6 +47,7 @@ class Product {
     this.addToCart()
     this.varientSelect()
     this.setVariantQuantity()
+    this.changeImageByClick()
 
 
   }
@@ -59,9 +62,19 @@ class Product {
       prevArrow: '.nav--slick__prev',
       nextArrow: '.nav--slick__next'
     })
+
+  }
+
+  changeImageByClick() {
+    this.$thumb.click((e) => {
+      e.stopPropagation();
+      console.log(e.target)
+      this.$images.slick('slickGoTo', parseInt(e.target.dataset.index))
+    })
   }
 
   filterImages ( variant ) {
+    console.log(variant, 'filter images')
     this.$images.slick('slickUnfilter')
     this.$thumb.removeClass('active')
 
@@ -80,7 +93,7 @@ class Product {
   }
 
   updateVariant () {
-    let variant = this.getSelectedVariant()
+    let variant = this.getSelectedVariant();
     this.$bannerPrice.html(Shopify.formatMoney(variant.price).replace(/(\..*)/, ''))
     this.$variantSelect.val(variant.id)
     this.filterImages(variant)
@@ -90,7 +103,6 @@ class Product {
     let $selected = this.$optionValue.filter('.selected'),
         selected = {},
         variant
-
     $selected.each((k,v) => {
       let $this = $(v),
           position = $this.data('option-position'),
