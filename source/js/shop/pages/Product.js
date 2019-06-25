@@ -48,6 +48,7 @@ class Product {
     this.varientSelect()
     this.setVariantQuantity()
     this.changeImageByClick()
+    this.updateQuantity()
 
 
   }
@@ -97,6 +98,22 @@ class Product {
     this.$bannerPrice.html(Shopify.formatMoney(variant.price).replace(/(\..*)/, ''))
     this.$variantSelect.val(variant.id)
     this.filterImages(variant)
+  }
+
+  updateQuantity() {
+    $('.plus, .minus').click((e) => {
+      const field = $(`#quantity-${e.target.dataset.id}`)
+      const fieldValue = parseInt(field.val())
+      if (e.target.value == "-") {
+        const decrement = fieldValue - 1
+        field.val(decrement)
+      } else {
+        const increment = fieldValue + 1
+        field.val(increment)
+      }
+      field.change()
+      console.log(e.target.dataset.id)
+    })
   }
 
   getSelectedVariant () {
