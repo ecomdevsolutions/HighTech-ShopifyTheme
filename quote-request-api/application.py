@@ -1,9 +1,9 @@
+import json
 from flask import Flask
 from flask import request, redirect
 from rover_pdf import RoverPDF
-import json
 from gmail_api import GmailAPI
-
+from jira.jira_api import JiraAPI
 
 application = Flask(__name__)
 
@@ -40,6 +40,43 @@ def process_quote():
     gmail.send_message()
     #redirect user
     return redirect("https://roverrobotics.com/pages/quote-request?submitted=true", code=302)
+
+
+@application.route('/contact', methods=['POST'])
+def contact():
+    form = request.form
+
+
+    name = form['contact[name]']
+    email = form['contact[email]']
+    company = form['contact[company]']
+    body = form['contact[body]']
+
+    data = {
+        "fields": {
+            "project":
+                {
+                    "key": "ERP"
+                },
+            "summary": f"New Lead, {name}",
+            "description": f"name: {name}\n email: {email} \n company: {company} \n\n {body}",
+
+            "issuetype": {
+                "name": "ERP - Sales Leads and Orders"
+            },
+            "customfield_10055": email,
+        },
+
+    }
+
+    try:
+        jira = JiraAPI('nick@roverrobotics.com', "gQoWR4s0kArFp6rDkf6YE87B")
+        jira.create_issue(data)
+        return redirect("https://roverrobotics.com/pages/contact?submitted=true", code=302)
+    except:
+        redirect("https://roverrobotics.com/pages/contact?submitted=false", code=302)
+
+
 
 
 if __name__ == '__main__':
