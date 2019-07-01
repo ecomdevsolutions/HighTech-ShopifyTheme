@@ -14,7 +14,8 @@
 <div class="product__price">
   {% if compare_at_price > price %}
     {% if available %}
-    <s class="product-price__price">{{ compare_at_price | money }}</s>
+
+    <span class="product-price__price">{{ compare_at_price | money }}</span>
     <span class="product-price__price product-price__sale">
       {% if variant.price_min != variant.price_max %}Starting at: {% endif %}{{ money_price }}
     </span>
@@ -24,7 +25,13 @@
   {% else %}
     {% if available %}
     <span class="product-price__price">
-      {% if variant.price_min != variant.price_max %}Starting at: {% endif %}{{ money_price }}
+      {% if variant.price_min != variant.price_max %}Starting at: {% endif %}
+      {% if price == 0%}
+      <span>Please fill out form for pricing</span>
+      {% else %}
+      {{ money_price }}
+      {% endif %}
+
     </span>
     {% else %}
     <span class="product-price__sold-out">({{ 'products.product.sold_out' | t }}) {{ money_price }}</span>

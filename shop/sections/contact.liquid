@@ -32,18 +32,9 @@
             <p>{{ section.settings.hq | newline_to_br }}</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="contact-form-container">
 
-          {% form 'contact' %}
-
-            {% if form.posted_successfully? %}
-              <p style="background-color:DodgerBlue;">
-                {{ 'contact.form.post_success' | t}}
-              </p>
-            {% endif %}
-
-            <p style="background-color:Tomato;" {{ form.errors | default_errors }} </p>
-
+          <form method="POST" action="https://quote.roverrobotics.com/contact" id="contact-form">
             <div class="grid" >
               <div class="grid_item medium-up--one-half">
                 <label for="ContactFormName"> Name </label>
@@ -62,9 +53,8 @@
                 <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
               </div>
             </div>
-            <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
-
-            {% endform %}
+            <input type="submit" class="btn">
+            </form>
 
             </div>
           </div>

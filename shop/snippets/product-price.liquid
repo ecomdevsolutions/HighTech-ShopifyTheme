@@ -12,10 +12,12 @@
 
 {%- assign money_price = price | money -%}
 <div class="product__price">
+
   {% if compare_at_price > price %}
     {% if available %}
     <s class="product-price__price">{{ compare_at_price | money }}</s>
     <span class="product-price__price product-price__sale">
+
       {% if product.price_min != product.price_max %}Starting at: {% endif %}{{ money_price }}
     </span>
     {% else %}
@@ -24,6 +26,7 @@
   {% else %}
     {% if available %}
     <span class="product-price__price">
+
       {% if product.price_min != product.price_max %}Starting at: {% endif %}{{ money_price }}
     </span>
     {% else %}

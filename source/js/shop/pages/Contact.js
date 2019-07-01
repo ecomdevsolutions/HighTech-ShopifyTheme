@@ -6,6 +6,10 @@ class Contact {
   constructor () {
     this.onReady = this.onReady.bind(this)
     this.onError = this.onError.bind(this)
+    this.$contactForm = $('#contact-form')
+    this.$contactFormContainer = $('#contact-form-container')
+    this.detectSubmit()
+
   }
 
   static get bodyClass () {
@@ -32,6 +36,18 @@ class Contact {
   get markerIcon () {
     return 'https://cdn.shopify.com/s/files/1/0019/5100/6835/files/icon-map-marker.png?9945941158907407736'
   }
+
+  detectSubmit() {
+     let urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('submitted')) {
+        console.log(this)
+        this.$contactForm.hide()
+        this.$contactFormContainer.append(
+            `<h1>Success!</h1>`
+        )
+      }
+  }
+
 
   onReady ( googleMaps ) {
     let geocoder = new googleMaps.Geocoder(),
