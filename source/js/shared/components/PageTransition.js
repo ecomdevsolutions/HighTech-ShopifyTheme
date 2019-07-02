@@ -8,7 +8,7 @@ class PageTransition {
 
   start () {
     return new Promise((resolve, reject) => {
-      this.$el.addClass('in')
+      //this.$el.addClass('in')
       setTimeout(() => {
         resolve()
         this.isOpen = true

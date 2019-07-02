@@ -16,10 +16,14 @@ class JiraAPI:
     def create_issue(self, data):
         try:
             res = requests.post(f'{self.base_url}/issue/', auth=self.auth, json=data)
+            if not res.ok:
+                raise ValueError("Error: Invalid API call to Jira")
             return res.json()
         except requests.exceptions.RequestException as e:
             print(e)
             raise Exception(f'Error Posting to Jira API, {e}')
+        except Exception as e:
+            print(e)
 
 
 

@@ -26,7 +26,7 @@ class Application {
     this.onLinkClick = this.onLinkClick.bind(this)
     this.onWindowLoad = this.onWindowLoad.bind(this)
     this.onWindowResize = this.onWindowResize.bind(this)
-    this.onWindowScroll = this.onWindowScroll.bind(this)
+    // this.onWindowScroll = this.onWindowScroll.bind(this)
     this.onWindowNavigate = this.onWindowNavigate.bind(this)
     this.onWindowOrientationchange = this.onWindowOrientationchange.bind(this)
     this.onPjaxPopstate = this.onPjaxPopstate.bind(this)
@@ -55,21 +55,22 @@ class Application {
     if ( $.pjax && $.pjax.defaults )
       $.pjax.defaults.maxCacheLength = 0
 
-    this.$document.on(
-      'click',
-      'a:not([target="_blank"]):not([href^=mailto]):not([href^=tel]):not(.no-ajax)',
-      this.onLinkClick
-    )
+    //stops loading screen
+    // this.$document.on(
+    //   'click',
+    //   'a:not([target="_blank"]):not([href^=mailto]):not([href^=tel]):not(.no-ajax)',
+    //   this.onLinkClick
+    // )
 
     this.setHtmlClasses()
 
-    this.loadingScreen = new LoadingScreen
-    this.loadingScreen.start()
+    // this.loadingScreen = new LoadingScreen
+    // this.loadingScreen.start()
 
     this.pageTransition = new PageTransition
 
     this.init().then(() => {
-      this.loadingScreen.end()
+      //this.loadingScreen.end()
     })
   }
 
@@ -140,6 +141,7 @@ class Application {
   onLinkClick ( e ) {
     if ( !this.$body.hasClass('forums') ) {
         const video =  $('hero__video')
+        console.log(video)
 
         if (video.length > 0) {
           video.pause()
@@ -194,26 +196,26 @@ class Application {
     }, 300)
   }
 
-  onWindowScroll ( e ) {
-    let scrollTop = this.$window.scrollTop()
-
-    this.$body.toggleClass(
-      'scrolling-up',
-      scrollTop < this.lastScrollTop && scrollTop > 0
-    )
-
-    this.$body.toggleClass(
-      'scrolling-down',
-      scrollTop > this.lastScrollTop && scrollTop > 0
-    )
-
-    this.lastScrollTop = scrollTop
-
-    clearTimeout(this.scrollTO)
-    this.scrollTO = setTimeout(() => {
-      this.$window.trigger('scrollend')
-    }, 300)
-  }
+  // onWindowScroll ( e ) {
+  //   let scrollTop = this.$window.scrollTop()
+  //
+  //   this.$body.toggleClass(
+  //     'scrolling-up',
+  //     scrollTop < this.lastScrollTop && scrollTop > 0
+  //   )
+  //
+  //   this.$body.toggleClass(
+  //     'scrolling-down',
+  //     scrollTop > this.lastScrollTop && scrollTop > 0
+  //   )
+  //
+  //   this.lastScrollTop = scrollTop
+  //
+  //   clearTimeout(this.scrollTO)
+  //   this.scrollTO = setTimeout(() => {
+  //     this.$window.trigger('scrollend')
+  //   }, 300)
+  // }
 
   onWindowMousewheel ( e ) {
     clearTimeout(this.mousewheelTO)

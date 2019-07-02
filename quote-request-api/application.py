@@ -58,7 +58,7 @@ def contact():
                 {
                     "key": "ERP"
                 },
-            "summary": f"New Lead, {name}",
+            "summary": f"New Lead: {name}",
             "description": f"name: {name}\n email: {email} \n company: {company} \n\n {body}",
 
             "issuetype": {

@@ -6,27 +6,32 @@
     <bookmark url="file://$PROJECT_DIR$/source/js/shop/pages/QuoteRequest.js" line="10826" />
     <bookmark url="file://$PROJECT_DIR$/shop/templates/product.liquid" line="113" />
     <bookmark url="file://$PROJECT_DIR$/shop/snippets/variant-price.liquid" line="29" />
+    <bookmark url="file://$PROJECT_DIR$/shop/sections/newsletter.liquid" line="3" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161a90c7-97a5-4e4b-9265-776f758ed803" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/css/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/css/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/js/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/partials/post-index.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/partials/post-index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quote-request-api/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote-request-api/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/assets/application.css.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.css.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/assets/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/layout/theme.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/sections/contact.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/contact.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/sections/hero-video.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/hero-video.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/snippets/product-price.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/snippets/product-price.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/snippets/variant-price.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/snippets/variant-price.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/cart.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/cart.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/page.compare.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/page.compare.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/product.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/product.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/js/shop/pages/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shop/pages/Contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/blog/_post.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/blog/_post.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/snippets/footer.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/snippets/footer.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/index.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/index.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/js/shared/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shared/Application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/blog/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/blog/_typography.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shared/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shared/_svg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_svg.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shop/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shop/_home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/shop/_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shop/_product.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +41,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shop/layout/theme.liquid">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/sections/marketing-blurb.liquid">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="357">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scss/shop/_product.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/shop/Shop.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/shop/pages/Home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/js/shared/Application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#77#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scss/shared/_loading-screen.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/shared/components/LoadingScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/shop/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/sections/ros-2.liquid">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -56,26 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>address-2</find>
-      <find>copyInputs</find>
-      <find>conc</find>
-      <find>#copyIn</find>
-      <find>country-select</find>
-      <find>this.$</find>
-      <find>this.$count</find>
-      <find>ship</find>
-      <find>formSub</find>
-      <find>quote-state</find>
-      <find>quote-c</find>
-      <find>company</find>
-      <find>req</find>
-      <find>robot com</find>
-      <find>quote-company</find>
-      <find>jackel;</find>
-      <find>$thumb</find>
-      <find>product-banner</find>
-      <find>product-banner__</find>
-      <find>plus</find>
       <find>product__description'</find>
       <find>product__description</find>
       <find>product-price__price</find>
@@ -86,6 +153,26 @@
       <find>trans</find>
       <find>tag--blue</find>
       <find>.tag</find>
+      <find>PageTra</find>
+      <find>PageTransit</find>
+      <find>$color-xltgray</find>
+      <find>scroll</find>
+      <find>our</find>
+      <find>footer__contact</find>
+      <find>ros</find>
+      <find>margin-b</find>
+      <find>margin-bottom</find>
+      <find>margin-top</find>
+      <find>quanti</find>
+      <find>this.$video</find>
+      <find>onLinkClick</find>
+      <find>pageTransition</find>
+      <find>loadingSc</find>
+      <find>loadingScreen</find>
+      <find>this.setHtml</find>
+      <find>this.setHtmlClasses</find>
+      <find>setHtmlClasses</find>
+      <find>loading</find>
     </findStrings>
     <replaceStrings>
       <replace>font-family: 'Noto Serif', serif;</replace>
@@ -101,13 +188,10 @@
         <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/functions.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/footer.php" />
         <option value="$PROJECT_DIR$/source/scss/shared/_typography.scss" />
-        <option value="$PROJECT_DIR$/source/scss/blog/_typography.scss" />
         <option value="$PROJECT_DIR$/source/scss/blog/index.scss" />
         <option value="$PROJECT_DIR$/shop/templates/page.2wd-rover-vs-clearpath-jackel-vs-turtlebot.liquid" />
-        <option value="$PROJECT_DIR$/source/scss/shared/_grid.scss" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/Comparison.js" />
         <option value="$PROJECT_DIR$/source/js/shop/Shop.js" />
-        <option value="$PROJECT_DIR$/source/js/shared/Application.js" />
         <option value="$PROJECT_DIR$/source/scss/shop/index.scss" />
         <option value="$PROJECT_DIR$/quote-request-api/rover_pdf.py" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/QuoteRequest.js" />
@@ -117,31 +201,46 @@
         <option value="$PROJECT_DIR$/shop/sections/quote-request.liquid" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/Product.js" />
         <option value="$PROJECT_DIR$/shop/snippets/robot-addon.liquid" />
-        <option value="$PROJECT_DIR$/source/scss/shop/_product.scss" />
         <option value="$PROJECT_DIR$/shop/templates/cart.liquid" />
         <option value="$PROJECT_DIR$/shop/templates/product.liquid" />
         <option value="$PROJECT_DIR$/shop/snippets/product-price.liquid" />
         <option value="$PROJECT_DIR$/shop/snippets/variant-price.liquid" />
-        <option value="$PROJECT_DIR$/shop/sections/contact.liquid" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/Contact.js" />
         <option value="$PROJECT_DIR$/shop/templates/page.compare.liquid" />
-        <option value="$PROJECT_DIR$/quote-request-api/application.py" />
-        <option value="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" />
         <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/post.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/library/JSON.php" />
-        <option value="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" />
         <option value="$PROJECT_DIR$/source/scss/blog/_post.scss" />
         <option value="$PROJECT_DIR$/shop/sections/privacy.liquid" />
         <option value="$PROJECT_DIR$/shop/layout/theme.liquid" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_modules.scss" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_grid.scss" />
+        <option value="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_svg.scss" />
+        <option value="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" />
+        <option value="$PROJECT_DIR$/shop/sections/contact.liquid" />
+        <option value="$PROJECT_DIR$/quote-request-api/application.py" />
+        <option value="$PROJECT_DIR$/source/scss/blog/_typography.scss" />
+        <option value="$PROJECT_DIR$/shop/snippets/footer.liquid" />
+        <option value="$PROJECT_DIR$/shop/sections/hero-video.liquid" />
+        <option value="$PROJECT_DIR$/shop/sections/newsletter.liquid" />
+        <option value="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" />
+        <option value="$PROJECT_DIR$/shop/sections/ros-2.liquid" />
+        <option value="$PROJECT_DIR$/shop/templates/index.liquid" />
+        <option value="$PROJECT_DIR$/source/scss/shop/_home.scss" />
+        <option value="$PROJECT_DIR$/source/scss/shop/_product.scss" />
+        <option value="$PROJECT_DIR$/source/js/shop/pages/Home.js" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" />
+        <option value="$PROJECT_DIR$/source/js/shared/Application.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2170" />
-    <option name="y" value="4" />
-    <option name="width" value="1440" />
-    <option name="height" value="780" />
+    <option name="x" value="2404" />
+    <option name="y" value="106" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -158,13 +257,71 @@
             <path>
               <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,12 +384,13 @@
       <workItem from="1561577695936" duration="985000" />
       <workItem from="1561587169094" duration="15879000" />
       <workItem from="1561863193413" duration="1250000" />
-      <workItem from="1561996105939" duration="978000" />
+      <workItem from="1561996105939" duration="22856000" />
+      <workItem from="1562082508127" duration="5101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127012000" />
+    <option name="totallyTimeSpent" value="153991000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -247,7 +405,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26226014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -261,7 +419,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2383532" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37053087" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -285,268 +443,313 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shop/snippets/page-transition.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/snippets/product-index.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/snippets/product-options.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/index.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="-188" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_quote.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_page.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_cart.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="97" column="38" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/snippets/product-price.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_compare.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_contact.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_customer.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="102">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/404.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_fonts.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/article.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_footer.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/blog.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_icons.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/cart.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_modules.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+        <state relative-caret-position="241">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/collection.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/gift_card.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/index.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_form.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="208">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/list-collections.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/search.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/product.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_footer.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+        <state relative-caret-position="207">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_fonts.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_button.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="64" column="34" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_box.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_svg.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_mixins.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="123" column="16" lean-forward="true" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_grid.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="244" column="17" selection-start-line="244" selection-start-column="17" selection-end-line="244" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/templates/page.contact.liquid">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/page.docs.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/page.quote-request.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/templates/page.liquid">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/tests/core.get_author_posts-03.phpt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/tests/core.get_author_index-01.phpt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="65" lean-forward="true" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/controllers/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2703" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/library/JSON.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="537" column="9" lean-forward="true" selection-start-line="537" selection-start-column="9" selection-end-line="537" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/author.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="43" lean-forward="true" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/attachment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/singletons/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/json-api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/json-api/assets/icon.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-admin/js/code-editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="196" column="7" lean-forward="true" selection-start-line="196" selection-start-column="7" selection-end-line="196" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-config-sample.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-blog-header.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/plugins/advanced-custom-fields-pro/acf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8783">
-          <caret line="176" column="47" selection-start-line="176" selection-start-column="47" selection-end-line="176" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/sections/programming.liquid">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-admin/js/accordion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-comments-post.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/sections/privacy.liquid">
+    <entry file="file://$PROJECT_DIR$/quote-request-api/jira/jira_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="189" selection-start-line="14" selection-start-column="189" selection-end-line="14" selection-end-column="189" />
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#p#18;n#!!top" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/blog/_post.scss">
+    <entry file="file://$PROJECT_DIR$/shop/sections/about.liquid">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="276" column="29" lean-forward="true" selection-start-line="276" selection-start-column="29" selection-end-line="276" selection-end-column="29" />
+        <state relative-caret-position="340">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/css/application.css">
+    <entry file="file://$PROJECT_DIR$/quote-request-api/gmail_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="3083" column="4" selection-start-line="3083" selection-end-line="3083" selection-end-column="4" />
+        <state relative-caret-position="-17">
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/blog/_typography.scss">
+    <entry file="file://$PROJECT_DIR$/quote-request-api/rover_pdf.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quote-request-api/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/contact.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scss/blog/index.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/index.php">
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_icons.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="272">
+          <caret line="16" column="22" selection-start-line="15" selection-start-column="21" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/license.txt">
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_fonts.scss">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/snippets/social-meta-tags.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/snippets/footer.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/hero-video.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/index.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="15" selection-start-line="4" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/newsletter.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="106" selection-start-line="6" selection-start-column="106" selection-end-line="6" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/ros-2.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/sections/marketing-blurb.liquid">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="357">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/layout/theme.liquid">
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_product.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="65">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shop/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shop/Shop.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shop/pages/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/LoadingScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_loading-screen.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/Application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#77#110#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
