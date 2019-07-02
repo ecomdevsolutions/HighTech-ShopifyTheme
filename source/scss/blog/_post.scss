@@ -1,3 +1,4 @@
+
 .post__modules .module:first-child {
   margin-top: 0 !important;
 }
@@ -114,9 +115,10 @@
 
 
 .tag--white {
-  background: #fff;
+  background: $color-xltgray;
+
   border-radius: 3px 0 0 3px;
-  color: #fff;
+  color: #000;
   display: inline-block;
   height: 26px;
   line-height: 26px;
@@ -139,7 +141,7 @@
   &::after {
       background: #fff;
       border-bottom: 13px solid transparent;
-      border-left: 10px solid #fff;
+      border-left: 10px solid $color-xltgray;
       border-top: 13px solid transparent;
       content: '';
       position: absolute;

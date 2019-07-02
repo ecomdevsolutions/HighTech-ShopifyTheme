@@ -3,7 +3,7 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="container">
   <div class="row">
-    <div class="col-dk-8 col-dk-push-2">
+    <div class="col-dk-6 col-dk-push-3">
       <article class="post post--single">
         <div class="post__meta">
           <time class="h6--eyebrow"><?php echo get_the_date('F j, Y', $post->ID); ?></time>

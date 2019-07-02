@@ -172,7 +172,9 @@ p, .richtext ul, .richtext ol, .richtext table, .form__group input[type="number"
   text-transform: uppercase; }
 
 p {
-  margin: 1em 0; }
+  margin: 1em 0;
+  line-height: 2;
+  font-size: 16px; }
 
 a {
   color: inherit;
@@ -480,6 +482,7 @@ body {
 
 /* Components */
 .loading-screen {
+  display: None;
   position: fixed;
   top: 0;
   left: 0;
@@ -580,6 +583,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 100;
+  display: None;
   visibility: hidden; }
 
 .page-transition .col-grid div:before {
@@ -3163,9 +3167,9 @@ input[type=submit]:hover {
     border-left-color: #fff; }
 
 .tag--white {
-  background: #fff;
+  background: #F0F0F0;
   border-radius: 3px 0 0 3px;
-  color: #fff;
+  color: #000;
   display: inline-block;
   height: 26px;
   line-height: 26px;
@@ -3187,7 +3191,7 @@ input[type=submit]:hover {
   .tag--white::after {
     background: #fff;
     border-bottom: 13px solid transparent;
-    border-left: 10px solid #fff;
+    border-left: 10px solid #F0F0F0;
     border-top: 13px solid transparent;
     content: '';
     position: absolute;

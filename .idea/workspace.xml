@@ -10,28 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161a90c7-97a5-4e4b-9265-776f758ed803" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/css/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/css/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/assets/js/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quote-request-api/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote-request-api/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/assets/application.css.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.css.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/assets/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/layout/theme.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/sections/contact.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/contact.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/sections/hero-video.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/hero-video.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/snippets/footer.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/snippets/footer.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/templates/index.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/index.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/js/shared/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shared/Application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/scss/blog/_post.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/blog/_post.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/scss/blog/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/blog/_typography.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shared/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shared/_svg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_svg.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shop/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shop/_home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shop/_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shop/_product.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +30,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop/sections/marketing-blurb.liquid">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -51,27 +48,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scss/shop/_product.scss">
+        <entry file="file://$PROJECT_DIR$/shop/sections/hero-video.liquid">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="289">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/shop/Shop.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/source/js/shared/components/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/shop/pages/Home.js">
+        <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -79,10 +77,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/js/shared/Application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="408">
+              <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
               <folding>
-                <element signature="e#77#110#0" expanded="true" />
+                <element signature="e#78#108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,10 +96,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
+        <entry file="file://$PROJECT_DIR$/source/scss/shared/_page-transition.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="51">
+              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -109,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/js/shared/components/LoadingScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+            <state relative-caret-position="340">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -119,15 +117,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/shop/index.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/sections/ros-2.liquid">
+        <entry file="file://$PROJECT_DIR$/source/scss/blog/_modules.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -143,13 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>product__description'</find>
-      <find>product__description</find>
-      <find>product-price__price</find>
-      <find>action</find>
-      <find>form</find>
-      <find>col-dk-6 col-dk-push-2</find>
-      <find>col-dk-8 col-dk-push-2</find>
       <find>trans</find>
       <find>tag--blue</find>
       <find>.tag</find>
@@ -163,8 +149,6 @@
       <find>margin-b</find>
       <find>margin-bottom</find>
       <find>margin-top</find>
-      <find>quanti</find>
-      <find>this.$video</find>
       <find>onLinkClick</find>
       <find>pageTransition</find>
       <find>loadingSc</find>
@@ -173,6 +157,15 @@
       <find>this.setHtmlClasses</find>
       <find>setHtmlClasses</find>
       <find>loading</find>
+      <find>pageT</find>
+      <find>this.$video</find>
+      <find>quanti</find>
+      <find>font-s</find>
+      <find>header</find>
+      <find>tag--w</find>
+      <find>scrolling-down</find>
+      <find>onRead</find>
+      <find>this.pageTrans</find>
     </findStrings>
     <replaceStrings>
       <replace>font-family: 'Noto Serif', serif;</replace>
@@ -184,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/functions.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/footer.php" />
         <option value="$PROJECT_DIR$/source/scss/shared/_typography.scss" />
@@ -207,23 +199,18 @@
         <option value="$PROJECT_DIR$/shop/snippets/variant-price.liquid" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/Contact.js" />
         <option value="$PROJECT_DIR$/shop/templates/page.compare.liquid" />
-        <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/post.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/library/JSON.php" />
-        <option value="$PROJECT_DIR$/source/scss/blog/_post.scss" />
         <option value="$PROJECT_DIR$/shop/sections/privacy.liquid" />
         <option value="$PROJECT_DIR$/shop/layout/theme.liquid" />
         <option value="$PROJECT_DIR$/source/scss/shared/_modules.scss" />
-        <option value="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" />
         <option value="$PROJECT_DIR$/source/scss/shared/_grid.scss" />
         <option value="$PROJECT_DIR$/source/js/shared/components/PageTransition.js" />
         <option value="$PROJECT_DIR$/source/scss/shared/_svg.scss" />
         <option value="$PROJECT_DIR$/quote-request-api/jira/jira_api.py" />
         <option value="$PROJECT_DIR$/shop/sections/contact.liquid" />
         <option value="$PROJECT_DIR$/quote-request-api/application.py" />
-        <option value="$PROJECT_DIR$/source/scss/blog/_typography.scss" />
         <option value="$PROJECT_DIR$/shop/snippets/footer.liquid" />
-        <option value="$PROJECT_DIR$/shop/sections/hero-video.liquid" />
         <option value="$PROJECT_DIR$/shop/sections/newsletter.liquid" />
         <option value="$PROJECT_DIR$/shop/sections/marketing-blurb.liquid" />
         <option value="$PROJECT_DIR$/shop/sections/ros-2.liquid" />
@@ -232,6 +219,12 @@
         <option value="$PROJECT_DIR$/source/scss/shop/_product.scss" />
         <option value="$PROJECT_DIR$/source/js/shop/pages/Home.js" />
         <option value="$PROJECT_DIR$/source/scss/shared/_loading-screen.scss" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php" />
+        <option value="$PROJECT_DIR$/source/scss/blog/_typography.scss" />
+        <option value="$PROJECT_DIR$/shop/sections/hero-video.liquid" />
+        <option value="$PROJECT_DIR$/source/scss/blog/_post.scss" />
+        <option value="$PROJECT_DIR$/source/scss/shared/_page-transition.scss" />
         <option value="$PROJECT_DIR$/source/js/shared/Application.js" />
       </list>
     </option>
@@ -291,22 +284,6 @@
               <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
               <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -315,13 +292,6 @@
               <item name="source" type="462c0819:PsiDirectoryNode" />
               <item name="scss" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -385,12 +355,12 @@
       <workItem from="1561587169094" duration="15879000" />
       <workItem from="1561863193413" duration="1250000" />
       <workItem from="1561996105939" duration="22856000" />
-      <workItem from="1562082508127" duration="5101000" />
+      <workItem from="1562082508127" duration="8605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153991000" />
+    <option name="totallyTimeSpent" value="157495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -443,37 +413,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_quote.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_page.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_cart.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="97" column="38" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_compare.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_contact.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_customer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scss/shop/_fonts.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -528,13 +467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/shared/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -613,18 +545,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/blog/index.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scss/blog/_icons.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="22" selection-start-line="15" selection-start-column="21" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/blog/_fonts.scss">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/snippets/social-meta-tags.liquid">
       <provider selected="true" editor-type-id="text-editor">
@@ -637,20 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/blog/_typography.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/sections/hero-video.liquid">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -689,24 +601,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/sections/marketing-blurb.liquid">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scss/shop/_product.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/js/shop/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/shop/Shop.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/shop/pages/Home.js">
@@ -719,20 +614,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/shared/components/LoadingScreen.js">
+    <entry file="file://$PROJECT_DIR$/source/js/shop/Shop.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shop/_product.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+        <state relative-caret-position="65">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_fonts.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/wp-content/themes/roverrobotics/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="144" column="3" lean-forward="true" selection-start-line="144" selection-start-column="3" selection-end-line="144" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/marketing-blurb.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/sections/hero-video.liquid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/blog/pages/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/blog/Blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_post.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="204">
+          <caret line="144" column="41" lean-forward="true" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/index.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/blog/_modules.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/LoadingScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -743,12 +713,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/scss/shared/_page-transition.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/PageTransition.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/shared/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/js/shared/Application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="408">
+          <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
           <folding>
-            <element signature="e#77#110#0" expanded="true" />
+            <element signature="e#78#108#0" expanded="true" />
           </folding>
         </state>
       </provider>

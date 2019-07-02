@@ -1,6 +1,7 @@
 .page-transition {
   @include fill(fixed);
   z-index: 100;
+  display: None;
   visibility: hidden;
 }
 
