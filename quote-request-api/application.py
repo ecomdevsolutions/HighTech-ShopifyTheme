@@ -1,4 +1,5 @@
 import json
+import os
 from flask import Flask
 from flask import request, redirect
 from rover_pdf import RoverPDF
@@ -70,7 +71,7 @@ def contact():
     }
 
     try:
-        jira = JiraAPI('nick@roverrobotics.com', "gQoWR4s0kArFp6rDkf6YE87B")
+        jira = JiraAPI(os.environ['jira_username'], os.environ['jira_password'])
         jira.create_issue(data)
         return redirect("https://roverrobotics.com/pages/contact?submitted=true", code=302)
     except:
