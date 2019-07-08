@@ -1,21 +1,68 @@
 <section class="hero">
   <div class="hero__box">
       <div class="hero__overlay">
-          <h1>Finally, The Droids you've been looking for:</h1>
+          <h1>{{section.settings.title}}</h1>
           <hr/>
           <span>Durable, High Quality, Fully Supported and Affordable</span>
           |
-          <span>Robot Development Platform and Accessories</span>
+          <span>{{section.settings.subtitle}}</span>
           <br>
 
-          <a href="https://blog.roverrobotics.com" class="button no-ajax">Learn More</a>
-          <a href="{{site.url}}/collections/all" class="button">Shop </a>
+          {% for block in section.blocks %}
+            <a href="{{block.settings.url}}" class="button no-ajax">{{block.settings.text}}</a>
+          {% endfor %}
+
+
       </div>
       <div>
         <!-- The video -->
         <video autoplay muted loop class="hero__video">
-          <source src="{{ 'roverrobotics-video.mp4' | asset_url }}" type="video/mp4">
+          <source src="{{section.settings.video}}" type="video/mp4"/>
         </video>
       </div>
   </div>
 </section>
+
+
+
+{% schema %}
+  {
+    "name": "Hero Section",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "subtitle",
+        "type": "text",
+        "label": "Subtitle"
+      },
+      {
+        "id": "video",
+        "type": "text",
+        "label": "Background Video"
+      }
+
+    ],
+      "blocks": [
+          {
+            "type": "text",
+            "name": "Button",
+            "settings": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "Text"
+              },
+              {
+                "id": "url",
+                "type": "text",
+                "label": "URL"
+              }
+            ]
+          }
+        ]
+  }
+{% endschema %}

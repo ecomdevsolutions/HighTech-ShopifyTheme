@@ -1,6 +1,6 @@
 <section class="ros">
-      <h2>Works With ROS 1 & ROS 2</h2>
-        <img src="{{'ros1ros2.png' | asset_url}}" id="ros-image" alt="ros"/>
+      <h2>{{ section.settings.title}}</h2>
+        <img src="{{ section.settings.image}}" id="ros-image" alt="ros"/>
         <br/>
         <div class="row">
             <div class="col-dk-6 col-dk-push-3">
@@ -13,5 +13,36 @@
         </div>
          <br>
          <br>
-          <a href="https://github.com/RoverRobotics/rr_openrover_basic" target="_blank" class="button"><i class="fab fa-github"></i> Github</a>
+          <a href="{{ section.settings.link}}" target="_blank" class="button"><i class="fab fa-github"></i> Github</a>
 </section>
+
+{% schema %}
+  {
+    "name": "ROS 2",
+    "class": "section section--contact",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Works With ROS 1 & ROS 2"
+      },
+      {
+        "id": "hero_copy",
+        "type": "textarea",
+        "label": "Hero Copy",
+        "default": "We maintain open source packages on our GitHub page. We maintain a ROS driver, autonomous docking code, and are working on a ROS2 driver. We offer fast response times to issues and pull requests."
+      },
+      {
+        "id": "image",
+        "type": "text",
+        "label": "Image"
+      },
+      {
+        "id": "link",
+        "type": "text",
+        "label": "Github Link"
+      }
+    ]
+  }
+{% endschema %}
