@@ -1,42 +1,23 @@
 <div class="container">
   <h2 class="module__title">{{ section.settings.title }}</h2>
-  <table class="volume-pricing">
-    <tr>
-      <th>Quantity</th>
-      <th>Discount</th>
-      <th>Lead Time (weeks)</th>
-    </tr>
-    <tr>
-      <td>0-4</td>
-      <td>0%</td>
-      <td>1-2</td>
-    </tr>
-    <tr>
-      <td>5-9</td>
-      <td>3%</td>
-      <td>2-4</td>
-    </tr>
-    <tr>
-      <td>10-24</td>
-      <td>7%</td>
-      <td>4-6</td>
-    </tr>
-    <tr>
-      <td>25-49</td>
-      <td>12%</td>
-      <td>6-8</td>
-    </tr>
-    <tr>
-      <td>50-99</td>
-      <td>18%</td>
-      <td>8-10</td>
-    </tr>
-    <tr>
-      <td>100-249</td>
-      <td>25%</td>
-      <td>10-12</td>
-    </tr>
-  </table>
+
+
+  {% for block in section.blocks %}
+    <table class="volume-pricing">
+      {% if block.type =="table_column" %}
+        <th>{{block.settings.table_column}}</th>
+      {% endif %}
+
+      {% if block.type == "table_row" %}
+
+        {{block.settings.table_row}}
+        <tr>
+
+        </tr>
+      {% endif %}
+    </table>
+  {% endfor %}
+  {{section.settings.table}}
   <small> {{section.settings.footnote}}</small>
 </div>
 
@@ -53,12 +34,20 @@
         "label": "Title",
         "default": "Volume Pricing"
       },
+
       {
       "id": "footnote",
       "type":"text",
       "label":"Footnote"
+      },
+      {
+        "id": "table",
+        "type": "textarea",
+        "label":"Table"
       }
-    ]
+
+	]
+
   }
 {% endschema %}
 
