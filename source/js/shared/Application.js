@@ -7,6 +7,7 @@ import Promise from 'bluebird'
 
 
 import Header from './components/Header'
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 class Application {
   constructor ( pages ) {
@@ -30,14 +31,14 @@ class Application {
         .on('pjax:start', this.onPjaxStart)
         .on('pjax:complete', this.onPjaxComplete)
         .on('pjax:success', this.onPjaxSuccess)
-        .on('lazyloaded', this.onLazyloaded)
+
 
     this.$window
         .on('load', this.onWindowLoad)
         .on('resize', this.onWindowResize)
         .on('scroll', this.onWindowScroll)
         .on('navigate', this.onWindowNavigate)
-        .on('orientationchange', this.onWindowOrientationchange)
+
   }
 
   onReady () {
@@ -52,7 +53,8 @@ class Application {
     this.$body = $('body')
 
     let promises = []
-
+    this.privacy = new PrivacyPolicy()
+    this.privacy.init()
     this.header = new Header
     promises.push(this.header.init())
 

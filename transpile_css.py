@@ -21,7 +21,7 @@ transpile_values = {
 
 with open(CSS_URL, "r+") as f:
     css = f.read()
-    for theme_setting ,css_value in zip(transpile_values.keys(),transpile_values.values()):
+    for theme_setting, css_value in zip(transpile_values.keys(), transpile_values.values()):
         css = css.replace(css_value, theme_setting)
     f.seek(0)
     f.truncate()

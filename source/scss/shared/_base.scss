@@ -25,6 +25,7 @@ body {
   color: $color-black;
   background-color: $color-white;
   overflow-x: hidden;
+  position: relative;
 
   @include breakpoint(desktop) {
     &:before {
