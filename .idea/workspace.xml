@@ -16,15 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161a90c7-97a5-4e4b-9265-776f758ed803" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Tyler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/assets/application.css.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.css.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/assets/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/assets/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/shop/layout/theme.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/js/shared/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/source/js/shared/Application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shared/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/scss/shared/_privacy-popup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/source/scss/shared/_privacy-popup.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transpile_css.py" beforeDir="false" afterPath="$PROJECT_DIR$/transpile_css.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +29,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/js/shared/components/PrivacyPolicy.js">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+            <state relative-caret-position="289">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -99,7 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/source/js/shop/pages/Contact.js" />
         <option value="$PROJECT_DIR$/shop/templates/page.compare.liquid" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/models/post.php" />
         <option value="$PROJECT_DIR$/blog/wp-content/plugins/json-api/library/JSON.php" />
@@ -150,6 +143,7 @@
         <option value="$PROJECT_DIR$/source/js/shared/Application.js" />
         <option value="$PROJECT_DIR$/shop/layout/theme.liquid" />
         <option value="$PROJECT_DIR$/source/js/shared/components/PrivacyPolicy.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -175,6 +169,12 @@
               <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
               <item name="shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roverrobotics.com" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roverrobotics.com" type="b2602c69:ProjectViewProjectNode" />
@@ -277,7 +277,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218454000" />
+    <option name="totallyTimeSpent" value="218502000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -411,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="289">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
