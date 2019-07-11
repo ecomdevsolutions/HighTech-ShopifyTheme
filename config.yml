@@ -3,10 +3,14 @@ development:
   password: 5be28150d2c53d5c0f90b2e6d1b781f6
   theme_id: "20332445749"
   store: roverrobotics.myshopify.com
+  ignore_files:
+    - config/settings_data.json
   timeout: 60s
 production:
   directory: shop
   password: 5be28150d2c53d5c0f90b2e6d1b781f6
   theme_id: "16723869749"
+  ignore_files:
+    - config/settings_data.json
   store: roverrobotics.myshopify.com
   timeout: 60s

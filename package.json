@@ -6,29 +6,11 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "shopify:upload:assets": "$(npm bin)/shopify-themekit --config shopify.yml upload assets",
     "shopify:watch": "theme watch",
-    "copy:static:shop": "find ./static -type f -exec cp {} ./shop/assets/ \\;",
-    "copy:static:blog": "cp -R ./static/ ./blog/wp-content/themes/roverrobotics/assets/",
-    "copy:static:docs": "cp -R ./static/ ./docs/assets/",
-    "shop:developer": "NODE_ENV='development' concurrently \"webpack --config webpack.shop.config.js\" \"npm run shopify:upload:assets\" \"npm run shopify:watch\"",
-    "shop:dev": "npm run copy:static:shop && npm run shop:developer",
     "shop:builder": "webpack --config webpack.shop.config.js --watch",
-    "shop:build": "npm run copy:static:shop && npm run shop:builder",
-    "blog:developer": "NODE_ENV='development' webpack --config webpack.blog.config.js",
-    "blog:dev": "npm run copy:static:blog && npm run blog:developer",
     "blog:builder": "webpack --config webpack.blog.config.js --watch",
-    "blog:build": "npm run copy:static:blog && npm run blog:builder",
-    "docs:serve": "cd docs && bundle exec jekyll serve",
-    "docs:developer": "NODE_ENV='development' concurrently \"webpack --config webpack.docs.config.js\" \"npm run docs:serve\"",
-    "docs:dev": "npm run copy:static:docs && npm run docs:developer",
-    "docs:builder": "NODE_ENV='production' webpack --config webpack.docs.config.js",
-    "docs:build": "npm run copy:static:docs && npm run docs:builder",
-    "forums:builder": "NODE_ENV='production' webpack --config webpack.forums.config.js",
-    "forums:build": "npm run forums:builder",
-    "dev": "concurrently \"npm run blog:dev\" \"npm run shop:dev\" \"npm run docs:dev\"",
-    "build": "npm run shop:build && npm run blog:build && npm run docs:build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "shop:transpile": "python transpile_css.py"
+
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",

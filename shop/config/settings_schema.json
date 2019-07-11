@@ -28,39 +28,45 @@
       },
       {
         "type": "color",
-        "id": "color_heading",
-        "label": "Headings",
-        "default": "#3d4246"
+        "id": "color_1",
+        "label": "Color 1",
+        "default": "#0074E4"
       },
       {
         "type": "color",
-        "id": "color_link",
-        "label": "Links",
-        "default": "#2980b9"
-      },
-      {
-        "type": "color",
-        "id": "color_body",
-        "label": "Body text",
-        "default": "#788188"
-      },
-      {
-        "type": "color",
-        "id": "color_hero",
-        "label": "Hero Text",
+        "id": "color_2",
+        "label": "Color 2",
         "default": "#ffffff"
       },
       {
         "type": "color",
-        "id": "color_sale",
-        "label": "Sale text",
-        "default": "#2980b9"
+        "id": "color_3",
+        "label": "Color 3",
+        "default": "#000000"
       },
       {
         "type": "color",
-        "id": "color_borders",
-        "label": "Borders and lines",
-        "default": "#e8e9eb"
+        "id": "color_4",
+        "label": "Color 4",
+        "default": "#F0F0F0"
+      },
+      {
+        "type": "color",
+        "id": "color_5",
+        "label": "Color 5",
+        "default": "#FCFCFC"
+      },
+      {
+        "type": "color",
+        "id": "color_6",
+        "label": "Color 6",
+        "default": "#999999"
+      },
+      {
+        "type": "color",
+        "id": "color_7",
+        "label": "Color 7",
+        "default": "#5B5B5B"
       }
     ]
   }
