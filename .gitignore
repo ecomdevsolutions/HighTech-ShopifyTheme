@@ -12,3 +12,8 @@ blog/wp-content/w3tc-config/
 blog/wp-content/debug.log
 
 docs/_site
+shop/assets/application.css.liquid
+shop/assets/application.js
+.idea/workspace.xml
+
+.idea/*
