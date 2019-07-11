@@ -1,12 +1,22 @@
 #privacy-popup {
   display: none;
-  z-index: 99999;
+  z-index: 999990;
   position: fixed;
   left: 65vw;
   top: 65vh;
-  width: 500px;
+  max-width: 500px;
   padding: 20px;
   background: $color-white;
+
+  @media only screen and (max-width: 768px)  {
+    left: 0;
+    top: 40%;
+  }
+
+  @media only screen and (max-width: 568px)  {
+    left: 0;
+    top: 30%;
+  }
 
   a {
     color: $color-blue;

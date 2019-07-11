@@ -9,7 +9,8 @@
     "shopify:watch": "theme watch",
     "shop:builder": "webpack --config webpack.shop.config.js --watch",
     "blog:builder": "webpack --config webpack.blog.config.js --watch",
-    "shop:transpile": "python transpile_css.py"
+    "shop:transpile": "python transpile_css.py",
+    "shop:deploy": "theme deploy --env=production"
 
   },
   "devDependencies": {

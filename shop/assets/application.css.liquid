@@ -3462,13 +3462,21 @@ input[type=submit]:hover {
 
 #privacy-popup {
   display: none;
-  z-index: 99999;
+  z-index: 999990;
   position: fixed;
   left: 65vw;
   top: 65vh;
-  width: 500px;
+  max-width: 500px;
   padding: 20px;
   background: #ffffff; }
+  @media only screen and (max-width: 768px) {
+    #privacy-popup {
+      left: 0;
+      top: 40%; } }
+  @media only screen and (max-width: 568px) {
+    #privacy-popup {
+      left: 0;
+      top: 30%; } }
   #privacy-popup a {
     color: #0074E4; }
 
