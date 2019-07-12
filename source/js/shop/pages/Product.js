@@ -36,8 +36,6 @@ class Product {
     this.initImages()
     this.filterImages(this.getSelectedVariant())
 
-    console.log(this.$images)
-
     if (product.options.length < 2) {
       this.currentVarient = CURRENT_VARIENT_PRICE
     }
@@ -49,6 +47,13 @@ class Product {
     this.setVariantQuantity()
     this.changeImageByClick()
     this.updateQuantity()
+
+    window.onload = function() {
+      const multiOptions = $('.multi-option').toArray();
+      if (multiOptions.length) {
+        multiOptions.forEach(option => option.click());
+      }
+    }
 
 
   }

@@ -5,8 +5,16 @@
   {% for option in product.options_with_values %}
     <span class="variant--select__heading">Select {{option.name}} Type</span>
     <div class="tab tab--variant-select">
+      {% assign count = 0 %}
       {% for value in option.values %}
-      <button class="tablinks tablinks--options"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
+        {% if count == 0 %}
+          <button class="tablinks tablinks--options multi-option"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
+          {% else %}
+            <button class="tablinks tablinks--options"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
+          {% endif %}
+
+          {% assign count = count | plus: 1 %}
+
       {% endfor %}
     </div>
   {%endfor%}
