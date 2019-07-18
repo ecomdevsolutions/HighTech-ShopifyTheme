@@ -6,25 +6,27 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "shopify:watch": "theme watch",
+    "shopify:watch": "concurrently \"npm run watch:shop_css\" \"npm run shop:builder\" \"npm run themekit:watch\"",
+    "themekit:watch": "theme watch",
     "shop:builder": "webpack --config webpack.shop.config.js --watch",
     "blog:builder": "webpack --config webpack.blog.config.js --watch",
     "shop:transpile": "python transpile_css.py",
-    "shop:deploy": "theme deploy --env=production"
-
+    "shop:deploy": "theme deploy --env=production",
+    "watch:shop_css": "nodemon --watch ./shop/assets/application.css.liquid --exec \"npm run shop:transpile\""
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",
     "@shopify/themekit": "^0.6.12",
     "babel-loader": "^8.0.0-beta.0",
-    "concurrently": "^3.5.1",
+    "concurrently": "^3.6.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "json-loader": "^0.5.7",
     "modernizr": "^3.5.0",
     "modernizr-loader": "^1.0.1",
     "node-sass": "^4.7.2",
+    "nodemon": "^1.19.1",
     "postcss": "^6.0.14",
     "postcss-loader": "^2.0.9",
     "postcss-scss": "^1.0.2",

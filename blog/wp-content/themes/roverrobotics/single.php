@@ -22,7 +22,7 @@
           <ul>
             <?php $wpsso = get_option('wpsso_options'); ?>
             <li>
-              <a class="button button--circle no-ajax"
+              <a class="button no-ajax"
                  <?php if ( $wpsso ) : ?>data-app-id="<?php echo $wpsso['fb_app_id']; ?>"<?php endif; ?>
                  data-uri="<?php the_permalink(); ?>"
                  data-redirect-uri="<?php the_permalink(); ?>"
@@ -31,7 +31,7 @@
               </a>
             </li>
             <li>
-              <a class="button button--circle no-ajax"
+              <a class="button no-ajax"
                  data-text="From Rover Robotics: <?php the_title(); ?>"
                  data-url="<?php the_permalink(); ?>"
                  data-share="twitter">
@@ -39,7 +39,7 @@
               </a>
             </li>
             <li>
-              <a class="button button--circle no-ajax"
+              <a class="button no-ajax"
                  data-url="<?php the_permalink(); ?>"
                  data-title="<?php the_title(); ?>"
                  data-summary="<?php echo get_the_excerpt(); ?>"

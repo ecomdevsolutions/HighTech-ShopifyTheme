@@ -1,15 +1,29 @@
 <section class="newsletter">
     <div class="newsletter__box container">
-        <form class="form form--subscribe" action="https://roverrobotics.us12.list-manage.com/subscribe/post?u=3ce45472fe4a667fefa934188&amp;id=7f6025208c" method="post" target="_blank">
-            <h2>Sign up for the latest updates</h2>
-            <div class="form__group">
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email">
-                <input type="hidden" name="b_3ce45472fe4a667fefa934188_7f6025208c" tabindex="-1" value="">
-                <button type="submit" class="button button--primary button--cta">
-                    Sign Up
-                    <span class="icon-arrow-large-right"></span>
-                </button>
-            </div>
-        </form>
+       {{section.settings.form}}
     </div>
 </section>
+
+
+
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+       {
+         "id": "form",
+         "type": "html",
+         "label": "Form"
+        }
+    ],
+
+    "presets": [
+    {
+      "name": "Newsletter Signup",
+      "category": "site-builder"
+    }
+  ]
+  }
+{% endschema %}
+

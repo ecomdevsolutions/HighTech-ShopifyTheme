@@ -19,12 +19,31 @@
       }      
     ]
   },
+  {
+
+    "name": "Global Site Tracking",
+    "settings": [
+      {
+        "label": "Google Tag Manager",
+        "id": "gtm",
+        "type": "html"
+      }
+    ]
+
+
+  },
    {
     "name": "Theme Colors",
     "settings": [
       {
         "type": "header",
         "content": "Main Colors"
+      },
+      {
+        "type": "color",
+        "id": "header_color",
+        "label": "Header Color",
+        "default": "#ffffff"
       },
       {
         "type": "color",

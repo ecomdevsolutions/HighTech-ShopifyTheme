@@ -2,12 +2,12 @@
 /* --------------------------------------------------------------------------
    RR Header
   
-   Table of Contents
+   Table of Content
 
    #Header
    #Logo
    #MenuToggle
-   #NavMain
+   #NavMai
    #NavSub
    #NavSocial
    -------------------------------------------------------------------------- */
@@ -30,7 +30,7 @@
 
   @include breakpoint(desktop) {
     position: fixed;
-    background-color: $color-white;
+    background-color: $header-color;
     height: $header-height-desktop;
     transition: transform 600ms cubic-bezier(.77,0,.175,1);
     

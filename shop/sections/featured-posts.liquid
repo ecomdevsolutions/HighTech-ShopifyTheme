@@ -1,8 +1,26 @@
-{% if section.settings.blog_url %}
-<h2 class="module__title">From the Blog</h2>
-<div class="row row--posts"
-     data-blog-url="{{ section.settings.blog_url }}"></div>
-{% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-6 col-dk-push-2">
+        {% if section.settings.blog_url %}
+        <h2 class="module__title">From the Blog</h2>
+          <div class="row row--posts"
+               data-blog-url="{{ section.settings.blog_url }}">
+          </div>
+        {% endif %}
+
+      </div>
+      <div class="col-dk-4 col--forums">
+        <div class="forums-cta">
+          <div class="forums-cta__inner">
+            <h5 class="h3">Want a demo?</h5>
+            <p>Get in touch and set up a trial.</p>
+            <a href="mailto:info@roverrobotics.com">Email Us <span class="icon-arrow-large-right"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 {% schema %}
   {
@@ -14,6 +32,10 @@
         "type": "url",
         "label": "Blog Url"
       }
-    ]
+    ],
+    "presets": [{
+		"name": "Blog Posts",
+		"category": "site-builder"
+	}]
   }
 {% endschema %}

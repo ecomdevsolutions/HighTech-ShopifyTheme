@@ -36,6 +36,11 @@
     .col-mb-#{$i} {
       float: left;
       width: percentage($i/$grid-column-count);
+      @media all and (max-width:800px) {
+          display: block;
+          float: none;
+          width: 100%;
+      }
     }
     .col-mb-push-#{$i} {
       margin-left: percentage($i/$grid-column-count);
@@ -189,6 +194,8 @@
     }
   }
 }
+
+
 
 .container,
 .row {

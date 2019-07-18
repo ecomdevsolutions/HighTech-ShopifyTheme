@@ -1,0 +1,185 @@
+<section class="shopify-section" style="padding-top: {{section.settings.section_height}}%; padding-bottom: {{section.settings.section_height}}%; background-color: {{section.settings.background_color}};">
+    <div class="container">
+      <h2 style="color: {{section.settings.header_font_color}};">{{section.settings.title}}</h2>
+
+      <div class="row">
+          {% assign block_size = section.blocks | size %}
+          {% for  block in section.blocks %}
+              <div class="col-mb-{{12 | divided_by: block_size}}" style="padding: {{block.settings.column_padding}}%">
+
+                  {% assign order = block.settings.column_order | split: "," %}
+
+                  {% for field in order %}
+                    {% if field == "paragraph"%}
+                        <div class="shopify-section__element" style="margin: {{block.settings.element_margin}}%; font-size: {{block.settings.font_size}}px; color: {{block.settings.font_color}};" />
+                            {{block.settings.paragraph}}
+                        </div>
+                    {% endif %}
+                    {% if field == "image" %}
+                        {% if block.settings.image %}
+                            <div class="shopify-section__element" style="margin: {{block.settings.element_margin}}%;" />
+                              <img src="{{block.settings.image | img_url: 'master'}}" />
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if field == "html_area" %}
+                         {% if block.settings.html_area %}
+                             <div class="shopify-section__element" style="margin: {{block.settings.element_margin}}%; color: {{section.settings.font_color}};" />
+                                {{block.settings.html_area}}
+                             </div>
+                        {% endif %}
+                    {% endif %}
+                  {% endfor %}
+
+
+              </div>
+
+          {% endfor %}
+      </div>
+
+
+
+
+    </div>
+  </section>
+
+
+
+{% schema %}
+ {
+	"name": "Column Section",
+	"settings": [
+		{
+			"id": "title",
+			"type": "text",
+			"label": "Title"
+		},
+
+        {
+            "id": "section_height",
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 0,
+            "label": "Section Height"
+          },
+          {
+           "type": "color",
+           "id": "background_color",
+           "label": "Background Color",
+           "default": "#ffffff"
+           },
+
+           {
+           "type": "color",
+           "id": "header_font_color",
+           "label": "Header Font Color",
+           "default": "#000000"
+           }
+
+
+	],
+	"blocks": [{
+		"type": "column",
+		"name": "Column",
+		"settings": [
+          {
+            "id": "paragraph",
+            "label": "Paragraph",
+            "type": "textarea"
+          },
+          {
+			"id": "image",
+			"type": "image_picker",
+            "label": "Image"
+		  },
+          {
+             "type":      "select",
+             "id":        "column_order",
+             "label":     "Element Order",
+             "options": [
+               {
+                 "group": "element_order",
+                 "value": "image,paragraph,html_area",
+                 "label": "Image, Paragraph, HTML"
+               },
+                {
+                 "group": "element_order",
+                 "value": "image,html_area,paragraph",
+                 "label": "Image, HTML, Paragraph"
+               },
+               {
+                 "group": "element_order",
+                 "value": "paragraph,image,html_area",
+                 "label": "Paragraph, Image, HTML"
+               },
+                {
+                 "group": "element_order",
+                 "value": "paragraph,html_area,image",
+                 "label": "Paragraph, HTML, Image"
+               },
+               {
+                 "group": "element_order",
+                 "value": "html_area,paragraph,image",
+                 "label": "HTML, Paragraph, Image"
+               },
+                {
+                 "group": "element_order",
+                 "value": "html_area,image,paragraph",
+                 "label": "HTML, Image, Paragraph"
+               }
+             ],
+             "default":   "paragraph,image,html_area",
+             "info":      "Text"
+          },
+
+          {
+            "id": "column_padding",
+            "type": "range",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "default": 0,
+            "label": "Column Padding"
+          },
+          {
+            "id": "element_margin",
+            "type": "range",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "default": 0,
+            "label": "Element Margin"
+          },
+          {
+           "type": "html",
+           "id": "html_area",
+           "label": "Custom HTML"
+         },
+        {
+            "id": "font_size",
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 16,
+            "label": "Paragraph Font"
+          },
+          {
+            "id": "font_color",
+            "type": "color",
+            "default": "#000000",
+            "label": "Paragraph Color"
+          }
+
+      ]
+	}],
+
+	"presets": [{
+		"name": "Section Builder",
+		"category": "site-builder"
+	}]
+}
+{% endschema %}
+

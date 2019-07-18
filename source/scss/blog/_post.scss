@@ -4,9 +4,10 @@
 }
 
 .row--posts {
+  margin-top: 100px;
   [class*=col-]:first-child {
     @include breakpoint(mobile-large) {
-      margin-top: 100px;
+
     }   
   }
 }
@@ -333,7 +334,6 @@
   background: saddlebrown;
 }
 .post--index {
-  border: solid 1px $color-xltgray;
   background-color: $color-white;
   max-width: 350px;
   margin: 0 auto 50px auto;
