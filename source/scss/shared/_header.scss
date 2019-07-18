@@ -19,9 +19,10 @@
 .header--main {
   position: absolute;
   width: 100%;
+
   top: 0;
   left: 0;
-  height: $header-height-mobile;
+  height: auto;
   z-index: 10;
 
   @media print {
@@ -31,7 +32,7 @@
   @include breakpoint(desktop) {
     position: fixed;
     background-color: $header-color;
-    height: $header-height-desktop;
+    height: auto;
     transition: transform 600ms cubic-bezier(.77,0,.175,1);
     
     body.scrolling-down & {
@@ -53,10 +54,10 @@
  * -------------------------------------------------------------------------- */
 
 .header--main .logo {
-  @include v-center(absolute);
-  position: absolute;
-  left: 25px;
-  width: 190px;
+
+
+  padding-top: 10px;
+  padding-left: 3%;
 
   @include breakpoint(desktop) {
     top: auto;

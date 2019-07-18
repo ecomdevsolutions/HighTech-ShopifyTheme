@@ -9,6 +9,17 @@
       }      
     ]
   },
+
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "id": "logo",
+        "type": "image_picker",
+        "label": "logo"
+      }
+    ]
+  },
   {
     "name": "API Keys",
     "settings": [

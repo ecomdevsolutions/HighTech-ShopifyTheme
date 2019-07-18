@@ -748,12 +748,6 @@ body {
  * -------------------------------------------------------------------------- */
 .header--main .logo {
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-     -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-  position: absolute;
   left: 25px;
   width: 190px; }
   @media (min-width: 1024px) {
