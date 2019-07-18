@@ -1,4 +1,4 @@
-<section class="shopify-section" style="padding-top: {{section.settings.section_height}}%; padding-bottom: {{section.settings.section_height}}%; background-color: {{section.settings.background_color}};">
+<section class="shopify-section" style="padding-top: {{section.settings.section_height}}%; padding-bottom: {{section.settings.section_height}}%; background-color: {{section.settings.background_color}}; text-align: {{section.settings.text_align}}">
     <div class="container">
       <h2 style="color: {{section.settings.header_font_color}};">{{section.settings.title}}</h2>
 
@@ -76,7 +76,29 @@
            "id": "header_font_color",
            "label": "Header Font Color",
            "default": "#000000"
-           }
+           },
+            {
+             "type":      "select",
+             "id":        "text_align",
+             "label":     "Text Align",
+             "options": [
+                   {
+                     "group": "align",
+                     "value": "center",
+                     "label": "Center"
+                   },
+                    {
+                     "group": "align",
+                     "value": "right",
+                     "label": "Right"
+                   },
+                    {
+                     "group": "align",
+                     "value": "left",
+                     "label": "Left"
+                   }
+                ]
+            }
 
 
 	],
