@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="row" id="contact-form-container">
-          <form method="POST" action="https://quote.roverrobotics.com/contact" id="contact-form">
+          <form method="POST" action="{{section.settings.form_url}}" id="contact-form">
             <div class="grid">
               <div class="grid_item medium-up--one-half">
                 <label for="ContactFormName"> Name </label>
@@ -73,6 +73,11 @@
     "name": "Contact",
     "class": "section section--contact",
     "settings": [
+      {
+        "id":"form_url",
+        "type": "text",
+        "label": "Form POST url"
+      },
       {
         "id": "title",
         "type": "textarea",
