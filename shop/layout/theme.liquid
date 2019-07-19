@@ -87,11 +87,7 @@
       {{ content_for_layout }}
       {% include 'footer' %}
     </main>
-  <div id="privacy-popup">
-    <h6>We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners w
-    who may combine it with other information that you've provided to them or that they've collected from your use of their services. You consent to cookies if you continue using this website. For more information read our <a href="{{site.url}}/pages/privacy-policy">privacy-policy</a></h6>
-    <button id="cookie-accept" class="button button--primary">Accept Cookies</button>
-    <button id="cookie-decline" class="button">Opt out</button>
-  </div>
+      <!-- Displays Privacy Policy -->
+  {{settings.privacy_policy}}
   </body>
 </html>

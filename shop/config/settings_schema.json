@@ -59,19 +59,19 @@
       {
         "type": "color",
         "id": "color_1",
-        "label": "Color 1",
+        "label": "Primary 1",
         "default": "#0074E4"
       },
       {
         "type": "color",
         "id": "color_2",
-        "label": "Color 2",
+        "label": "Primary 2",
         "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "color_3",
-        "label": "Color 3",
+        "label": "Primary 3",
         "default": "#000000"
       },
       {
@@ -97,6 +97,16 @@
         "id": "color_7",
         "label": "Color 7",
         "default": "#5B5B5B"
+      }
+    ]
+  },
+  {
+    "name": "Privacy Policy",
+    "settings": [
+      {
+        "label": "Privacy Policy",
+        "id": "privacy_policy",
+        "type": "html"
       }
     ]
   }

@@ -11,6 +11,7 @@ print("transpile.py running")
 CSS_URL = "./shop/assets/application.css.liquid"
 
 transpile_values = {
+  "{{settings.color_1}}": "#0074E4",
   "{{settings.color_2}}":"#ffffff",
   "{{settings.color_3}}": "#000000",
   "{{settings.color_4}}": "#F0F0F0",
