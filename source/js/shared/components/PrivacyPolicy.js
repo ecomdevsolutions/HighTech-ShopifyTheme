@@ -6,20 +6,18 @@ class PrivacyPolicy {
         this.$popup = $('#privacy-popup');
         this.$cookieAccept = $('#cookie-accept')
         this.$cookieDecline = $('#cookie-decline')
-        this.privacyCookiename = "roverPrivacy"
-        this.trackingCookies = ['']
+        this.privacyCookiename = "privacyAccepted"
+        this.privacyCountries = ['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE', 'IT','LT', 'LU','LV','MT','NL', 'PO','PT','RO', 'SE', 'SI','SK']
     }
 
 
     init() {
         const bannerCookie = this.getCookie(this.privacyCookiename)
-
+        // if user is from us place cookies otherwise display popup
         if (bannerCookie === "none") {
-            this.$popup.show()
-            this.acceptListen()
-            this.declineListen()
-
+            this.getRequestCountry()
         }
+
         else if (JSON.parse(bannerCookie) === true) {
            window.roverTracking = true
         } else if (JSON.parse(bannerCookie) === false) {
@@ -68,10 +66,21 @@ class PrivacyPolicy {
           return "none";
     }
 
-    deleteCookie() {
+    getRequestCountry(){
+     $.getJSON("https://freegeoip.app/json/", (data) => {
+         console.log(data.country_code)
+        if (this.privacyCountries.includes(data.country_code)) {
+            this.$popup.show()
+            this.acceptListen()
+            this.declineListen()
+        } else if (data.country_code == "US") {
+             this.setCookie(this.privacyCookiename, true)
+             window.roverTracking = true
+             window.dataLayer.push({'event': 'cookieAccepted'})
 
+        }
+      });
     }
 }
-
 
 export default PrivacyPolicy;
