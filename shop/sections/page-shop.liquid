@@ -1,0 +1,58 @@
+<section class="module module--page module--collection">
+  <div class="container">
+    <div class="row">
+      <div class="col-dk-8 col-dk-push-2">
+        <h1>
+          <span>{{ section.settings.title }}</span><br />
+        </h1>
+          {% for block in section.blocks %}
+              {% assign collection = collections[block.settings.collection] %}
+              <h2>{{ block.settings.collection }}</h2>
+              <div class="row row--no-gutter row--products">
+              {% for product in collection.products %}
+                {{product.collection}}
+                  <div class="col-tb-4">
+                    {% include 'product-index' %}
+                  </div>
+              {% endfor %}
+            </div>
+
+          {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Shop Page",
+    "class": "section section--contact",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Shop"
+      }
+    ],
+    "blocks": [
+        {
+           "name": "Add Collection",
+            "type": "collection",
+            "settings": [
+                {
+                   "type": "collection",
+                   "id": "collection",
+                   "label": "Add Collection"
+                }
+            ]
+
+        }
+    ]
+
+  }
+{% endschema %}

@@ -43,6 +43,28 @@
 
 
   },
+  {
+    "name": "Typography",
+    "settings": [
+        {
+            "type":    "font_picker",
+            "label":   "Heading font",
+            "id":      "heading_font",
+            "default": "helvetica_n4"
+        },
+        {
+            "type":    "font_picker",
+            "label":   "Body font",
+            "id":      "body_font",
+            "default": "helvetica_n4"
+        },
+        {
+            "type":"html",
+            "label":"Custom fonts",
+            "id": "custom_fonts"
+        }
+    ]
+},
    {
     "name": "Theme Colors",
     "settings": [

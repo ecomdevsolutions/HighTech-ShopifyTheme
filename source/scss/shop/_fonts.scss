@@ -11,7 +11,7 @@
 }
 
 @font-face {
-  font-family: 'BentonSans';  
+  font-family: 'BentonSans';
   src: url('{{ "BentonSans-Book.eot" | asset_url }}');
   src: url('{{ "BentonSans-Book.eot?#iefix" | asset_url }}') format('embedded-opentype'),
        url('{{ "BentonSans-Book.woff2" | asset_url }}') format('woff2'),
