@@ -1,3 +1,127 @@
+
+
+{% assign header_custom_font = settings.header_custom_font %}
+{% assign body_custom_font = settings.body_custom_font %}
+{% assign body_font_select = settings.body_font_select %}
+{% assign header_font_select = settings.heading_font_select %}
+
+{% assign header_font = header_font_select %}
+{% assign body_font = body_font_select %}
+
+
+{%if header_custom_font != "none" %}
+    {% assign header_font = header_custom_font %}
+{% else %}
+    {{header_font | font_face}}
+    {% assign header_font = header_font.family | replace: '"', ""  %}
+    
+{% endif %}
+
+{%if body_custom_font != "none" %}
+    {% assign body_font = body_custom_font  %}
+{% else %}
+    {{body_font  | font_face }}
+    {% assign body_font = body_font.family | replace: """, "" %}
+    
+{% endif %}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('{{ "BentonSans-Thin.eot" | asset_url }}');
+  src: url('{{ "BentonSans-Thin.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+       url('{{ "BentonSans-Thin.woff2" | asset_url }}') format('woff2'),
+       url('{{ "BentonSans-Thin.woff" | asset_url }}') format('woff'),
+       url('{{ "BentonSans-Thin.ttf" | asset_url }}') format('truetype'),
+       url('{{ "BentonSans-Thin.svg#BentonSans-Thin" | asset_url }}') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('{{ "BentonSans-Book.eot" | asset_url }}');
+  src: url('{{ "BentonSans-Book.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+       url('{{ "BentonSans-Book.woff2" | asset_url }}') format('woff2'),
+       url('{{ "BentonSans-Book.woff" | asset_url }}') format('woff'),
+       url('{{ "BentonSans-Book.ttf" | asset_url }}') format('truetype'),
+       url('{{ "BentonSans-Book.svg#BentonSans-Book" | asset_url }}') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('{{ "BentonSans.eot" | asset_url }}');
+  src: url('{{ "BentonSans.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+       url('{{ "BentonSans.woff2" | asset_url }}') format('woff2'),
+       url('{{ "BentonSans.woff" | asset_url }}') format('woff'),
+       url('{{ "BentonSans.ttf" | asset_url }}') format('truetype'),
+       url('{{ "BentonSans.svg#BentonSans" | asset_url }}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('{{ "BentonSans-Medium.eot" | asset_url }}');
+  src: url('{{ "BentonSans-Medium.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+       url('{{ "BentonSans-Medium.woff2" | asset_url }}') format('woff2'),
+       url('{{ "BentonSans-Medium.woff" | asset_url }}') format('woff'),
+       url('{{ "BentonSans-Medium.ttf" | asset_url }}') format('truetype'),
+       url('{{ "BentonSans-Medium.svg#BentonSans-Medium" | asset_url }}') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans';
+    src: url('{{ "BentonSans-Bold.eot" | asset_url }}');
+    src: url('{{ "BentonSans-Bold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "BentonSans-Bold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "BentonSans-Bold.woff" | asset_url }}') format('woff'),
+         url('{{ "BentonSans-Bold.ttf" | asset_url }}') format('truetype'),
+         url('{{ "BentonSans-Bold.svg#BentonSans-Bold" | asset_url }}') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('{{ "BentonSans-CondensedBook.eot" | asset_url }}');
+    src: url('{{ "BentonSans-CondensedBook.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "BentonSans-CondensedBook.woff2" | asset_url }}') format('woff2'),
+         url('{{ "BentonSans-CondensedBook.woff" | asset_url }}') format('woff'),
+         url('{{ "BentonSans-CondensedBook.ttf" | asset_url }}') format('truetype'),
+         url('{{ "BentonSans-CondensedBook.svg#BentonSans-CondensedBook" | asset_url }}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('{{ "BentonSans-CondensedBold.eot" | asset_url }}');
+    src: url('{{ "BentonSans-CondensedBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "BentonSans-CondensedBold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "BentonSans-CondensedBold.woff" | asset_url }}') format('woff'),
+         url('{{ "BentonSans-CondensedBold.ttf" | asset_url }}') format('truetype'),
+         url('{{ "BentonSans-CondensedBold.svg#BentonSans-CondensedBold" | asset_url }}') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('{{ "BentonSans-CondensedBlack.eot" | asset_url }}');
+    src: url('{{ "BentonSans-CondensedBlack.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "BentonSans-CondensedBlack.woff2" | asset_url }}') format('woff2'),
+         url('{{ "BentonSans-CondensedBlack.woff" | asset_url }}') format('woff'),
+         url('{{ "BentonSans-CondensedBlack.ttf" | asset_url }}') format('truetype'),
+         url('{{ "BentonSans-CondensedBlack.svg#BentonSans-CondensedBlack" | asset_url }}') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
 /* Vendor */
 /* Slider */
 .slick-slider {
@@ -206,7 +330,7 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit; }
 
 h1, .h1 {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 50px;
   line-height: 42px;
@@ -224,7 +348,7 @@ h1, .h1 {
     color: {{settings.color_1}}; }
 
 h2, .h2 {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
@@ -241,7 +365,7 @@ h2, .h2 {
   margin-bottom: 1.5em; }
 
 h3, .h3, .richtext h1, .product-banner__title {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
@@ -254,7 +378,7 @@ h3, .h3, .richtext h1, .product-banner__title {
       line-height: 36px; } }
 
 h4, .h4, .product-banner__price {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
@@ -267,7 +391,7 @@ h4, .h4, .product-banner__price {
       line-height: 30px; } }
 
 h5, .h5, .h5--impact, .richtext h3 {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
@@ -280,20 +404,20 @@ h5, .h5, .h5--impact, .richtext h3 {
       line-height: 26px; } }
 
 .h5--impact {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: {{settings.color_1}}; }
 
 h6, .h6, .richtext h4, .richtext h5, .richtext h6 {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   font-size: 15px;
   line-height: 19px; }
 
 .h6--eyebrow, .h6--eyebrow--blue {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 13px;
   line-height: 16px;
@@ -304,7 +428,7 @@ h6, .h6, .richtext h4, .richtext h5, .richtext h6 {
   color: {{settings.color_1}}; }
 
 .p--large, .module--get-in-touch p {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-size: 22px;
   font-weight: 500;
   line-height: 30px; }
@@ -318,7 +442,7 @@ p, .richtext ul, .richtext ol, .richtext table, .form__group input[type="number"
   line-height: 24px; }
 
 .nav--main__sub a, .footer--main .nav--sub, .footer--main .copyright {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
@@ -418,7 +542,7 @@ strong {
     border-left: solid 1px {{settings.color_4}}; }
 
 .module__title--small, .product--single .product__options label {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 14px;
   line-height: 14px;
@@ -430,7 +554,7 @@ strong {
           user-select: none; }
 
 .form__group label {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
@@ -440,7 +564,7 @@ strong {
   color: {{settings.color_1}}; }
 
 .table--cart .label {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 12px;
   line-height: 12px;
@@ -452,7 +576,7 @@ strong {
           user-select: none; }
 
 .product--single .product__option__value span, .table--cart .cart__options, .table--cart .cart__options .label {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-size: 12px;
   line-height: 14px;
   font-weight: normal;
@@ -460,7 +584,7 @@ strong {
   letter-spacing: 1.5px; }
 
 .product--single .product__option__value span:nth-child(2), .table--cart .cart__options .val {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-size: 12px;
   line-height: 14px;
   font-weight: normal;
@@ -469,7 +593,7 @@ strong {
   font-weight: bold; }
 
 .cart__details .cart__summary li span:first-child {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -477,7 +601,7 @@ strong {
   letter-spacing: 1.5px; }
 
 .cart__details .cart__summary li span:last-child {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-size: 14px;
   line-height: 16px;
   font-weight: normal;
@@ -485,7 +609,7 @@ strong {
   letter-spacing: 1.5px; }
 
 .footer--main .nav--main a, .forums-cta a {
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 13px;
   line-height: 13px;
@@ -493,7 +617,7 @@ strong {
   text-transform: uppercase; }
 
 .module--about-product .product__meta a {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: regular;
   font-size: 12px;
   line-height: 14px;
@@ -512,7 +636,7 @@ strong {
     vertical-align: middle; }
 
 .table--cart .remove {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-size: 11px;
   line-height: 11px;
   letter-spacing: 1.25px;
@@ -561,7 +685,7 @@ body {
   -ms-overflow-style: none;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-size: 16px;
   line-height: 27px;
   font-weight: 300;
@@ -585,62 +709,6 @@ body {
 
 [data-href] {
   cursor: pointer; }
-
-@font-face {
-  font-family: 'BentonSans';
-  src: url('{{ "BentonSans-Thin.eot" | asset_url }}');
-  src: url('{{ "BentonSans-Thin.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-Thin.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-Thin.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-Thin.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-Thin.svg#BentonSans-Thin" | asset_url }}') format("svg");
-  font-weight: 100;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans';
-  src: url('{{ "BentonSans-Book.eot" | asset_url }}');
-  src: url('{{ "BentonSans-Book.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-Book.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-Book.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-Book.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-Book.svg#BentonSans-Book" | asset_url }}') format("svg");
-  font-weight: 300;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans';
-  src: url('{{ "BentonSans.eot" | asset_url }}');
-  src: url('{{ "BentonSans.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans.woff" | asset_url }}') format("woff"), url('{{ "BentonSans.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans.svg#BentonSans" | asset_url }}') format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans';
-  src: url('{{ "BentonSans-Medium.eot" | asset_url }}');
-  src: url('{{ "BentonSans-Medium.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-Medium.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-Medium.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-Medium.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-Medium.svg#BentonSans-Medium" | asset_url }}') format("svg");
-  font-weight: 500;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans';
-  src: url('{{ "BentonSans-Bold.eot" | asset_url }}');
-  src: url('{{ "BentonSans-Bold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-Bold.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-Bold.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-Bold.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-Bold.svg#BentonSans-Bold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans Condensed';
-  src: url('{{ "BentonSans-CondensedBook.eot" | asset_url }}');
-  src: url('{{ "BentonSans-CondensedBook.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-CondensedBook.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-CondensedBook.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-CondensedBook.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-CondensedBook.svg#BentonSans-CondensedBook" | asset_url }}') format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans Condensed';
-  src: url('{{ "BentonSans-CondensedBold.eot" | asset_url }}');
-  src: url('{{ "BentonSans-CondensedBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-CondensedBold.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-CondensedBold.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-CondensedBold.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-CondensedBold.svg#BentonSans-CondensedBold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'BentonSans Condensed';
-  src: url('{{ "BentonSans-CondensedBlack.eot" | asset_url }}');
-  src: url('{{ "BentonSans-CondensedBlack.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "BentonSans-CondensedBlack.woff2" | asset_url }}') format("woff2"), url('{{ "BentonSans-CondensedBlack.woff" | asset_url }}') format("woff"), url('{{ "BentonSans-CondensedBlack.ttf" | asset_url }}') format("truetype"), url('{{ "BentonSans-CondensedBlack.svg#BentonSans-CondensedBlack" | asset_url }}') format("svg");
-  font-weight: 900;
-  font-style: normal; }
 
 @font-face {
   font-family: 'icomoon';
@@ -1247,7 +1315,7 @@ body {
 
 .nav--main__main li a {
   display: block;
-  font-family: 'BentonSans Condensed';
+  font-family: '{{header_font}}';
   font-weight: bold;
   font-size: 30px;
   line-height: 30px;
@@ -1690,7 +1758,7 @@ body {
 
 .footer--main .form--subscribe .form__group input[type="email"] {
   width: 100%;
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-size: 13px;
   line-height: 13px;
   border: none;
@@ -3110,7 +3178,7 @@ button {
 .button {
   display: inline-block;
   position: relative;
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-weight: 500;
   padding: 17px 40px 15px 40px;
   border: solid 1px {{settings.color_6}};
@@ -4460,7 +4528,7 @@ tr:nth-child(even) {
   margin-bottom: 30px; }
 
 .product__price {
-  font-family: 'BentonSans';
+  font-family: '{{body_font}}';
   font-size: 14px; }
 
 @media (min-width: 1024px) {
@@ -4496,7 +4564,7 @@ tr:nth-child(even) {
   margin-bottom: 50px; }
 
 .product__option label {
-  font-family: BentonSans Condensed;
+  font-family: "BentonSan";
   font-weight: 700;
   font-size: 20px;
   line-height: 14px;

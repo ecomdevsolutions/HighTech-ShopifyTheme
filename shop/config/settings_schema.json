@@ -49,20 +49,63 @@
         {
             "type":    "font_picker",
             "label":   "Heading font",
-            "id":      "heading_font",
+            "id":      "heading_font_select",
             "default": "helvetica_n4"
         },
         {
             "type":    "font_picker",
             "label":   "Body font",
-            "id":      "body_font",
+            "id":      "body_font_select",
             "default": "helvetica_n4"
         },
         {
-            "type":"html",
-            "label":"Custom fonts",
-            "id": "custom_fonts"
-        }
+         "type":      "select",
+         "id":        "header_custom_font",
+         "label":     "Header Custom Font",
+         "options": [
+           {
+
+             "value": "none",
+             "label": "None"
+           },
+           {
+
+             "value": "BentonSans",
+             "label": "BentonSans"
+           },
+            {
+
+             "value": "BentonSans Condensed",
+             "label": "BentonSans Condensed"
+           }
+         ],
+         "default":   "none"
+
+      },
+      {
+         "type":      "select",
+         "id":        "body_custom_font",
+         "label":     "Body Custom Font",
+         "options": [
+           {
+
+             "value": "none",
+             "label": "None"
+           },
+           {
+
+             "value": "BentonSans",
+             "label": "BentonSans"
+           },
+           {
+
+             "value": "BentonSans Condensed",
+             "label": "BentonSans Condensed"
+           }
+         ],
+         "default":   "none"
+
+      }
     ]
 },
    {
