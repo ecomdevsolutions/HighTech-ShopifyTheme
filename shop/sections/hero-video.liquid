@@ -1,16 +1,13 @@
-<section class="hero">
+<section class="hero" data-placeholder="{{ section.settings.placeholder_image | img_url: 'master'}}">
   <div class="hero__box">
       <div class="hero__overlay">
           <h1>{{section.settings.title}}</h1>
           <hr/>
           <span>{{section.settings.subtitle}}</span>
           <br>
-
           {% for block in section.blocks %}
             <a href="{{block.settings.url}}" class="button no-ajax">{{block.settings.text}}</a>
           {% endfor %}
-
-
       </div>
       <div>
         <!-- The video -->
@@ -22,6 +19,20 @@
 </section>
 
 
+<style>
+
+       @media screen and (max-width: 1000px) {
+           .hero {
+               padding-bottom: 100px;
+              height: 75vh;
+              background: url({{ section.settings.placeholder_image | img_url: 'master'}});
+              background-size: contain;
+              background-repeat: no-repeat;
+           }
+    }
+
+
+</style>
 
 {% schema %}
   {
@@ -41,7 +52,12 @@
         "id": "video",
         "type": "text",
         "label": "Background Video"
-      }
+      },
+        {
+            "id": "placeholder_image",
+            "type": "image_picker",
+            "label": "Mobile and Video Disabled Image"
+        }
 
     ],
       "blocks": [

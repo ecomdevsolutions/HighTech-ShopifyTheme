@@ -30,8 +30,9 @@ class Home {
     this.featuredPosts = new FeaturedPosts(this.$featuredPosts)
     this.featuredPosts.init()
     if (!this.canPlayVideo()) {
+      const placeholderImage = this.$heroContainer.data("placeholder")
       let styles = {
-        background: "url('https://cdn.shopify.com/s/files/1/0055/0433/5925/files/all_three_revA_1000x1000.png?v=1529706427')",
+        background: `url(${placeholderImage})`,
         height: "75vh",
         backgroundSize: "contain",
         backgroundRepeat:" no-repeat",
