@@ -4315,9 +4315,33 @@ body[class*=customers] .footer--main {
     margin-top: 25px;
     color: {{settings.color_3}}; }
 
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* If you want dots under the hoverable text */ }
+
+/* Tooltip text */
+.tooltip .tooltip__text {
+  visibility: hidden;
+  font-size: 16px;
+  background-color: {{settings.color_3}};
+  color: {{settings.color_2}};
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1; }
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltip__text {
+  visibility: visible; }
+
 /* Style the tab */
 .tab {
-  overflow: hidden;
+  height: 60px;
   /*border: 1px solid #ccc;*/
   border: none;
   background-color: #f1f1f1; }

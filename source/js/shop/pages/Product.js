@@ -182,8 +182,11 @@ class Product {
 
   varientSelect() {
     this.$varients.click((e) => {
-      this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price), quantity: 1}
-      this.updatePrice()
+      if (e.target.className.split(" ").includes("tablinks")) {
+        this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price), quantity: 1}
+        this.updatePrice()
+      }
+
     });
   }
 

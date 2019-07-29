@@ -18,14 +18,39 @@
       {% endif %}
       {% if product.has_only_default_variant %}
       {% else %}
-      {%if product.selected_or_first_available_variant.id == variant.id %}
-        <button id="first-varient" class="tablinks tablinks--varients active" onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}</button>
+      {% if product.selected_or_first_available_variant.id == variant.id %}
+        <button id="first-varient" class="tablinks tablinks--varients active" onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}
+          &nbsp;
+          {% if variant.metafields.global.tooltip %}
+            <div class="tooltip">&nbsp;
+              <i data-info="{{ variant.metafields.global.tooltip }}"  class="fa fa-info"></i>
+              <div class="tooltip__text">
+               {{ variant.metafields.global.tooltip }}
+              </div>
+           </div>
+          {% endif %}
+        </button>
         {% else %}
-        <button class="tablinks tablinks--varients"  onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}</button>
+        <button class="tablinks tablinks--varients"  onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}
+          &nbsp;
+          {% if variant.metafields.global.tooltip %}
+            <div class="tooltip">&nbsp;
+              <i data-info="{{ variant.metafields.global.tooltip }}"  class="fa fa-info">          </i>
+              <div class="tooltip__text">
+               {{ variant.metafields.global.tooltip }}
+              </div>
+           </div>
+          {% endif %}
+
+        </button>
+
       {% endif %}
     {% endif %}
     {% endfor %}
+
   </div>
+
+
 
 
 
@@ -35,6 +60,7 @@
   {% else %}
     {% assign title = variant.title %}
   {% endif %}
+
   {%if product.selected_or_first_available_variant.id == variant.id %}
   <div id="{{title}}" class="tabcontent" style="display:block;">
     <div class="product__title-price">

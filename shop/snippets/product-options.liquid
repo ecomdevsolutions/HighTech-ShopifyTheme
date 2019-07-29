@@ -8,7 +8,7 @@
       {% assign count = 0 %}
       {% for value in option.values %}
         {% if count == 0 %}
-          <button class="tablinks tablinks--options multi-option"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
+          <button class="tablinks tablinks--options multi-option"  data-name="{{option.name}}" data-value="{{value}}">{{value}}</button>
           {% else %}
             <button class="tablinks tablinks--options"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
           {% endif %}

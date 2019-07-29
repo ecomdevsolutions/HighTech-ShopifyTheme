@@ -15,30 +15,7 @@
     </div>
       <div class="row row--contact">
         <div class="col-dk-8 col-dk-push-2">
-          <div class="row">
-            <div class="col-tb-6 col-lg-4">
-              <h6 class="h6--eyebrow--blue">Email</h6>
-              <p>
-                <a href="mailto:info@roverrobotics.com">info@roverrobotics.com</a>
-              </p>
-            </div>
-            <div class="col-tb-6 col-lg-4">
-              <h6 class="h6--eyebrow--blue">Phone</h6>
-              <p>
-                <a href="tel:833.768.3776">833.768.3776</a>
-              </p>
-            </div>
-
-            <div class="col-tb-6 col-lg-4">
-              <h6 class="h6--eyebrow--blue">Corporate Headquarters</h6>
-              <p>Rover Robotics <br> 294 Grove Ln E Suite 200 <br>Wayzata, MN 55391</p>
-            </div>
-        </div>
-
-        <div class="row" id="quote-container">
-
-
-
+        <div class="row" id="quote-container" data-thank_title="{{ section.settings.thank_you_title }}" data-thank_text="{{ section.settings.thank_you_subtext }}">
               <form id="quote-request-form" action="https://quote.roverrobotics.com/" method="post" id="quote-form">
                    <strong>*Fill out the form below to have an instant quote sent to your email</strong><br/><br/>
                 <div class="grid" >
@@ -404,14 +381,16 @@
         "default": "Quote Request"
       },
       {
-        "id": "hero_copy",
-        "type": "textarea",
-        "label": "Hero Copy"
+        "id": "thank_you_title",
+        "type": "text",
+        "label": "Thank You Title",
+        "default": "Thank You!"
       },
       {
-        "id": "email",
+        "id": "thank_you_subtext",
         "type": "text",
-        "label": "Email"
+        "label": "Thank You Subtext",
+        "default": "You'll receive an email shortly with a quote."
       },
       {
         "id": "phone",

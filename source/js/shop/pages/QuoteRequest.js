@@ -10467,10 +10467,13 @@ class QuoteRequest {
           $("#cart-data").val(JSON.stringify(cart))
           let urlParams = new URLSearchParams(window.location.search);
           if (urlParams.has('submitted')) {
+            const thankTitle = $("#quote-container").data("thank_title")
+            const thankText = $("#quote-container").data("thank_text")
             $('#quote-form').hide()
             $("#quote-request-form").hide()
+              console.log(thankTitle, thankText)
             $("#quote-container").append(
-              "<h1 style='margin-top:50px;'>Thank You!</h1> <br> <p>You'll recive an email shortly with a quote</p>")
+              `<h1 style='margin-top:50px;'>${thankTitle}</h1> <br> <p>${thankText}</p>`)
               }
         });
 
@@ -10829,20 +10832,6 @@ class QuoteRequest {
       });
       return parsedHTML
     }
-
-    // getShippingRates(zip, country, state) {
-    //   const url = `shipping_address[zip]=${zip}&shipping_address[country]=${country}&shipping_address[province]=${state}`
-    //     fetch(`/cart/shipping_rates.json?${url}`, {
-    //     method: "GET",
-    //     headers: {
-    //         "Accept": "application/json"
-    //     }
-    // }).then(res => res.json())
-    //   .then((json) => {
-    //     console.log(json)
-    //
-    //   })
-    // }
 
     copyInputValues() {
       $('#shipping-same').click((e) => {
