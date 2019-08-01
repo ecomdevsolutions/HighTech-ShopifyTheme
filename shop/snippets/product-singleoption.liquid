@@ -10,7 +10,9 @@
 
 
   <div class="tab tab--variant-select">
+
     {% for variant in product.variants %}
+      {% assign variant_addon = variant.metafields.global.addon_select %}
       {% if product.has_only_default_variant %}
         {% assign title = product.title %}
       {% else %}
@@ -19,7 +21,7 @@
       {% if product.has_only_default_variant %}
       {% else %}
       {% if product.selected_or_first_available_variant.id == variant.id %}
-        <button id="first-varient" class="tablinks tablinks--varients active" onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}
+        <button id="first-varient" class="tablinks tablinks--varients active" data-addon="{{ variant_addon }}" onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}
           &nbsp;
           {% if variant.metafields.global.tooltip %}
             <div class="tooltip">&nbsp;
@@ -31,8 +33,8 @@
           {% endif %}
         </button>
         {% else %}
-        <button class="tablinks tablinks--varients"  onclick="openvarientTab(event, '{{title}}')" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}
-          &nbsp;
+
+        <button class="tablinks tablinks--varients"  onclick="openvarientTab(event, '{{title}}')" data-addon="{{ variant_addon }}" data-price ="{{variant.price}}" data-id="{{variant.id}}">{{title}}          &nbsp;
           {% if variant.metafields.global.tooltip %}
             <div class="tooltip">&nbsp;
               <i data-info="{{ variant.metafields.global.tooltip }}"  class="fa fa-info">          </i>

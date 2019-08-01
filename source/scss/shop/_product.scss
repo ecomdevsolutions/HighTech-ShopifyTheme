@@ -12,10 +12,9 @@
   background-color: $color-black;
   color: $color-white;
   text-align: center;
+  width: 300px;
   padding: 5px 5px;
   border-radius: 6px;
-
-
   /* Position the tooltip text - see examples below! */
   position: absolute;
 
@@ -223,6 +222,8 @@ tr:nth-child(even) {
     float: none;
     text-align: center;
   }
+
+
 
 }
 .product__qty {
@@ -529,3 +530,6 @@ tr:nth-child(even) {
     }
   }
 }
+  .addon__selected {
+    border: 2px solid green;
+  }

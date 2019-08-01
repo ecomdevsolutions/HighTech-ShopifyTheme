@@ -47,6 +47,7 @@ class Product {
     this.setVariantQuantity()
     this.changeImageByClick()
     this.updateQuantity()
+    this.setDefaultAddon()
 
     window.onload = function() {
       const multiOptions = $('.multi-option').toArray();
@@ -71,16 +72,29 @@ class Product {
 
   }
 
+  setDefaultAddon() {
+    const $active = $('.tablinks.active')
+    const activeVariant = $active[0].dataset.addon
+    const $varientPlus = document.getElementById(`quantity-plus-${activeVariant}`);
+    const $variantInput = document.getElementById(`quantity-${activeVariant}`);
+
+    $(".addon__qty")
+        .toArray()
+        .forEach(addon => addon.value = 0)
+    $('.product__option').toArray()
+        .forEach(option => $(option).removeClass("addon__selected"))
+    $varientPlus.click();
+
+  }
+
   changeImageByClick() {
     this.$thumb.click((e) => {
       e.stopPropagation();
-      console.log(e.target)
       this.$images.slick('slickGoTo', parseInt(e.target.dataset.index))
     })
   }
 
   filterImages ( variant ) {
-    console.log(variant, 'filter images')
     this.$images.slick('slickUnfilter')
     this.$thumb.removeClass('active')
 
@@ -117,7 +131,14 @@ class Product {
         field.val(increment)
       }
       field.change()
-      console.log(e.target.dataset.id)
+
+      if (parseInt(field.val()) > 0) {
+
+        $(`#product__option-${e.target.dataset.id}`).addClass('addon__selected')
+      } else {
+        $(`#product__option-${e.target.dataset.id}`).removeClass('addon__selected')
+
+      }
     })
   }
 
@@ -185,6 +206,7 @@ class Product {
       if (e.target.className.split(" ").includes("tablinks")) {
         this.currentVarient = {id: e.target.dataset.id, price: parseFloat(e.target.dataset.price), quantity: 1}
         this.updatePrice()
+        this.setDefaultAddon()
       }
 
     });
@@ -201,7 +223,6 @@ class Product {
   setAddonQuantity() {
     this.$optionQuanity.change((e) => {
       let addonIndex = this.addons.findIndex(x => x.url === e.target.dataset.url)
-
       if (addonIndex != -1) {
         this.addons[addonIndex].quantity = parseFloat(e.target.value)
       } else {

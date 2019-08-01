@@ -2,7 +2,7 @@
   <ol class="product__options">
     <h2>Essential Addons</h2>
     {% for product in collections.addons.products %}
-      <li class="product__option">
+      <li class="product__option" id="product__option-{{ product.id }}">
         <a target="_blank" href= "{{product.url}}">
           <label>
             {{product.title}}
@@ -12,11 +12,10 @@
         <img src="{{product | img_url}}" alt="{{product.title}}"/>
         <div class="addon__cart-control">
         <strong>QTY: </strong> &nbsp; &nbsp;
-          <!--<input id="quantity-{{product.id}}" class="addon__qty" data-url="{{product.url}}" data-price="{{product.price}}" type="number" min="0" name="product-quantity" value="0" /> -->
           <div class="quantity buttons_added">
-            <input data-id="{{product.id}}" type="button" value="-" class="minus">
-                <input data-id="{{product.id}}" id="quantity-{{product.id}}" class="addon__qty input-text qty text" data-url="{{product.url}}" data-price="{{product.price}}" type="number" min="0" name="product-quantity" value="0" />
-            <input data-id="{{product.id}}" type="button" value="+" class="plus">
+            <input data-id="{{product.id}}" type="button" value="-" id="quantity-minus-{{ product.id }}" class="minus">
+                <input  data-id="{{product.id}}" id="quantity-{{product.id}}" class="addon__qty input-text qty text" data-url="{{product.url}}" data-price="{{product.price}}" type="number" min="0" name="product-quantity" value="0" />
+            <input data-id="{{product.id}}" type="button" value="+" class="plus" id="quantity-plus-{{ product.id }}">
           </div>
         </div>
       </li>
