@@ -50,10 +50,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: .75em 0;
   color: inherit; }
 
+.alignright {
+  float: right;
+  clear: both; }
+
 h1, .h1 {
   font-family: 'BentonSans Condensed';
   font-weight: bold;
-  font-size: 50px;
+  font-size: 26px;
   line-height: 42px;
   letter-spacing: .3em;
   text-transform: uppercase;
@@ -63,7 +67,7 @@ h1, .h1 {
           user-select: none; }
   @media (min-width: 1024px) {
     h1, .h1 {
-      font-size: 60px;
+      font-size: 36px;
       line-height: 52px; } }
   h1 span:last-child, .h1 span:last-child {
     color: #0074E4; }
@@ -698,13 +702,12 @@ body {
 
 /* --------------------------------------------------------------------------
    RR Header
-  
-   Table of Content
 
+   Table of Contents
    #Header
    #Logo
    #MenuToggle
-   #NavMai
+   #NavMain
    #NavSub
    #NavSocial
    -------------------------------------------------------------------------- */
@@ -724,7 +727,7 @@ body {
   @media (min-width: 1024px) {
     .header--main {
       position: fixed;
-      background-color: #shopify_header_color;
+      background-color: #ffffff;
       height: 100px;
       -webkit-transition: -webkit-transform 600ms cubic-bezier(0.77, 0, 0.175, 1);
       transition: -webkit-transform 600ms cubic-bezier(0.77, 0, 0.175, 1);
@@ -747,6 +750,12 @@ body {
  * #Logo
  * -------------------------------------------------------------------------- */
 .header--main .logo {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   position: absolute;
   left: 25px;
   width: 190px; }

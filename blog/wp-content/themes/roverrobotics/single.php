@@ -7,7 +7,7 @@
       <article class="post post--single">
         <div class="post__meta">
           <time class="h6--eyebrow"><?php echo get_the_date('F j, Y', $post->ID); ?></time>
-          <h1 class="h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h1>
+          <h1><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h1>
         </div>
         <div class="post__modules">
           <?php the_content(); ?>

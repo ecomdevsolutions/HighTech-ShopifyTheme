@@ -12,7 +12,7 @@ from email.mime.base import MIMEBase
 
 
 class GmailAPI:
-    def __init__(self, email_from, email_to, email_subject, pdf):
+    def __init__(self, email_from, email_to, email_subject, pdf=None, data=None):
         #list of services that your trying to access. Note you must enable them in gsuit
         self.SCOPES = ['https://www.googleapis.com/auth/gmail.send']
         #used for auth
@@ -21,14 +21,30 @@ class GmailAPI:
         self.email_to = email_to
         self.email_subject = email_subject
         self.pdf = pdf
-        self.email_content = self.build_email_content('./templates/email_template.html')
-        #authenticates using google service account for rover robotics
-        #service object allows acces to gmail service
-        self.service = self.service_account_login()
-        # Call the Gmail API
-        self.message = self.create_message()
+        self.data = data
+        if self.pdf:
+            self.email_content = self.build_email_content('./templates/email_template.html')
+            # authenticates using google service account for rover robotics
+            # service object allows acces to gmail service
+            self.service = self.service_account_login()
+            # Call the Gmail API
+            self.message = self.create_message()
+        else:
+            self.service = self.service_account_login()
+            self.message = self.contact_message()
+
         self.user_id = "me"
         #sent = send_message(self.service,'me', message)
+
+    def contact_message(self):
+        message = MIMEText(f"Name: {self.data.get('name')} \n Email: {self.data.get('email')} \n Company: {self.data.get('company')} \n Message: {self.data.get('body')}")
+        message['to'] = self.email_to
+        message['from'] = self.email_from
+        message['subject'] = self.email_subject
+        raw = base64.urlsafe_b64encode(message.as_bytes())
+        raw = raw.decode()
+        return {'raw': raw}
+
 
     def create_message(self):
       """Create a message for an email.

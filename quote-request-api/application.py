@@ -72,9 +72,15 @@ def contact():
 
     try:
         jira = JiraAPI(os.environ['jira_username'], os.environ['jira_password'])
+        gmail = GmailAPI(email_from="nick@roverrobotics.com", email_to="nick@roverrobotics.com",
+                         email_subject="Rover Contact Form Submission", data={"name": name, "email": email, "company": company, "body": body})
         jira.create_issue(data)
+        gmail.send_message()
         return redirect("https://roverrobotics.com/pages/contact?submitted=true", code=302)
     except:
+        gmail = GmailAPI(email_from="nick@roverrobotics.com", email_to="nick@roverrobotics.com",
+                         email_subject="Rover Contact Form Submission Failed!", data={"name": name, "email": email, "company": company, "body": body})
+        gmail.send_message()
         redirect("https://roverrobotics.com/pages/contact?submitted=false", code=302)
 
 

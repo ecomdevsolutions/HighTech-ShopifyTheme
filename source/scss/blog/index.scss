@@ -13,7 +13,8 @@
 /* Components */
 @import '../shared/loading-screen';
 @import '../shared/page-transition';
-@import '../shared/header';
+//@import '../shared/header';
+@import './header';
 @import '../shared/footer';
 @import '../shared/grid';
 @import '../shared/box';

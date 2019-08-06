@@ -1,5 +1,9 @@
 <?php
 add_action('wp_enqueue_scripts', 'google_fonts');
+add_action('wp_enqueue_scripts', 'enlighter');
+function enlighter() {
+    wp_enqueue_script( get_template_directory_uri() . '/assets/js/EnlighterJS.min.js', array (), 1.1, true);
+}
 function google_fonts() {
        wp_enqueue_style('Noto+Serif','//fonts.googleapis.com/css?family=Noto+Serif&display=swap');
 }
