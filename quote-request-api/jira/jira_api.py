@@ -9,7 +9,7 @@ class JiraAPI:
         self.base_url = "https://roverrobotics.atlassian.net/rest/api/latest/"
         self.auth = HTTPBasicAuth(self.username, self.token)
 
-    def get_issue(self,issue_key):
+    def get_issue(self, issue_key):
         res = requests.get(f'{self.base_url}/issue/{issue_key}', auth=self.auth)
         return res.json()
 
@@ -17,7 +17,7 @@ class JiraAPI:
         try:
             res = requests.post(f'{self.base_url}/issue/', auth=self.auth, json=data)
             if not res.ok:
-                raise ValueError("Error: Invalid API call to Jira")
+                raise ValueError(f"Error: Invalid API call to Jira {res.text} \n\n {data}")
             return res.json()
         except requests.exceptions.RequestException as e:
             print(e)
