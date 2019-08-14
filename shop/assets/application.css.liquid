@@ -1032,7 +1032,7 @@ body {
   @media (min-width: 1024px) {
     .header--main {
       position: fixed;
-      background-color: {{settings.header_color}};
+      background-color: {{settings.color_2}};
       height: auto;
       -webkit-transition: -webkit-transform 600ms cubic-bezier(0.77, 0, 0.175, 1);
       transition: -webkit-transform 600ms cubic-bezier(0.77, 0, 0.175, 1);
@@ -4322,13 +4322,14 @@ body[class*=customers] .footer--main {
 
 /* Tooltip text */
 .tooltip .tooltip__text {
-  visibility: hidden;
+  display: none;
   font-size: 16px;
   background-color: {{settings.color_3}};
   color: {{settings.color_2}};
   text-align: center;
   width: 300px;
   padding: 5px 5px;
+  overflow: scroll;
   border-radius: 6px;
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -4336,14 +4337,33 @@ body[class*=customers] .footer--main {
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltip__text {
-  visibility: visible; }
+  display: inline-block; }
 
 /* Style the tab */
 .tab {
   height: 60px;
   /*border: 1px solid #ccc;*/
   border: none;
-  background-color: #f1f1f1; }
+  /* Style the buttons inside the tab */ }
+  .tab button {
+    background-color: {{settings.color_4}};
+    border: 1px solid {{settings.color_1}};
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 14px 16px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 17px;
+    /* Change background color of buttons on hover */ }
+    @media all and (max-width: 568px) {
+      .tab button {
+        min-width: 100%; } }
+    .tab button button:hover {
+      background-color: {{settings.color_6}}; }
 
 /* -- quantity box -- */
 .quantity {
@@ -4401,29 +4421,10 @@ body[class*=customers] .footer--main {
 .quantity.buttons_added .plus:focus {
   outline: none; }
 
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: #fff;
-  border: 1px solid {{settings.color_1}};
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin: 5px;
-  padding: 14px 16px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  transition: 0.3s;
-  font-size: 17px; }
-
 .warranty {
   text-align: center;
   max-width: 650px;
   margin: 0 auto; }
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd; }
 
 /* Create an active/current tablink class */
 .tab button.active {
@@ -4443,6 +4444,10 @@ body[class*=customers] .footer--main {
 
 .variant--select__heading {
   font-weight: bold; }
+  @media all and (max-width: 568px) {
+    .variant--select__heading {
+      display: block;
+      text-align: center; } }
 
 .tab--variant-select {
   margin-bottom: 20px; }
@@ -4476,6 +4481,9 @@ tr:nth-child(even) {
 
 .product {
   position: relative; }
+  @media all and (max-width: 568px) {
+    .product h2 {
+      text-align: center; } }
 
 .product-title--break {
   background-color: #000;
@@ -4533,6 +4541,10 @@ tr:nth-child(even) {
 @media (min-width: 768px) {
   .product--index .product__title-price {
     height: 50px; } }
+
+.product__title-price:before {
+  content: "\A";
+  white-space: pre; }
 
 .product--index h2 {
   margin-top: 1em;
@@ -4788,8 +4800,19 @@ tr:nth-child(even) {
 .product--single .button--add-to-cart.added > span:nth-child(3) {
   display: block; }
 
+@media only screen and (max-width: 700px) {
+  .product-banner__right {
+    display: block;
+    text-align: center;
+    padding-bottom: 20px; }
+    .product-banner__right div {
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    .product-banner__right strong {
+      display: none; } }
+
 .addon__selected {
-  border: 2px solid green; }
+  border: 4px solid {{settings.color_1}}; }
 
 .table--cart td {
   text-align: left; }

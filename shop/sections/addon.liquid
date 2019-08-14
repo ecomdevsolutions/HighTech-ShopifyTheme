@@ -1,7 +1,6 @@
-{% if product.type == "Robot"%}
   <ol class="product__options">
     <h2>Essential Addons</h2>
-    {% for product in collections.addons.products %}
+    {% for product in collections[section.settings.addon_collection].products %}
       <li class="product__option" id="product__option-{{ product.id }}">
         <a target="_blank" href= "{{product.url}}">
           <label>
@@ -21,4 +20,17 @@
       </li>
     {% endfor %}
   </ol>
-{% endif %}
+
+
+  {% schema %}
+    {
+      "name": "Addons",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "addon_collection",
+          "label": "Addon collection"
+        }
+      ]
+    }
+  {% endschema %}

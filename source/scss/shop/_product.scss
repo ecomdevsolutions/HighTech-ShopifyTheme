@@ -6,7 +6,7 @@
 
 /* Tooltip text */
 .tooltip .tooltip__text {
-  visibility: hidden;
+  display: none;
 
   font-size: 16px;
   background-color: $color-black;
@@ -14,6 +14,7 @@
   text-align: center;
   width: 300px;
   padding: 5px 5px;
+  overflow: scroll;
   border-radius: 6px;
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -21,10 +22,9 @@
   z-index: 1;
 }
 
-
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltip__text {
-  visibility: visible;
+  display: inline-block;
 }
 
 /* Style the tab */
@@ -32,7 +32,29 @@
   height: 60px;
     /*border: 1px solid #ccc;*/
   border: none;
-  background-color: #f1f1f1;
+  /* Style the buttons inside the tab */
+  & button {
+    background-color: $color-xltgray;
+    border: 1px solid $color-blue;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+
+    @media all and (max-width: $breakpoint-mobile-large) {
+      min-width: 100%;
+    }
+
+
+    /* Change background color of buttons on hover */
+   & button:hover {
+      background-color: $color-gray;
+    }
+  }
 }
 /* -- quantity box -- */
 
@@ -105,28 +127,13 @@
 
 
 
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: #fff;
-  border: 1px solid $color-blue;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin: 5px;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
+
 .warranty {
   text-align: center;
   max-width: 650px;
   margin: 0 auto;
 }
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
+
 
 /* Create an active/current tablink class */
 .tab button.active {
@@ -146,6 +153,10 @@
 }
 .variant--select__heading {
   font-weight: bold;
+  @media all and (max-width: $breakpoint-mobile-large) {
+    display: block;
+    text-align: center;
+  }
 }
 .tab--variant-select {
   margin-bottom: 20px;
@@ -184,6 +195,11 @@ tr:nth-child(even) {
 
 .product {
   position: relative;
+  & h2 {
+      @media all and (max-width: $breakpoint-mobile-large) {
+      text-align: center;
+    }
+  }
 }
 
 .product-title--break {
@@ -261,6 +277,14 @@ tr:nth-child(even) {
   @include breakpoint(tablet) {
     height: 50px;
   }
+}
+
+.product__title-price {
+  &:before {
+        content:"\a";
+        white-space: pre;
+
+    }
 }
 
 .product--index h2 {
@@ -530,6 +554,21 @@ tr:nth-child(even) {
     }
   }
 }
+
+@media only screen and (max-width: 700px) {
+  .product-banner__right {
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+    & div {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    & strong {
+      display: none;
+    }
+  }
+}
   .addon__selected {
-    border: 2px solid green;
+    border: 4px solid $color-blue;
   }

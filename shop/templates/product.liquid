@@ -43,7 +43,8 @@
                 <span class="icon-chevron-thin-right"></span>
               </button>
             </nav>
-          </div>
+
+          </div> <!-- end col-dk-4 -->
 
 
           <div class="col-dk-6 col-lg-5 col-lg-push-1 col-xxl-5">
@@ -52,9 +53,9 @@
             {% else %}
               {% include "product-singleoption" %}
             {% endif %}
-            {% include "robot-addon" %}
-          </div>
-        </div>
+              {% section "addon" %}
+          </div> <!-- end col-dk-6-->
+        </div> <!-- end row -->
 
         {% if product.metafields.custom_fields["long_description"] %}
           <div class="col-dk-10 col-lg-10 col-xxl-10">
@@ -65,7 +66,7 @@
                 <button class="tablinks" onclick="openTab(event, 'Downloads')">Downloads</button>
               </div>
 
-              <div id="Description" class="tabcontent--table" style="display: block;"></p>
+              <div id="Description" class="tabcontent--table" style="display: block;">
                 {{ product.metafields.custom_fields["long_description"] }}
               </div>
 
@@ -76,8 +77,8 @@
               <div id="Downloads" class="tabcontent--table"></p>
                 {{ product.metafields.custom_fields["spec_sheet_link"] }}
               </div>
-            </div>
-          </div>
+            </div> <!-- end row -->
+          </div> <!-- end col-dk-10 -->
         {% endif %}
 
 
@@ -88,9 +89,9 @@
           {% endfor %}
         </select>
         {% endform %}
-      </div>
-    </div>
-  </div>
+      </div> <!-- end col-tb-12 -->
+    </div> <!-- end row -->
+  </div> <!-- end container -->
 
   {% if product.type == 'Robot' %}
     {% section 'volume-pricing' %}
@@ -117,15 +118,16 @@
           <input data-id="{{product.id}}" type="button" value="+" class="plus">
       </div>
 
-      <!--<input class="product__qty" type="number" min="1" name="product-quantity" value="1" /> -->
-
         <button class="button button--primary button--add-to-cart">
-          <span>Add to Cart <span class="icon-arrow-large-right"></span></span>
+          <span>Add  <span class="icon-arrow-large-right"></span></span>
         </button>
-      </div>
+      </div> <!-- end product banner__right -->
+     </div> <!-- end prodct banner -->
+
     {% endif %}
-  </div>
-</div>
+
+  </div> <!-- end product--single -->
+
 {% section 'get-in-touch' %}
 <script type="text/javascript">
 function openvarientTab(evt, tabName) {
@@ -163,12 +165,5 @@ function openTab(evt, tabName) {
 {% section "shopify-section" %}
 {% section "shopify-section-1" %}
 {% section "shopify-section-2" %}
-
-
-
-
-g
-
-
 
 

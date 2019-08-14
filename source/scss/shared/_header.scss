@@ -30,7 +30,7 @@
 
   @include breakpoint(desktop) {
     position: fixed;
-    background-color: $header-color;
+    background-color: $color-white;
     height: auto;
     transition: transform 600ms cubic-bezier(.77,0,.175,1);
     

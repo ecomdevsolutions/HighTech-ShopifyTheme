@@ -12,9 +12,7 @@
           {% else %}
             <button class="tablinks tablinks--options"  data-name="{{option.name}}"data-value="{{value}}">{{value}}</button>
           {% endif %}
-
           {% assign count = count | plus: 1 %}
-
       {% endfor %}
     </div>
   {%endfor%}
