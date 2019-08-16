@@ -93,11 +93,6 @@
     </div> <!-- end row -->
   </div> <!-- end container -->
 
-  {% if product.type == 'Robot' %}
-    {% section 'volume-pricing' %}
-     <div style="background-color: white;">...</div>
-    {% section 'warranty-repair' %}
-  {% endif %}
 
   <div class="product-banner">
     <div class="product-banner__title">{{ product.title }}</div>
@@ -123,12 +118,16 @@
         </button>
       </div> <!-- end product banner__right -->
      </div> <!-- end prodct banner -->
-
     {% endif %}
-
   </div> <!-- end product--single -->
 
-{% section 'get-in-touch' %}
+{% section 'section-includes' %}
+
+
+
+
+
+
 <script type="text/javascript">
 function openvarientTab(evt, tabName) {
   var i, tabcontent, tablinks;
@@ -161,9 +160,3 @@ function openTab(evt, tabName) {
   var CURRENT_VARIENT_PRICE = {price: parseFloat("{{product.selected_or_first_available_variant.price}}"), id: "{{product.selected_or_first_available_variant.id}}" }
 
 </script>
-
-{% section "shopify-section" %}
-{% section "shopify-section-1" %}
-{% section "shopify-section-2" %}
-
-

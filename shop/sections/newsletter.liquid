@@ -1,10 +1,10 @@
-<section class="newsletter">
+<section class="newsletter module" style="padding: {{ section.settings.y_padding }}% 0%;">
     <div class="newsletter__box container">
        <form class="form form--subscribe" action="{{ section.settings.form_action_url }}" method="post" target="_blank">
             <h2>{{ section.settings.title }}</h2>
             <div class="form__group">
                 <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email"/>
-                <input type="hidden" name="b_3ce45472fe4a667fefa934188_7f6025208c" tabindex="-1" value=""/>
+                <input type="hidden" name="{{ section.settings.input_name }}" tabindex="-1" value=""/>
                 <button type="submit" class="button button--primary button--cta">
                     {{ section.settings.cta }}
                     <span class="icon-arrow-large-right"></span>
@@ -13,8 +13,6 @@
         </form>
     </div>
 </section>
-
-
 
 
 {% schema %}
@@ -26,6 +24,21 @@
          "type": "text",
          "label": "Title"
         },
+        {
+            "type":      "range",
+            "id":        "y_padding",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "%",
+            "label":     "Y padding",
+            "default":   0
+        },
+         {
+             "id": "input_name",
+             "type": "text",
+             "label": "input_name"
+         },
         {
          "id":"form_action_url",
           "type": "text",

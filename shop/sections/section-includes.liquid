@@ -1,0 +1,129 @@
+<div class="section-includes">
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'get_in_touch' %}
+                <section id="get_in_touch" class="module module--dynamic module--get-in-touch module--bg">
+                    <div class="container">
+                          <h2 class="module__title">{{ block.settings.title }}</h2>
+                          <p>{{ block.settings.body }}</p>
+                          <a class="button button--primary button--cta" href="{{ block.settings.ctaUrl }}">
+                              <span>{{ block.settings.ctaText }}</span>
+                          </a>
+                    </div>
+                </section>
+            {% when 'warranty_repair' %}
+                <section id="warranty_repair" class="module module--dynamic module--warranty-repair module--bg">
+                    <div class="container warranty">
+                        <h2 class="module__title">{{ block.settings.title }}</h2>
+                        <p>
+                         {{block.settings.content}}
+                        </p>
+
+                        <h5> Repair Locations </h5>
+                        <img src="{{block.settings.image}}" alt="Location Image" />
+                      </div>
+                </section>
+            {% when "volume_pricing" %}
+                <section id="volume_pricing" class="module module--dynamic module--get-in-touch module--bg">
+                    <div class="container">
+                          <h2 class="module__title">{{ block.settings.title }}</h2>
+                            {{block.settings.table}}
+                          <small> {{block.settings.footnote}}</small>
+                    </div>
+                </section>
+        {% endcase %}
+    {%  endfor %}
+</div>
+
+<script>
+    var SECTION_ORDER = "{{ section.settings.section_order }}"
+</script>
+
+
+
+{% schema %}
+    {
+        "name": "Included Sections",
+        "blocks": [
+            {
+                "name": "Get In Touch",
+                "type": "get_in_touch",
+                 "settings": [
+                  {
+                    "id": "title",
+                    "type": "text",
+                    "label": "Title",
+                    "default": "Get In Touch"
+                  },
+                  {
+                    "id": "body",
+                    "type": "text",
+                    "label": "Body",
+                    "default": "Need help using ROS to build an autonomous solutions? Contact us to discuss our consulting capabilities!"
+                  },
+                  {
+                    "id": "ctaText",
+                    "type": "text",
+                    "label": "CTA Text",
+                    "default": "Contact Us"
+                  },
+                  {
+                    "id": "ctaUrl",
+                    "type": "text",
+                    "label": "CTA Url",
+                    "default": "mailto:info@roverrobotics.com"
+                  }
+                ]
+            },
+            {
+            "name": "Warranty / Repair",
+            "type": "warranty_repair",
+            "settings": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Title",
+                "default": "Warranty / Repair"
+              },
+               {
+                "id": "content",
+                "type": "textarea",
+                "label": "Content"
+               },
+                {
+                  "id": "image",
+                  "type": "text",
+                  "label": "Image"
+                }
+            ]
+          },
+          {
+            "name": "Volume Pricing",
+            "type":"volume_pricing",
+            "settings": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Title",
+                "default": "Volume Pricing"
+              },
+
+              {
+              "id": "footnote",
+              "type":"text",
+              "label":"Footnote"
+              },
+              {
+                "id": "table",
+                "type": "textarea",
+                "label":"Table"
+              }
+            ]
+
+          }
+
+
+        ]
+    }
+{% endschema %}
+

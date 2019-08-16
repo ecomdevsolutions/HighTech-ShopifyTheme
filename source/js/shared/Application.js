@@ -1,3 +1,5 @@
+import DynamicSections from "../shop/modules/DynamicSections";
+
 require('application.scss')
 require('jquery-pjax')
 require('ext/lazysizes')
@@ -57,6 +59,7 @@ class Application {
     this.privacy.init()
     this.header = new Header
     promises.push(this.header.init())
+
 
     this.pages = []
     this._pages.forEach((P, i) => {

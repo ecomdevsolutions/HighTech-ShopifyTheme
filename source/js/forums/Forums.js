@@ -9,6 +9,6 @@ class Forums {
   onReady () {
     $('body').addClass('forums')
   }
-}
 
+}
 new Forums

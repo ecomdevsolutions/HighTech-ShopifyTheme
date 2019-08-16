@@ -273,7 +273,7 @@ tr:nth-child(even) {
   }
 }
 
-.product--index .product__title-price {
+.product--index .product__title-price--product-page {
   @include breakpoint(tablet) {
     height: 50px;
   }
