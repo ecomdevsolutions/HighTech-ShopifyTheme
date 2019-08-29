@@ -77,6 +77,7 @@ class Product {
     const activeVariant = $active[0].dataset.addon
     const $varientPlus = document.getElementById(`quantity-plus-${activeVariant}`);
     const $variantInput = document.getElementById(`quantity-${activeVariant}`);
+    this.addons = []
 
     $(".addon__qty")
         .toArray()
@@ -84,6 +85,7 @@ class Product {
     $('.product__option').toArray()
         .forEach(option => $(option).removeClass("addon__selected"))
     $varientPlus.click();
+
 
   }
 
