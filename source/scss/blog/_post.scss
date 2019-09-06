@@ -2,6 +2,10 @@
 .post__modules .module:first-child {
   margin-top: 0 !important;
 }
+.post__modules li {
+   list-style-type: square !important;
+  list-style: square !important;
+}
 
 .row--posts {
   margin-top: 100px;

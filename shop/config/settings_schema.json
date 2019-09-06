@@ -174,5 +174,20 @@
         "type": "html"
       }
     ]
+  },
+  {
+    "name": "Footer Signup",
+    "settings": [
+      {
+        "label": "Form Action",
+        "id": "footer_form_action",
+        "type": "text"
+      },
+       {
+        "label": "Form Input Name",
+        "id": "footer_form_name",
+        "type": "text"
+      }
+    ]
   }
 ]

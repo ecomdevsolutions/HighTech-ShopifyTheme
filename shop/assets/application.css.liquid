@@ -3707,6 +3707,10 @@ input[type=submit]:hover {
 .post__modules .module:first-child {
   margin-top: 0 !important; }
 
+.post__modules li {
+  list-style-type: square !important;
+  list-style: square !important; }
+
 .row--posts {
   margin-top: 100px; }
 
@@ -4156,25 +4160,19 @@ body[class*=customers] .footer--main {
 
 .newsletter__box {
   max-width: 500px;
-  padding: 80px;
   background: {{settings.color_2}};
   border-radius: 5px;
-  padding-top: 100px;
   background-color: {{settings.color_2}};
   text-align: center;
-  padding-bottom: 100px;
   -webkit-transition: box-shadow, -webkit-transform 1s ease;
   transition: box-shadow, -webkit-transform 1s ease;
   -moz-transition: box-shadow, transform 1s ease, -moz-transform 1s ease;
   transition: box-shadow, transform 1s ease;
   transition: box-shadow, transform 1s ease, -webkit-transform 1s ease, -moz-transform 1s ease; }
-  .newsletter__box:hover {
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.5); }
   .newsletter__box input {
     cursor: pointer;
     border: 1px solid {{settings.color_3}};
-    padding-left: 10px;
-    padding-right: 10px; }
+    width: 80% !important; }
     .newsletter__box input:focus {
       box-shadow: none;
       -webkit-animation-duration: 1s;
@@ -4187,7 +4185,7 @@ body[class*=customers] .footer--main {
          -moz-animation-name: expand;
               animation-name: expand; }
   .newsletter__box button[type="submit"] {
-    margin-top: 25%; }
+    margin-top: 10%; }
 
 .forums-cta__inner {
   position: absolute;
