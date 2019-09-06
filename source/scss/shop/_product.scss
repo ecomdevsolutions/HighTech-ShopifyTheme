@@ -208,7 +208,6 @@ tr:nth-child(even) {
 }
 
 .product--index {
-  border-top: solid 1px $color-xltgray;
   padding: $grid-column-gutter / 2;
   transition: box-shadow 200ms ease;
 }
@@ -222,9 +221,7 @@ tr:nth-child(even) {
     }
   }
 
-  &:nth-last-child(-n+1) .product--index {
-    border-bottom: solid 1px $color-xltgray;
-  }
+
 
   @include breakpoint(tablet) {
     &:nth-last-child(-n+2) .product--index {

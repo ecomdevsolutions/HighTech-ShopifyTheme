@@ -345,7 +345,8 @@ h1, .h1 {
       font-size: 60px;
       line-height: 52px; } }
   h1 span:last-child, .h1 span:last-child {
-    color: {{settings.color_1}}; }
+    color: {{settings.color_1}};
+    font-size: 20px; }
 
 h2, .h2 {
   font-family: '{{header_font}}';
@@ -4478,7 +4479,6 @@ tr:nth-child(even) {
   height: 2px; }
 
 .product--index {
-  border-top: solid 1px {{settings.color_4}};
   padding: 15px;
   -webkit-transition: box-shadow 200ms ease;
   -moz-transition: box-shadow 200ms ease;
@@ -4488,9 +4488,6 @@ tr:nth-child(even) {
   z-index: 2; }
   .row--products > [class*=col-]:hover .product--index {
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1); }
-
-.row--products > [class*=col-]:nth-last-child(-n+1) .product--index {
-  border-bottom: solid 1px {{settings.color_4}}; }
 
 @media (min-width: 768px) {
   .row--products > [class*=col-]:nth-last-child(-n+2) .product--index {

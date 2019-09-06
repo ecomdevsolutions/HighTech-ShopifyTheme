@@ -15,6 +15,7 @@ h1, .h1 {
   text-transform: uppercase;
   user-select: none;
 
+
   @include breakpoint(desktop) {
     font-size: 60px;
     line-height: 52px;
@@ -22,6 +23,7 @@ h1, .h1 {
 
   span:last-child {
     color: $color-blue;
+    font-size: 20px;
   }
 }
 
