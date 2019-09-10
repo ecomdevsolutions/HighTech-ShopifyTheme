@@ -14,17 +14,19 @@
       <div class="col-tb-10 col-tb-push-1 col-dk-8 col-dk-push-2">
         <div class="footer__super">
           <div class="footer__contact">
-             <form class="form form--subscribe"
-                  action="{{ settings.footer_form_action }}" method="post" target="_blank">
-              <h6 class="h6--eyebrow">Sign up for the latest updates</h6>
-              <div class="form__group">
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email">
-                <input type="hidden" name="{{ settings.footer_form_name }}" tabindex="-1" value="">
-                <button type="submit">
-                  <span class="icon-arrow-large-right"></span>
-                </button>
-              </div>
-            </form>
+            {% if  settings.footer_form_action.size > 1 and settings.footer_form_name.size  > 1 %}
+               <form class="form form--subscribe"
+                    action="{{ settings.footer_form_action }}" method="post" target="_blank">
+                <h6 class="h6--eyebrow">Sign up for the latest updates</h6>
+                <div class="form__group">
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email">
+                  <input type="hidden" name="{{ settings.footer_form_name }}" tabindex="-1" value="">
+                  <button type="submit">
+                    <span class="icon-arrow-large-right"></span>
+                  </button>
+                </div>
+              </form>
+            {% endif %}
             <nav class="nav nav--social">
               <ul>
                 {% for link in linklists.social.links %}
