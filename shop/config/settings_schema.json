@@ -189,5 +189,15 @@
         "type": "text"
       }
     ]
+  },
+  {
+    "name": "copyright",
+    "settings": [
+      {
+        "label":"Footer Copyright text",
+        "id": "copyright",
+        "type": "text"
+      }
+    ]
   }
 ]
