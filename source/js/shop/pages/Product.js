@@ -73,7 +73,11 @@ class Product {
   }
 
   setDefaultAddon() {
+
     const $active = $('.tablinks.active')
+    if (!$active[0]) {
+      return
+    }
     const activeVariant = $active[0].dataset.addon
     const $varientPlus = document.getElementById(`quantity-plus-${activeVariant}`);
     const $variantInput = document.getElementById(`quantity-${activeVariant}`);
@@ -174,8 +178,10 @@ class Product {
   //selects varent via tabs in upper right
   optionSelect() {
     this.$options.click((e) => {
+      console.log("selecting options")
       let button = $(e.target)
       this.options[e.target.dataset.name] = e.target.dataset.value
+      console.log(this.options, "options")
       let values = Object.values(this.options)
       for (let option of this.$options) {
         if (values.includes(option.dataset.value)) {
@@ -186,8 +192,8 @@ class Product {
           $(option).css("color", "#000")
         }
       }
-      if (values.length == product.options.length) {
-        var variant = this.findVarient()
+      if (values.length === product.options.length) {
+        let variant = this.findVarient()
         this.currentVarient = {id: variant[0].id, price: variant[0].price, quantity: 1}
         $('.product-banner__price').text(Shopify.formatMoney(variant[0].price).replace(/(\..*)/, ''))
       }
@@ -195,11 +201,19 @@ class Product {
   }
 
   findVarient() {
-      const values = Object.values(this.options)
+      const values = Object.values(this.options);
       return product.variants.filter((variant) => {
-        if (values.includes(variant.option1) && values.includes(variant.option2)) {
-          return variant
+        if(values.length === 3) {
+          if (values.includes(variant.option1) && values.includes(variant.option2) && values.includes(variant.option3)) {
+            return variant
+          }
         }
+        if (values.length === 2) {
+           if (values.includes(variant.option1) && values.includes(variant.option2)) {
+            return variant
+          }
+        }
+
       });
   }
 
