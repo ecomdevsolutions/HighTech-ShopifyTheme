@@ -97,7 +97,7 @@
   <div class="product-banner">
     <div class="product-banner__title">{{ product.title }}</div>
     <div class="product-banner__right">
-    {% if product.selected_or_first_available_variant.price > 1000000 %}
+    {% if product.available == false%}
       Please &nbsp; <a href="/pages/contact"><u>contact</u></a> &nbsp; us for pricing
     </div>
     {% else %}
