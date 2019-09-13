@@ -77,7 +77,14 @@
         {% endif %}
       {% endif %}
       <div class="product__description richtext">
-        {{ product.description }}
+         {% assign productTabs = product.description | split:"<!-- split -->"%}
+
+            {% if productTabs.size  > 1 %}
+              {{ productTabs[1] }}
+              {% else %}
+              {{ product.description }}
+            {% endif %}
+
       </div>
     </div>
   </div>
@@ -95,7 +102,12 @@
           {% endif %}
         {% endif %}
         <div class="product__description richtext">
-          {{ product.description }}
+
+            {% if productTabs.size > 1 %}
+              {{ productTabs[1] }}
+              {% else %}
+              {{ product.description }}
+            {% endif %}
         </div>
       </div>
     </div>

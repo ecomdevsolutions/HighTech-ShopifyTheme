@@ -29,6 +29,11 @@
       {% endif %}
     {% endif %}
     <div class="product__description richtext">
-      {{ product.description }}
+
+            {% if productTabs | size > 1 %}
+              {{ productTabs[1] }}
+              {% else %}
+              {{ product.description }}
+            {% endif %}
     </div>
   </div>

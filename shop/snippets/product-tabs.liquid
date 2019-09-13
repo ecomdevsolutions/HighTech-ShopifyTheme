@@ -1,0 +1,31 @@
+
+{% assign productTabs = product.description | split:"<!-- split -->"%}
+{% if productTabs.size > 1 %}
+ <div class="row">
+      <div class="tab">
+           <button class="tablinks" onclick="openTab(event, 'Description')">Description</button>
+           <button class="tablinks" onclick="openTab(event, 'Contents')">Contents</button>
+           <button class="tablinks" onclick="openTab(event, 'Technical_Details')">Technical Details</button>
+           <button class="tablinks" onclick="openTab(event, 'Learn')">Learn</button>
+           <button class="tablinks" onclick="openTab(event, 'Related_Products')">Related Products</button>
+      </div>
+         <div id="Description" class="tabcontent--table">
+            {{ productTabs[1] }}
+         </div>
+        <div id="Contents" class="tabcontent--table">
+            {{ productTabs[2] }}
+         </div>
+        <div id="Technical_Details" class="tabcontent--table">
+            {{ productTabs[3] }}
+         </div>
+        <div id="Learn" class="tabcontent--table">
+            {{ productTabs[4] }}
+         </div>
+        <div id="Related_Products" class="tabcontent--table">
+           Products here
+         </div>
+    </div> <!-- end row -->
+
+{% endif %}
+
+
