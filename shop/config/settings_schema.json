@@ -199,5 +199,15 @@
         "type": "text"
       }
     ]
+  },
+  {
+    "name": "custom-header-code",
+    "settings": [
+      {
+        "label": "Custom Header Code",
+        "id": "custom_header_code",
+        "type": "html"
+      }
+    ]
   }
 ]
