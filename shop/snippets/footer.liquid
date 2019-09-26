@@ -53,6 +53,14 @@
         </div>
 
 
+          <div class="payment_methods">
+            {% for type in shop.enabled_payment_types %}
+              <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+            {% endfor %}
+          </div>
+
+
+
 
         <div class="footer__sub">
           <nav class="nav nav--sub">
