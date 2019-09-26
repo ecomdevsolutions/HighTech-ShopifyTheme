@@ -1,9 +1,5 @@
 .module {
-  margin: 100px 0;
 
-  @include breakpoint(desktop) {
-    margin: 125px 0;
-  }
 }
 
 .module--page {

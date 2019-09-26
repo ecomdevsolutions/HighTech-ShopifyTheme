@@ -31,6 +31,22 @@
                           <small> {{block.settings.footnote}}</small>
                     </div>
                 </section>
+                {% when "newsletter" %}
+                <section class="newsletter module" style="padding: {{ block.settings.y_padding }}% 0%;">
+                    <div class="newsletter__box container">
+                       <form class="form form--subscribe" action="{{ block.settings.form_action_url }}" method="post" target="_blank">
+                            <h2>{{ block.settings.title }}</h2>
+                            <div class="form__group">
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email"/>
+                                <input type="hidden" name="{{ block.settings.input_name }}" tabindex="-1" value=""/>
+                                <button type="submit" class="button button--primary button--cta">
+                                    {{ block.settings.cta }}
+                                    <span class="icon-arrow-large-right"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
         {% endcase %}
     {%  endfor %}
 </div>
@@ -119,11 +135,43 @@
                 "label":"Table"
               }
             ]
-
+          },
+          {
+            "name": "Newsletter",
+            "type": "newsletter",
+            "settings": [
+               {
+                 "id": "title",
+                 "type": "text",
+                 "label": "Title"
+                },
+                {
+                    "type":      "range",
+                    "id":        "y_padding",
+                    "min":       0,
+                    "max":        100,
+                    "step":       1,
+                    "unit":       "%",
+                    "label":     "Y padding",
+                    "default":   0
+                },
+                 {
+                     "id": "input_name",
+                     "type": "text",
+                     "label": "input_name"
+                 },
+                {
+                 "id":"form_action_url",
+                  "type": "text",
+                  "label": "Form Action URL"
+                },
+                {
+                "id": "cta",
+                "type": "text",
+                "label": "Call to action text"
+                }
+            ]
           }
-
-
-
         ]
     }
 {% endschema %}
