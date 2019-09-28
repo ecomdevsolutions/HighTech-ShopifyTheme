@@ -32,28 +32,68 @@
             <p>{{ section.settings.hq | newline_to_br }}</p>
           </div>
         </div>
-        <div class="row" id="contact-form-container">
-          <form method="POST" action="{{section.settings.form_url}}" id="contact-form">
-            <div class="grid">
-              <div class="grid_item medium-up--one-half">
-                <label for="ContactFormName"> Name </label>
-                <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
-              </div>
-              <div class="grid_item medium-up--one-half">
-                <label for="ContactFormEmail"> Email </label>
-                <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
-              </div>
-              <div class="grid_item medium-up--one-half">
-                <label for="ContactFormEmail"> Company/University</label>
-                <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
-              </div>
-              <div class="grid_item medium-up--one-half">
-                <label for="ContactFormMessage"> Message </label>
-                <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
-              </div>
-            </div>
-            <input type="submit" class="btn">
-            </form>
+         <div class="row" id="contact-form-container">
+           {% assign has_custom_post_url = section.settings.form_url.size %}
+        {% if has_custom_post_url == 0 %}
+
+          {% form 'contact' %}
+              {% if form.posted_successfully? %}
+                <p style="background-color:DodgerBlue;">
+                  {{ 'contact.form.post_success' | t}}
+                </p>
+              {% endif %}
+
+              <p style="background-color:Tomato;" {{ form.errors | default_errors }} </p>
+                  <div class="grid" >
+                    <div class="grid_item medium-up--one-half">
+                      <label for="ContactFormName"> Name </label>
+                      <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
+                    </div>
+                    <div class="grid_item medium-up--one-half">
+                      <label for="ContactFormEmail"> Email </label>
+                      <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
+                    </div>
+                    <div class="grid_item medium-up--one-half">
+                      <label for="ContactFormEmail"> Company/University</label>
+                      <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
+                    </div>
+                    <div class="grid_item medium-up--one-half">
+                      <label for="ContactFormMessage"> Message </label>
+                      <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
+                    </div>
+                  </div>
+                  <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+              {% endform %}
+
+        {% else %}
+
+
+              <form method="POST" action="{{section.settings.form_url}}" id="contact-form">
+                <div class="grid">
+                  <div class="grid_item medium-up--one-half">
+                    <label for="ContactFormName"> Name </label>
+                    <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
+                  </div>
+                  <div class="grid_item medium-up--one-half">
+                    <label for="ContactFormEmail"> Email </label>
+                    <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
+                  </div>
+                  <div class="grid_item medium-up--one-half">
+                    <label for="ContactFormEmail"> Company/University</label>
+                    <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
+                  </div>
+                  <div class="grid_item medium-up--one-half">
+                    <label for="ContactFormMessage"> Message </label>
+                    <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
+                  </div>
+                </div>
+                <input type="submit" class="btn">
+                </form>
+
+
+
+        {% endif %}
 
             </div>
           </div>
