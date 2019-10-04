@@ -151,7 +151,11 @@
   border-top: none;
   max-width: 80%;
 
-  & li {
+  & ol li {
+    list-style: decimal;
+  }
+
+  & ul li {
     list-style: initial;
   }
 }
