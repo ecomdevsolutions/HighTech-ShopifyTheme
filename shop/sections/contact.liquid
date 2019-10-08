@@ -18,24 +18,28 @@
     <div class="row row--contact">
       <div class="col-dk-8 col-dk-push-2">
         <div class="row">
-          <div class="col-tb-6 col-lg-4">
-            <h6 class="h6--eyebrow--blue">Email</h6>
-            <p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
-          </div>
-          <div class="col-tb-6 col-lg-4">
-            <h6 class="h6--eyebrow--blue">Phone</h6>
+          {% if section.settings.email.size > 0%}
+            <div class="col-tb-6 col-lg-4">
+              <h6 class="h6--eyebrow--blue">Email</h6>
+              <p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+            </div>
+          {% endif %}
+          {% if section.settings.phone.size > 0%}
+           <div class="col-tb-6 col-lg-4">
+              <h6 class="h6--eyebrow--blue">Phone</h6>
             <p><a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a></p>
           </div>
-
-          <div class="col-tb-6 col-lg-4">
-            <h6 class="h6--eyebrow--blue">Corporate Headquarters</h6>
-            <p>{{ section.settings.hq | newline_to_br }}</p>
-          </div>
+          {% endif %}
+          {% if section.settings.hq.size > 0%}
+            <div class="col-tb-6 col-lg-4">
+              <h6 class="h6--eyebrow--blue">Corporate Headquarters</h6>
+              <p>{{ section.settings.hq | newline_to_br }}</p>
+            </div>
+          {% endif %}
         </div>
          <div class="row" id="contact-form-container">
            {% assign has_custom_post_url = section.settings.form_url.size %}
         {% if has_custom_post_url == 0 %}
-
           {% form 'contact' %}
               {% if form.posted_successfully? %}
                 <p style="background-color:DodgerBlue;">
