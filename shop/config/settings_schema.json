@@ -209,5 +209,16 @@
         "type": "html"
       }
     ]
+  },
+  {
+    "name": "get-in-touch",
+    "settings": [
+      {
+        "label": "Display Get In Touch",
+        "id": "display_get_in_touch",
+        "type": "checkbox",
+        "default": true
+      }
+    ]
   }
 ]
