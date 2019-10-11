@@ -12,7 +12,6 @@ h1, .h1 {
   font-size: 50px;
   line-height: 42px;
   letter-spacing: .3em;
-  text-transform: uppercase;
   user-select: none;
 
 
@@ -22,8 +21,8 @@ h1, .h1 {
   }
 
   span:last-child {
-    color: $color-blue;
-    font-size: 20px;
+
+
   }
 }
 
@@ -32,7 +31,7 @@ h2, .h2 {
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
-  text-transform: uppercase;
+
   letter-spacing: .2em;
   color: $color-blue;
 
