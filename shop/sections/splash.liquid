@@ -1,0 +1,105 @@
+<section class="splash" style="background:linear-gradient(0deg,rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url({{ section.settings.background_image | img_url: 'master' }}); background-repeat: no-repeat; background-size: cover;">
+    <div class="splash__content">
+        <h1>{{ page.title }}</h1>
+       {{  page.content }}
+    </div>
+    <div class="splash__signup">
+        <h2>Sign up today</h2>
+        <form>
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" name="email" placeholder="email" />
+            <div class="radio-group">
+                <div class="radio">
+                    <input type="radio" name="reason" value="30">I'd like to pre-order<br>
+                </div>
+                <div class="radio">
+                     <input type="radio" name="reason" value="60">I'd like more information<br>
+                </div>
+
+            </div>
+            <button class="button button--primary" type="submit">Send</button>
+        </form>
+    </div>
+</section>
+
+
+
+<style>
+    .splash {
+        margin-top: -200px;
+        height: 100vh;
+        display: flex;
+        color: #fff;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .splash__content {
+        max-width: 50%;
+        font-size: 20px;
+    }
+
+
+    .splash__signup {
+        color: #fff;
+        display: flex;
+
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .splash__signup button {
+        align-self: baseline;
+    }
+
+    .splash__signup form {
+        display: flex;
+        flex-direction: column;
+    }
+    .splash__signup h2 {
+        color: #fff;
+    }
+
+    #signup-email {
+        height: 50px;
+    }
+
+    .radio-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+    .radio {
+        padding: 5px;
+    }
+    .radio input {
+        margin-right: 5px;
+    }
+
+    @media all and (max-width: 1024px) {
+        .splash {
+            flex-direction: column;
+            margin-top: 0;
+            height: 110vh;
+        }
+        .splash__content {
+            max-width: 90%;
+            text-align: center;
+        }
+    }
+</style>
+
+
+{% schema %}
+        {
+      "name": "splash",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background_image"
+        }
+      ]
+    }
+{% endschema %}

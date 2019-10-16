@@ -285,6 +285,7 @@ tr:nth-child(even) {
 }
 
 .product__title-price {
+  margin-top: -3rem;
   &:before {
         content:"\a";
         white-space: pre;

@@ -11,14 +11,21 @@
 {% endif %}
 
 {%- assign money_price = price | money -%}
+{% if compare_at_price != blank and money_price != blank %}
+    {% assign crossout = true %}
+    {% assign price_diff = compare_at_price | minus: price | times: 1.0 | divided_by: compare_at_price| times: 100 | round %}
+{% endif %}
+
 <div class="product__price">
   {% if compare_at_price > price %}
     {% if available %}
 
-    <span class="product-price__price">{{ compare_at_price | money }}</span>
-    <span class="product-price__price product-price__sale">
-      {% if variant.price_min != variant.price_max %}Starting at: {% endif %}{{ money_price }}
+
+    <span class="product-price__price product-price__sale"{% if crossout %}  style="font-size: 20px; font-weight: bold; margin-right: 10px;" {% endif %}>
+      {% if variant.price_min != variant.price_max %}Starting at: {% endif %} {{ money_price }}
     </span>
+      <span class="product-price__price" {% if crossout %}  style="text-decoration: line-through; color: red; font-family: sans-serif;"> {% endif %}{{ compare_at_price | money }} </span>
+      <span style="color: red; margin-left: 5px;">({{ price_diff }}% OFF) </span>
     {% else %}
     <span class="product-price__sold-out">({{ 'products.product.sold_out' | t }}) {{ money_price }}</span>
     {% endif %}
