@@ -1,4 +1,7 @@
-{% if collections[section.settings.addon_collection].products.size > 0 %}
+{% assign find_addon_hide_size = product.description | split: "<!-- hide_addons -->"  %}
+{% assign find_addon_hide_size =  find_addon_hide_size.size | abs%}
+
+{% if collections[section.settings.addon_collection].products.size > 0 and find_addon_hide_size < 2 %}
   <ol class="product__options">
       <h2>Essential Addons</h2>
       {% for product in collections[section.settings.addon_collection].products %}
