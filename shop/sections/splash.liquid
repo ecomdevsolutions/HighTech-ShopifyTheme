@@ -4,24 +4,9 @@
        {{  page.content }}
     </div>
     <div class="splash__signup">
-        <h2>Sign up today</h2>
-        <form>
-            <label for="signup-email">Email</label>
-            <input type="email" id="signup-email" name="email" placeholder="email" />
-            <div class="radio-group">
-                <div class="radio">
-                    <input type="radio" name="reason" value="30">I'd like to pre-order<br>
-                </div>
-                <div class="radio">
-                     <input type="radio" name="reason" value="60">I'd like more information<br>
-                </div>
-
-            </div>
-            <button class="button button--primary" type="submit">Send</button>
-        </form>
+            <a href="{{ section.settings.link }}" class="button button--primary" type="submit">Pre-order now</a>
     </div>
 </section>
-
 
 
 <style>
@@ -39,11 +24,9 @@
         font-size: 20px;
     }
 
-
     .splash__signup {
         color: #fff;
         display: flex;
-
         flex-direction: column;
         justify-content: space-between;
     }
@@ -58,20 +41,6 @@
     }
     .splash__signup h2 {
         color: #fff;
-    }
-
-    #signup-email {
-        height: 50px;
-    }
-
-    .radio-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 10px;
-    }
-    .radio {
-        padding: 5px;
     }
     .radio input {
         margin-right: 5px;
@@ -99,6 +68,11 @@
           "type": "image_picker",
           "id": "background_image",
           "label": "Background_image"
+        },
+        {
+          "type": "text",
+          "id":"link",
+          "label": "Button Link"
         }
       ]
     }
