@@ -1,4 +1,4 @@
-<section class="hero" style="background: url('{{ section.settings.background_image | img_url: 'master' }}'); background-repeat: no-repeat; background-size: cover;">
+<section class="hero" style="background: url('{{ section.settings.background_image | img_url: 'master' }}'); background-repeat: no-repeat; background-size: 100% auto;">
 
 </section>
 
@@ -6,9 +6,16 @@
 <style>
 
 .hero {
-    height: 100vh;
+    height: 60vh;
     background-repeat: no-repeat;
     margin-top: -100px;
+}
+
+@media all and (max-width: 1024px) {
+    .hero {
+        margin-top: 0;
+        height: 40vh !important;
+    }
 }
 
 
