@@ -1,5 +1,5 @@
 <!-- SHOPIFY_SECTION START -->
-<section class="shopify-section" style="padding-top: {{section.settings.section_height}}%; padding-bottom: {{section.settings.section_height}}%; background-color: {{section.settings.background_color}}; text-align: {{section.settings.text_align}}">
+<section class="shopify-section" style="padding-top: {{section.settings.section_height_top}}%; padding-bottom: {{section.settings.section_height_bottom}}%; background-color: {{section.settings.background_color}}; text-align: {{section.settings.text_align}}">
     <div class="container">
       <h2 style="color: {{section.settings.header_font_color}};">{{section.settings.title}}</h2>
 
@@ -50,13 +50,22 @@
 		},
 
         {
-            "id": "section_height",
+            "id": "section_height_top",
             "type": "range",
             "min": 0,
             "max": 100,
             "step": 1,
             "default": 0,
-            "label": "Section Height"
+            "label": "Section Height Top"
+          },
+          {
+            "id": "section_height_bottom",
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 0,
+            "label": "Section Height Bottom"
           },
           {
            "type": "color",
