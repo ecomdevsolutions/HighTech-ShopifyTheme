@@ -1,4 +1,4 @@
-<section class="newsletter module" style="padding: {{ section.settings.y_padding }}% 0%;">
+<section class="newsletter module" style="padding-top: {{ section.settings.section_height_top }}; padding-bottom: {{section.settings.section_height_bottom}}">
     <div class="newsletter__box container">
        <form class="form form--subscribe" action="{{ section.settings.form_action_url }}" method="post" target="_blank">
             <h2>{{ section.settings.title }}</h2>
@@ -25,15 +25,23 @@
          "label": "Title"
         },
         {
-            "type":      "range",
-            "id":        "y_padding",
-            "min":       0,
-            "max":        100,
-            "step":       1,
-            "unit":       "%",
-            "label":     "Y padding",
-            "default":   0
-        },
+            "id": "section_height_top",
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 0,
+            "label": "Section Height Top"
+          },
+          {
+            "id": "section_height_bottom",
+            "type": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 0,
+            "label": "Section Height Bottom"
+          },
          {
              "id": "input_name",
              "type": "text",
