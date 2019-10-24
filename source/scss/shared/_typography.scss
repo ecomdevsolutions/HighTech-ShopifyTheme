@@ -85,7 +85,7 @@ h5, .h5 {
   color: inherit;
   text-transform: none;
   letter-spacing: 0;
-  
+
   @include breakpoint(large) {
     font-size: 20px;
     line-height: 26px;  
@@ -140,7 +140,6 @@ h6, .h6 {
   font-size: 11px;
   line-height: 13px;
   letter-spacing: .1em;
-
 }
 
 p {

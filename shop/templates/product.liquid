@@ -10,7 +10,9 @@
                 <div class="box box--3x2">
                   <div class="box__inner">
                     <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
-                      <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                      <div class="img-magnifier-container">
+                        <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                      </div>
                     </div>
                   </div>
                 </div>

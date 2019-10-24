@@ -1,4 +1,4 @@
-import DynamicSections from "../shop/modules/DynamicSections";
+
 
 require('application.scss')
 require('jquery-pjax')

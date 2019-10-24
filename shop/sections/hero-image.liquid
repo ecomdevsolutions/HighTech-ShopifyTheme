@@ -1,4 +1,4 @@
-<section class="hero" style="background: url('{{ section.settings.background_image | img_url: 'master' }}'); background-repeat: no-repeat; background-size: 100% auto; background-position: center; margin-top: {{ section.settings.top_margin }}px">
+<section class="hero" style="background: url('{{ section.settings.background_image | img_url: 'master' }}'); background-repeat: no-repeat; background-size: 100% auto; background-position: center;">
 
 </section>
 
@@ -17,6 +17,18 @@
         height: 40vh !important;
     }
 }
+@media all and (max-width: 768px) {
+    .hero {
+        margin-top: -50px;
+    }
+}
+
+@media all and (max-width: 411px) {
+    .hero {
+        margin-top: -100px;
+    }
+}
+
 
 
 

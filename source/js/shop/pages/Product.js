@@ -1,3 +1,5 @@
+import ImageMagnify from "../modules/ImageMagnify"
+
 class Product {
 
   constructor () {
@@ -39,6 +41,11 @@ class Product {
     if (product.options.length < 2) {
       this.currentVarient = CURRENT_VARIENT_PRICE
     }
+
+    const largeImages = $('.img-magnifier-container img')
+      largeImages.toArray().forEach((image) => {
+        new ImageMagnify(image,3)
+      })
 
     this.optionSelect()
     this.setAddonQuantity()
@@ -97,6 +104,9 @@ class Product {
     this.$thumb.click((e) => {
       e.stopPropagation();
       this.$images.slick('slickGoTo', parseInt(e.target.dataset.index))
+
+
+      //new ImageMagnify($('.img-magnifier-container img')[0],3)
     })
   }
 

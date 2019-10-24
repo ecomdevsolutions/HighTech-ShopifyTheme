@@ -8,7 +8,7 @@ import Login from './pages/Login'
 import Addresses from './pages/Addresses'
 import Comparison from './pages/Comparison';
 import QuoteRequest from './pages/QuoteRequest';
-import DynamicSections from "./modules/DynamicSections";
+
 
 class Shop {
   constructor () {            
