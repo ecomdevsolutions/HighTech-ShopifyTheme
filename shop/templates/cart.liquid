@@ -76,15 +76,17 @@
                     <span>Checkout</span>
                   </button>
                   <br>
-                  <br>
-                  <a href="{{shop.url}}/pages/quote-request">
-                    <button
-                      class="button button--primary button--checkout"
-                      type="button"
-                      name="checkout">
-                      <span>Immediate quote</span>
-                    </button>
-                  </a>
+                  {% if settings.display_quote_request %}
+                    <br>
+                    <a href="{{shop.url}}/pages/quote-request">
+                      <button
+                        class="button button--primary button--checkout"
+                        type="button"
+                        name="checkout">
+                        <span>Immediate quote</span>
+                      </button>
+                    </a>
+                  {% endif %}
                   {% if additional_checkout_buttons and show_paypal %}
                   <div class="additional-checkout-buttons">
                     {{ content_for_additional_checkout_buttons }}

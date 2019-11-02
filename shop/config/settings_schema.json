@@ -220,5 +220,16 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "quote-request",
+    "settings": [
+      {
+        "label": "Display Quote Request In Cart",
+        "id": "display_quote_request",
+        "type": "checkbox",
+        "default": true
+      }
+    ]
   }
 ]
