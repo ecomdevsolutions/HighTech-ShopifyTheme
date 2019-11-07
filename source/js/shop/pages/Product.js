@@ -59,7 +59,6 @@ class Product {
         multiOptions.forEach(option => option.click());
       }
       const largeImages = $('.img-magnifier-container img')
-      console.log("magnifying images")
       largeImages.toArray().forEach((image) => {
         new ImageMagnify(image,3)
       })

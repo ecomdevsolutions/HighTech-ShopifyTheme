@@ -84,6 +84,48 @@ def contact():
         redirect("https://roverrobotics.com/pages/contact?submitted=false", code=302)
 
 
+@application.route('/order-webhook', methods=["POST"])
+def shopify_order():
+
+    order = request.get_json()
+
+    # process address into string
+    address_format = ""
+    for k, v in zip(order['shipping_address'].keys(), order['shipping_address'].values()):
+        address_format += f"{k} : {v} \n"
+
+    jira = JiraAPI(os.environ['jira_username'], os.environ['jira_password'])
+
+    data = {
+        "fields": {
+            "project":
+                {
+                    "key": "ERP"
+                },
+            "summary": f"Shopify Online Order",
+            "description": f"A a online order has been submitted through Shopify: \n\n {address_format}",
+
+            "issuetype": {
+                "name": "ERP - Sales Leads and Orders"
+            },
+            "customfield_10055": order['email'],
+            "customfield_10047": address_format
+        },
+
+    }
+
+    # create a new issue
+    created = jira.create_issue(data)
+    # grab key
+    issue_key = created['key']
+    # transition status to order
+    transition = jira.set_transition(issue_key, "111")
+
+    print("added transition",transition)
+
+
+
+
 
 
 if __name__ == '__main__':
