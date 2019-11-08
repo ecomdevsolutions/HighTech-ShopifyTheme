@@ -193,6 +193,50 @@
   }
 }
 
+.link {
+  position: relative;
+  &__dropdown {
+    display: none;
+   & li {
+      display: block !important;
+   }
+  }
+
+   &__element {
+      text-align: center;
+      position: relative;
+      margin: 0 !important;
+
+     &:hover {
+       background-color: $color-blue;
+       color: $color-white;
+     }
+    }
+
+  &__link {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+
+  &:hover &__dropdown {
+    display: block;
+    position: fixed;
+    width: 200px;
+    background-color: $color-white;
+
+
+  }
+
+
+}
+
+.link__element a:after {
+  content: none !important;
+}
+
 footer nav ul li {
   display: inline !important;
   margin: 0 10px;
