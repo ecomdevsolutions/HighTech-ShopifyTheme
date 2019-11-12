@@ -192,7 +192,7 @@
     text-align: right;
   }
 }
-
+@media all and (min-width: $breakpoint-desktop) {
 .link {
   position: relative;
   &__dropdown {
@@ -220,18 +220,34 @@
       padding-right: 10px;
   }
 
-
   &:hover &__dropdown {
     display: block;
     position: fixed;
     width: 200px;
-    background-color: $color-white;
+    background-color: #E7E7E7;
+  }
+}
+}
+@media all and (max-width: $breakpoint-desktop) {
+  .link {
+    &__dropdown {
+      display: none;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
 
+    &__link {
+      font-size: 20px !important;
 
+    }
+     &__dropdown-arrow {
+      position: absolute;
+    }
   }
 
 
 }
+
 
 .link__element a:after {
   content: none !important;

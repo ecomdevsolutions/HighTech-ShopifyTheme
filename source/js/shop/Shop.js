@@ -8,7 +8,7 @@ import Login from './pages/Login'
 import Addresses from './pages/Addresses'
 import Comparison from './pages/Comparison';
 import QuoteRequest from './pages/QuoteRequest';
-
+import MobileDropDown from "./modules/MobileDropDown";
 
 class Shop {
   constructor () {            
@@ -20,7 +20,9 @@ class Shop {
       Addresses,
       Comparison,
       QuoteRequest
-    ])    
+    ])
+
+    this.mobileDropdown = new MobileDropDown();
   }
 }
 
