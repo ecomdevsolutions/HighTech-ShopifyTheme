@@ -6,9 +6,7 @@ class MobileDropDown {
                 this.linkClickListener()
                 this.opened = {}
             }
-
         }
-
     }
 
     linkClickListener() {
@@ -38,10 +36,6 @@ class MobileDropDown {
 
         });
     }
-
-
-
-
 }
 
 

@@ -161,7 +161,7 @@
   @include fill(fixed);
   visibility: hidden;
   z-index: 1;
-  transition: visibility 0ms ease 1000ms;
+  //transition: visibility 0ms ease 1000ms;
   text-align: center;
   color: $color-white;
   padding: $header-height-mobile * 1.5 0 $header-height-mobile 0;
@@ -345,7 +345,7 @@ footer nav ul li {
   transition: transform 300ms ease;
 
   body.menu-open & {
-    transform: translateY(0);        
+    transform: translateY(0);
   }
 
   @include breakpoint(desktop) {
