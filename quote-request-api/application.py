@@ -18,7 +18,7 @@ def process_quote():
     company = quote['quote-company']
     address = quote['quote-address-1']
     address_2 = quote.get('quote-address-2', '')
-    city = quote['quote-city']
+    city = quote.get('quote-city', quote['quote-country'])
     country = quote['quote-country']
     state = quote.get('quote-state', '')
     zipcode = quote['quote-zipcode']
