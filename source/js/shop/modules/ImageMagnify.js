@@ -55,6 +55,14 @@ class ImageMagnify {
 
   }
 
+  hide() {
+    this.glass.style.display = "none";
+  }
+
+  show() {
+    this.glass.style.display = "block";
+  }
+
   moveMagnifier(e) {
     var pos, x, y;
     /*prevent any other actions that may occur when moving over the image*/
