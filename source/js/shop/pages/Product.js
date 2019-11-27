@@ -3,55 +3,55 @@ import ImageMagnify from "../modules/ImageMagnify"
 class Product {
 
   constructor () {
-    this.$window = $(window)
-    this.$body = $('body')
-    this.$form = $('.shopify-product-form')
-    this.$images = $('.product__images')
-    this.$thumb = $('.product__thumb')
-    this.$banner = $('.product-banner')
+    this.$window = $(window);
+    this.$body = $('body');
+    this.$form = $('.shopify-product-form');
+    this.$images = $('.product__images');
+    this.$thumb = $('.product__thumb');
+    this.$banner = $('.product-banner');
 
-    this.$varientQuantity = $('.product__qty')
-    this.$optionQuanity = $('.addon__qty')
-    this.$variantSelect = this.$form.find('select[name="id"]')
-    this.$optionValue = $('.product__option__value')
+    this.$varientQuantity = $('.product__qty');
+    this.$optionQuanity = $('.addon__qty');
+    this.$variantSelect = this.$form.find('select[name="id"]');
+    this.$optionValue = $('.product__option__value');
 
-    this.$options = $('.tablinks--options')
-    this.$varients = $('.tablinks--varients')
-    this.$bannerPrice = $('.product-banner__price')
-    this.$addons = $('.button--addon')
-    this.$addToCart = $(".button--add-to-cart")
-    this.currentVarient = null
+    this.$options = $('.tablinks--options');
+    this.$varients = $('.tablinks--varients');
+    this.$bannerPrice = $('.product-banner__price');
+    this.$addons = $('.button--addon');
+    this.$addToCart = $(".button--add-to-cart");
+    this.currentVarient = null;
     //total price in bottom banner
-    this.price = null
+    this.price = null;
     //array of objects off addons
-    this.addons = []
-    this.options = {}
-    this.cartClicked = false
+    this.addons = [];
+    this.options = {};
+    this.cartClicked = false;
   }
 
   static get bodyClass () {
-    return 'shop-product'
+    return 'shop-product';
   }
 
 
   init () {
     this.initImages()
-    this.filterImages(this.getSelectedVariant())
+    this.filterImages(this.getSelectedVariant());
 
     if (product.options.length < 2) {
-      this.currentVarient = CURRENT_VARIENT_PRICE
+      this.currentVarient = CURRENT_VARIENT_PRICE;
     }
 
 
 
-    this.optionSelect()
-    this.setAddonQuantity()
-    this.addToCart()
-    this.varientSelect()
-    this.setVariantQuantity()
-    this.changeImageByClick()
-    this.updateQuantity()
-    this.setDefaultAddon()
+    this.optionSelect();
+    this.setAddonQuantity();
+    this.addToCart();
+    this.varientSelect();
+    this.setVariantQuantity();
+    this.changeImageByClick();
+    this.updateQuantity();
+    this.setDefaultAddon();
 
     window.onload = function() {
       const multiOptions = $('.multi-option').toArray();
@@ -60,8 +60,8 @@ class Product {
       }
       const largeImages = $('.img-magnifier-container img')
       largeImages.toArray().forEach((image) => {
-        new ImageMagnify(image,3)
-      })
+        new ImageMagnify(image,3);
+      });
     }
 
 
@@ -82,7 +82,7 @@ class Product {
 
   setDefaultAddon() {
 
-    const $active = $('.tablinks.active')
+    const $active = $('.tablinks.active');
     if (!$active[0]) {
       return
     }
@@ -93,9 +93,9 @@ class Product {
 
     $(".addon__qty")
         .toArray()
-        .forEach(addon => addon.value = 0)
+        .forEach(addon => addon.value = 0);
     $('.product__option').toArray()
-        .forEach(option => $(option).removeClass("addon__selected"))
+        .forEach(option => $(option).removeClass("addon__selected"));
     $varientPlus.click();
 
 
@@ -104,20 +104,20 @@ class Product {
   changeImageByClick() {
     this.$thumb.click((e) => {
       e.stopPropagation();
-      this.$images.slick('slickGoTo', parseInt(e.target.dataset.index))
+      this.$images.slick('slickGoTo', parseInt(e.target.dataset.index));
 
 
       //new ImageMagnify($('.img-magnifier-container img')[0],3)
-    })
+    });
   }
 
   filterImages ( variant ) {
-    this.$images.slick('slickUnfilter')
-    this.$thumb.removeClass('active')
+    this.$images.slick('slickUnfilter');
+    this.$thumb.removeClass('active');
 
     let filter = (k,v) => {
       let $this = $(v),
-          variants = $this.data('variants')
+          variants = $this.data('variants');
 
       if ( variants.length == 0 ||
            variants.indexOf(variant.id) > -1 ) {
@@ -125,35 +125,35 @@ class Product {
       }
     }
 
-    this.$images.slick('slickFilter', filter)
-    this.$thumb.filter(filter).addClass('active')
+    this.$images.slick('slickFilter', filter);
+    this.$thumb.filter(filter).addClass('active');
   }
 
   updateVariant () {
     let variant = this.getSelectedVariant();
-    this.$bannerPrice.html(Shopify.formatMoney(variant.price).replace(/(\..*)/, ''))
-    this.$variantSelect.val(variant.id)
-    this.filterImages(variant)
+    this.$bannerPrice.html(Shopify.formatMoney(variant.price).replace(/(\..*)/, ''));
+    this.$variantSelect.val(variant.id);
+    this.filterImages(variant);
   }
 
   updateQuantity() {
     $('.plus, .minus').click((e) => {
-      const field = $(`#quantity-${e.target.dataset.id}`)
-      const fieldValue = parseInt(field.val())
+      const field = $(`#quantity-${e.target.dataset.id}`);
+      const fieldValue = parseInt(field.val());
       if (e.target.value == "-") {
-        const decrement = fieldValue - 1
-        field.val(decrement)
+        const decrement = fieldValue - 1;
+        field.val(decrement);
       } else {
-        const increment = fieldValue + 1
-        field.val(increment)
+        const increment = fieldValue + 1;
+        field.val(increment);
       }
-      field.change()
+      field.change();
 
       if (parseInt(field.val()) > 0) {
 
-        $(`#product__option-${e.target.dataset.id}`).addClass('addon__selected')
+        $(`#product__option-${e.target.dataset.id}`).addClass('addon__selected');
       } else {
-        $(`#product__option-${e.target.dataset.id}`).removeClass('addon__selected')
+        $(`#product__option-${e.target.dataset.id}`).removeClass('addon__selected');
 
       }
     })

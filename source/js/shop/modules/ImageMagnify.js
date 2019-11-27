@@ -14,12 +14,10 @@ class ImageMagnify {
   magnify() {
 
         var glass, w, h, bw;
-
-
         /*create magnifier glass:*/
         glass = document.createElement("DIV");
         glass.setAttribute("class", "img-magnifier-glass");
-        glass.setAttribute("style", "z-index: 2")
+        glass.setAttribute("style", "z-index: 2");
         glass.style.visibility = "hidden";
         /*insert magnifier glass:*/
         this.img.parentElement.insertBefore(glass, this.img);
@@ -33,17 +31,17 @@ class ImageMagnify {
         h = glass.offsetHeight / 2;
         /*execute a function when someone moves the magnifier glass over the image:*/
         glass.addEventListener("mousemove", (e) => {
-           this.moveMagnifier(e)
+           this.moveMagnifier(e);
         });
         this.img.addEventListener("mousemove", (e) => {
-            this.moveMagnifier(e)
+            this.moveMagnifier(e);
         });
         /*and also for touch screens:*/
         glass.addEventListener("touchmove", (e) => {
-             this.moveMagnifier(e)
+             this.moveMagnifier(e);
         });
         this.img.addEventListener("touchmove", (e) => {
-             this.moveMagnifier(e)
+             this.moveMagnifier(e);
         });
 
 

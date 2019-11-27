@@ -70,11 +70,11 @@
                   {{ section.settings.captcha }}
                 <br>
                 <br>
-                  <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+                  <input type="submit" value="Submit" class="btn" value="{{ 'contact.form.submit' | t }}">
 
               {% endform %}
             {% else %}
-              <form method="POST" action="{{section.settings.form_url}}" id="contact-form">
+              <form onsubmit="validate()" method="POST" action="{{section.settings.form_url}}" id="contact-form">
                 <div class="grid">
                   <div class="grid_item medium-up--one-half">
                     <label for="ContactFormName"> Name </label>
@@ -96,7 +96,7 @@
                  {{ section.settings.captcha }}
                 <br>
                 <br>
-                <input type="submit" class="btn">
+                <input type="submit" value="Submit" class="btn">
 
                 </form>
 
@@ -116,6 +116,18 @@
 
   </div>
 </div>
+
+<script>
+var form = document.getElementById('contact-form');
+form.addEventListener("submit", function(event){
+    if (grecaptcha.getResponse() === '') {
+      event.preventDefault();
+      alert('Please check the recaptcha');
+    }
+  }
+, false);
+
+</script>
 
 {% schema %}
   {
