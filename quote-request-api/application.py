@@ -46,8 +46,6 @@ def process_quote():
 @application.route('/contact', methods=['POST'])
 def contact():
     form = request.form
-
-
     name = form['contact[name]']
     email = form['contact[email]']
     company = form['contact[company]']
@@ -67,7 +65,6 @@ def contact():
             },
             "customfield_10055": email,
         },
-
     }
 
     try:
@@ -86,9 +83,7 @@ def contact():
 
 @application.route('/order-webhook', methods=["POST"])
 def shopify_order():
-
     order = request.get_json()
-
     # process address into string
     address_format = ""
     for k, v in zip(order['shipping_address'].keys(), order['shipping_address'].values()):
@@ -111,7 +106,6 @@ def shopify_order():
             "customfield_10055": order['email'],
             "customfield_10047": address_format
         },
-
     }
 
     # create a new issue

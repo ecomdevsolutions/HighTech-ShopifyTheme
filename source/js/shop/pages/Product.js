@@ -1,5 +1,6 @@
 import ImageMagnify from "../modules/ImageMagnify"
 
+
 class Product {
 
   constructor () {
@@ -21,6 +22,7 @@ class Product {
     this.$addons = $('.button--addon');
     this.$addToCart = $(".button--add-to-cart");
     this.currentVarient = null;
+    this.magnify = []
     //total price in bottom banner
     this.price = null;
     //array of objects off addons
@@ -53,18 +55,22 @@ class Product {
     this.updateQuantity();
     this.setDefaultAddon();
 
-    window.onload = function() {
+    window.onload = () => {
       const multiOptions = $('.multi-option').toArray();
       if (multiOptions.length) {
         multiOptions.forEach(option => option.click());
       }
       const largeImages = $('.img-magnifier-container img')
       largeImages.toArray().forEach((image) => {
-        new ImageMagnify(image,3);
+        this.magnify.push(new ImageMagnify(image, 2))
+
       });
+
+
+
+
+
     }
-
-
   }
 
   initImages () {
@@ -76,7 +82,7 @@ class Product {
       appendDots: '.nav--slick__dots',
       prevArrow: '.nav--slick__prev',
       nextArrow: '.nav--slick__next'
-    })
+    });
 
   }
 
@@ -105,9 +111,12 @@ class Product {
     this.$thumb.click((e) => {
       e.stopPropagation();
       this.$images.slick('slickGoTo', parseInt(e.target.dataset.index));
+      this.magnify.forEach((glass) => {
+        glass.hide()
+      })
 
 
-      //new ImageMagnify($('.img-magnifier-container img')[0],3)
+
     });
   }
 

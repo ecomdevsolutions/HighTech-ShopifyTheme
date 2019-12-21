@@ -4128,6 +4128,36 @@ body[class*=customers] .footer--main {
       margin-top: 100px; } }
 
 /* Page */
+.zoomable {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none; }
+
+.zoomableInPlace {
+  position: absolute; }
+
+.zoomable > .zoomed {
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin: 0 !important;
+  pointer-events: none !important;
+  max-height: none !important;
+  max-width: none !important;
+  background: #fff !important; }
+
+.zoomable.active > .zoomed {
+  opacity: 1 !important;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+
 @media (min-width: 1024px) {
   .col--forums {
     position: -webkit-sticky !important;
@@ -4330,9 +4360,7 @@ body[class*=customers] .footer--main {
 .img-magnifier-glass {
   position: absolute;
   cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 150%;
-  height: 150%; }
+  /*Set the size of the magnifier glass:*/ }
 
 /* Tooltip container */
 .tooltip {

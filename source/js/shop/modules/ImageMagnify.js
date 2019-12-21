@@ -9,16 +9,21 @@ class ImageMagnify {
         this.bw = null;
         this.zoom = zoom;
         this.magnify();
-
     }
+
   magnify() {
 
         var glass, w, h, bw;
+
         /*create magnifier glass:*/
+
         glass = document.createElement("DIV");
         glass.setAttribute("class", "img-magnifier-glass");
         glass.setAttribute("style", "z-index: 2");
         glass.style.visibility = "hidden";
+        let container = document.getElementsByClassName('img-magnifier-container')[0]
+        glass.style.height = String(container.offsetHeight / 2) + "px"
+        glass.style.width = String(container.offsetWidth / 2) + "px"
         /*insert magnifier glass:*/
         this.img.parentElement.insertBefore(glass, this.img);
         this.img.parentElement.insertBefore(glass, this.img);
@@ -26,6 +31,7 @@ class ImageMagnify {
         glass.style.backgroundImage = "url('" + this.img.src + "')";
         glass.style.backgroundRepeat = "no-repeat";
         glass.style.backgroundSize = (this.img.width * this.zoom) + "px " + (this.img.height * this.zoom) + "px";
+
         bw = 3;
         w = glass.offsetWidth / 2;
         h = glass.offsetHeight / 2;
@@ -54,20 +60,25 @@ class ImageMagnify {
   }
 
   hide() {
+    console.log('hiding')
     this.glass.style.display = "none";
   }
 
   show() {
-    this.glass.style.display = "block";
+    if (this.glass) {
+        this.glass.style.display = "block";
+    }
+
   }
 
   moveMagnifier(e) {
+    this.show()
     var pos, x, y;
     /*prevent any other actions that may occur when moving over the image*/
     e.preventDefault();
     /*get the cursor's x and y positions:*/
 
-    pos = this.getCursorPos(e)
+    pos = this.getCursorPos(e);
 
 
     x = pos.x;
@@ -99,4 +110,6 @@ class ImageMagnify {
     return {x : x, y : y};
   }
 }
+
+
 export default ImageMagnify;
