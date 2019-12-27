@@ -36,14 +36,14 @@
           <a class="link__main-link" href="{{ link.url }}">{{ link.title }} {% if link.links != blank  %} <span class="link__dropdown-arrow">&darr;</span> {% endif %} </a>
           {% if link.links != blank %}
             <ul class="link__dropdown">
+               <li class="link__element">
+                <a class="link__link" href="{{ link.url }}"> {{ link.title }} </a>
+              </li>
               {% for child_link in link.links %}
                 <li class="link__element">
                   <a class="link__link" href="{{ child_link.url }}">{{  child_link.title }}</a>
                 </li>
               {% endfor %}
-              <li class="link__element">
-                <a class="link__link" href="{{ link.url }}"> {{ link.title }} </a>
-              </li>
             </ul>
           {% endif %}
       </li>

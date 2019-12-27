@@ -14,8 +14,8 @@ class MobileDropDown {
         $('.link').click((e) => {
 
             const linkDropdown = $(e.currentTarget).find('.link__dropdown');
-            const linkHref = e.target.getAttribute("href")
-            const linkClass = e.target.getAttribute("class")
+            const linkHref = e.target.getAttribute("href");
+            const linkClass = e.target.getAttribute("class");
 
 
             if (linkDropdown.length > 0 && linkClass === "link__main-link") {
