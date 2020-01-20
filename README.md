@@ -32,19 +32,25 @@ npm install -g webpack@^3.10.0
 * change theme_id to development theme ID on roverrobotics.myshopify.com.
 2. Run themekit's file watch function:
 for a list of commands run "**theme**" in your terminal
-```bash
-theme watch
-```
+
 Now any changes you make in the ./shop directory will be uploaded and written to the theme specified in theme_id in config.yml
 
-3. See **package.json** for a list of development scripts under **scripts**. Depending on your operating system you will need to change the commands
+3. See **package.json** for a list of development scripts under **scripts**. Depending on your operating system you will need to change the commands currently it's setup to use linux bash.
 
 * For making Javascript and CSS changes see the ./source directory.
 * You will need to compile both the Javascript and CSS using [webpack](https://webpack.js.org/)
 * After making changes in any of the SASS or Javascript files run:
 
+The main command for development:
 
 ```bash
-npm run shop:builder
+npm run shopify:watch
 ```
-This will compile your CSS and Javascript and export them into **application.js** & **application.css.liquid**
+This will compile your CSS and Javascript and export them into **application.js** & **application.css.liquid** when a change occurs in the application. This command runs 3 critical commands needed to compile the application.
+```
+"shopify:watch": "concurrently \"npm run watch:shop_css\" \"npm run shop:builder\" \"npm run themekit:watch\"",
+```
+
+1. watch:shop_css takes the sass code and injects theme variables with a python script
+2. shop:builder uses webpack to build the css and Javascript
+3. themekit:watch runs themekit and tells it to watch files for changes and uploads to remote theme
