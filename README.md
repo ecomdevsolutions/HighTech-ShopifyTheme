@@ -54,3 +54,8 @@ This will compile your CSS and Javascript and export them into **application.js*
 1. watch:shop_css takes the sass code and injects theme variables with a python script
 2. shop:builder uses webpack to build the css and Javascript
 3. themekit:watch runs themekit and tells it to watch files for changes and uploads to remote theme
+
+## Development Workflow Quote Request Server
+1. Install [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
+2. Get an authentication key [instructions](https://aws.amazon.com/getting-started/tutorials/set-up-command-line-elastic-beanstalk/)
+3. See common [eb commands](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-getting-started.html)
