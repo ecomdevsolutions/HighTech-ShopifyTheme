@@ -22,11 +22,14 @@
         <div class="collection__title">
           <h1>{{ collection.title }}</h1>
         </div>
+        
+        {% comment %}
         <div class="collection__detail">
           <h2 class="detail-title">{{collection.title}}</h2>
           <p class="detail-text">{{block.settings.collection_detail}}</p>
           <a href="{{block.settings.button_link}}" class="btn-shop-collection">{{block.settings.button_text}}</a>
         </div>
+        {% endcomment %}
       </div>
     {% endfor %}
   </div>
