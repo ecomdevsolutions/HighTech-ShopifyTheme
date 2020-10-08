@@ -1,7 +1,7 @@
 development:
   directory: shop
   password: 5be28150d2c53d5c0f90b2e6d1b781f6
-  theme_id: "20332445749"
+  theme_id: "82789105717"
   store: roverrobotics.myshopify.com
   ignore_files:
     - config/settings_data.json
@@ -9,7 +9,7 @@ development:
 production:
   directory: shop
   password: 5be28150d2c53d5c0f90b2e6d1b781f6
-  theme_id: "16723869749"
+  theme_id: "82777800757"
   ignore_files:
     - config/settings_data.json
   store: roverrobotics.myshopify.com

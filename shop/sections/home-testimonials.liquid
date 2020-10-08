@@ -1,0 +1,142 @@
+<section class="shopify-section module--testimonials-section">
+	{% for block in section.blocks %}				
+		<div class="column-half-one">
+			<div class="testimonial-wrapper">
+				<img src="{{ block.settings.image | img_url: '300x' }}" />
+				<div class="description-wrapper">
+					<p>{{ block.settings.description }}</p>
+				</div>
+			</div>
+			<div class="author-wrapper">
+				<h6>{{ block.settings.author }}</h6>
+			</div>
+		</div>
+	{% endfor %}
+</section>
+
+<style>
+	.module--testimonials-section {
+		display: flex;
+		padding: 100px 0;
+		max-width: 1200px;
+    	margin: 0 auto;
+	}
+	.module.module--testimonials,
+	.module--two-column-blogs {
+		background-color: #fafafa;
+	}
+	.module--testimonials .author-wrapper {
+		display: flex;
+    justify-content: flex-end;
+	}
+	.module--testimonials .author-wrapper h6 {
+		position: relative;
+		color: #4F4F4F;
+		font-family: "Poppins-Bold";
+		font-size: 16px;
+		letter-spacing: 0;
+	}
+	.module--testimonials .author-wrapper h6::before {
+		content: "";
+		width: 100px;
+		height: 1px;
+		display: block;
+		background-color: #BDBDBD;
+		position: absolute;
+		top: 50%;
+		left: -120px;
+	}
+	.module--testimonials-section .column-half-one:first-child {
+		padding-right: 30px;
+	}
+	.module--testimonials-section .column-half-one:last-child {
+		padding-left: 30px;
+	}
+	.module--testimonials-section .testimonial-wrapper {
+		display: flex;
+	}
+	.module--testimonials-section .testimonial-wrapper img {
+		height: fit-content;
+		padding-right: 25px;
+	}
+	.module--testimonials .description-wrapper p {
+		color: #7F7F7F;
+		font-family: "Open Sans";
+		font-size: 16px;
+		letter-spacing: 0;
+		text-align: justify;
+		white-space: break-spaces;
+		margin: 0;
+	}
+	@media (max-width: 1200px) {
+		.module--testimonials-section .testimonial-wrapper {
+			display: inline-block;
+			text-align: center;
+		}
+		.module--testimonials-section {
+			padding: 80px 30px;
+		}
+		.module--testimonials-section .testimonial-wrapper img {
+			padding-right: 0;
+			margin-bottom: 30px;
+		}
+	}
+	@media (max-width: 768px) {
+		.module--testimonials-section {
+			display: grid;
+		}
+		.module--testimonials-section .column-half-one:last-child {
+			padding-left: 0;
+			margin-top: 30px;
+		}
+		.module--testimonials-section .column-half-one:first-child {
+			padding-right: 0;
+		}
+		.module--testimonials-section {
+			padding: 50px 30px;
+		}
+		.module--testimonials .author-wrapper h6::before {
+			display: none;
+		}
+		.module--testimonials .author-wrapper h6 {
+			margin-top: 25px;
+		}
+	}
+</style>
+
+{% schema %}
+{
+	"name": "Testimonials",
+	"class": "module module--testimonials",
+	"max_blocks": 2,
+	"blocks": [
+		{
+			"name": "Testimonial",
+			"type": "colummn",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "textarea",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "text",
+					"id": "author",
+					"label": "Author"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category": "landing-section",
+			"name": "Testimonials"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+
+{% unless settings.shipping_calculator == 'Disabled' %}
+    <div class="form-group">
+      <label class="form-label" for="address_country">Country</label>
+      <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+    </div>
+    <div class="form-group" id="address_province_container" style="display:none;">
+      <label class="form-label" for="address_province" id="address_province_label">Province</label>
+      <select id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="address_zip">Zip/Postal Code</label>
+      <input type="text" id="address_zip" placeholder="Enter your ZIP code" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
+    </div>
+    <div id="wrapper-response"></div>
+    <input type="button" class="get-rates" value="{{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' }}" />
+{% endunless %}
+{% comment %} 
+{% unless settings.shipping_calculator == 'Disabled' %}
+<div id="shipping-calculator">
+  <h3>{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h3>
+  <div>
+    <p class="field">
+      <label for="address_country">Country</label>
+      <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+    </p>
+    <p class="field" id="address_province_container" style="display:none;">
+      <label for="address_province" id="address_province_label">Province</label>
+      <select id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+    </p>
+    <p class="field">
+      <label for="address_zip">Zip/Postal Code</label>
+      <input type="text" id="address_zip" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
+    </p>
+    <p class="field" style="text-align: right;">
+      <input type="button" class="get-rates btn button button--secondary" value="{{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' }}" />
+    </p>
+  </div>
+  <div id="wrapper-response"></div>
+</div>
+{% endunless %} {% endcomment %}
+
+<script id="shipping-calculator-response-template" type="text/template">
+  <p id="shipping-rates-feedback" <% if (success) { %> class="success" <% } else { %> class="error" <% } %>>
+  <% if (success) { %>
+    <% if (rates.length > 0) { %> 
+      <select id="qteedy-shipping-rate">
+        <% for (var i=0; i<rates.length; i++) { %>
+          <option value="<%= rates[i].price %>" data-shipping-name="<%= rates[i].name %>"> <%= rates[i].name %> — <%= rates[i].price %></option>
+        <% } %>
+      </select>
+    <% } else { %>
+    We do not ship to this destination.
+    <% } %>
+  <% } else { %>
+    <%= errorFeedback %>
+  <% } %>
+  </p>
+</script>
+
+<!--[if lte IE 8]>
+<style> #shipping-calculator { display: none; } </style>
+<![endif]-->

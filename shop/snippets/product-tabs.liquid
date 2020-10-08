@@ -1,29 +1,86 @@
+{% assign productDescription = product.description | split:"<!-- description -->" %}
+{% assign productSpecs = product.description | split:"<!-- specials -->" %}
+{% assign whatsIncluded = product.description | split:"<!-- whats_included -->" %}
+{% assign volumePricing = product.description | split:"<!-- volume_pricing -->" %}
+{% assign downloads = product.description | split:"<!-- downloads -->" %}
 
-{% assign productTabs = product.description | split:"<!-- split -->"%}
-{% if productTabs.size > 1 %}
- <div class="row">
-      <div class="tab">
-           <button class="tablinks" onclick="openTab(event, 'Description')">Description</button>
-           <button class="tablinks" onclick="openTab(event, 'Contents')">Contents</button>
-           <button class="tablinks" onclick="openTab(event, 'Technical_Details')">Technical Details</button>
-           <button class="tablinks" onclick="openTab(event, 'Learn')">Learn</button>
+{% if productDescription.size > 1 %}
+<div class="row product-tab-container">
+   <div class="col-tb-10 col-tb-push-1 col-dk-8 col-dk-push-2">
+      <div class="tab tab-header">
+
+         <button class="tablinks tablinks--first" onclick="openTab(event, 'Description')">Description</button>
+         <button class="tablinks" onclick="openTab(event, 'Specifications')">Specs</button>
+         <button class="tablinks" onclick="openTab(event, 'Whats_Included')">Whats Included</button>
+         <button class="tablinks" onclick="openTab(event, 'Volume_Pricing')">Volume Pricing</button>
+         <button class="tablinks" onclick="openTab(event, 'Downloads')">Downloads</button>
 
       </div>
-         <div id="Description" class="tabcontent--table">
-            {{ productTabs[2] }}
-         </div>
-        <div id="Contents" class="tabcontent--table">
-            {{ productTabs[3] }}
-         </div>
-        <div id="Technical_Details" class="tabcontent--table">
-            {{ productTabs[4] }}
-         </div>
-        <div id="Learn" class="tabcontent--table">
-            {{ productTabs[5] }}
-         </div>
-
-    </div> <!-- end row -->
-
+      <div id="Description" class="tabcontent--table active">
+         <button class="tablinks-mobile">Description</button>
+         <div class="tab-table-content">{{ productDescription[1] }}</div>
+      </div>
+      <div id="Specifications" class="tabcontent--table">
+         <button class="tablinks-mobile">Specs</button>
+         <div class="tab-table-content">{{ productSpecs[1] }}</div>
+      </div>
+      <div id="Whats_Included" class="tabcontent--table">
+         <button class="tablinks-mobile">Whats Included</button>
+         <div class="tab-table-content">{{ whatsIncluded[1] }}</div>
+      </div>
+      <div id="Volume_Pricing" class="tabcontent--table">
+         <button class="tablinks-mobile">Volume Pricing</button>
+         <div class="tab-table-content">{{ volumePricing[1] }}</div>
+      </div>
+      <div id="Downloads" class="tabcontent--table">
+         <button class="tablinks-mobile">Downloads</button>
+         <div class="tab-table-content">{{ downloads[1] }}</div>
+      </div>
+   </div>
+</div> <!-- end row -->
 {% endif %}
 
+{% comment %} <div class="row">
+   <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Description')">Description</button>
+      <button class="tablinks" onclick="openTab(event, 'Contents')">Contents</button>
+      <button class="tablinks" onclick="openTab(event, 'Technical_Details')">Technical Details</button>
+      <button class="tablinks" onclick="openTab(event, 'Learn')">Learn</button>
+   </div>
+   <div id="Description" class="tabcontent--table">
+      {{ productDescription[1] }}
+   </div>
+   <div id="Contents" class="tabcontent--table">
+      {{ productSpecs[1] }}
+   </div>
+   <div id="Technical_Details" class="tabcontent--table">
+      {{ whatsIncluded[1] }}
+   </div>
+   <div id="Learn" class="tabcontent--table">
+      {{ downloads[1] }}
+   </div>
 
+</div> <!-- end row --> {% endcomment %}
+
+
+
+<script>
+   $(function(){
+      $(".tabcontent--table .tablinks-mobile").on("click", function(){
+         var parentEl = $(this).parents(".tabcontent--table");
+         if(parentEl.hasClass("active")){
+            parentEl.find(".tab-table-content").slideUp("fast", function(){
+               parentEl.removeClass("active");
+            })
+         }
+         else{
+            $(".tabcontent--table.active .tab-table-content").slideUp("fast", function(){
+               $(this).parents(".tabcontent--table").removeClass("active");
+            })
+            parentEl.find(".tab-table-content").slideDown("fast", function(){
+               parentEl.addClass("active");
+            })
+         }
+      })
+   })
+</script>

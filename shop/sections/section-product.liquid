@@ -1,0 +1,557 @@
+<style>
+    .section-drive-kits h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-drive-kits h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info{
+        display: flex;
+        align-items: center;
+        float: right;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info .icon-info{
+      font-size: 18px;
+      display: inline-block;
+      margin-left: 5px;
+      text-align: center;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info i{
+      color: #b2b2b2;
+    }
+
+    .product__thumbs .product__thumb .image--contain{
+        position: relative;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: #000;
+        opacity: 0.3;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:before,
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:after{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        content: '';
+        display: block;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:before{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 4px solid #FFF;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:after{
+        width: 0px;
+        height: 0px;
+        border:20px solid #FFF;
+        border-color: transparent transparent transparent #FFF;
+        left: 60%;
+    }
+
+    .product__image .hero__video{
+        width: 100%;
+        height: 100%;
+        margin-top: 0px;
+    }
+
+    .product__image video::-webkit-media-controls-panel {
+        display: flex !important;
+        opacity: 1 !important;
+    }
+
+    .product__thumbs .product__thumb.selected .image--contain{
+        border-color: #0074e4;
+    }
+
+</style>
+
+{% assign productTitle = product.description | split:"<!-- title -->" %}
+{% assign productContent = product.description | split:"<!-- content -->" %}
+
+{% assign driveNames = product.metafields.drive_kits.names | split: "," %}
+{% assign driveTooltips = product.metafields.drive_kits.tooltips | split: "}," %}
+{% assign driveHandles = product.metafields.drive_kits.handles | split: "," %}
+{% assign showPrices = product.metafields.drive_kits.show_prices | split: "," %}
+
+{% assign group_names = product.metafields.options_group.group_names | split : "," %}
+
+<div class="row">
+    <div class="col-tb-12">
+    <div class="row">
+        <div class="col-dk-5 col-tb-push-1 col--images">
+        
+        <div class="product-header-mobile">
+            {% if productTitle.size > 1 %}
+                <h2 class="product-title">{{ productTitle[1] }}</h2>
+            {% else %}
+                <h2 class="product-title">{{ product.title }}</h2>
+            {% endif %}
+            <div class="product-price-wrapper">
+            <div class="price-label">starting at</div>
+            <div class="product-price">${{ product.price | divided_by: 100 | times: 1 }}</div>
+            </div>
+        </div>
+        <div class="product__images">
+            {% if product.images.size > 0 %}
+                {% for image in product.images %}    
+                    <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                        <div class="box box--3x2">
+                            <div class="box__inner">
+                            <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
+                                <div class="">
+                                <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            {% for group_name in group_names %}
+                {% assign gname = group_name | strip %}
+                {% assign option_handls = product.metafields[gname].handles | split : "," %}
+                {% for option_handle in option_handls %}
+                    
+                    {% assign handle = option_handle | strip %}
+                    {% assign blockProduct = all_products[handle] %}
+                    {% assign image = blockProduct.images[0] %}
+                    <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                        <div class="box box--3x2">
+                            <div class="box__inner">
+                            <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
+                                <div class="">
+                                <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {% if driveHandles.size > 0 %}
+                {% for driveHandle in driveHandles %}
+                {% assign handle = driveHandle | strip %}
+                {% assign blockProduct = all_products[handle] %}
+                {% assign image = blockProduct.images[0] %}
+                <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                    <div class="box box--3x2">
+                        <div class="box__inner">
+                        <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
+                            <div class="">
+                            <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if section.settings.rover_video != blank %}
+                <div class="product__image" data-variants="[]">
+                    <div class="box box--3x2">
+                        <div class="box__inner">
+                            <video controls="" muted="" loop="" class="hero__video">
+                                <source src="{{section.settings.rover_video}}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <nav class="nav nav--thumbs">
+            <ul class="product__thumbs" id="product__thumbs_slider">
+            {% assign dataIndex = 0 %}
+            {% if product.images.size > 0 %}
+                {% for image in product.images %}   
+                    <li class="product__thumb {% if forloop.first == true %}selected{% endif %}" data-index="{{dataIndex }}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                        <div class="box box--1x1">
+                        <div class="box__inner">
+                            <div class="image image--contain">
+                            <img src="{{ image | img_url: '300x300' }}" data-index="{{dataIndex}}" />
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                    {% assign dataIndex = dataIndex | plus: 1 %}
+                {% endfor %}
+            {% endif %}
+            
+            {% for group_name in group_names %}
+                {% assign gname = group_name | strip %}
+                {% assign option_handls = product.metafields[gname].handles | split : "," %}
+                {% for option_handle in option_handls %}
+                    
+                    {% assign handle = option_handle | strip %}
+                    {% assign blockProduct = all_products[handle] %}
+                    {% assign image = blockProduct.images[0] %}
+
+                    <li class="product__thumb {% if product.images.size == 0 and forloop.first == true %}selected{% endif %}" data-index="{{dataIndex}}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                        <div class="box box--1x1">
+                        <div class="box__inner">
+                            <div class="image image--contain">
+                            <img src="{{ image | img_url: '300x300' }}" data-index="{{dataIndex}}" />
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                {% assign dataIndex = dataIndex | plus: 1 %}
+                {% endfor %}
+            {% endfor %}
+            
+            {% if driveHandles.size > 0 %}
+                {% for driveHandle in driveHandles %}
+                {% assign handle = driveHandle | strip %}
+                {% assign blockProduct = all_products[handle] %}
+                {% assign image = blockProduct.images[0] %}
+                <li class="product__thumb {% if product.images.size == 0 and forloop.first == true %}selected{% endif %}" data-index="{{dataIndex}}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                    <div class="box box--1x1">
+                    <div class="box__inner">
+                        <div class="image image--contain">
+                        <img src="{{ image | img_url: '300x300' }}" data-index="{{dataIndex}}" />
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                {% assign dataIndex = dataIndex | plus: 1 %}
+                {% endfor %}
+                
+            {% endif %}
+            
+            {% if section.settings.rover_video != blank %}
+            <li class="product__thumb product__video" data-index="{{ dataIndex }}" data-variants="[]">
+                <div class="box box--1x1">
+                <div class="box__inner">
+                    <div class="image image--contain">
+                        <img src="{{ section.settings.video_preview_img | img_url: '300x300' }}" data-index="{{ dataIndex }}" />
+                        <div class="preview-overlay">
+                        </div>
+                        <div class="preview-overlay-button">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </li>
+            {% endif %}
+            </ul>
+        </nav>
+
+        {% comment %} <nav class="nav nav--slick">
+            <button class="nav--slick__prev">
+            <span class="icon-chevron-thin-left"></span>
+            </button>
+            <div class="nav--slick__dots"></div>
+            <button class="nav--slick__next">
+            <span class="icon-chevron-thin-right"></span>
+            </button>
+        </nav> {% endcomment %}
+
+        <div class="comments-icons-wrapper">
+            <ul class="comments-icons">
+            <li>
+                <span class="info-icon"><i class="fal fa-truck-loading"></i></span>
+                <div class="icon-comment">Fast <b>Shipping</b></div>
+            </li>
+            {% unless product.metafields.weatherproof.disabled == 1 %}
+            <li>
+                <span class="info-icon"><i class="fal fa-tint-slash"></i></span>
+                <div class="icon-comment"><b>Weatherproof</b></div>
+            </li>
+            {% endunless %}
+            <li>
+                <span class="info-icon"><i class="fal fa-user-headset"></i></span>
+                <div class="icon-comment">Professional <b>Support</b></div>
+            </li>
+            </ul>
+            
+            <hr class="product-content-spliter">
+
+            <div class="question-comment">
+            <span class="info-icon"><i class="fal fa-comments-alt"></i></span>
+            <div class="comment-text">Have questions about buying Rover <b>Pro</b>?
+                <a href="/pages/faq-rover-doesnt-behave-properly-when-controlling-with-an-xbox-controller" class="comment-link">Speak with a specialist</a>
+            </div>
+            </div>
+        </div>
+
+        </div> <!-- end col-dk-5 -->
+
+
+        <div class="col-dk-5 col--content">
+
+        <div class="product-header">
+            {% if productTitle.size > 1 %}
+                <h2 class="product-title">{{ productTitle[1] }}</h2>
+            {% else %}
+                <h2 class="product-title">{{ product.title }}</h2>
+            {% endif %}
+            <div class="product-price-wrapper">
+            <div class="price-label">starting at</div>
+            <div class="product-price">${{ product.price | divided_by: 100 | times: 1 }}.00</div>
+            </div>
+        </div>
+
+        <div class="product-description">
+            {% if productContent.size > 0 %}
+                {{ productContent[1] }}
+            {% else %}
+                {{ product.description }}
+            {% endif %}
+        </div>
+
+        <hr class="product-content-spliter">
+
+
+        {% include 'product-option-variants' %}
+
+        {% include 'product-option-variants-simple' %}
+
+        {% if driveHandles.size > 0 %}
+        <div class="section-drive-kits">
+
+            <h3 class="section-title">Select <span class="bold">{{ product.metafields.drive_kits.header_label }}</span></h3>
+            <div class="drive-kits-wrapper">
+                <ul class="kits-lists checkbox-options">
+
+                    {% if driveNames.size > 0 %}
+
+                        {% for driveName in driveNames %}
+                            {% assign driveTooltip = driveTooltips[forloop.index0] | replace : "{", "" | replace : "}", "" | strip %}
+                            {% assign driveHandle = driveHandles[forloop.index0] | strip %}
+                            {% assign showPrice = showPrices[forloop.index0] | strip %}
+                            {% assign driveProduct = all_products[driveHandle] %}
+                            <li class="kit-item checkbox-option {% if forloop.index0 == 0 %}checked{% endif %}">
+                                <div class="form-group">
+                                    <input type="checkbox" class="checkbox-drive-kit" id="check_kit_{{forloop.index0}}"
+                                    {% if forloop.index0 == 0 %}checked="checked"{% endif %}
+                                    data-index="{{forloop.index0 | plus : product.images.size }}"
+                                    data-product-id="{{ driveProduct.variants[0].id }}"
+                                    data-product-title="{{ driveProduct.title }}"
+                                    data-product-price="{{ driveProduct.variants[0].price | divided_by : 100 }}">
+                                    <label for="check_kit_{{forloop.index0}}"><span class="label-text">{{ driveName }}</span>
+                                        <div class="price-and-info">
+                                            <span class="item-price">+ ${% if showPrice != blank %}{{ showPrice }}{% else %}{{ driveProduct.variants[0].price | divided_by : 100 }}{% endif %}</span> 
+                                            <span class="icon-info tooltip-help">
+                                                <i class="fal fa-info-circle"></i>
+                                                <span class="tooltiptext">{{driveTooltip}}</span>
+                                            </span>
+                                        </div>
+                                        {% if product.metafields.top_pick_handles.products contains driveHandle %}
+                                            <img class="icon-top-pick" src="{{ 'top-pick.png' | asset_img_url }}">
+                                        {% endif %}
+                                    </label>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+
+        {% include 'product-battery' %}
+
+        {% include 'product-charging-equipment' %}
+        
+        <hr class="product-content-spliter">
+
+        {% assign group_names = product.metafields.options_group.group_names | split : "," %}
+
+        <div class="add-to-cart-info">
+            <label class="info-label-products">Products: </label>
+            <div class="group-selected-products">
+            <div class="group-option-variants">
+                <ul class="variants-lists">
+                </ul>
+            </div>
+            <div class="group-option-variants-simple">
+                {% for group_name in group_names %}
+                <ul class="variants-simple group-{{group_name | strip}}">
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="group-drive-kits">
+                <ul class="drive-kits-lists">
+                </ul>
+            </div>
+            <div class="group-battery">
+                <ul class="battery-lists">
+                </ul>
+            </div>
+            
+            {% assign chargerHandles = product.metafields.charging_equipment.handles | split : "," %}
+            {% if chargerHandles.size > 0 %}
+            <div class="group-charger">
+                <ul class="charger-lists">
+                <li id="no_charger">
+                    <div class="selected-product-title">No Charging Dock</div>
+                    <span class="selected-product-price">$0</span>
+                </li>
+                </ul>
+            </div>
+            {% endif %}
+            </div>
+            <hr class="product-content-spliter">
+            <div class="selected-total-price">
+            <label>Total:</label>
+            <span class="total-price">$0</span>
+            </div>
+        </div>
+
+        <button type="button" class="button button--primary btn-add-to-cart"><span>ADD TO CART</span></button>
+
+        <div class="link-need-quote">
+            <a href="/pages/quote-request" class="find-out-more">Need a quote? Click here to find out more.</a>
+        </div>
+        
+        <div class="comments-icons-wrapper-mobile">
+            <ul class="comments-icons">
+            <li>
+                <span class="info-icon"><i class="fal fa-truck-loading"></i></span>
+                <div class="icon-comment">Fast <b>Shipping</b></div>
+            </li>
+            {% unless product.metafields.weatherproof.disabled == 1 %}
+            <li>
+                <span class="info-icon"><i class="fal fa-tint-slash"></i></span>
+                <div class="icon-comment"><b>Weatherproof</b></div>
+            </li>
+            {% endunless %}
+            <li>
+                <span class="info-icon"><i class="fal fa-user-headset"></i></span>
+                <div class="icon-comment">Professional <b>Support</b></div>
+            </li>
+            </ul>
+            
+            <hr class="product-content-spliter">
+
+            <div class="question-comment">
+            <span class="info-icon"><i class="fal fa-comments-alt"></i></span>
+            <div class="comment-text">Have questions about buying Rover <b>Pro</b>?
+                <a href="/pages/faq-rover-doesnt-behave-properly-when-controlling-with-an-xbox-controller" class="comment-link">Speak with a specialist</a>
+            </div>
+            </div>
+        </div>
+        {% comment %} {% section "addon" %} {% endcomment %}
+        </div> <!-- end col-dk-6-->
+    </div> <!-- end row -->
+    {% include "product-tabs" %}
+
+    </div> <!-- end col-tb-12 -->
+</div> <!-- end row -->
+
+
+
+<script>
+    $(function(){
+        
+      $("#product__thumbs_slider").slick({
+        centerPadding: '30px',
+        slidesToShow: 6,
+        infinite: false,
+        slidesToScroll: 6,
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    infinite: true,
+                    centerPadding: '20px',
+                    slidesToScroll: 4,
+                    slidesToShow: 4
+                }
+            },
+            {
+              breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    infinite: true,
+                    centerPadding: '20px',
+                    slidesToShow: 3
+                }
+            }
+        ]
+        });
+
+      $(".checkbox-drive-kit").on("click", function(){
+        
+        $(".add-to-cart-info ul.drive-kits-lists li#"+$(this).attr("id")).remove();
+        $("ul.product__thumbs li.product__thumb[data-index='"+$(this).data("index")+"']").trigger("click");
+
+        if($(this).prop('checked') == true){
+            $(this).parents("li.kit-item").addClass("checked");
+            $(".add-to-cart-info ul.drive-kits-lists").append('<li id="'+ $(this).attr("id") +'">'+
+              '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+              '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+              '</li>');
+        }
+        else{
+            $(this).parents("li.kit-item").removeClass("checked");
+        }
+
+        calcTotalPrice();
+      });
+
+      $(".product__video").on("click", function(){
+        $(".product__image .hero__video").get(0).play();
+      });
+
+      $(".product__thumbs .product__thumb").on("click", function(){
+          $(".product__thumbs .product__thumb.selected").removeClass("selected");
+          $(this).addClass("selected");
+      })
+    })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Drive Kits and Video",
+    "class": "rover-pro-drive-kits",
+    "settings": [
+      {
+        "id": "default_product",
+        "type": "product",
+        "label": "Select default product"
+      },
+      {
+        "id": "video_preview_img",
+        "type": "image_picker",
+        "label": "Rover video loading image"
+      },
+      {
+        "id": "rover_video",
+        "type": "text",
+        "label": "Rover video url"
+      }
+    ],
+    "blocks": [
+        {
+           "name": "Drive Kit",
+           "type": "drive_kit",
+           "settings": []
+        }
+    ]
+
+  }
+{% endschema %}

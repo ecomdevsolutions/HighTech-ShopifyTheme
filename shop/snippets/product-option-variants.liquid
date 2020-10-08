@@ -1,0 +1,92 @@
+<style>
+    .section-option-variants{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section-option-variants h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-option-variants h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-option-variants h3.section-title > span{
+        opacity: 0;
+    }
+
+    .section-option-variants .variants-wrapper ul.variants-lists li.variants-item .form-group label.variants-name{
+        width: 100%;
+    }
+
+    .section-option-variants .variants-wrapper ul.variants-lists li.variants-item .form-group label.variants-name .item-price{
+        float: right;
+        padding-right: 22px;
+        font-size: 18px;
+    }
+    
+    .section-option-variants .variants-help{
+        font-size: 15px;
+        color: #0074e4;
+        text-decoration: underline;
+        float: right;
+        font-weight: normal;
+        padding-right: 7px;
+    }
+
+</style>
+
+
+{% if product.metafields.option_variants.enabled == 1 %}
+<div class="section-option-variants">
+    <h3 class="section-title"><span>Select Motor Core</span>
+        <a href="javascript:;" class="variants-help tooltip-help">{{product.metafields.option_variants.header_tooltip_title}}
+            <span class="tooltiptext">{{product.metafields.option_variants.header_tooltip_text}}</span>
+        </a>
+    </h3>
+    <div class="variants-wrapper">
+        <ul class="variants-lists checkbox-options">
+            {% for variant in product.variants %}
+                <li class="variants-item checkbox-option {% if forloop.index0 == 0 %}checked{% endif %}">
+                    <div class="form-group">
+                        <input type="radio" name="radio_varants" class="checkbox-variant product-variant" id="check_variant_{{forloop.index0 | plus: 1}}" 
+                        value="{{ variant.id }}"
+                        {% if forloop.index0 == 0 %}checked{% endif %}
+                        data-product-id="{{ variant.id }}"
+                        data-product-title="{{ variant.title | strip }}"
+                        data-product-price="{{ variant.price | divided_by : 100}}">
+                        <label class="variants-name" for="check_variant_{{forloop.index0 | plus: 1}}"><span>{{ variant.title | strip }}</span>
+                            <span class="item-price">+ ${{ variant.price | divided_by : 100}}</span>
+                        </label>
+                    </div>
+                    {% if product.metafields.top_pick_handles.variants contains variant.id %}
+                        <img class="icon-top-pick" src="{{ 'top-pick.png' | asset_img_url }}">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+<script>
+    $(function(){
+        $(".checkbox-variant.product-variant").on("click", function(){
+            $(".add-to-cart-info ul.variants-lists li#"+$(this).attr("id")).remove();
+            $(".section-option-variants .variants-lists .variants-item.checked").removeClass("checked");
+            $(this).parents("li.variants-item").addClass("checked");
+
+            $(".add-to-cart-info ul.variants-lists li#no_variant").remove();
+            
+            $(".add-to-cart-info ul.variants-lists").empty().append('<li id="'+ $(this).attr("id") +'">'+
+                '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+                '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+                '</li>');
+
+            calcTotalPrice();
+        })
+
+    })
+
+</script>

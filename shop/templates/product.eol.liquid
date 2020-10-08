@@ -1,0 +1,81 @@
+{{ 'product-simple-custom.scss.css' | asset_url | 'stylesheet_tag' }}
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<div class="product product--single">
+  <div class="container">
+
+    {% section 'section-product-eol' %}
+  </div> <!-- end container -->
+</div> <!-- end product--single -->
+
+{% section 'section-includes' %}
+
+<script>
+  $("#product__thumbs_slider").slick({
+    centerPadding: '30px',
+    slidesToShow: 6,
+    infinite: false,
+    slidesToScroll: 6,
+    arrows: false,
+    responsive: [
+        {
+          breakpoint: 768,
+            settings: {
+                arrows: false,
+                infinite: true,
+                centerPadding: '20px',
+                slidesToScroll: 4,
+                slidesToShow: 4
+            }
+        },
+        {
+          breakpoint: 480,
+            settings: {
+                arrows: false,
+                infinite: true,
+                centerPadding: '20px',
+                slidesToShow: 3
+            }
+        }
+    ]
+    });
+</script>
+
+
+<script type="text/javascript">
+function openvarientTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent--table");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+  var product = {{ product | json }};
+  var CURRENT_VARIENT_PRICE = {price: parseFloat("{{product.selected_or_first_available_variant.price}}"), id: "{{product.selected_or_first_available_variant.id}}" }
+
+</script>
+
+{{product.metafields.shogun.below}}
+

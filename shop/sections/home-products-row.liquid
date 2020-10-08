@@ -1,0 +1,256 @@
+<section class="shopify-section">
+  <div class="products-wrapper">
+    {% for block in section.blocks %}
+      {% assign product = all_products[block.settings.product] %}
+      {% assign image = product.featured_image %}
+      {% if block.settings.product_name == blank or block.settings.product_name == "" %}
+      {%- assign product_title = product.title -%}
+      {% else %}
+        {%- assign product_title = block.settings.product_name -%}    
+      {% endif %}
+      <div class="product-wrapper">
+        <div class="product__image">
+          <div class="box box--3x2" style="padding-top: 79%;">
+            <div class="box__inner">
+              <div class="image image--load--fadein image--cover">
+                <a href="{{ product.url }}">
+                  <img class="lazyload" data-src="{{ image | img_url: '300x' }}" alt="{{ image.alt }}" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="product-title-wrapper">
+            <h4 class="product-title">
+              <a href="{{ product.url }}">
+                {{ product_title }}
+              </a>
+            </h4>
+          </div>
+          <div class="product-price-wrapper text-right">
+            {% if product.variants.size > 1 %}<p>Starting at</p>{% endif %}
+            <p><strong>${{ product.price | divided_by: 100 | times: 1 }}</strong></p>
+          </div>
+        </div>
+        <div class="product__detail">
+          <div class="row">
+            <div class="product-title-wrapper">
+              <h4 class="product-title">
+                <a href="{{ product.url }}">
+                  {{ product_title }}
+                </a>
+              </h4>
+            </div>
+            <div class="product-price-wrapper text-right">
+              {% if product.variants.size > 1 %}<p>Starting at</p>{% endif %}
+              <p><strong>${{ product.price | divided_by: 100 | times: 1 }}</strong></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-tb-12">
+              <a href="{{ product.url }}">
+                <h4 class="btn-shop-product">
+                  {{ section.settings.button_text }}
+                </h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .module--products-row .products-wrapper {
+    display: flex;
+    width: 100%;
+    padding: 80px 50px 60px;
+    font-family: "poppins-regular";
+  }
+  .module--products-row .products-wrapper .product-wrapper {
+    position: relative;
+    width: 20%;
+    padding: 0 20px 30px;
+  }
+  .module--products-row .products-wrapper .product-wrapper .product__image .row {
+    padding-top: 30px;
+  }
+  .module--products-row .products-wrapper .product-wrapper:hover {
+    box-shadow: 0px 1px 9px 5px rgba(47,47,47,0.21);
+  }
+  .module--products-row .products-wrapper .product-wrapper .product__image .image {
+    border: none;
+  }
+  .module--products-row .products-wrapper .product-wrapper .product__image img {
+    object-fit: scale-down;
+  }
+  .module--products-row .products-wrapper .product-wrapper .product-title {
+    font-size: 18px;
+    line-height: 30px;
+    color: #424242;
+    font-family: "poppins-regular";
+  }
+  .module--products-row .products-wrapper .product-wrapper .text-right p {
+    text-align: right;
+    font-size: 14px;
+    margin: 0;
+  }
+  .module--products-row .products-wrapper .product-wrapper .text-right p strong {
+    font-weight: bold;
+  }
+  .module--products-row .products-wrapper .product-wrapper .text-right p:first-child {
+    margin-top: 1em;
+  }
+  .module--products-row .products-wrapper .product-wrapper .text-right p:last-child {
+    line-height: normal;
+  }
+  .module--products-row .products-wrapper .product-wrapper:hover .product__detail {
+    opacity: 1;
+    transition: all .3s;
+  }
+  .module--products-row .products-wrapper .product-wrapper .product__detail .btn-shop-product {
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0.75em 0;
+    font-family: "Open Sans";
+    font-weight: 600;
+    background-color: #212121;
+    border: 1px solid #000000;
+    text-transform: uppercase;
+  }
+  .module--products-row .products-wrapper .product-wrapper .product__detail {
+    display: inline-block;
+    background-color: #ffffff;
+    position: absolute;
+    width: calc(100% - 40px);
+    bottom: 30px;
+    opacity: 0;
+    transition: all .3s;
+  }
+  .product-title-wrapper {
+    padding-left: 15px;
+    float: left;
+  }
+  .product-price-wrapper {
+    padding-right: 15px;
+    float: right;
+  }
+  @media (max-width: 1200px) and (min-width: 1024px) {
+    .module--products-row .products-wrapper {
+      padding: 50px 10px 30px;
+    }
+    .module--products-row .products-wrapper .product-wrapper .product__detail .btn-shop-product {
+      font-size: 14px;
+      padding: 0;
+    }
+    .module--products-row .products-wrapper .product-wrapper .product-title {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+  }
+  @media (max-width: 1023px) {
+    .module--products-row .products-wrapper {
+      flex-wrap: wrap;
+    }
+    .module--products-row .products-wrapper .product-wrapper {
+      width: 50%;
+    }
+    .module--products-row .products-wrapper .product-wrapper:last-child {
+      display: none;
+    }
+    .module--products-row .products-wrapper .product-wrapper > .row {
+      visibility: hidden;
+    }
+    .module--products-row .products-wrapper .product-wrapper .product__detail {
+      opacity: 1;
+    }
+    .module--products-row .products-wrapper {
+      padding: 30px 0;
+    }
+    .module--products-row .products-wrapper .product-wrapper:hover {
+      box-shadow: none;
+    }
+  }
+  @media (max-width: 768px) {
+    .module--products-row .products-wrapper .product-wrapper .product__detail {
+      background-color: transparent;
+    }
+  }
+  @media (max-width: 600px) {
+    .module--products-row .products-wrapper .product-wrapper .product__detail .btn-shop-product {
+      font-size: 12px;
+      padding: 3px 0;
+    }
+    .module--products-row .products-wrapper .product-wrapper .product-title {
+      font-size: 14px;
+    }
+    .module--products-row .products-wrapper .product-wrapper .product__detail {
+      bottom: 0;
+      width: calc(100% - 20px);
+    }
+    .module--products-row .products-wrapper .product-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Products Row",
+  "class": "module module--products-row",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "landing-section",
+      "name":"Products Row",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

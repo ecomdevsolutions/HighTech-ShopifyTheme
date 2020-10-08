@@ -2,6 +2,7 @@
 <!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
   <head>
+    <meta name="ahrefs-site-verification" content="351aaba1c8b9ddaf95c54a24144d5591445d29de4d170c715a8d8832b7fdabad">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -57,8 +58,16 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+    {{ 'fontawesome-5.10.2-all.min.css' | asset_url | 'stylesheet_tag' }}
+    {{ 'poppins-font.css' | asset_url | 'stylesheet_tag' }}
     {{ 'option_selection.js' | shopify_asset_url | script_tag }}
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'style.scss.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
 
     {{ content_for_header }}
@@ -66,10 +75,12 @@
     {% if template.directory == 'customers' %}
     {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
     {% endif %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  </head>
+    
+  {% include 'shogun-head' %}
+	{% include 'rfq_script' %}
+</head>
 
-  <body class="shop-{{ template | split: '.' | join: '-' }}">
+  <body class="{% if template == 'product.simple' or template == 'product.eol' %}shop-product{% else %}shop-{{ template | split: '.' | join: '-' }}{% endif %}">
       <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRQCRRZ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -86,5 +97,9 @@
     </main>
       <!-- Displays Privacy Policy -->
   {{settings.privacy_policy}}
-  </body>
+  <script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} window.KlarnaThemeGlobals.data_purchase_amount={{product.first_available_variant.price}};window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+
+{%include 'sc-raq-liquid-7302018'%}
+    
+</body>
 </html>

@@ -1,0 +1,294 @@
+<section class="shopify-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-mb-6 left-section">
+        <div class="blog-title">
+          {% if section.settings.title1 %}
+            <h3>{{ section.settings.title1 }}</h3>
+          {% endif %}
+          {%- if section.settings.subtitle1 -%}
+            <h4>{{ section.settings.subtitle1 }}</h4>
+          {%- endif -%}
+        </div>
+        <div class="blog-description">
+          {%- if section.settings.description1 -%}
+            <h4>{{ section.settings.description1 }}</h4>
+          {%- endif -%}
+        </div>
+        <div class="blog-image-wrapper">
+          {% if section.settings.image1 %}
+            <div class="shopify-section__element">
+              <img src="{{ section.settings.image1 | img_url: '768x' }}" />
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-mb-6 right-section">
+        <div class="blog-title">
+          {% if section.settings.title2 %}
+            <h3>{{ section.settings.title2 }}</h3>
+          {% endif %}
+        </div>
+        <div class="blog-description">
+          {%- if section.settings.description2 -%}
+            <h4>{{ section.settings.description2 }}</h4>
+          {%- endif -%}
+        </div>
+        <div class="blog-image-wrapper row">
+          <div class="col-mb-6">
+            {% if section.settings.image2 %}
+              <div class="shopify-section__element">
+                <img src="{{ section.settings.image2 | img_url: 'x27' }}" />
+              </div>
+            {% endif %}
+          </div>
+          <div class="col-mb-6">
+            <a href="{{ section.settings.link-url2 }}" class="github-link" target="_blank">
+              <img src="{{ section.settings.link-image2 | img_url: 'x27' }}" />
+              <svg><g transform="scale(0.03125 0.03125)"><path d="M621.254 877.254l320-320c24.994-24.992 24.994-65.516 0-90.51l-320-320c-24.994-24.992-65.516-24.992-90.51 0-24.994 24.994-24.994 65.516 0 90.51l210.746 210.746h-613.49c-35.346 0-64 28.654-64 64s28.654 64 64 64h613.49l-210.746 210.746c-12.496 12.496-18.744 28.876-18.744 45.254s6.248 32.758 18.744 45.254c24.994 24.994 65.516 24.994 90.51 0z"></path></g></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .module--two-column-blogs section.shopify-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0 40px;
+  }
+  .module--two-column-blogs .left-section {
+    padding: 30px 120px 0 0;
+    border-right: 1px solid #E0E0E0;
+  }
+  .module--two-column-blogs .right-section {
+    padding: 30px 0 0 120px;
+  }
+  .module--two-column-blogs .right-section .blog-description h4 {
+    margin-top: 40px;
+  }
+  .module--two-column-blogs .right-section .blog-image-wrapper {
+    margin-top: 30px;
+  }
+  .module--two-column-blogs .right-section .blog-image-wrapper div.col-mb-6:first-child:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 130%;
+    right: 0;
+    top: -20%;
+    background-color: #E0E0E0;
+  }
+  .module--two-column-blogs .blog-title h3 {
+    color: #0F0F0F;
+    font-family: "Poppins-Bold";
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 30px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .module--two-column-blogs .blog-title h4 {
+    color: #0F0F0F;
+    font-family: "poppins-regular";
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 30px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .module--two-column-blogs .blog-description p {
+    color: #424242;
+    font-family: "Open Sans";
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  .github-link {
+    position: relative;
+    padding-left: 15px;
+  }
+  .github-link svg {
+    width: 30px;
+    position: absolute;
+    right: -40px;
+    transform: rotateX(45deg);
+    height: 30px;
+  }
+  @media (max-width: 1200px) {
+    .module--two-column-blogs .left-section {
+      padding-right: 50px;
+    }
+    .module--two-column-blogs .right-section {
+      padding-left: 50px;
+    }
+    .module--two-column-blogs section.shopify-section {
+      padding: 30px 30px 60px;
+    }
+    .module--two-column-blogs .blog-title h3 {
+      font-size: 25px;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 1023px) {
+    .module--two-column-blogs .container {
+      padding: 0;
+    }
+    .module--two-column-blogs .container .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 992px) {
+    .module--two-column-blogs .left-section {
+      padding-right: 15px;
+    }
+    .module--two-column-blogs .right-section {
+      padding-left: 15px;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 800px) {
+    .module--two-column-blogs .left-section {
+      padding-right: 0;
+    }
+    .module--two-column-blogs .right-section {
+      padding-left: 0;
+    }
+    .module--two-column-blogs .left-section {
+      border: none;
+    }
+    .module--two-column-blogs .blog-title h3 {
+      font-size: 30px;
+      text-align: center;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 22px;
+      text-align: center;
+    }
+    .right-section .blog-image-wrapper,
+    .blog-image-wrapper .shopify-section__element {
+      display: flex;
+      justify-content: center;
+    }
+    .module--two-column-blogs .blog-description p {
+      text-align: center;
+    }
+    .blog-image-wrapper .col-mb-6 {
+      width: auto;
+      float: left;
+    }
+    .github-link {
+      padding-left: 0;
+    }
+  }
+  @media (max-width: 550px) {
+    .blog-image-wrapper .col-mb-6 {
+      width: 50%;
+    }
+    .module--two-column-blogs .blog-title h3 {
+      font-size: 25px;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 17px;
+    }
+  }
+  @media (max-width: 424px) {
+    .module--two-column-blogs .blog-title h3 {
+      font-size: 22px;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 15px;
+    }
+    .module--two-column-blogs .blog-description p {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 374px) {
+    .module--two-column-blogs .blog-title h3 {
+      font-size: 19px;
+    }
+    .module--two-column-blogs .blog-title h4 {
+      font-size: 17px;
+      line-height: 17px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Two Column Blogs",
+  "class": "module module--two-column-blogs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "1st Column",
+      "info": "1st Column"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "1st Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle1",
+      "label": "1st Subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "description1",
+      "label": "1st Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "1st Image"
+    },
+    {
+      "type": "header",
+      "content": "2nd Column",
+      "info": "2nd Column"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "2nd Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description2",
+      "label": "2nd Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "2nd Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "link-image2",
+      "label": "2nd Link Image"
+    },
+    {
+      "type": "text",
+      "id": "link-url2",
+      "label": "2nd Link Url"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Blog",
+      "name":"Two Column Blogs"
+    }
+  ]
+}
+{% endschema %}

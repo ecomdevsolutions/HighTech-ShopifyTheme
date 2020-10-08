@@ -1,0 +1,104 @@
+<section class="shopify-section section-hp-featured-icons" style="background-color: {{section.settings.background-color}};">
+    <ul class="hp-featured-icons">
+        {% for block in section.blocks %}
+            <li class="featured-icon">
+                <span class="info-icon"><i class="{{block.settings.icon-class}}"></i></span>
+                <div class="icon-comment">{{block.settings.icon-label}}</div>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<style>
+    .shopify-section.section-hp-featured-icons{
+        padding: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: 100vw;
+    }
+
+    ul.hp-featured-icons{
+        display: flex;
+        justify-content: space-evenly;
+        max-width: 1500px;
+        margin: 0px auto;
+    }
+
+    ul.hp-featured-icons li.featured-icon{
+        color: #FFF;
+        text-align: center;
+    }
+
+    ul.hp-featured-icons li.featured-icon .icon-comment{
+        font-size: 16px;
+        font-family: "poppins-regular" !important;
+        margin-top: 20px;
+    }
+
+    ul.hp-featured-icons li.featured-icon .info-icon{
+        font-size: 30px;
+    }
+
+    @media (max-width: 768px){
+        .shopify-section.section-hp-featured-icons{
+            padding-top: 10px;
+        }
+        ul.hp-featured-icons{
+            flex-wrap: wrap;
+        }
+
+        ul.hp-featured-icons li.featured-icon{
+            width: 33%;
+            margin-top: 25px;
+        }
+
+        ul.hp-featured-icons li.featured-icon .icon-comment{
+            font-size: 14px;
+        }
+
+        ul.hp-featured-icons li.featured-icon .info-icon{
+            font-size: 24px;
+        }
+    }
+    @media (max-width: 375px) {
+        .shopify-section.section-hp-featured-icons {
+            padding: 10px;
+        }
+    }
+</style>
+
+{% schema %}
+{
+    "name": "HP Featured Icons",
+    "class": "homepage-featured-icons",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background-color",
+            "label": "Background color"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "featured-icons",
+            "name": "Featured Icons",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "icon-class",
+                    "label": "Icon class"
+                },
+                {
+                    "type": "text",
+                    "id": "icon-label",
+                    "label": "Icon label"
+                }
+            ]
+        }
+    ],
+    "presets": [{
+		"name": "Featured Icons",
+		"category": "landing-section"
+	}]
+}
+{% endschema %}

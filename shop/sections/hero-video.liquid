@@ -1,10 +1,8 @@
 <section class="hero" data-placeholder="{{ section.settings.placeholder_image | img_url: 'master'}}">
   <div class="hero__box">
       <div class="hero__overlay">
-          <h1>{{section.settings.title}}</h1>
-          <hr/>
-          <span>{{section.settings.subtitle}}</span>
-          <br>
+          <h1 class="hero-title">{{section.settings.title}}</h1>
+          <span class="hero-subtitle">{{section.settings.subtitle}}</span>
           {% for block in section.blocks %}
             <a href="{{block.settings.url}}" class="button no-ajax">{{block.settings.text}}</a>
           {% endfor %}
@@ -21,18 +19,136 @@
 
 <style>
 
+  @media screen and (max-width: 1000px) {
+    /*.hero {
+      padding-bottom: 100px;
+      height: 75vh;
+      background: url({{ section.settings.placeholder_image | img_url: 'master'}});
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }*/
 
-       @media screen and (max-width: 1000px) {
-           .hero {
-               padding-bottom: 100px;
-              height: 75vh;
-              background: url({{ section.settings.placeholder_image | img_url: 'master'}});
-              background-size: contain;
-              background-repeat: no-repeat;
-           }
+    .hero .hero__video {
+      width: 100vw;
+      margin-top: 0px !important;
+      height: auto;
+      display: block;
+    }
+  }
+
+  section.hero .hero__box{
+    position: relative;
+  }
+
+  section.hero .hero__box .hero__overlay{
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  section.hero .hero__box .hero__overlay h1.hero-title{
+    font-family: "poppins-bold";
+    font-size: 36px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 12px rgba(47,47,47,0.53);
+    line-height: 1;
+    margin: 0px;
+  }
+
+  section.hero .hero__box .hero__overlay .hero-subtitle{
+    font-family: "poppins-regular";
+    font-size: 18px;
+    letter-spacing: 0px;
+    text-shadow: 0px 0px 12px rgba(47,47,47,0.53);
+    max-width: 650px;
+    display: block;
+    margin: 15px auto 0;
+    line-height: 2;
+  }
+
+  section.hero .hero__box .hero__overlay a.button + .button{
+    margin-left: 12px;
+  }
+
+  section.hero .hero__box .hero__overlay a.button{
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 55px;
+    padding: 17px 0px;
+    text-align: center;
+    letter-spacing: 0px;
+    border: 2px solid #212121;
+  }
+
+  section.hero .hero__box .hero__overlay a.button:hover{
+    background-color: #000;
+  }
+
+  @media (max-width: 768px){
+
+    section.hero{
+      padding-bottom: 0px;
     }
 
+    section.hero .hero__box{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
+    section.hero .hero__box .hero__overlay h1.hero-title{
+      font-size: 28px;
+      letter-spacing: 0px;
+      text-shadow: none;
+      color: #FFF;
+      text-shadow: 0px 0px 12px rgba(47,47,47,0.53);
+      line-height: 1.3;
+    }
+
+    section.hero .hero__box .hero__overlay .hero-subtitle{
+      font-size: 16px;
+      margin: 10px auto 0;
+      /*color: #212121;*/
+      line-height: 1.3;
+      text-shadow: 0px 0px 12px rgba(47,47,47,0.53);
+    }
+
+    section.hero .hero__box .hero__overlay a.button + .button{
+      margin-left: 10px;
+    }
+
+    section.hero .hero__box .hero__overlay a.button{
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 35px;
+      padding: 15px 0px;
+      width: 100%;
+      max-width: 140px;
+      letter-spacing: 0px;
+      border: 1px solid #212121;
+    }
+  }
+  @media (max-width: 424px) {
+    section.hero .hero__box .hero__overlay h1.hero-title {
+      font-size: 25px;
+      line-height: 1;
+    }
+    section.hero .hero__box .hero__overlay a.button {
+      font-size: 13px;
+      padding: 10px 0px;
+      margin-top: 10px;
+      max-width: 120px;
+    }
+    section.hero .hero__box .hero__overlay .hero-subtitle {
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
 </style>
 
 {% schema %}
@@ -54,16 +170,16 @@
         "type": "text",
         "label": "Background Video"
       },
-        {
-            "id":"background_image",
-            "type": "text",
-            "label": "Background Image"
-        },
-        {
-            "id": "placeholder_image",
-            "type": "image_picker",
-            "label": "Mobile and Video Disabled Image"
-        }
+      {
+          "id":"background_image",
+          "type": "text",
+          "label": "Background Image"
+      },
+      {
+          "id": "placeholder_image",
+          "type": "image_picker",
+          "label": "Mobile and Video Disabled Image"
+      }
 
     ],
       "blocks": [

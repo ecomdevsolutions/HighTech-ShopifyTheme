@@ -8,72 +8,219 @@
     <div></div>
     <div></div>
   </div>
-
+  
   <div class="container">
-    <div class="row">
-      <div class="col-tb-10 col-tb-push-1 col-dk-8 col-dk-push-2">
-        <div class="footer__super">
-          <div class="footer__contact">
-            {% if  settings.footer_form_action.size > 1 and settings.footer_form_name.size  > 1 %}
-               <form class="form form--subscribe"
-                    action="{{ settings.footer_form_action }}" method="post" target="_blank">
-                <h6 class="h6--eyebrow">Sign up for the latest updates</h6>
-                <div class="form__group">
-                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email">
-                  <input type="hidden" name="{{ settings.footer_form_name }}" tabindex="-1" value="">
-                  <button type="submit">
-                    <span class="icon-arrow-large-right"></span>
-                  </button>
-                </div>
-              </form>
-            {% endif %}
-            <nav class="nav nav--social">
-              <ul>
-                {% for link in linklists.social.links %}
-                <li>
-                  <a class="button button--circle button--circle--ko" href="{{ link.url }}" target="_blank">
-                    <span class="fab fa-{{ link.title | downcase }} fa-2x"></span>
-                  </a>
-                </li>
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
+    <div class="module module-footer">
+      <div class="footer__bar">
 
-          <nav class="nav nav--main">
-            <ul>
-              {% for link in linklists.footer.links %}
-              <li>
-                <a class="{% if link.active %}active{% endif %}"
-                   href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-          </nav>
+        <div class="logo">
+          <a href="/">
+            <img src="{{settings.footer_logo | img_url: '110x'}}" alt="{{theme.name}} Logo" />
+          </a>
         </div>
-
-
-
-
-
-
-        <div class="footer__sub">
-           <div class="payment_methods">
-            {% for type in shop.enabled_payment_types %}
-              <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+    
+        <nav class="nav nav-main">
+          <ul>
+            {% for link in linklists.footer.links %}
+            <li>
+              <a class="{% if link.active %}active{% endif %}"
+                  href="{{ link.url }}">{{ link.title }}</a>
+            </li>
             {% endfor %}
-          </div>
+          </ul>
+        </nav>
 
-          <nav class="nav nav--sub">
-            <ul>
-              {% for link in linklists.footer-sub-menu.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </nav>
-          <div class="copyright">{{ settings.copyright }}</div>
+        <div class="footer__contact">
+          {% if  settings.footer_form_action.size > 1 and settings.footer_form_name.size  > 1 %}
+              <form class="form form--subscribe"
+                  action="{{ settings.footer_form_action }}" method="post" target="_blank">
+              <label class="h6--eyebrow">Sign up for the latest updates</label>
+              <div class="form__group">
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter your email">
+                <input type="hidden" name="{{ settings.footer_form_name }}" tabindex="-1" value="">
+                <button type="submit">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          {% endif %}
         </div>
+      </div>
+
+      <div class="footer__bar">
+          <div class="payment_methods">
+          {% for type in shop.enabled_payment_types %}
+            <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+          {% endfor %}
+        </div>
+
+        <nav class="nav nav-social">
+          <ul>
+            {% for link in linklists.social.links %}
+            <li>
+              <a class="button button--circle--ko" href="{{ link.url }}" target="_blank">
+                <span class="fab fa-{{ link.title | downcase }} fa-2x"></span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bar">
+        <div class="copyright">
+          <span>{{ settings.copyright }}</span>
+        </div>
+        <nav class="nav nav-sub">
+          <ul>
+            {% for link in linklists.footer-sub-menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .module-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer--main {
+    padding: 0;
+  }
+  .footer .footer__bar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  }
+  .footer .footer__bar:last-child {
+    padding: 25px 0;
+    margin-top: 10px;
+    border-top: 1px solid #BDBDBD24;
+  }
+  .footer .footer__contact .fa {
+    font-size: 18px;
+  }
+  .footer__bar .nav-main a,
+  .footer .footer__contact .h6--eyebrow {
+    opacity: 0.85;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    line-height: 1.4;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .footer--main .copyright {
+    display: flex;
+    align-items: center;
+  }
+  .footer--main .copyright span,
+  .footer__bar .nav-sub a {
+    color: #686868;
+    font-family: "poppins-regular";
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 0;
+    letter-spacing: normal;
+  }
+  .footer--main .copyright span {
+    text-transform: none;
+  }
+  footer nav.nav-main ul li {
+    margin: 0 15px;
+  }
+  footer nav.nav-sub ul li {
+    margin: 0 0 0 40px;
+  }
+  .footer--main .form--subscribe .form__group input[type="email"] {
+    background-color: #F5F5F5;
+    color: #626161;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    outline: none;
+    line-height: 1.4;
+    height: auto;
+    padding: 16px 27px;
+  }
+  .footer--main .form--subscribe .form__group button {
+    right: 27px;
+  }
+  .footer__bar .button--circle--ko {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+  }
+  footer nav.nav-social ul li {
+    margin: 0 0 0 10px;
+  }
+  @media (max-width: 992px) {
+    .module-footer .footer__bar:first-child {
+      display: block;
+    }
+    .module-footer .footer__bar .nav-main {
+      margin-top: 30px;
+    }
+    .module-footer .footer__bar .footer__contact {
+      margin-top: 20px;
+    }
+    .footer--main .form--subscribe {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .footer--main .container {
+      padding: 0 30px;
+    }
+  }
+  @media (max-width: 768px) {
+    .module-footer .footer__bar:nth-child(2) {
+      flex-direction: column-reverse;
+      padding-top: 40px;
+    }
+    .module-footer .footer__bar:last-child {
+      flex-direction: column-reverse;
+    }
+    .footer--main .copyright {
+      display: block;
+      padding-top: 30px;
+    }
+    .module-footer .footer__bar .payment_methods {
+      padding-top: 30px;
+    }
+    .footer--main .container {
+      padding: 0 10px;
+    }
+    footer nav.nav-sub ul li:first-child {
+      margin: 0;
+    }
+  }
+  @media (max-width: 424px) {
+    .footer--main .copyright span, .footer__bar .nav-sub a {
+      font-size: 10px;
+    }
+    footer nav.nav-sub ul li {
+      margin-left: 20px;
+    }
+    .footer__bar .nav-main a, .footer .footer__contact .h6--eyebrow {
+      font-size: 12px;
+    }
+    footer nav.nav-main ul li {
+      margin: 0 14px;
+    }
+  }
+  @media (max-width: 375px) {
+    .footer__bar .nav-main a, .footer .footer__contact .h6--eyebrow {
+      font-size: 11px;
+    }
+    footer nav.nav-main ul li {
+      margin: 0 10px;
+    }
+  }
+</style>

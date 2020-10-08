@@ -1,0 +1,99 @@
+<style>
+    .section-charger{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section-charger h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-charger h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-charger .charger-wrapper ul.charger-lists li.charger-item .form-group label.charger-name{
+        width: 100%;
+    }
+
+    .section-charger .charger-wrapper ul.charger-lists li.charger-item .form-group label.charger-name .item-price{
+        float: right;
+        padding-right: 22px;
+        font-size: 18px;
+    }
+    
+    .section-charger .charger-help{
+        font-size: 15px;
+        color: #0074e4;
+        text-decoration: underline;
+        float: right;
+        font-weight: normal;
+        padding-right: 7px;
+    }
+
+</style>
+
+{% assign chargerNames = product.metafields.charging_equipment.names | split : "," %}
+{% assign chargerHandles = product.metafields.charging_equipment.handles | split : "," %}
+
+{% if chargerHandles.size > 0 %}
+<div class="section-charger">
+    <h3 class="section-title"><span>Add <span class="bold">Charging Equipment</span></span>
+        <a href="javascript:;" class="charger-help tooltip-help">{{product.metafields.charging_equipment.header_tooltip_title}}
+            <span class="tooltiptext">{{product.metafields.charging_equipment.header_tooltip_text}}</span>
+        </a>
+    </h3>
+    <div class="charger-wrapper">
+        <ul class="charger-lists checkbox-options">
+            {% for chargerHandle in chargerHandles %}
+                {% assign chgHandle = chargerHandle | strip %}
+                {% assign productCharger = all_products[chgHandle] %}
+                <li class="charger-item checkbox-option">
+                    <div class="form-group">
+                        <input type="checkbox" class="checkbox-charger" id="check_charger_{{forloop.index0 | plus: 1}}" 
+                        data-product-id="{{ productCharger.variants[0].id }}"
+                        data-product-title="{{ chargerNames[forloop.index0] | strip }}"
+                        data-product-price="{{ productCharger.variants[0].price | divided_by : 100}}">
+                        <label class="charger-name" for="check_charger_{{forloop.index0 | plus: 1}}">
+                            <span class="label-text">{{ chargerNames[forloop.index0] | strip }}</span>
+                            <span class="item-price">+ ${{ productCharger.variants[0].price | divided_by : 100}}</span>
+                        </label>
+                    </div>
+                    {% if product.metafields.top_pick_handles.products contains chgHandle %}
+                        <img class="icon-top-pick" src="{{ 'top-pick.png' | asset_img_url }}">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+<script>
+    $(function(){
+        $(".checkbox-charger").on("click", function(){
+            $(".add-to-cart-info ul.charger-lists li#"+$(this).attr("id")).remove();
+            if($(this).prop('checked') == true){
+                $(this).parents("li.charger-item").addClass("checked");
+                $(".add-to-cart-info ul.charger-lists li#no_charger").remove();
+                
+                $(".add-to-cart-info ul.charger-lists").append('<li id="'+ $(this).attr("id") +'">'+
+                    '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+                    '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+                    '</li>');
+            }
+            else{
+                $(this).parents("li.charger-item").removeClass("checked");
+                if($(".add-to-cart-info ul.charger-lists li").length == 0){
+                    $(".add-to-cart-info ul.charger-lists").append('<li id="no_charger">'+
+                        '<div class="selected-product-title">No Charging Dock</div>'+
+                        '<span class="selected-product-price">$0</span>'+
+                        '</li>');
+                }
+            }
+            calcTotalPrice();
+        })
+
+    })
+
+</script>

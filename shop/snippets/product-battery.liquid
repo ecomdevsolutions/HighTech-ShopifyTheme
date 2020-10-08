@@ -1,0 +1,213 @@
+<style>
+    .section-product-battery{
+        margin-top: 30px;
+    }
+
+    .section-product-battery h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-product-battery h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-product-battery .input-box{
+        display: flex;
+        width: 100px;
+        height: 40px;
+        margin-top: 0px;
+        justify-content: center;
+        border-left: 1px solid #ddd;
+    }
+
+    .section-product-battery .input-box input{
+        width: 30px;
+        position: absolute;
+        margin: 0px;
+        font-family: 'BentonSans';
+        font-size: 17px;
+        text-align: center;
+        padding: 10px 2px;
+        border: none;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav{
+        position: relative;
+        width: 60px;
+        height: 100%;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-up,
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-down{
+        position: absolute;
+        top: 6px;
+        font-size: 18px;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-up{
+        right: 0px;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-up:before,
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-down:before{
+        content: '';
+        display: block;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-up:before{
+        border: 7px solid #000;
+        border-color: transparent transparent transparent #000;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-down:before{
+        border: 7px solid #000;
+        border-color: transparent #000 transparent transparent;
+    }
+
+    .section-product-battery .input-box .input-spinner-nav .input-spinner-down{
+        left: 0px;
+    }
+
+    .section-product-battery .product-battery-wrapper ul.battery-lists li.battery-item .form-group label.battery-name{
+        width: 50%;
+        min-width: max-content;
+    }
+
+    .section-product-battery .product-battery-wrapper ul.battery-lists li.battery-item.checked .battery_qty input{
+        background-color: #f6f6f6;
+    }
+
+    .section-product-battery .product-battery-wrapper .price-wrapper{
+        text-align: right;
+        width: calc(50% - 100px);
+        padding-right: 38px;
+        font-size: 18px;
+    }
+
+    .section-product-battery .product-battery-wrapper ul.battery-lists li.battery-item:last-child .price-wrapper{
+        width: 50%;
+    }
+
+    .section-product-battery .battery-help{
+        font-size: 15px;
+        color: #0074e4;
+        text-decoration: underline;
+        float: right;
+        font-weight: normal;
+        padding-right: 7px;
+    }
+
+</style>
+{% assign batteryNames = product.metafields.battery.names | split : "," %}
+{% assign batteryHandles = product.metafields.battery.handles | split : "," %}
+
+{% if batteryHandles.size > 0 %}
+<div class="section-product-battery">
+    <h3 class="section-title"><span>Select <span class="bold">Battery</span></span>
+        <a href="javascript:;" class="battery-help tooltip-help">{{ product.metafields.battery.header_tooltip_title }}
+            <span class="tooltiptext">{{ product.metafields.battery.header_tooltip_text }}</span>
+        </a>
+        
+    </h3>
+    <div class="product-battery-wrapper">
+        <ul class="battery-lists checkbox-options">
+            {% for batteryName in batteryNames %}
+                {% assign batteryHandle = batteryHandles[forloop.index0] | strip %}
+                {% assign battery = all_products[batteryHandle] %}
+                <li class="battery-item checkbox-option">
+                    <div class="form-group">
+                        <input type="checkbox" class="checkbox-battery" id="check_battery_{{forloop.index0 | plus: 1}}" 
+                        data-product-id="{{ battery.variants[0].id }}"
+                        data-product-title="{{ battery.title }}"
+                        data-product-price="{{ battery.variants[0].price }}">
+                        <label class="battery-name" for="check_battery_{{forloop.index0 | plus: 1}}">
+                            <span class="label-text">{{ batteryName | strip }}</span>
+                        </label>
+                        <div class="input-box battery_qty">
+                            <input class="input" class="battery_qty" type="text" value="1">
+                            <div class="input-spinner-nav">
+                                <div class="input-spinner-down"></div>
+                                <div class="input-spinner-up"></div>
+                            </div>
+                        </div>
+                        <div class="price-wrapper">
+                            <span class="item-price">+ ${{ battery.variants[0].price | divided_by : 100 }}</span> 
+                        </div>
+                    </div>
+                    {% if product.metafields.top_pick_handles.products contains batteryHandle %}
+                        <img class="icon-top-pick" src="{{ 'top-pick.png' | asset_img_url }}">
+                    {% endif %}
+                </li>
+            {% endfor %}
+            <li class="battery-item checkbox-option">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox-battery" id="check_without_battery" data-product-id="">
+                    <label class="battery-name" for="check_without_battery">{{ product.metafields.battery.no_battery_label }}
+                    </label>
+                    <div class="price-wrapper">
+                        <span class="item-price">+ $0</span> 
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+<script>
+    function applyToInfoPanel(objChkbox){
+        $(".add-to-cart-info ul.battery-lists li#"+objChkbox.attr("id")).remove();
+        var qty = objChkbox.parent().find(".battery_qty input").val();
+
+        if(qty == 0){
+            calcTotalPrice();
+            return;
+        }
+
+        if(objChkbox.prop('checked') == true){
+            objChkbox.parents("li.battery-item").addClass("checked");
+            $(".add-to-cart-info ul.battery-lists").append('<li id="'+ objChkbox.attr("id") +'">'+
+                '<div class="selected-product-title">'+ objChkbox.data('product-title') + ' X ' + qty + '</div>'+
+                '<span class="selected-product-price">$'+ (objChkbox.data('product-price')*qty/100) +'</span>'+
+                '</li>');
+        }
+        else{
+            objChkbox.parents("li.battery-item").removeClass("checked");
+        }
+
+        calcTotalPrice();
+    }
+    $(function(){
+        $(".product-battery-wrapper ul.battery-lists li:not(:last-child) .checkbox-battery").on("click", function(){
+            applyToInfoPanel($(this));
+            $(".product-battery-wrapper ul.battery-lists li:last-child").removeClass("checked");
+            $("#check_without_battery").prop("checked", false);
+        })
+
+        $("#check_without_battery").on("click", function(){
+            if($(this).prop("checked") == true){
+                $(this).parents("li.battery-item").addClass("checked");
+                $(".add-to-cart-info ul.battery-lists").empty();
+                calcTotalPrice();
+                $(".product-battery-wrapper ul.battery-lists li:not(:last-child)").removeClass("checked").find(".checkbox-battery").prop("checked", false);
+            }
+        })
+
+        $(".input-spinner-up").on("click", function(){
+            var batteryQty = $(this).parent().prev();
+            batteryQty.val(parseInt(batteryQty.val()) + 1);
+            applyToInfoPanel($(this).parents("li.battery-item").find("input.checkbox-battery"));
+        });
+
+        $(".input-spinner-down").on("click", function(){
+            var batteryQty = $(this).parent().prev();
+            if(parseInt(batteryQty.val()) > 0)
+                batteryQty.val(parseInt(batteryQty.val()) - 1);
+            applyToInfoPanel($(this).parents("li.battery-item").find("input.checkbox-battery"));
+        });
+    })
+</script>

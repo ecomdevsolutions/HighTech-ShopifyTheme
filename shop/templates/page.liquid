@@ -1,6 +1,7 @@
+{% include 'shogun-products', content: page %}
 <div class="container">
   <div class="row">
-    <div class="col-dk-8 col-dk-push-2 col-lg-6">
+    <div class="col-dk-8 col-dk-push-2 col-lg-6 col-dk-push-3">
       {% assign lines = page.title | newline_to_br | split: '<br />' %}
       <h1 class="h1">
         {% for line in lines %}
@@ -16,5 +17,6 @@
     </div>
   </div>
 </div>
+
 
 

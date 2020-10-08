@@ -1,0 +1,136 @@
+<style>
+    .section-drive-kits h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-drive-kits h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info{
+        display: flex;
+        align-items: center;
+        float: right;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info .icon-info{
+      font-size: 18px;
+      display: inline-block;
+      margin-left: 5px;
+      text-align: center;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info i{
+      color: #b2b2b2;
+    }
+
+</style>
+
+<div class="section-drive-kits">
+    <h3 class="section-title">Select <span class="bold">Drive Type</span></h3>
+    <div class="drive-kits-wrapper">
+        <ul class="kits-lists checkbox-options">
+            {% if section.blocks.size > 0 %}
+              {% assign defaultProduct = section.settings.default_product %}
+                {% for block in section.blocks %}
+                    <li class="kit-item checkbox-option {% if defaultProduct == block.settings.drive_kit %}checked{% endif %}">
+                        <div class="form-group">
+                            <input type="checkbox" class="checkbox-drive-kit" id="check_kit_{{forloop.index0}}"
+                              {% if defaultProduct == block.settings.drive_kit %}checked="checked"{% endif %}
+                              data-product-id="{{ all_products[block.settings.drive_kit].variants[0].id }}"
+                              data-product-title="{{ all_products[block.settings.drive_kit].title }}"
+                              data-product-price="{{ all_products[block.settings.drive_kit].variants[0].price | divided_by : 100 }}">
+                            <label for="check_kit_{{forloop.index0}}">{{ block.settings.label }} 
+                                <div class="price-and-info">
+                                    <span class="item-price">+ ${{ all_products[block.settings.drive_kit].variants[0].price | divided_by : 100 }}</span> 
+                                    <span class="icon-info">
+                                        <i class="fal fa-info-circle"></i>
+                                    </span>
+                                </div>
+                            </label>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(function(){
+      $(".checkbox-drive-kit").on("click", function(){
+        
+        $(".add-to-cart-info ul.drive-kits-lists li#"+$(this).attr("id")).remove();
+        if($(this).prop('checked') == true){
+            $(this).parents("li.kit-item").addClass("checked");
+            $(".add-to-cart-info ul.drive-kits-lists").append('<li id="'+ $(this).attr("id") +'">'+
+              '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+              '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+              '</li>');
+        }
+        else{
+            $(this).parents("li.kit-item").removeClass("checked");
+        }
+
+        calcTotalPrice();
+      })
+    })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Drive Kits and Video",
+    "class": "rover-pro-drive-kits",
+    "settings": [
+      {
+        "id": "default_product",
+        "type": "product",
+        "label": "Select default product"
+      },
+      {
+        "id": "rover_video",
+        "type": "text",
+        "label": "Rover video url"
+      }
+    ],
+    "blocks": [
+        {
+           "name": "Drive Kit",
+           "type": "drive_kit",
+           "settings": [
+                {
+                    "type": "text",
+                    "id": "label",
+                    "label": "Short name of product",
+                    "default": "2WD"
+                },
+                {
+                   "type": "product",
+                   "id": "drive_kit",
+                   "label": "Drive Kit"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Drive Kits and Video",
+        "category": "6. Other", 
+        "blocks": [
+          {
+            "type": "drive_kit"
+          },
+          {
+            "type": "drive_kit"
+          },
+          {
+            "type": "drive_kit"
+          }
+        ]
+      }
+    ]
+
+  }
+{% endschema %}

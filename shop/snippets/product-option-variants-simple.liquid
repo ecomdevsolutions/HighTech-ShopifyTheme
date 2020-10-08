@@ -1,0 +1,105 @@
+<style>
+    .section-option-variants.option-variants-simple{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section-option-variants.option-variants-simple h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-option-variants.option-variants-simple h3.section-title > span{
+        opacity: 1;
+    }
+
+    .section-option-variants.option-variants-simple h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-option-variants.option-variants-simple .variants-wrapper ul.variants-lists li.variants-item .form-group label.variants-name{
+        width: 100%;
+    }
+
+    .section-option-variants.option-variants-simple .variants-wrapper ul.variants-lists li.variants-item .form-group label.variants-name .item-price{
+        float: right;
+        padding-right: 22px;
+        font-size: 18px;
+    }
+    
+    .section-option-variants.option-variants-simple .variants-help{
+        font-size: 15px;
+        color: #0074e4;
+        text-decoration: underline;
+        float: right;
+        font-weight: normal;
+        padding-right: 7px;
+    }
+
+</style>
+
+{% assign group_names = product.metafields.options_group.group_names | split : "," %}
+
+{% if product.metafields.option_variants.enabled == 1 %}
+    <hr class="product-content-spliter">
+    
+    {% assign dataIndex = 0 %}
+    {% for group_name in group_names %}
+        {% assign section_name = group_name | strip %}
+        <div class="section-option-variants option-variants-simple">
+            <h3 class="section-title"><span>Select <span class="bold">{{ product.metafields[section_name].header_label }}</span></span>
+                <a href="javascript:;" class="variants-help tooltip-help">{{product.metafields[section_name].header_tooltip_title}}
+                    <span class="tooltiptext">{{product.metafields[section_name].header_tooltip_text}}</span>
+                </a>
+            </h3>
+            <div class="variants-wrapper">
+                <ul class="variants-lists checkbox-options">
+                    {% assign handles = product.metafields[section_name].handles | split: "," %}
+                    {% assign names = product.metafields[section_name].names | split: "," %}
+                    {% assign show_prices = product.metafields[section_name].show_prices | split: "," %}
+                    {% for handle in handles %}
+                        {% assign option_name = names[forloop.index0] | strip %}
+                        {% assign show_price = show_prices[forloop.index0] | strip %}
+                        {% assign handle_striped = handle | strip %}
+                        <li class="variants-item checkbox-option {% if forloop.index0 == 0 %}checked{% endif %}">
+                            <div class="form-group">
+                                <input type="radio" name="radio_varants_{{section_name}}" class="checkbox-variant checkbox-variant-simple" id="check_variant_{{handle_striped}}" 
+                                value="{{ all_products[handle_striped].variants[0].id }}"
+                                {% if forloop.index0 == 0 %}checked{% endif %}
+                                data-group="{{section_name}}"
+                                data-index="{{dataIndex | plus : product.images.size }}"
+                                data-product-id="{{ all_products[handle_striped].variants[0].id }}"
+                                data-product-title="{{ option_name | strip }}"
+                                data-product-price="{{ all_products[handle_striped].variants[0].price | divided_by : 100}}">
+                                <label class="variants-name" for="check_variant_{{handle_striped}}"><span>{{ option_name | strip }}</span>
+                                    <span class="item-price">+ ${{ show_price }}</span>
+                                </label>
+                            </div>
+                        </li>
+                        {% assign dataIndex = dataIndex | plus : 1 %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+    $(function(){
+        $(".checkbox-variant-simple").on("click", function(){
+            //$(".add-to-cart-info ul.variants-lists li#"+$(this).attr("id")).remove();
+            $(this).parents(".variants-lists").find(".variants-item.checked").removeClass("checked");
+            $(this).parents("li.variants-item").addClass("checked");
+            $("ul.product__thumbs li.product__thumb[data-index='"+$(this).data("index")+"']").trigger("click");
+
+            $(".add-to-cart-info ul.variants-simple.group-"+$(this).data("group")).empty().append('<li id="'+ $(this).attr("id") +'">'+
+                '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+                '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+                '</li>'); 
+
+            calcTotalPrice();
+        })
+
+    })
+
+</script>

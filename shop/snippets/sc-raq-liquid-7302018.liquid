@@ -1,0 +1,87 @@
+{% comment %} Note: if you need manual install change raq_install_type = 'manual' {% endcomment %}
+
+{% comment %} Note: For Ajax Pagination call this function window.RAQ_Call(); {% endcomment %}
+
+
+
+{% assign raq_install_type = 'auto' %}
+
+<script type="text/javascript">
+  var __shop_url = "{{ shop.url }}";
+  var __shop_page = "{{ template }}";
+  var __raq_install_type = "{{ raq_install_type }}";
+  
+  /***************************Button Selector*****************************************************************/
+  var _raq_collection_page_each_box_selector = '';
+  var _raq_collection_page_a_tag_selector = '';
+  var _raq_collection_page_button_position_selector = '';
+  var _raq_collection_page_button_position = 'before'; //before or after
+  var _raq_product_page_button_selector = '';
+  var _raq_product_page_button_position = 'after'; //before or after
+  /********************************************************************************************/
+</script>
+
+<script type="text/javascript" src="/apps/request-a-quote/scripts/js/main.js"></script>  
+
+{% if raq_install_type == 'auto' %}
+  {% if template == 'product' %}
+    {% unless product.tags contains "Raq Disabled" %}
+      <div id="__RAQ_button" style="display:none;"><span class="sc-raq-add-to-quote-btn-hldr" scr-vid={{product.variants.first.id }} scr-pid="{{ product.id }}"></span></div>
+    {% endunless %}
+  {% endif %}
+
+  {% if template == 'collection' %}
+    <script type="text/javascript">
+    	var __collection_products = [];
+  	</script>
+  {% endif %}
+{% endif %}
+
+
+
+
+
+<style type="text/css">
+  .sc-raq-added-items{
+  	margin:25px;
+  }
+</style>
+
+<div id="raq_float_place_holder" style="display:none;"></div>
+<style type="text/css">
+.raq-notification {
+	height:60px;
+	width:60px;
+	border-radius:60px;
+	position:fixed;
+	right:0;
+	background-color: transparent;
+	transition: background-color .2s ease 0s, box-shadow .2s ease 0s;
+	border: 2px solid #e6e6e6;
+	box-shadow: 0 2px 10px 0 rgba(0,0,0,0.15);
+	background-color: #fff;
+	text-align:center;
+	padding-top:8px;
+	margin-top:20%;
+	margin-right:10px;
+  	top:0;
+	z-index:8888;
+}
+.raq-notification::after {
+   	content: attr(data-badge);
+	position:absolute;
+	top: -10px;
+	right: -5px;
+	font-size: .8em;
+	background:#007bff;
+	color: white;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 18px;
+	border-radius: 50%;
+	box-shadow: 0 0 1px #333;
+	padding-top:3px;
+	text-shadow:1px 1px 1px #000;
+}
+</style>

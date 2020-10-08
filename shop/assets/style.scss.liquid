@@ -1,0 +1,202 @@
+/**************************************** Homepage **********************************************/
+    .shop-index main{
+        padding-top: 73px;
+    }
+    @media (max-width: 1024px){
+        .shop-index main{
+            padding-top: 63px;
+        }
+    }
+
+    header.header{
+        position: absolute;
+        nav.nav.nav--main{
+            overflow: initial;
+
+            ul.nav--main__main{
+                li.link{
+                    ul.link__dropdown{
+                        position: absolute;
+                        left: 50%;
+                        top: 18px;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+    }
+
+    .hero__box{
+        video.hero__video{
+            margin-top: 10px;
+        }
+    }
+
+    /****************************** Header ******************************/
+
+    header.header.header--main{
+        border-bottom: 1px solid #BDBDBD;
+    }
+
+    header.header.header--main div.logo{
+        display: inline-block;
+        padding-left: 75px;
+    }
+
+    header.header.header--main nav.nav--main{
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        bottom: 30px;
+        width: 100%;
+    }
+
+    header.header.header--main ul.nav--main__sub li a i{
+        font-size: 25px;
+    }
+
+    header.header.header--main ul.nav--main__sub li a .cart-count{
+        font-size: 22px;
+    }
+
+    header.header.header--main .nav--main__main li .link__main-link .link__dropdown-arrow{
+        display: none;
+    }
+
+    @media (min-width: 1024px){
+        header.header.header--main{
+            height: 83px;
+        }
+
+        header.header.header--main .mobile-cart-icon{
+            display: none;
+        }
+
+        header.header.header--main .logo{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding-top: 12px;
+            z-index: 999;
+        }
+
+        header.header.header--main .logo img{
+            height: 60px;
+        }
+
+        header.header.header--main ul.nav--main__sub{
+            display: inline-block;
+            margin-top: 27px;
+            padding-right: 70px;
+            z-index: 999;
+            float: right;
+        }
+
+        header.header.header--main ul.nav--main__sub > li{
+            margin: 0 15px;
+        }
+
+        header.header.header--main .nav--main__main > li > a{
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0px;
+        }
+        
+        header.header.header--main .nav--main__main > li{
+            margin: 0 20px;
+        }
+
+        header.header.header--main .nav--main__main .link__dropdown li.link__element a{
+            font-family: 'Poppins', sans-serif;
+        }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1280px){
+        header.header.header--main .nav--main__main > li > a{
+            font-size: 16px;
+        }
+
+        header.header.header--main .nav--main__main > li{
+            margin: 0px 15px;
+        }
+    }
+
+    @media (max-width: 1024px){
+        header.header.header--main{
+            background-color: #FFF;
+            height: 65px;
+        }
+
+        header.header.header--main .mobile-cart-icon{
+            display: inline-block;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        header.header.header--main .mobile-cart-icon i{
+            font-size: 25px;
+        }
+
+        header.header.header--main .logo img{
+            height: 45px;
+        }
+
+        header.header.header--main button.menu-toggle{
+            left: 25px;
+            width: 37px;
+            height: 22px;
+            position: absolute;
+        }
+
+        header.header.header--main button.menu-toggle:after{
+            display: none;
+        }
+
+        header.header.header--main button.menu-toggle .menu-toggle__icon{
+            width: 35px;
+            height: 20px;
+        }
+
+        header.header.header--main button.menu-toggle .menu-toggle__icon span{
+            width: 35px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        header.header.header--main button.menu-toggle .menu-toggle__icon span:nth-child(2){
+            top: 8px;
+        }
+
+        header.header.header--main button.menu-toggle .menu-toggle__icon span:nth-child(3){
+            top: 16px;
+        }
+
+        header.header.header--main .logo{
+            position: absolute;
+            padding-left: 0px !important;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        header.header.header--main ul.nav--main__sub{
+            display: none;
+        }
+    }
+
+    /***************************** End Header ***************************/
+
+/*************************************** End Homepage ******************************************/
+
+/************************************** Get In Touch section ********************************/
+
+@media (max-width: 1024px){
+    .shopify-section.module--get-in-touch > .row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+/************************************* End Get In Touch Section *****************************/

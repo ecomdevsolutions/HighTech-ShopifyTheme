@@ -1,124 +1,246 @@
+{% include 'shogun-products', content: product %}
+{{product.metafields.shogun.above}}
+
+{{ 'product-custom.scss.css' | asset_url | 'stylesheet_tag' }}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<div class="metafields-namespace">
+  {% comment %} {% assign key_name = 'drive_kits' %}
+  {{ product.metafields[key_name].handles }} {% endcomment %}
+</div>
+
+
 <div class="product product--single">
   <div class="container">
-    <div class="row">
-      <div class="col-tb-12 col-tb-push-1">
-        <div class="row">
-          <div class="col-dk-4 col--images">
-            <div class="product__images">
-              {% for image in product.images %}
-              <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
-                <div class="box box--3x2">
-                  <div class="box__inner">
-                    <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
-                      <div class="img-magnifier-container">
-                        <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
 
-            <nav class="nav nav--thumbs">
-              <ul class="product__thumbs">
-                {% for image in product.images %}
-                <li class="product__thumb" data-index="{{forloop.index0 }}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
-                  <div class="box box--1x1">
-                    <div class="box__inner">
-                      <div class="image image--contain">
-                        <img src="{{ image | img_url: '300x300' }}" data-index="{{forloop.index0 }}" />
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                {% endfor %}
-              </ul>
-            </nav>
-
-            <nav class="nav nav--slick">
-              <button class="nav--slick__prev">
-                <span class="icon-chevron-thin-left"></span>
-              </button>
-              <div class="nav--slick__dots"></div>
-              <button class="nav--slick__next">
-                <span class="icon-chevron-thin-right"></span>
-              </button>
-            </nav>
-
-          </div> <!-- end col-dk-4 -->
-
-
-          <div class="col-dk-6 col-lg-5 col-lg-push-1 col-xxl-5">
-            {% if product.options.size > 1 %}
-              {% include 'product-options' %}
-            {% else %}
-              {% include "product-singleoption" %}
-            {% endif %}
-              {% section "addon" %}
-          </div> <!-- end col-dk-6-->
-        </div> <!-- end row -->
-        {% include "product-tabs" %}
-
-        {% if product.metafields.custom_fields["long_description"] %}
-          <div class="col-dk-10 col-lg-10 col-xxl-10">
-            <div class="row">
-              <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'Description')">Description</button>
-                <button class="tablinks" onclick="openTab(event, 'Specifications')">Specification</button>
-                <button class="tablinks" onclick="openTab(event, 'Downloads')">Downloads</button>
-              </div>
-
-              <div id="Description" class="tabcontent--table" style="display: block;">
-                {{ product.metafields.custom_fields["long_description"] }}
-              </div>
-
-              <div id="Specifications" class="tabcontent--table"></p>
-                {{ product.metafields.custom_fields["specs"] }}
-              </div>
-
-              <div id="Downloads" class="tabcontent--table"></p>
-                {{ product.metafields.custom_fields["spec_sheet_link"] }}
-              </div>
-            </div> <!-- end row -->
-          </div> <!-- end col-dk-10 -->
-        {% endif %}
-      </div> <!-- end col-tb-12 -->
-    </div> <!-- end row -->
-  </div> <!-- end container -->
-
-
-  <div class="product-banner">
-    <div class="product-banner__title">{{ product.title }}</div>
-    <div class="product-banner__right">
-    {% if product.available == false%}
-      Please &nbsp; <a href="/pages/contact"><u>contact</u></a> &nbsp; us for pricing
+    {% section 'section-product' %}
+    
+    <div class="metafields">
+        {{ product.metafields.driver_kits.driver_names }}
     </div>
-    {% else %}
-    {% if product.options.size < 2 %}
-      <div class="product-banner__price">{{ product.selected_or_first_available_variant.price | money }}</div>
-    {% else %}
-      <div class="product-banner__price">$0.00</div>
-    {% endif %}
-
-      <strong>QTY: </strong> &nbsp; &nbsp;
-      <div class="quantity buttons_added">
-          <input data-id="{{product.id}}" type="button" value="-" class="minus">
-            <input id="quantity-{{product.id}}" class="product__qty input-text qty text"  type="number" min="1" name="product-quantity" value="1" />
-          <input data-id="{{product.id}}" type="button" value="+" class="plus">
-      </div>
-
-        <button class="button button--primary button--add-to-cart">
-          <span>Add  <span class="icon-arrow-large-right"></span></span>
-        </button>
-      </div> <!-- end product banner__right -->
-     </div> <!-- end prodct banner -->
-    {% endif %}
-  </div> <!-- end product--single -->
+  </div> <!-- end container -->
+</div> <!-- end product--single -->
 
 {% section 'section-includes' %}
 
 
+<script>
+  
+  function calcPriceOnLoad(){
+    
+    var optionVariants = $(".section-option-variants ul.variants-lists.checkbox-options li.variants-item.checked .checkbox-variant.checkbox-variant-simple");
+    $(".add-to-cart-info ul.variants-simple").empty();
+
+    optionVariants.each(function(){
+      var group_name = $(this).data("group");
+      $(".add-to-cart-info ul.variants-simple.group-"+group_name).empty().append('<li id="'+ $(this).attr("id") +'">'+
+        '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+        '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+        '</li>');
+    });
+
+    var optionVariants = $(".section-option-variants ul.variants-lists.checkbox-options li.variants-item.checked .checkbox-variant.product-variant");
+    $(".add-to-cart-info ul.variants-lists").empty();
+    optionVariants.each(function(){
+      $(".add-to-cart-info ul.variants-lists").append('<li id="'+ $(this).attr("id") +'">'+
+        '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+        '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+        '</li>');
+    });
+
+    var driveKits = $(".section-drive-kits ul.kits-lists.checkbox-options li.kit-item.checked .checkbox-drive-kit");
+    $(".add-to-cart-info ul.drive-kits-lists").empty();
+    driveKits.each(function(){
+      $(".add-to-cart-info ul.drive-kits-lists").append('<li id="'+ $(this).attr("id") +'">'+
+        '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+        '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+        '</li>');
+    });
+    
+    var batteries = $(".section-product-battery ul.battery-lists.checkbox-options li.battery-item.checked .checkbox-battery");
+    $(".add-to-cart-info ul.battery-lists").empty();
+    batteries.each(function(){
+      var qty = $(this).parent().find(".battery_qty input").val();
+      $(".add-to-cart-info ul.battery-lists").append('<li id="'+ $(this).attr("id") +'">'+
+        '<div class="selected-product-title">'+ $(this).data('product-title') + ' X ' + qty + '</div>'+
+        '<span class="selected-product-price">$'+ ($(this).data('product-price')*qty/100) +'</span>'+
+        '</li>');
+    });
+    
+    var chargers = $(".section-charger ul.charger-lists.checkbox-options li.charger-item.checked .checkbox-charger");
+    if(chargers.length > 0){
+      $(".add-to-cart-info ul.charger-lists").empty();
+      chargers.each(function(){
+        $(".add-to-cart-info ul.charger-lists").append('<li id="'+ $(this).attr("id") +'">'+
+          '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+          '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+          '</li>');
+      });
+    }
+
+    calcTotalPrice();
+  }
+
+  function calcTotalPrice(){
+    var totalPrice = 0;
+    $(".group-selected-products ul li .selected-product-price").each(function(){
+      totalPrice += Number($(this).text().replace(/[^0-9.-]+/g,""));
+    });
+
+    // const formatter = new Intl.NumberFormat('en-US', {
+    //   style: 'currency',
+    //   currency: 'USD',
+    //   minimumFractionDigits: 0
+    // })
+
+    $(".selected-total-price .total-price").text("$"+totalPrice);
+  }
+
+  function variantToCart(){
+    
+      var optionVariant = $(".section-option-variants ul.variants-lists.checkbox-options li.variants-item.checked .checkbox-variant");
+      if(optionVariant.length == 0){
+        location.href="/cart";
+      }
+      
+      var data = {
+        "id": optionVariant.val(),
+        "quantity": 1
+      }
+
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: data,
+        dataType: 'json',
+        success: function() {
+          location.href="/cart";
+        }
+      });
+  }
+  
+  function variantsToCart(items, index){
+          
+    if(index < 0 || items.length == 0){
+      variantToCart();
+      return;
+    };
+
+    var data = {
+      "id": items.eq(index).data("product-id"),
+      "quantity": 1
+    }
+
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() {
+        variantsToCart(items, --index);
+      }
+    });
+  }
+
+  function driveKitsToCart(items, index){
+
+    if(index < 0 || items.length == 0){
+      var optionVariants = $(".option-variants-simple ul.variants-lists.checkbox-options li.variants-item.checked .checkbox-variant.checkbox-variant-simple");
+      variantsToCart(optionVariants, optionVariants.length-1);
+      return;
+    };
+
+    var data = {
+      "id": items.eq(index).data("product-id"),
+      "quantity": 1
+    }
+
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() {
+        driveKitsToCart(items, --index);
+      }
+    });
+  }
+
+  function batteriesToCart(items, index){
+    var driveKits = $(".section-drive-kits ul.kits-lists.checkbox-options li.kit-item.checked .checkbox-drive-kit");
+    if(items.length == 0){
+      driveKitsToCart(driveKits, driveKits.length-1);
+      return;
+    }
+    if(index < 0){
+      driveKitsToCart(driveKits, driveKits.length-1);
+      return;
+    };
+
+    var data = {
+      "id": items.eq(index).data("product-id"),
+      "quantity": items.eq(index).parents(".battery-item").find(".battery_qty input").val()
+    }
+
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() {
+        batteriesToCart(items, --index);
+      }
+    });
+  }
+
+  function chargersToCart(items, index){
+    var batteries = $(".section-product-battery ul.battery-lists.checkbox-options li.battery-item.checked .checkbox-battery");
+    if(items.length == 0){
+      batteriesToCart(batteries, batteries.length-1);
+      return;
+    }
+
+    if(index < 0){
+      if($("#check_without_battery").prop("checked") == false){    
+        batteriesToCart(batteries, batteries.length-1);
+      }
+      else{
+        var driveKits = $(".section-drive-kits ul.kits-lists.checkbox-options li.kit-item.checked .checkbox-drive-kit");
+        driveKitsToCart(driveKits, driveKits.length-1);
+      }
+      return;
+    };
+
+    var data = {
+      "id": items.eq(index).data("product-id"),
+      "quantity": 1
+    }
+
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() {
+        chargersToCart(items, --index);
+      }
+    });
+  }
+  
+  $(function(){
+    $(".btn-add-to-cart").on("click", function(){
+      if($(this).hasClass("disabled")) return false;
+      $(this).addClass("disabled").find("span").text("ADDING...");
+      var chargers = $(".section-charger ul.charger-lists.checkbox-options li.charger-item.checked .checkbox-charger");
+      chargersToCart(chargers, chargers.length-1);
+    });
+    
+    calcPriceOnLoad();
+
+  });
+
+</script>
 
 
 
@@ -155,3 +277,8 @@ function openTab(evt, tabName) {
   var CURRENT_VARIENT_PRICE = {price: parseFloat("{{product.selected_or_first_available_variant.price}}"), id: "{{product.selected_or_first_available_variant.id}}" }
 
 </script>
+
+{{product.metafields.shogun.below}}
+
+
+

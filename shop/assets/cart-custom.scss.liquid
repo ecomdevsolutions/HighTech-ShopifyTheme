@@ -1,0 +1,642 @@
+.shop-cart{
+    section.module--cart{
+        form.form--cart{
+            margin-top: 50px;
+
+            button.button-third{
+                background-color: #FFF;
+                border: 1px solid #0A78E5;
+                color: #0A78E5;
+                box-shadow: none;
+            }
+
+            table.table--cart{
+                tr{
+                    border-bottom: 1px solid #f0f0f0;
+                    td.cart__image{
+                        width: 250px;
+                        padding: 20px 10px;
+                        border: none;
+                    }
+                    td.cart__info{
+                        width: calc(100% - 250px);
+                        border: none;
+                        padding: 20px 10px;
+
+                        .line-item-content{
+                            .line-item-head{
+                                display: flex;
+                                justify-content: space-between;
+
+                                .cart__price{
+                                    font-size: 16px;
+                                }
+                            }
+
+                            .cart__options{
+                                li{
+                                    span{
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .cart__price-qty{
+                            display: flex;
+                            align-items: center;
+                            margin-top: 15px;
+                            width: 100%;
+
+                            .qty-spinner-wrapper{
+                                width: 150px;
+                                height: 40px;
+                                border: 1px solid #E0E0E0;
+
+                                .qty-spinner{
+                                    display: flex;
+                                    width: 100px;
+                                    margin: 0px auto;
+                                    height: 100%;
+                                    margin-top: 0px;
+                                    justify-content: center;
+                                    position: relative;
+
+                                    input.qty{
+                                        margin: 0px;
+                                        width: 30px;
+                                        height: 38px;
+                                        position: absolute;
+                                        font-family: 'BentonSans';
+                                        font-size: 17px;
+                                        text-align: center;
+                                        padding: 10px 2px;
+                                        border: none;
+                                    }
+
+                                    .input-spinner-nav{
+                                        .input-spinner-down,
+                                        .input-spinner-up{
+                                            position: absolute;
+                                            font-size: 18px;
+                                            cursor: pointer;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                        }
+
+                                        .input-spinner-up{
+                                            right: 0px;
+
+                                            &:before{
+                                                content: '';
+                                                display: block;
+                                                border: 7px solid #000;
+                                                border-color: transparent transparent transparent #000;
+                                            }
+                                        }
+
+                                        .input-spinner-down{
+                                            left: 0px;
+
+                                            &:before{
+                                                content: '';
+                                                display: block;
+                                                border: 7px solid #000;
+                                                border-color: transparent #000 transparent transparent;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            a.remove{
+                                margin-top: 0px;
+                                margin-left: 30px;
+                                font-size: 14px;
+
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .cart__details{
+                background-color: transparent;
+                border: none;
+                padding: 20px 30px;
+                
+                @media (min-width: 769px){
+                    padding-left: 60px;
+                }
+
+                .h5--impact{
+                    color: #000;
+                    border-bottom: 1px solid #f0f0f0;
+                    padding-bottom: 5px;
+                }
+
+                ul.cart__summary{
+                    li{
+                        margin-bottom: 20px;
+                        padding-left: 15px;
+
+                        span{
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .buttons{
+                    display: flex;
+                    
+                    .button{
+                        margin: 0px 5px;
+                        box-shadow: none;
+                        padding: 15px 10px 15px 10px;
+                    }
+                }
+            }
+        }
+        .get-quote-container{
+            background-color: #F0F5F9;
+
+            .get-quote-content{
+                padding-top: 60px;
+                padding-bottom: 60px;
+
+                .quote-title{
+                    font-family: 'Poppins', sans-serif;
+                    color: #0A78E5;
+                    font-size: 36px;
+                    letter-spacing: 0;
+                    margin-bottom: 60px;
+                }
+
+                .quote-stepper{
+                    .quote-stepper-header{
+                        ul.quote-step-list{
+                            display: flex;
+                            justify-content: space-evenly;
+                            width: 100%;
+                            border-bottom: 1px solid #E0E0E0;
+                            padding: 5px 0px;
+
+                            li{
+                                width: 33.33333%;
+                                text-align: center;
+                                position: relative;
+
+                                &.active{
+                                    color: #0A78E5;
+                                    &:after{
+                                        content: '';
+                                        display: block;
+                                        width: 100%;
+                                        height: 5px;
+                                        background-color: #0A78E5;
+                                        position: absolute;
+                                        bottom: -8px;
+                                    }
+                                }
+
+                                a{
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+
+                    .quote-step-content{
+                        margin-top: 50px;
+
+                        .quote-step{
+                            display: none;
+                            max-width: 450px;
+                            margin: 0px auto;
+
+                            #wrapper-response{
+                                #shipping-rates-feedback{
+                                    font-size: 16px;
+                                    line-height: 1.3;
+                                    margin-top: 0px;
+                                    margin-bottom: 0px;
+                                }
+                            }
+
+                            input.get-rates{
+                                border: navajowhite;
+                                background-color: transparent;
+                                border-bottom: 1px solid;
+                                cursor: pointer;
+                                float: right;
+                            }
+
+                            &.active{
+                                display: block;
+                            }
+
+                            .step-form{
+                                border-bottom: 1px solid #E0E0E0;
+                                min-height: 350px;
+
+                                .form-group{
+                                    .form-label{
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                        color: #111;
+                                    }
+                                    input{
+                                        margin-top: 0;
+                                        margin-bottom: 15px;
+
+                                        &.error{
+                                            background-color: rgba(255, 158, 158, 0.3);
+                                        }
+                                    }
+                                }
+
+                                select{
+                                    
+                                    /* styling */
+                                    font-size: 14px;
+                                    background-color: white;
+                                    border-radius: 4px;
+                                    display: inline-block;
+                                    line-height: 1.5em;
+                                    padding: 0.5em 3.5em 0.5em 1em;
+
+                                    /* reset */
+
+                                    margin: 0;      
+                                    -webkit-box-sizing: border-box;
+                                    -moz-box-sizing: border-box;
+                                    box-sizing: border-box;
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+
+                                    margin-top: 0;
+                                    margin-bottom: 15px;
+                                    background-image:
+                                    linear-gradient(45deg, transparent 50%, #111 50%),
+                                    linear-gradient(135deg, #111 50%, transparent 50%),
+                                    linear-gradient(to right, #ccc, #ccc);
+                                  background-position:
+                                    calc(100% - 20px) calc(1em + 2px),
+                                    calc(100% - 15px) calc(1em + 2px),
+                                    calc(100% - 2.5em) 0.5em;
+                                  background-size: 8px 6px, 6px 7px, 0px 1.5em;
+                                  background-repeat: no-repeat;
+
+                                    &.error{
+                                        background-color: rgba(255, 158, 158, 0.3);
+                                    }
+                                }
+                                
+                                .form-group-subtotal{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-weight: 500;
+                                }
+                                
+                                .form-group-total{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    font-weight: 500;
+                                }
+                                #easyquote-status{
+                                    font-size: 16px;
+                                }
+                            }
+
+                            .step-buttons{
+                                padding-top: 15px;
+                                text-align: right;
+
+                                .btn-next-step{
+                                    border: 1px solid #0A78E5;
+                                    color: #0A78E5;
+                                    padding: 16px 58px 15px 30px;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    position: relative;
+
+                                    &:after{
+                                        content: '➜';
+                                        display: block;
+                                        position: absolute;
+                                        color: #0A78E5;
+                                        font-size: 19px;
+                                        right: 28px;
+                                        top: 11px;
+                                    }
+
+                                }
+
+                                .btn-prev-step{
+                                    border: none;
+                                    color: #111;
+                                    padding: 16px 15px 15px 30px;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    position: relative;
+
+                                    &:after{
+                                        content: '➜';
+                                        display: block;
+                                        transform: rotate(180deg);
+                                        position: absolute;
+                                        color: #111;
+                                        font-size: 19px;
+                                        left: 5px;
+                                        top: 13px;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        .eq-shipping-wrapper{
+                            .step-buttons{
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                        }
+
+                        .eq-payment-wrapper{
+                            .step-buttons{
+                                .btn-create-quote{
+                                    background-color: #0A78E5;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    text-transform: uppercase;
+                                    color: #FFF;
+                                    padding: 16px 25px 12px 23px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #shopify-section-get-in-touch{
+        padding: 30px 0px 60px;
+        .touch-content{
+            text-align: left;
+            .module__title{
+                text-align: left;
+                font-size: 36px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            p{
+                font-size: 18px;
+                font-weight: 500;
+                color: #292929;
+                text-align: left;
+                margin: 0px;
+            }
+        }
+
+        .touch-icons{
+            .icons-container{
+                ul.comments-icons{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin-top: -20px;
+
+                    li{
+                        width: 33%;
+                        margin-top: 60px;
+
+                        .info-icon{
+                            font-size: 30px;
+                            color: #0A78E5;
+                        }
+
+                        .icon-comment{
+                            font-size: 16px;
+                            color: #000;
+                            font-family: "BentonSans" !important;
+                            line-height: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*************************** Mobile responsive **************************/
+
+@media (max-width: 768px){
+    .shop-cart{
+        .module--cart{
+            .container{
+                padding: 0px 15px;
+
+                form.form--cart{
+                    table.table--cart{
+                        tbody{
+                            tr{
+                                display: flex;
+
+                                td.cart__image{
+                                    width: 40%;
+                                }
+
+                                td.cart__info{
+                                    width: 60%;
+
+                                    .line-item-content{
+                                        .line-item-head{
+                                            h5, .cart__price{
+                                                font-size: 16px;
+
+                                                @media (max-width: 480px){
+                                                    font-size: 15px;
+                                                }
+                                            }
+                                        }
+
+                                        ul.cart__options{
+                                            li{
+                                                margin-bottom: 5px;
+                                                span{
+                                                    font-size: 14px;
+                                                    letter-spacing: 1px;
+                                                    @media (max-width: 480px){
+                                                        font-size: 13px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .cart__price-qty{
+                                        .qty-spinner-wrapper{
+                                            height: 30px;
+                                            width: 120px;
+
+                                            input.qty{
+                                                height: 28px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .update{
+                        button.button{
+                            width: 300px;
+
+                            @media (max-width: 480px){
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .cart__details{
+                        padding: 20px 0px;
+
+                        footer{
+                            .buttons{
+                                @media (max-width: 480px){
+                                    display: block;
+                                }
+
+                                button{
+                                    @media (max-width: 480px){
+                                        margin: 0px;
+                                    }
+                                }
+
+                                button + button{
+                                    @media (max-width: 480px){
+                                        margin-top: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .quote-custom{
+                        display: none;
+                    }
+                }
+
+                .get-quote-container{
+                    .get-quote-content{
+                        padding: 20px 10px 30px;
+
+                        .quote-title{
+                            text-align: center;
+                            font-size: 30px;
+                            margin-bottom: 20px;
+                        }
+
+                        .quote-stepper{
+                            margin-bottom: 20px;
+
+                            .quote-stepper-header{
+                                ul.quote-step-list{
+                                    flex-wrap: wrap;
+                                    li{
+                                        width: 100%;
+                                        margin-bottom: 15px;
+
+                                        &.active{
+                                            &:after{
+                                                max-width: 250px;
+                                                left: 50%;
+                                                transform: translateX(-50%);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .quote-step-content{
+                                margin-top: 20px;
+
+                                .step-form{
+                                    min-height: 320px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #shopify-section-get-in-touch{
+            & > .row{
+                margin: 0px;
+            }
+
+            .touch-content{
+                .container{
+                    padding: 0px;
+
+                    .module__title{
+                        margin: 15px 0px;
+                        text-align: center;
+                        font-size: 30px;
+                    }
+
+                    p{
+                        font-size: 16px;
+                        line-height: 1.5;
+                        text-align: center;
+                    }
+
+                    .button.button--cta{
+                        margin-top: 20px;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .touch-icons{
+                .icons-container{
+                    padding: 0px 15px;
+
+                    ul.comments-icons{
+                        margin-top: 0px;
+
+                        li{
+                            margin-top: 20px;
+
+                            .info-icon{
+                                @media (max-width: 480px){
+                                    font-size: 25px;
+                                }
+                            }
+
+                            .icon-comment{
+                                line-height: 1.4;
+
+                                @media (max-width: 480px){
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/************************** End Mobile responsive ****************************/

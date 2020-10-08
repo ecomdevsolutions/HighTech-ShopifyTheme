@@ -1,0 +1,337 @@
+<style>
+    .section-drive-kits h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-drive-kits h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info{
+        display: flex;
+        align-items: center;
+        float: right;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info .icon-info{
+      font-size: 18px;
+      display: inline-block;
+      margin-left: 5px;
+      text-align: center;
+    }
+
+    .section-drive-kits ul.kits-lists li.kit-item .price-and-info i{
+      color: #b2b2b2;
+    }
+
+    .product__thumbs .product__thumb .image--contain{
+        position: relative;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: #000;
+        opacity: 0.3;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:before,
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:after{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        content: '';
+        display: block;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:before{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 4px solid #FFF;
+    }
+
+    .product__thumbs .product__thumb .image--contain .preview-overlay-button:after{
+        width: 0px;
+        height: 0px;
+        border:20px solid #FFF;
+        border-color: transparent transparent transparent #FFF;
+        left: 60%;
+    }
+
+    .product__image .hero__video{
+        width: 100%;
+        height: 100%;
+        margin-top: 0px;
+    }
+
+    .product__image video::-webkit-media-controls-panel {
+        display: flex !important;
+        opacity: 1 !important;
+    }
+
+    .product__thumbs .product__thumb.selected .image--contain{
+        border-color: #0074e4;
+    }
+
+</style>
+
+{% assign productTitle = product.description | split:"<!-- title -->" %}
+{% assign productContent = product.description | split:"<!-- content -->" %}
+
+<div class="row">
+    <div class="col-tb-12">
+    <div class="row">
+        <div class="col-dk-5 col-tb-push-1 col--images">
+        
+        <div class="product-header-mobile">
+            {% if productTitle.size > 1 %}
+                <h2 class="product-title">{{ productTitle[1] }}</h2>
+            {% else %}
+                <h2 class="product-title">{{ product.title }}</h2>
+            {% endif %}
+            <div class="product-price-wrapper">
+            <div class="price-label">starting at</div>
+            <div class="product-price">${{ product.price | divided_by: 100 | times: 1 }}</div>
+            </div>
+        </div>
+        <div class="product__images">
+            {% if product.images.size > 0 %}
+                {% for image in product.images %}
+                <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                    <div class="box box--3x2">
+                        <div class="box__inner">
+                        <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
+                            <div class="">
+                            <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if section.settings.rover_video != blank %}
+                <div class="product__image" data-variants="[]">
+                    <div class="box box--3x2">
+                        <div class="box__inner">
+                            <video controls="" muted="" loop="" class="hero__video">
+                                <source src="{{section.settings.rover_video}}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <nav class="nav nav--thumbs">
+            <ul class="product__thumbs" id="product__thumbs_slider">
+            {% if product.images.size > 0 %}
+                {% assign dataIndex = 0 %}
+                {% for image in product.images %}
+                {% assign dataIndex = dataIndex | plus: 1 %}
+                <li class="product__thumb {% if dataIndex == 1 %}selected{% endif %}" data-index="{{forloop.index0 }}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                    <div class="box box--1x1">
+                    <div class="box__inner">
+                        <div class="image image--contain">
+                        <img src="{{ image | img_url: '300x300' }}" data-index="{{forloop.index0 }}" />
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% if section.settings.rover_video != blank %}
+                <li class="product__thumb product__video" data-index="{{ dataIndex }}" data-variants="[]">
+                    <div class="box box--1x1">
+                    <div class="box__inner">
+                        <div class="image image--contain">
+                            <img src="{{ section.settings.video_preview_img | img_url: '300x300' }}" data-index="{{ dataIndex }}" />
+                            <div class="preview-overlay">
+                            </div>
+                            <div class="preview-overlay-button">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                {% endif %}
+            {% endif %}
+            </ul>
+        </nav>
+
+        <nav class="nav nav--slick">
+            <button class="nav--slick__prev">
+            <span class="icon-chevron-thin-left"></span>
+            </button>
+            <div class="nav--slick__dots"></div>
+            <button class="nav--slick__next">
+            <span class="icon-chevron-thin-right"></span>
+            </button>
+        </nav>
+
+        <div class="comments-icons-wrapper">
+            <ul class="comments-icons">
+            <li>
+                <span class="info-icon"><i class="fal fa-truck-loading"></i></span>
+                <div class="icon-comment">Fast <b>Shipping</b></div>
+            </li>
+            {% unless product.metafields.weatherproof.disabled == 1 %}
+            <li>
+                <span class="info-icon"><i class="fal fa-tint-slash"></i></span>
+                <div class="icon-comment"><b>Weatherproof</b></div>
+            </li>
+            {% endunless %}
+            <li>
+                <span class="info-icon"><i class="fal fa-user-headset"></i></span>
+                <div class="icon-comment">Professional <b>Support</b></div>
+            </li>
+            </ul>
+            
+            <hr class="product-content-spliter">
+
+            <div class="question-comment">
+            <span class="info-icon"><i class="fal fa-comments-alt"></i></span>
+            <div class="comment-text">Have questions about buying Rover <b>Pro</b>?
+                <a href="/pages/faq-rover-doesnt-behave-properly-when-controlling-with-an-xbox-controller" class="comment-link">Speak with a specialist</a>
+            </div>
+            </div>
+        </div>
+
+        </div> <!-- end col-dk-5 -->
+
+
+        <div class="col-dk-5 col--content">
+
+        <div class="product-header">
+            {% if productTitle.size > 1 %}
+                <h2 class="product-title">{{ productTitle[1] }}</h2>
+            {% else %}
+                <h2 class="product-title">{{ product.title }}</h2>
+            {% endif %}
+            <div class="product-price-wrapper">
+            <div class="price-label">starting at</div>
+            <div class="product-price">${{ product.price | divided_by: 100 | times: 1 }}.00</div>
+            </div>
+        </div>
+
+        <div class="product-description">
+            {% if productContent.size > 1 %}
+                {{ productContent[1] }}
+            {% else %}
+                {{ product.description }}
+            {% endif %}
+        </div>
+
+        <hr class="product-content-spliter">
+
+        {% comment %} 
+
+        <form class="form-add-to-cart" action="/cart/add" method="post">
+            <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+            <div class="qty-spinner-wrapper">
+                <div class="qty-rover-spinner">
+                    <input class="input" name="quantity" id="qty-rover" type="text" value="1">
+                    <div class="input-spinner-nav">
+                        <div class="input-spinner-down"></div>
+                        <div class="input-spinner-up"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-button-group">
+                <button type="submit" class="button button--primary btn-add-to-cart"><span>ADD TO CART</span></button>
+
+                <div class="link-need-quote">
+                    <a href="/pages/quote-request" class="find-out-more">Need a quote? Click here to find out more.</a>
+                </div>
+            </div>
+        </form> {% endcomment %}
+
+        <div class="comments-icons-wrapper-mobile">
+            <ul class="comments-icons">
+            <li>
+                <span class="info-icon"><i class="fal fa-truck-loading"></i></span>
+                <div class="icon-comment">Fast <b>Shipping</b></div>
+            </li>
+            {% unless product.metafields.weatherproof.disabled == 1 %}
+            <li>
+                <span class="info-icon"><i class="fal fa-tint-slash"></i></span>
+                <div class="icon-comment"><b>Weatherproof</b></div>
+            </li>
+            {% endunless %}
+            <li>
+                <span class="info-icon"><i class="fal fa-user-headset"></i></span>
+                <div class="icon-comment">Professional <b>Support</b></div>
+            </li>
+            </ul>
+            
+            <hr class="product-content-spliter">
+
+            <div class="question-comment">
+            <span class="info-icon"><i class="fal fa-comments-alt"></i></span>
+            <div class="comment-text">Have questions about buying Rover <b>Pro</b>?
+                <a href="/pages/faq-rover-doesnt-behave-properly-when-controlling-with-an-xbox-controller" class="comment-link">Speak with a specialist</a>
+            </div>
+            </div>
+        </div>
+        {% comment %} {% section "addon" %} {% endcomment %}
+        </div> <!-- end col-dk-6-->
+    </div> <!-- end row -->
+    {% include "product-tabs" %}
+
+    </div> <!-- end col-tb-12 -->
+</div> <!-- end row -->
+
+
+
+<script>
+    $(function(){
+
+      $(".product__video").on("click", function(){
+        $(".product__image .hero__video").get(0).play();
+      });
+
+      $(".product__thumbs .product__thumb").on("click", function(){
+          $(".product__thumbs .product__thumb.selected").removeClass("selected");
+          $(this).addClass("selected");
+      });
+    
+        $(".input-spinner-up").on("click", function(){
+            var batteryQty = $(this).parent().prev();
+            batteryQty.val(parseInt(batteryQty.val()) + 1);
+        });
+
+        $(".input-spinner-down").on("click", function(){
+            var batteryQty = $(this).parent().prev();
+            if(parseInt(batteryQty.val()) > 0)
+                batteryQty.val(parseInt(batteryQty.val()) - 1);
+        });
+    })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Drive Kits and Video",
+    "class": "rover-pro-drive-kits",
+    "settings": [
+      {
+        "id": "video_preview_img",
+        "type": "image_picker",
+        "label": "Rover video loading image"
+      },
+      {
+        "id": "rover_video",
+        "type": "text",
+        "label": "Rover video url"
+      }
+    ]
+
+  }
+{% endschema %}

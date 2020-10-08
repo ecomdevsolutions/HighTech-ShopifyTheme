@@ -1,9 +1,38 @@
  {% if section.settings.title.size > 0 and section.settings.title.size > 0 and  section.settings.ctaText.size > 0 and section.settings.ctaUrl.size > 0 %}
-
-  <div class="container">
-    <h2 class="module__title">{{ section.settings.title }}</h2>
-    <p>{{ section.settings.body }}</p>
-    <a class="button button--primary button--cta" href="{{ section.settings.ctaUrl }}"><span>{{ section.settings.ctaText }}</span></a>
+  <div class="row">
+    <div class="touch-content col-mb-12 col-tb-push-1 col-dk-push-1 col-tb-5 col-dk-5">
+      <div class="container">
+        <h2 class="module__title">{{ section.settings.title }}</h2>
+        <p>{{ section.settings.body }}</p>
+        <a class="button button--primary button--cta" href="{{ section.settings.ctaUrl }}"><span>{{ section.settings.ctaText }}</span></a>
+      </div>
+    </div>
+    <div class="touch-icons col-mb-12 col-tb-5 col-dk-5">
+      <div class="icons-container">
+        <ul class="comments-icons">
+            <li>
+                <span class="info-icon"><i class="fal fa-tag"></i></span>
+                <div class="icon-comment">Best <b>Price</b></div>
+            </li>
+            <li>
+                <span class="info-icon"><i class="fal fa-tint-slash"></i></span>
+                <div class="icon-comment"><b>Weatherproof</b></div>
+            </li>
+            <li>
+                <span class="info-icon"><i class="fal fa-user-headset"></i></span>
+                <div class="icon-comment">Professional <b>Support</b></div>
+            </li>
+            <li>
+                <span class="info-icon"><i class="fal fa-truck-loading"></i></span>
+                <div class="icon-comment">Fast <b>Shipping</b></div>
+            </li>
+            <li>
+                <span class="info-icon"><i class="fal fa-cart-plus"></i></span>
+                <div class="icon-comment">Easy <b>Add to Cart</b></div>
+            </li>
+          </ul>
+      </div>
+    </div>
   </div>
  {% endif %}
 

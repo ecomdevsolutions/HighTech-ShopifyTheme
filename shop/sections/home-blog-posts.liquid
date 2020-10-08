@@ -1,0 +1,214 @@
+<section class="shopify-section">
+	{% for block in section.blocks %}				
+		<div class="column-half-one">
+			<div class="image-wrapper">
+				{%- assign image = block.settings.image -%}
+				<div class="box box--3x2" style="padding-top: 73%;">
+					<div class="box__inner">
+						<div class="image image--load--fadein image--cover">
+							<img class="lazyload" data-src="{{ image | img_url: '768x' }}" alt="{{ image.alt }}" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="blog-wrapper">
+				<div class="blog-post-date">
+					<span>Blog <strong>Post</strong></span>
+					<span class="dot"></span>
+					<span>{{ block.settings.post-date }}</span>
+				</div>
+				<h4 class="blog-title">{{ block.settings.blog-title }}</h4>
+				<a href="{{ block.settings.link-url }}" class="button btn-shop-blog">{{ block.settings.link-button }}</a>
+			</div>
+		</div>
+	{% endfor %}
+</section>
+
+<style>
+	.column-half-one {
+		width: 50%;
+		float: left;
+		position: relative;
+	}
+	.module--blog-posts .shopify-section {
+		display: flex;
+	}
+	.column-half-one .blog-wrapper {
+		position: absolute;
+		bottom: 10%;
+		left: 8%;
+	}
+	.column-half-one .blog-wrapper .blog-title p {
+    color: #F6F6F6;
+    font-size: 30px;
+    font-family: "Poppins-Bold";
+    letter-spacing: 0;
+		text-shadow: 0px 1px 49px rgba(47,47,47,0.88);
+		line-height: 1.2;
+		margin: 0;
+	}
+	.column-half-one .blog-wrapper .blog-post-date {
+		color: #ECECEC;
+    font-family: "poppins-regular";
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-shadow: 0 1px 49px rgba(47,47,47,0.88);
+	}
+	.column-half-one .blog-wrapper .blog-post-date span.dot {
+		display: inline-block;
+		margin: 0 10px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+		background-color: #0A78E5;
+	}
+	.column-half-one .blog-wrapper .blog-post-date strong {
+		font-weight: 700;
+	}
+	.column-half-one .blog-wrapper .btn-shop-blog {
+		color: #F6F6F6;
+    font-family: "Poppins-Bold";
+    font-size: 18px;
+		letter-spacing: 0;
+		border: none;
+    background-color: #000000;
+	}
+	.module--blog-posts .image-wrapper {
+		background-color: #000000;
+	}
+	.module--blog-posts .image--load--fadein img.lazyloaded {
+		opacity: 0.7;
+	}
+	@media (max-width: 1024px) {
+		.column-half-one .blog-wrapper .blog-title p {
+			font-size: 25px;
+		}
+		.column-half-one .blog-wrapper .btn-shop-blog {
+			font-size: 14px;
+		}
+		.column-half-one .blog-wrapper .blog-post-date {
+			font-size: 14px;
+		}
+	}
+	@media (max-width: 768px) {
+		.module--blog-posts .shopify-section {
+			display: grid;
+		}
+		.column-half-one {
+			width: 100%;
+		}
+		.module--blog-posts .box.box--3x2 {
+			padding-top: 60% !important;
+		}
+		.column-half-one .blog-wrapper {
+			width: 100%;
+			left: auto;
+			text-align: center;
+		}
+		.column-half-one .blog-wrapper .blog-post-date {
+			font-size: 30px;
+		}
+		.column-half-one .blog-wrapper .blog-post-date span.dot {
+			width: 16px;
+			height: 16px;
+		}
+		.column-half-one .blog-wrapper .blog-title p {
+			font-size: 50px;
+		}
+		.column-half-one .blog-wrapper .btn-shop-blog {
+			font-size: 25px;
+			padding: 30px 70px;
+			margin-top: 25px;
+		}
+	}
+	@media (max-width: 650px) {
+		.column-half-one .blog-wrapper .blog-title p {
+			font-size: 35px;
+		}
+		.column-half-one .blog-wrapper .blog-post-date {
+			font-size: 20px;
+		}
+		.column-half-one .blog-wrapper .blog-post-date span.dot {
+			width: 10px;
+			height: 10px;
+		}
+		.column-half-one .blog-wrapper .btn-shop-blog {
+			font-size: 20px;
+			padding: 17px 60px;
+			margin-top: 0;
+		}
+	}
+	@media (max-width: 425px) {
+		.column-half-one .blog-wrapper .blog-title p {
+			font-size: 30px;
+		}
+		.column-half-one .blog-wrapper .blog-post-date,
+		.column-half-one .blog-wrapper .btn-shop-blog {
+			font-size: 15px;
+		}
+	}
+	@media (max-width: 375px) {
+		.column-half-one .blog-wrapper .blog-title p {
+			font-size: 25px;
+		}
+		.module--blog-posts .blog-title {
+			margin: 10px 0;
+		}
+	}
+</style>
+
+{% schema %}
+{
+	"name": "Blog Posts",
+	"class": "module module--blog-posts",
+	"max_blocks": 2,
+	"blocks": [
+		{
+			"name": "Blog",
+			"type": "column",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Blog Image"
+				},
+				{
+					"type": "text",
+					"id": "post-date",
+					"label": "Post Date"
+				},
+				{
+					"type": "richtext",
+					"id": "blog-title",
+					"label": "Blog Title"
+				},
+				{
+					"type": "text",
+					"id": "link-button",
+					"label": "Blog Link Text"
+				},
+				{
+					"type": "url",
+					"id": "link-url",
+					"label": "Blog Link"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category": "landing-section",
+			"name":"Blog Posts",
+			"blocks": [
+				{
+					"type": "column"
+				},
+				{
+					"type": "column"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

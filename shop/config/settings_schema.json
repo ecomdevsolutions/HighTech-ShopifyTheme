@@ -5,18 +5,22 @@
       {
         "id": "favicon",
         "type": "image_picker",
-        "label": "Favicon"        
-      }      
+        "label": "Favicon"
+      }
     ]
   },
-
   {
     "name": "Logo",
     "settings": [
       {
         "id": "logo",
         "type": "image_picker",
-        "label": "logo"
+        "label": "Header Logo"
+      },
+      {
+        "id": "footer_logo",
+        "type": "image_picker",
+        "label": "Footer Logo"
       }
     ]
   },
@@ -27,11 +31,10 @@
         "type": "text",
         "id": "google_maps_api_key",
         "label": "Google Maps"
-      }      
+      }
     ]
   },
   {
-
     "name": "Global Site Tracking",
     "settings": [
       {
@@ -40,75 +43,65 @@
         "type": "html"
       }
     ]
-
-
   },
   {
     "name": "Typography",
     "settings": [
-        {
-            "type":    "font_picker",
-            "label":   "Heading font",
-            "id":      "heading_font_select",
-            "default": "helvetica_n4"
-        },
-        {
-            "type":    "font_picker",
-            "label":   "Body font",
-            "id":      "body_font_select",
-            "default": "helvetica_n4"
-        },
-        {
-         "type":      "select",
-         "id":        "header_custom_font",
-         "label":     "Header Custom Font",
-         "options": [
-           {
-
-             "value": "none",
-             "label": "None"
-           },
-           {
-
-             "value": "BentonSans",
-             "label": "BentonSans"
-           },
-            {
-
-             "value": "BentonSans Condensed",
-             "label": "BentonSans Condensed"
-           }
-         ],
-         "default":   "none"
-
+      {
+        "type": "font_picker",
+        "label": "Heading font",
+        "id": "heading_font_select",
+        "default": "helvetica_n4"
       },
       {
-         "type":      "select",
-         "id":        "body_custom_font",
-         "label":     "Body Custom Font",
-         "options": [
-           {
-
-             "value": "none",
-             "label": "None"
-           },
-           {
-
-             "value": "BentonSans",
-             "label": "BentonSans"
-           },
-           {
-
-             "value": "BentonSans Condensed",
-             "label": "BentonSans Condensed"
-           }
-         ],
-         "default":   "none"
-
+        "type": "font_picker",
+        "label": "Body font",
+        "id": "body_font_select",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "select",
+        "id": "header_custom_font",
+        "label": "Header Custom Font",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "BentonSans",
+            "label": "BentonSans"
+          },
+          {
+            "value": "BentonSans Condensed",
+            "label": "BentonSans Condensed"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "body_custom_font",
+        "label": "Body Custom Font",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "BentonSans",
+            "label": "BentonSans"
+          },
+          {
+            "value": "BentonSans Condensed",
+            "label": "BentonSans Condensed"
+          }
+        ],
+        "default": "none"
       }
     ]
-},
-   {
+  },
+  {
     "name": "Theme Colors",
     "settings": [
       {
@@ -183,7 +176,7 @@
         "id": "footer_form_action",
         "type": "text"
       },
-       {
+      {
         "label": "Form Input Name",
         "id": "footer_form_name",
         "type": "text"
@@ -194,7 +187,7 @@
     "name": "copyright",
     "settings": [
       {
-        "label":"Footer Copyright text",
+        "label": "Footer Copyright text",
         "id": "copyright",
         "type": "text"
       }
@@ -229,6 +222,59 @@
         "id": "display_quote_request",
         "type": "checkbox",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Shipping Rates Calculator",
+    "settings": [
+      {
+        "type": "select",
+        "id": "shipping_calculator",
+        "label": "Show the shipping calculator?",
+        "options": [
+          {
+            "value": "Disabled",
+            "label": "No"
+          },
+          {
+            "value": "Enabled",
+            "label": "Yes"
+          }
+        ],
+        "default": "Enabled"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_heading",
+        "label": "Heading text",
+        "default": "Get shipping estimates"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_default_country",
+        "label": "Default country selection",
+        "default": "United States"
+      },
+      {
+        "type": "paragraph",
+        "content": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the  spelling to use here, refer to the first checkout page."
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label",
+        "label": "Submit button label",
+        "default": "Calculate shipping"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label_disabled",
+        "label": "Submit button label when calculating",
+        "default": "Calculating..."
+      },
+      {
+        "type": "paragraph",
+        "content": "Do not forget to include the snippet shipping-calculator in your cart.liquid template where you want the shipping  calculator to appear. You can get the snippet here: [shipping-calculator.liquid](https:\/\/github.com\/carolineschnapp\/shipping-calculator\/blob\/master\/shipping-calculator.liquid) ."
       }
     ]
   }

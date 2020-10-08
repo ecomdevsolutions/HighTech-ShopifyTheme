@@ -1,0 +1,118 @@
+<style>
+    .section-charger{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section-charger h3.section-title{
+        font-size: 18px;
+        margin: 0px;
+    }
+
+    .section-charger h3.section-title .bold{
+        font-weight: 600;
+    }
+
+    .section-charger .charger-wrapper ul.charger-lists li.charger-item .form-group label.charger-name{
+        width: 100%;
+    }
+
+    .section-charger .charger-wrapper ul.charger-lists li.charger-item .form-group label.charger-name .item-price{
+        float: right;
+        padding-right: 22px;
+        font-size: 18px;
+    }
+    
+    .section-charger .charger-help{
+        font-size: 15px;
+        color: #0074e4;
+        text-decoration: underline;
+        float: right;
+        font-weight: normal;
+        padding-right: 7px;
+    }
+
+</style>
+
+<div class="section-charger">
+    <h3 class="section-title">Add <span class="bold">Charging Equipment</span>
+        <a href="#" class="charger-help">What is an Internal Charger?</a>
+    </h3>
+    <div class="charger-wrapper">
+        <ul class="charger-lists checkbox-options">
+            <li class="charger-item checkbox-option">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox-charger" id="check_charger_1" 
+                      data-product-id="{{ all_products['rover-pro-standard-charger'].variants[0].id }}"
+                      data-product-title="{{ all_products['rover-pro-standard-charger'].title }}"
+                      data-product-price="{{ all_products['rover-pro-standard-charger'].variants[0].price | divided_by : 100}}">
+                    <label class="charger-name" for="check_charger_1">{{ all_products['rover-pro-standard-charger'].title }}
+                        <span class="item-price">+ ${{ all_products['rover-pro-standard-charger'].variants[0].price | divided_by : 100}}</span>
+                    </label>
+                </div>
+            </li>
+            <li class="charger-item checkbox-option">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox-charger" id="check_charger_2" 
+                      data-product-id="{{ all_products['rover-pro-fast-charger'].variants[0].id }}"
+                      data-product-title="{{ all_products['rover-pro-fast-charger'].title }}"
+                      data-product-price="{{ all_products['rover-pro-fast-charger'].variants[0].price | divided_by : 100}}">
+                    <label class="charger-name" for="check_charger_2">{{ all_products['rover-pro-fast-charger'].title }}
+                        <span class="item-price">+ ${{ all_products['rover-pro-fast-charger'].variants[0].price | divided_by : 100}}</span> 
+                    </label>
+                </div>
+            </li>
+            <li class="charger-item checkbox-option">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox-charger" id="check_charger_3" 
+                      data-product-id="{{ all_products['compact-charging-dock'].variants[0].id }}"
+                      data-product-title="{{ all_products['compact-charging-dock'].title }}"
+                      data-product-price="{{ all_products['compact-charging-dock'].variants[0].price | divided_by : 100}}">
+                    <label class="charger-name" for="check_charger_3">{{ all_products['compact-charging-dock'].title }}
+                        <span class="item-price">+ ${{ all_products['compact-charging-dock'].variants[0].price | divided_by : 100}}</span> 
+                    </label>
+                </div>
+            </li>
+            <li class="charger-item checkbox-option">
+                <div class="form-group">
+                    <input type="checkbox" class="checkbox-charger" id="check_charger_4" 
+                      data-product-id="{{ all_products['charging-dock-v2-flipper-version'].variants[0].id }}"
+                      data-product-title="{{ all_products['charging-dock-v2-flipper-version'].title }}"
+                      data-product-price="{{ all_products['charging-dock-v2-flipper-version'].variants[0].price | divided_by : 100}}">
+                    <label class="charger-name" for="check_charger_4">{{ all_products['charging-dock-v2-flipper-version'].title }}
+                        <span class="item-price">+ ${{ all_products['charging-dock-v2-flipper-version'].variants[0].price | divided_by : 100}}</span> 
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $(".checkbox-charger").on("click", function(){
+            $(".add-to-cart-info ul.charger-lists li#"+$(this).attr("id")).remove();
+            if($(this).prop('checked') == true){
+                $(this).parents("li.charger-item").addClass("checked");
+                $(".add-to-cart-info ul.charger-lists li#no_charger").remove();
+                
+                $(".add-to-cart-info ul.charger-lists").append('<li id="'+ $(this).attr("id") +'">'+
+                    '<div class="selected-product-title">'+ $(this).data('product-title') +'</div>'+
+                    '<span class="selected-product-price">$'+ $(this).data('product-price') +'</span>'+
+                    '</li>');
+            }
+            else{
+                $(this).parents("li.charger-item").removeClass("checked");
+                if($(".add-to-cart-info ul.charger-lists li").length == 0){
+                    $(".add-to-cart-info ul.charger-lists").append('<li id="no_charger">'+
+                        '<div class="selected-product-title">No Charging Dock</div>'+
+                        '<span class="selected-product-price">$0</span>'+
+                        '</li>');
+                }
+            }
+            calcTotalPrice();
+        })
+
+    })
+
+</script>

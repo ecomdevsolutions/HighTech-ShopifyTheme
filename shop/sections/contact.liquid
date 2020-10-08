@@ -1,7 +1,17 @@
+
+
+
+
+
+
+
+
 <div class="page-width">
   <div class="container">
     <div class="row">
       <div class="col-dk-8 col-dk-push-2">
+        
+        
         {% assign lines = section.settings.title | newline_to_br | split: '<br />' %}
         <h1 class="h1">
           {% for line in lines %}
@@ -37,97 +47,15 @@
             </div>
           {% endif %}
         </div>
-         <div class="row" id="contact-form-container">
-           {% assign has_custom_post_url = section.settings.form_url.size %}
-
-        {% if has_custom_post_url == 0 %}
-          {% form 'contact' %}
-              {% if form.posted_successfully? %}
-                <p style="background-color:DodgerBlue;">
-                  {{ 'contact.form.post_success' | t}}
-                </p>
-              {% endif %}
-
-              <p style="background-color:Tomato;" {{ form.errors | default_errors }} </p>
-                  <div class="grid" >
-                    <div class="grid_item medium-up--one-half">
-                      <label for="ContactFormName"> Name </label>
-                      <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
-                    </div>
-                    <div class="grid_item medium-up--one-half">
-                      <label for="ContactFormEmail"> Email </label>
-                      <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
-                    </div>
-                    <div class="grid_item medium-up--one-half">
-                      <label for="ContactFormEmail"> Company/University</label>
-                      <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
-                    </div>
-                    <div class="grid_item medium-up--one-half">
-                      <label for="ContactFormMessage"> Message </label>
-                      <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
-                    </div>
-                  </div>
-                  {{ section.settings.captcha }}
-                <br>
-                <br>
-                  <input type="submit" value="Submit" class="btn" value="{{ 'contact.form.submit' | t }}">
-
-              {% endform %}
-            {% else %}
-              <form onsubmit="validate()" method="POST" action="{{section.settings.form_url}}" id="contact-form">
-                <div class="grid">
-                  <div class="grid_item medium-up--one-half">
-                    <label for="ContactFormName"> Name </label>
-                    <input type="text" id="ContactFormName" style="size: 100;" name="contact[name]" placeholder="Name">
-                  </div>
-                  <div class="grid_item medium-up--one-half">
-                    <label for="ContactFormEmail"> Email </label>
-                    <input type="text" id="ContactFormEmail" style="size: 100;" name="contact[email]" placeholder="Email" required>
-                  </div>
-                  <div class="grid_item medium-up--one-half">
-                    <label for="ContactFormEmail"> Company/University</label>
-                    <input type="text" id="ContactFormCompany" style="size: 100;" name="contact[company]" placeholder="Name" required>
-                  </div>
-                  <div class="grid_item medium-up--one-half">
-                    <label for="ContactFormMessage"> Message </label>
-                    <textarea rows="10" cols="50" name="contact[body]" placeholder="Message" required></textarea>
-                  </div>
-                </div>
-                 {{ section.settings.captcha }}
-                <br>
-                <br>
-                <input type="submit" value="Submit" class="btn">
-
-                </form>
-
-
-
-        {% endif %}
-
-            </div>
-          </div>
-        </div>
-
+        
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+        <script> hbspt.forms.create({portalId: "7505594",formId: "59b2ca79-e6f8-41c4-aca7-37bb11dd7093"});</script>
+        
       </div>
     </div>
-
-
-
-
   </div>
 </div>
 
-<script>
-var form = document.getElementById('contact-form');
-form.addEventListener("submit", function(event){
-    if (grecaptcha.getResponse() === '') {
-      event.preventDefault();
-      alert('Please check the recaptcha');
-    }
-  }
-, false);
-
-</script>
 
 {% schema %}
   {
@@ -164,11 +92,6 @@ form.addEventListener("submit", function(event){
         "id": "hq",
         "type": "textarea",
         "label": "Headquarters"
-      },
-      {
-        "id":"captcha",
-        "type": "html",
-        "label": "reCAPTCHA"
       }
     ]
   }

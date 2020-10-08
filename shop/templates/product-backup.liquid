@@ -1,0 +1,140 @@
+{% include 'shogun-products', content: product %}
+{{product.metafields.shogun.above}}
+<div class="product product--single">
+  <div class="container">
+    <div class="row">
+      <div class="col-tb-12 col-tb-push-1">
+        <div class="row">
+          <div class="col-dk-4 col--images">
+            <div class="product__images">
+              {% for image in product.images %}
+              <div class="product__image" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                <div class="box box--3x2">
+                  <div class="box__inner">
+                    <div class="image image--cover {% if forloop.index0 == 0 %}image--load--fadein{% endif %}">
+                      <div class="img-magnifier-container">
+                        <img {% if forloop.index0 == 0 %}class="lazyload" data-{% endif %}src="{{ image | img_url: '1024x' }}" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <nav class="nav nav--thumbs">
+              <ul class="product__thumbs">
+                {% for image in product.images %}
+                <li class="product__thumb" data-index="{{forloop.index0 }}" data-variants="[{{ image.variants | map: 'id' | join: ',' }}]">
+                  <div class="box box--1x1">
+                    <div class="box__inner">
+                      <div class="image image--contain">
+                        <img src="{{ image | img_url: '300x300' }}" data-index="{{forloop.index0 }}" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </nav>
+
+            <nav class="nav nav--slick">
+              <button class="nav--slick__prev">
+                <span class="icon-chevron-thin-left"></span>
+              </button>
+              <div class="nav--slick__dots"></div>
+              <button class="nav--slick__next">
+                <span class="icon-chevron-thin-right"></span>
+              </button>
+            </nav>
+
+          </div> <!-- end col-dk-4 -->
+
+
+          <div class="col-dk-6 col-lg-5 col-lg-push-1 col-xxl-5">
+            {% if product.options.size > 1 %}
+              {% include 'product-options' %}
+            {% else %}
+              {% include "product-singleoption" %}
+            {% endif %}
+              {% section "addon" %}
+          </div> <!-- end col-dk-6-->
+        </div> <!-- end row -->
+        {% include "product-tabs" %}
+
+      </div> <!-- end col-tb-12 -->
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+
+
+  <div class="product-banner">
+    <div class="product-banner__title">{{ product.title }}</div>
+    <div class="product-banner__right">
+    {% if product.available == false%}
+      Please &nbsp; <a href="/pages/contact"><u>contact</u></a> &nbsp; us for pricing
+    </div>
+    {% else %}
+    {% if product.options.size < 2 %}
+      <div class="product-banner__price">{{ product.selected_or_first_available_variant.price | money }}</div>
+    {% else %}
+      <div class="product-banner__price">$0.00</div>
+    {% endif %}
+
+      <strong>QTY: </strong> &nbsp; &nbsp;
+      <div class="quantity buttons_added">
+          <input data-id="{{product.id}}" type="button" value="-" class="minus">
+            <input id="quantity-{{product.id}}" class="product__qty input-text qty text"  type="number" min="1" name="product-quantity" value="1" />
+          <input data-id="{{product.id}}" type="button" value="+" class="plus">
+      </div>
+
+        <button class="button button--primary button--add-to-cart">
+          <span>Add to cart</span>
+        </button>
+        {% include 'rfq_button' %}
+      </div> <!-- end product banner__right -->
+     </div> <!-- end prodct banner -->
+    {% endif %}
+  </div> <!-- end product--single -->
+
+{% section 'section-includes' %}
+
+
+
+
+
+
+<script type="text/javascript">
+function openvarientTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent--table");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+  var product = {{ product | json }};
+  var CURRENT_VARIENT_PRICE = {price: parseFloat("{{product.selected_or_first_available_variant.price}}"), id: "{{product.selected_or_first_available_variant.id}}" }
+
+</script>
+
+{{product.metafields.shogun.below}}
+
